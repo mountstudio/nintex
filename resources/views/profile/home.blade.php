@@ -5,14 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-4">
             <div class="list-group">
-                <a href="#!" class="list-group-item list-group-item-action active">{{ __('Профиль') }}</a>
+                <a href="{{ route('profile') }}" class="list-group-item list-group-item-action active">{{ __('Профиль') }}</a>
                 <a href="#!" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
                 <a href="#!" class="list-group-item list-group-item-action">Morbi leo risus</a>
                 <a href="#!" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                <a href="#!" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+                <a href="#" onclick="event.preventDefault();$('.logout-form').submit();" class="list-group-item list-group-item-action">{{ __('Выход') }}</a>
             </div>
         </div>
         <div class="col-md-8">
+            <form action="{{ route('logout') }}" method="POST" class="d-none logout-form">
+                @csrf
+            </form>
 
             <!-- Material form contact -->
             <div class="card">
@@ -23,21 +26,10 @@
 
                 <!--Card content-->
                 <div class="card-body px-lg-5 pt-0">
-
                     <!-- Form -->
-                    <form class="text-center" style="color: #757575;" action="#!">
-                        <!-- Default checked -->
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
-                            <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
-                        </div>
-                        <!-- Material outline input with prefix-->
-                        <div class="md-form md-outline">
-                            <i class="fas fa-envelope prefix"></i>
-                            <input type="text" id="inputIconEx1" class="form-control">
-                            <label for="inputIconEx1">E-mail address</label>
-                            <small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone.</small>
-                        </div>
+                    <form class="text-center" style="" action="#!">
+                        @csrf
+                        @method("PUT")
                         <!-- Name -->
                         <div class="md-form">
 
@@ -50,37 +42,22 @@
                                     </span>
                             @endif
                         </div>
-
-                        <!-- E-mail -->
+                        <!-- Email -->
                         <div class="md-form">
-                            <input type="email" id="materialContactFormEmail" class="form-control">
-                            <label for="materialContactFormEmail">E-mail</label>
+
+                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email">
+                            <label for="email">{{ __('E-mail') }}</label>
+
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                            @endif
                         </div>
 
-                        <!-- Subject -->
-                        <span>Subject</span>
-                        <select class="mdb-select">
-                            <option value="" disabled>Choose option</option>
-                            <option value="1" selected>Feedback</option>
-                            <option value="2">Report a bug</option>
-                            <option value="3">Feature request</option>
-                            <option value="4">Feature request</option>
-                        </select>
-
-                        <!--Message-->
-                        <div class="md-form">
-                            <textarea id="materialContactFormMessage" class="form-control md-textarea" rows="3"></textarea>
-                            <label for="materialContactFormMessage">Message</label>
-                        </div>
-
-                        <!-- Copy -->
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="materialContactFormCopy">
-                            <label class="form-check-label" for="materialContactFormCopy">Send me a copy of this message</label>
-                        </div>
 
                         <!-- Send button -->
-                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Send</button>
+                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">{{ __('Изменить') }}</button>
 
                     </form>
                     <!-- Form -->
@@ -91,31 +68,6 @@
             <!-- Material form contact -->
 
 
-
-            <form action="" class="py-5 text-center z-depth-1">
-                @csrf
-                @method("PUT")
-                <!-- Material input -->
-                    <div class="md-form">
-                        <input type="text" id="form1" class="form-control">
-                        <label for="form1">Example label</label>
-                    </div>
-
-
-                <div class="form-group row">
-                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>
-
-                    <div class="col-md-6">
-                        <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email">
-
-                        @if ($errors->has('email'))
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                        @endif
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 </div>
