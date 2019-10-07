@@ -1,18 +1,10 @@
 <footer class="bg-dark">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-8  pt-4">
-                <ul class="nav">
-                    <li class="nav-item mx-10 ">
-                        <a class="nav-link text-white" href="#">Одежда</a>
-                    </li>
-                    <li class="nav-item mr-4">
-                        <a class="nav-link text-white" href="#">Акссесуары</a>
-                    </li>
-                    <li class="nav-item mr-4">
-                        <a class="nav-link text-white" href="#">Акции</a>
-                    </li>
-                </ul>
+            <div class="col-8  pt-4 d-flex justify-content-around">
+                <a class="text-white mx-auto" href="#">Одежда</a>
+                <a class="text-white mx-auto" href="#">Акссесуары</a>
+                <a class="text-white mx-auto" href="#">Акции</a>
             </div>
             <div class="col-8 text-white pt-5">
                 <div class="row pb-3">
