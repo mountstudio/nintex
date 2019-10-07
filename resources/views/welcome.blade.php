@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('partials.header')
     <section class="bg-lightblue position-relative">
         <div class="container pt-5 ">
             <div class="text-center">
