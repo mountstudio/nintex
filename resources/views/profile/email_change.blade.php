@@ -8,7 +8,7 @@
     <!--Card content-->
     <div class="card-body px-lg-5 pt-0">
         <!-- Form -->
-        <form class="text-center" style="" action="#!">
+        <form class="text-center" style="" method="post" action="{{ route('user.update.email') }}">
         @csrf
         @method("PUT")
         <!-- Name -->

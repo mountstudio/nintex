@@ -7,7 +7,7 @@
     <!--Card content-->
     <div class="card-body px-lg-5 pt-0">
         <!-- Form -->
-        <form class="text-center" style="" action="#!">
+        <form class="text-center" style="" method="post" action="{{ route('user.update.password') }}">
         @csrf
         @method("PUT")
         <!-- Name -->
@@ -37,12 +37,12 @@
             <!-- Password confirm -->
             <div class="md-form">
 
-                <input id="password_confirm" type="password" class="form-control{{ $errors->has('password_confirm') ? ' is-invalid' : '' }}" name="password_confirm">
-                <label for="password_confirm">{{ __('Повторите новый пароль') }}</label>
+                <input id="password_confirmation" type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation">
+                <label for="password_confirmation">{{ __('Повторите новый пароль') }}</label>
 
-                @if ($errors->has('password_confirm'))
+                @if ($errors->has('password_confirmation'))
                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password_confirm') }}</strong>
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
                                     </span>
                 @endif
             </div>
