@@ -6,7 +6,7 @@
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav ml-5 mr-auto mt-2 mt-lg-0 ">
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link text-uppercase" href="#" title="Одежда">Одежда</a>
             </li>
             <li class="nav-item">
