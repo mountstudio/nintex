@@ -10,7 +10,7 @@ function hide() {
     setTimeout(show, 500)
 }
 function show() {
-    counter ? text.innerHTML = "<img src='img/slider1.svg' class='img-fluid' style='height: 500px;' alt='rabbit'>" : text.innerHTML = "<img src='img/slider2.svg' class='img-fluid' style='height: 500px;' alt='rabbit'>";
+    counter ? text.innerHTML = "<img src='img/slider_1.svg' class='img-fluid' style='height: 500px;' alt='rabbit'>" : text.innerHTML = "<img src='img/slider2.svg' class='img-fluid' style='height: 500px;' alt='rabbit'>";
     right.style.transform = 'translateX(100%)'
     left.style.transform = 'translateX(-100%)'
 }

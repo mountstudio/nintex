@@ -5,21 +5,22 @@
     <section class="bg-lightblue position-relative">
         <div class="container pt-5 ">
             <div class="row">
-                <div class="col-8 text-right" style="z-index: 10;">
-                    <div class="d-flex ">
-                        <p>
-                            осенняя коллекция
-                        </p>
-                        <p class="text-uppercase text-h1Size-bold pb-md-2 h3">
-                            Пальто из шерсти
-                        </p>
-                        <p>
-                            Сайт рыбатекст поможет дизайнеру,
-                            верстальщику,<br> вебмастеру сгенерировать
-                            несколько абзацев более менее
-                        </p>
+                <div class="col-8" style="z-index: 10;">
+                    <div class=" d-flex justify-content-end">
+                        <div class="text-left">
+                            <p>
+                                осенняя коллекция
+                            </p>
+                            <p class="text-uppercase text-h1Size-bold pb-md-2 h3">
+                                Пальто из шерсти
+                            </p>
+                            <p>
+                                Сайт рыбатекст поможет дизайнеру,
+                                верстальщику,<br> вебмастеру сгенерировать
+                                несколько абзацев более менее
+                            </p>
+                        </div>
                     </div>
-
                     <div class="controls-top d-flex justify-content-end">
                         <a class="btn-floating mr-1" href="#multi-item-example" data-slide="prev">
                             <img src="img/Arrow_left.svg" alt="">
@@ -29,13 +30,78 @@
                         </a>
 
                     </div>
-                    <div class="row">
-                        <div class="col-12 col-md-6 mt-3">
-                            <p>Цвет: черный</p>
-                            <p>Выбери свой размер</p>
-                            <a href="#" class="btn btn-lightblue ">Начать покупки</a>
+
+                        <div class="col-12 mt-3">
+                            <div class="row">
+                                <div class="col-5">
+                                    <p>Цвет: черный</p>
+                                    <div class="checkbox">
+                                        <label class="checkbox-white">
+                                            <input id="cbox-white" type="checkbox" checked="checked">
+                                            <span class="checkmark"></span>
+                                        </label>
+
+                                        <label class="checkbox-red">
+                                            <input id="cbox-red" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+
+                                        <label class="checkbox-blue">
+                                            <input id="cbox-blue" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+
+                                        <label class="checkbox-black">
+                                            <input id="cbox-black" type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+
+                                    <a class="nav-link" href="#"><img src="img/file.svg" alt=""> Лучшая ткань</a>
+                                    <a class="nav-link" href="#"><img src="img/quality (1).svg" alt=""> Гарантия качества</a>
+                                </div>
+                                <div class="col-7">
+                                    <p>Выбери свой размер</p>
+                                    <div class="j-size-list size-list j-smart-overflow-instance">
+                                        <label class="j-size  disabled j-sold-out tooltipstered size-button" data-characteristic-id="" data-size-name="XXS">
+                                            <span>XXS</span>
+                                            <input class="radio-size" id="size" name="size" type="radio" value="">
+                                            <i></i>
+                                        </label>
+                                        <label class="j-size tooltipstered active size-button" data-characteristic-id="" data-size-name="XS">
+                                            <span>XS</span>
+                                            <input class="radio-size" id="size" name="size" type="radio" value="">
+                                            <i></i>
+                                        </label>
+                                        <label class="j-size tooltipstered size-button" data-characteristic-id="" data-size-name="S">
+                                            <span>S</span>
+                                            <input class="radio-size" id="size" name="size" type="radio" value="">
+                                            <i></i>
+                                        </label>
+                                        <label class="j-size tooltipstered size-button" data-characteristic-id="" data-size-name="M">
+                                            <span>M</span>
+                                            <input class="radio-size" id="size" name="size" type="radio" value="">
+                                            <i></i>
+                                        </label>
+                                        <label class="j-size tooltipstered size-button" data-characteristic-id="" data-size-name="L">
+                                            <span>L</span>
+                                            <input class="radio-size" id="size" name="size" type="radio" value="">
+                                            <i></i>
+                                        </label>
+                                        <label class="j-size tooltipstered size-button" data-characteristic-id="" data-size-name="XL">
+                                            <span>XL</span>
+                                            <input class="radio-size" id="size" name="size" type="radio" value="">
+                                            <i></i>
+                                        </label>
+
+                                        <i class="icon-step j-imigize hide"></i>
+                                    </div>
+                                    <a href="#" class="btn btn-lightblue ">Начать покупки</a>
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
+
                 </div>
                 <div class="col-4">
                     <div class="area">
@@ -54,8 +120,7 @@
         <div class="container-fluid position-absolute" style="bottom: 0;">
             <div class="row">
                 <div class="col-12">
-                    <a class="nav-link" href="#"><img src="img/file.svg" alt=""> Лучшая ткань</a>
-                    <a class="nav-link" href="#"><img src="img/quality (1).svg" alt=""> Гарантия качества</a>
+
                 </div>
             </div>
         </div>
@@ -102,5 +167,11 @@
                 });
             }
         );
+    </script>
+    <script>
+        $('.j-size-list').on('click', 'label', function(){
+            $('.j-size-list label').removeClass('active');
+            $(this).addClass('active');
+        });
     </script>
 @endpush
