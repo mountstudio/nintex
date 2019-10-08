@@ -463,3 +463,6 @@ input[type="radio"]
     z-index: 0;
 }
 /*End animation*/
+.double-nav .breadcrumb-dn {
+    color: #fff;
+}

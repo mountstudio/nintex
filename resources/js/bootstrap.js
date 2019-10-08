@@ -14,7 +14,7 @@ try {
     require('bootstrap');
 
     window.mdb = require('mdbootstrap/js/mdb');
-    window.menu = require('mmenu-js/src/mmenu');
+    // window.menu = require('mmenu-js/src/mmenu');
 } catch (e) {}
 
 /**

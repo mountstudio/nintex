@@ -17,7 +17,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/mmenu.css') }}">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    @stack('styles')
 </head>
 <body>
     <div id="app pt-4">
@@ -30,5 +32,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/mmenu.js') }}"></script>
+
+@stack('scripts')
 </body>
 </html>

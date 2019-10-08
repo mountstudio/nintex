@@ -13,3 +13,6 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
+
+mix.js('node_modules/mmenu-js/src/mmenu.js', 'public/js/mmenu.js')
+    .sass('node_modules/mmenu-js/src/mmenu.scss', 'public/css/mmenu.css');
