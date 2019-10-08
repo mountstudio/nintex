@@ -18,6 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/profile', 'HomeController@index')->name('profile');
-//Route::get('/welcome',function (){
-//    return view('welcome');
-//})->name('welcome');
+
+Route::put('/user/update/email', 'UserController@updateEmail')->name('user.update.email');
+Route::put('/user/update/password', 'UserController@updatePassword')->name('user.update.password');
