@@ -5,7 +5,7 @@
     <section class="position-relative">
         <div class="container-fluid pt-5">
             <div class="row">
-                <div class="col-8">
+                <div class="col-8 position-relative">
                     <div class=" d-flex justify-content-end " style=" border-bottom-left-radius: 100px;">
                         <div class="text-left">
                             <p>
@@ -29,7 +29,8 @@
                             <img src="img/Arrow_right.svg" alt="">
                         </a>
                     </div>
-                    <div class="content_left col-12 mt-3" style="background: no-repeat;">
+                    <div class="mt-3">
+                        <img class="position-absolute" src="{{ asset('img/Vector 1.svg') }}" alt="">
                         <div class="row">
                             <div class="col-5">
                                 <p>Цвет: черный</p>
