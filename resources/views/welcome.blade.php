@@ -29,7 +29,7 @@
                             <img src="img/Arrow_right.svg" alt="">
                         </a>
                     </div>
-                    <div class="col-12 mt-3">
+                    <div class="content_left col-12 mt-3" style="background: no-repeat;">
                         <div class="row">
                             <div class="col-5">
                                 <p>Цвет: черный</p>
@@ -54,9 +54,9 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <a class="nav-link" href="#"><img src="img/file.svg" alt=""> Лучшая ткань</a>
-                                <a class="nav-link" href="#"><img src="img/quality (1).svg" alt=""> Гарантия
-                                    качества</a>
+                                <p class="" ><img src="img/file.svg" alt=""> Лучшая ткань</p>
+                                <p class="" ><img src="img/quality (1).svg" alt=""> Гарантия
+                                    качества</p>
                             </div>
                             <div class="col-7">
                                 <p>Выбери свой размер</p>

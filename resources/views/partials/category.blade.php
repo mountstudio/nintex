@@ -7,17 +7,23 @@
             <div class="card-columns">
                 <div class="card">
                     <div class="card-body">
-                        <img src="img/pre.svg" class="card-img-top" alt="...">
+                        <a href="">
+                            <img src="img/pre.svg" class="card-img-top" alt="...">
+                        </a>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <img src="img/pre.svg" class="card-img-top" alt="...">
+                        <a href="">
+                            <img src="img/pre.svg" class="card-img-top" alt="...">
+                        </a>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <img src="img/pre.svg" class="card-img-top" alt="...">
+                        <a href="">
+                            <img src="img/pre.svg" class="card-img-top" alt="...">
+                        </a>
                     </div>
                 </div>
             </div>

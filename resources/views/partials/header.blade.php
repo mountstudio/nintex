@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light my-menu z-depth-0 bg-transparent" style="background: no-repeat;">
+<nav class="navbar navbar-expand-lg navbar-light my-menu z-depth-0 bg-transparent">
     <a class="navbar-brand" style="width: 80px;" href="{{ route('home') }}"><img src="{{ asset('img/logo3.png') }}"
                                                                                  class="img-fluid" alt=""></a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
