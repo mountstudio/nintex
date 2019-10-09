@@ -1,3 +1,7 @@
+.nav .navbar{
+    background: url("../img/Vector.svg");
+}
+
 .form-header {
     box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
     color: #fff;
@@ -18,7 +22,7 @@
 .cover {
     position: absolute;
     box-sizing: border-box;
-    background: #fff;
+    background: #f8fafc;
     width: 50%;
     height: 100%;
     top: 0;
@@ -175,3 +179,4 @@
     transform: rotate(45deg);
     background: gray;
 }
+
