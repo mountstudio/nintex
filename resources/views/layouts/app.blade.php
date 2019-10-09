@@ -21,11 +21,11 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     @stack('styles')
 </head>
-<body>
+<body class="bg-white">
     <div id="app pt-4">
         @include('partials.header')
 
-        <main class="py-5">
+        <main class="">
             @yield('content')
         </main>
     </div>

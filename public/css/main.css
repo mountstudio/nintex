@@ -18,12 +18,17 @@
 .cover {
     position: absolute;
     box-sizing: border-box;
-    background: #f8fafc;
+    background: #eff2f3;
     width: 50%;
     height: 100%;
     top: 0;
     transition: .3s ease;
 }
+
+.bg-nintex-color {
+    background-color: #eff2f3;
+}
+
 .left {
     left: 0;
     z-index: 5;

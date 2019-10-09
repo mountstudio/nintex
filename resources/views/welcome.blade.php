@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="position-relative">
+    <section class="position-relative rgba-blue-grey-slight pt-5">
         <div class="container-fluid pt-5">
             <div class="row">
                 <div class="col-8 position-relative">
@@ -30,7 +30,7 @@
                         </a>
                     </div>
                     <div class="mt-3">
-                        <img class="position-absolute" src="{{ asset('img/Vector 1.svg') }}" alt="">
+                        <img class="position-absolute w-100" style="left: 0; bottom: 0;" src="{{ asset('img/Vector 1.svg') }}" alt="">
                         <div class="row">
                             <div class="col-5">
                                 <p>Цвет: черный</p>

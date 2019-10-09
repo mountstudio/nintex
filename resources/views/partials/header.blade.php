@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light my-menu z-depth-0 bg-transparent">
+<nav class="navbar navbar-expand-lg navbar-light my-menu z-depth-0 bg-nintex-color">
     <a class="navbar-brand" style="width: 80px;" href="{{ route('home') }}"><img src="{{ asset('img/logo3.png') }}"
                                                                                  class="img-fluid" alt=""></a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -13,7 +13,7 @@
                 <a class="nav-link text-uppercase" href="#" title="Акции">Акции</a>
             </li>
         </ul>
-        <form class="form-inline md-form form-sm active-cyan-2">
+        <form class="form-inline md-form form-sm active-cyan-2 my-1">
             <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
                    aria-label="Search">
             <i class="fas fa-search" aria-hidden="true"></i>
@@ -71,8 +71,7 @@
                 new Mmenu( "#menu", {
                     "extensions": [
                         "pagedim-black",
-                        "position-right",
-                        "theme-dark"
+                        "position-right"
                     ],
                     "iconbar": {
                         "use": true,
