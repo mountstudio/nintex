@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->mediumText('description')->nullable();
-            $table->json('sizes')->nullable();
+            $table->json('colors')->nullable();
             $table->integer('price');
             $table->boolean('active')->default(false);
             $table->boolean('super')->default(false);
@@ -26,10 +26,6 @@ class CreateProductsTable extends Migration
             $table->double('rating')->default(0);
 
             $table->timestamps();
-        });
-
-        Schema::table('products', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

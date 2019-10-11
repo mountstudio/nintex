@@ -20,10 +20,6 @@ class CreateCommentsTable extends Migration
             $table->double('rating')->nullable();
             $table->timestamps();
         });
-
-        Schema::table('comments', function (Blueprint $table) {
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-        });
     }
 
     /**

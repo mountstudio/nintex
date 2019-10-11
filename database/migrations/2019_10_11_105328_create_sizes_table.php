@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductUserTable extends Migration
+class CreateSizesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateProductUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_user', function (Blueprint $table) {
+        Schema::create('sizes', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('product_id')->nullable();
-            $table->unsignedInteger('user_id')->nullable();
+            $table->string('size');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateProductUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_user');
+        Schema::dropIfExists('sizes');
     }
 }
