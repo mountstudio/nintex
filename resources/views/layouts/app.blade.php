@@ -24,11 +24,14 @@
 <body class="bg-white">
     <div id="app pt-4">
         @include('partials.header')
+        @includeWhen(\Session::has('status'), 'partials.alerts.success')
 
         <main class="">
             @yield('content')
         </main>
     </div>
+
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
