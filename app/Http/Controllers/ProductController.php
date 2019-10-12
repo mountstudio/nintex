@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -69,7 +70,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->all());
+
+        Session::flash('status', ['status' => 'success', 'message' => 'Товар был успешно обнолен']);
+
+        return redirect()->route('product.index');
     }
 
     /**
@@ -83,11 +88,13 @@ class ProductController extends Controller
         if (count($product->images)) {
             foreach ($product->images as $image) {
                 if (file_exists(storage_path('public/').$image->image)) {
-
+                    unlink(storage_path('public/').$image->image);
                 }
             }
         }
         $product->delete();
+
+        return redirect()->back();
     }
 
     public function favorite(Request $request, Product $product)
