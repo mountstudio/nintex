@@ -37,3 +37,4 @@ Route::resource('category', 'CategoryController');
 Route::resource('size', 'SizeController');
 Route::resource('comment', 'CommentController');
 // End Resource Routes
+

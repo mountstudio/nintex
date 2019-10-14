@@ -1,3 +1,7 @@
+.bg-img{
+    background: url("../img/Vector.svg") no-repeat;
+
+}
 .form-header {
     box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
     color: #fff;
@@ -18,7 +22,7 @@
 .cover {
     position: absolute;
     box-sizing: border-box;
-    background: #eff2f3;
+    background: #EAEFF8;
     width: 50%;
     height: 100%;
     top: 0;
@@ -26,7 +30,7 @@
 }
 
 .bg-nintex-color {
-    background-color: #eff2f3;
+    background-color: #EAEFF8;
 }
 
 .left {
@@ -179,4 +183,12 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
     background: gray;
+}
+.btn-search {
+    box-sizing: content-box;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0;
+    padding: .4rem 0 .4rem;
 }

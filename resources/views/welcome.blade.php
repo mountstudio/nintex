@@ -2,8 +2,15 @@
 
 @section('content')
 
-    <section class="position-relative rgba-blue-grey-slight pt-5"> <!--Слайдер выбора одежды-->
-        <div class="container-fluid pt-5">
+    <section class="position-relative bg-img pt-5"
+             style="background: url('{{ asset('img/Vector.svg') }}')  no-repeat center center;
+                 -webkit-background-size: cover;
+                 -moz-background-size: cover;
+                 -o-background-size: cover;
+                 background-size: cover; ">
+
+        <!--Слайдер выбора одежды-->
+        <div class="container-fluid  pt-5">
             <div class="row">
                 <div class="col-8 position-relative">
                     <div class=" d-flex justify-content-end " style=" border-bottom-left-radius: 100px;">
@@ -30,7 +37,6 @@
                         </a>
                     </div>
                     <div class="mt-3">
-                        <img class="position-absolute w-100" style="left: 0; bottom: 0;" src="{{ asset('img/Vector 1.svg') }}" alt="">
                         <div class="row">
                             <div class="col-5">
                                 <p>Цвет: черный</p>
@@ -55,8 +61,8 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <p class="" ><img src="img/file.svg" alt=""> Лучшая ткань</p>
-                                <p class="" ><img src="img/quality (1).svg" alt=""> Гарантия
+                                <p class=""><img src="img/file.svg" alt=""> Лучшая ткань</p>
+                                <p class=""><img src="img/quality (1).svg" alt=""> Гарантия
                                     качества</p>
                             </div>
                             <div class="col-7">
