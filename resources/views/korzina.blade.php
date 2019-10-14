@@ -124,45 +124,72 @@
 
 
     <section>
-        <div class="container">
+        <div class="container" >
             <div class="row">
                 <div class="owl-carousel owl-theme">
-                    <div class="item">
-                        <img src="{{ asset('img/slider1.svg') }}" class="img-fluid img-slider" alt="">
+                    <div class="item" style="background: linear-gradient(90deg, #EEEBEE, #EEEBEE 30%, #f8fafc 30%);">
+                        <div class="col-12 my-5 pt-5">
+                            <div class="row">
+                                <div class="col-8 ">
+                                    <div class="row justify-content-center">
+                                        <div class="col-8 ">
+                                            <p class="h2">
+                                                ЗАГОЛОВОК КАКОЙ-ТО<br> АКЦИИ
+                                            </p>
+                                            <p class="py-3">
+                                                Сайт рыбатекст поможет дизайнеру,<br> верстальщику, вебмастеру сгенерировать<br>
+                                                несколько абзацев
+                                                более
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <a class="btn-floating mr-1 text-center" href="#multi-item-example" data-slide="prev">
+                                            <img src="img/Arrow_left.svg" alt="">
+                                        </a>
+                                        <a class="btn-floating ml-1 text-center" href="#multi-item-example" data-slide="next">
+                                            <img class="text-center" src="img/Arrow_right.svg" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-4 controls-top d-flex justify-content-end">
+                                    <img src="img/kofta.svg" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item">
-                        <img src="{{ asset('img/slider2.svg') }}" class="img-fluid img-slider" alt="">
+                    <div class="item " style="background: linear-gradient(90deg, #EEEBEE, #EEEBEE 30%, #f8fafc 30%)">
+                        <div class="col-12 h- my-5 pt-5">
+                            <div class="row">
+                                <div class="col-8 ">
+                                    <div class="row justify-content-center">
+                                        <div class="col-8 ">
+                                            <p class="h2">
+                                                ЗАГОЛОВОК КАКОЙ-ТО<br> АКЦИИ
+                                            </p>
+                                            <p class="py-3">
+                                                Сайт рыбатекст поможет дизайнеру,<br> верстальщику, вебмастеру сгенерировать<br>
+                                                несколько абзацев
+                                                более
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <a class="btn-floating mr-1 text-center" href="#multi-item-example" data-slide="prev">
+                                            <img src="img/Arrow_left.svg" alt="">
+                                        </a>
+                                        <a class="btn-floating ml-1 text-center" href="#multi-item-example" data-slide="next">
+                                            <img class="text-center" src="img/Arrow_right.svg" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-4 controls-top d-flex justify-content-end">
+                                    <img src="img/kofta.svg" class="img-fluid" alt="">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item">
-                        <img src="{{ asset('img/slider1.svg') }}" class="img-fluid img-slider" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('img/slider2.svg') }}" class="img-fluid img-slider" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('img/slider1.svg') }}" class="img-fluid img-slider" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('img/slider2.svg') }}" class="img-fluid img-slider" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('img/slider1.svg') }}" class="img-fluid img-slider" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('img/slider2.svg') }}" class="img-fluid img-slider" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('img/slider1.svg') }}" class="img-fluid img-slider" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('img/slider2.svg') }}" class="img-fluid img-slider" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('img/slider1.svg') }}" class="img-fluid img-slider" alt="">
-                    </div>
-                    <div class="item">
-                        <img src="{{ asset('img/slider1.svg') }}" class="img-fluid img-slider" alt="">
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -177,10 +204,11 @@
 @push("styles")
 
     <style>
-        .img-slider {
-            width: 200px!important;
+        .h-slider {
+
             height: 300px!important;
         }
+
     </style>
 @endpush
 
@@ -192,7 +220,7 @@
             loop:true,
             width: 200,
             height: 500,
-            items:4,
+            items:1,
             mouseDrag: true,
             touchDrag: true,
             freeDrag: false,
