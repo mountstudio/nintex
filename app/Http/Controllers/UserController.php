@@ -125,4 +125,14 @@ class UserController extends Controller
     {
         //
     }
+
+    public function shopping()
+    {
+        return view('profile.shopping');
+    }
+
+    public function favorites()
+    {
+        return view('profile.favorites');
+    }
 }
