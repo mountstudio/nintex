@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -81,7 +86,7 @@ class UserController extends Controller
         }
         $user->save();
 
-        Session::flash('status', ['status' => 'success', 'message' => 'Данные изменены']);
+        Session::flash('status', ['status' => 'success', 'message' => 'Данные были успешно изменены']);
 
         return redirect()->back();
     }
@@ -103,7 +108,7 @@ class UserController extends Controller
         if (Hash::check($validated['last_password'], $user->password)) {
             $user->password = Hash::make($validated['password']);
             $user->save();
-            $status = ['status' => 'success', 'message' => 'Пароль был изменен'];
+            $status = ['status' => 'success', 'message' => 'Пароль был успешно изменен'];
         }
 
         Session::flash('status', $status);
@@ -119,5 +124,15 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function shopping()
+    {
+        return view('profile.shopping');
+    }
+
+    public function favorites()
+    {
+        return view('profile.favorites');
     }
 }

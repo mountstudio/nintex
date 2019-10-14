@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('profile.profile')
 
-@section('content')
-<div class="container-fluid">
+@section('profile_content')
+<div class="container-fluid py-5">
     <div class="row justify-content-center">
         <div class="col-2">
             @include('profile.sidebar')
