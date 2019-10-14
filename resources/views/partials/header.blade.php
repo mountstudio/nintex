@@ -6,7 +6,7 @@
             <li class="nav-item">
                 <a class="nav-link text-uppercase" href="#" title="Одежда">Одежда</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mx-3">
                 <a class="nav-link text-uppercase" href="#" title="Акссесуары">Акссесуары</a>
             </li>
             <li class="nav-item">

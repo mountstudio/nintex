@@ -19,6 +19,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/mmenu.css') }}">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
     @stack('styles')
 </head>
 <body class="bg-white">
@@ -33,7 +34,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/mmenu.js') }}"></script>
-
-@stack('scripts')
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    @stack('scripts')
 </body>
 </html>
