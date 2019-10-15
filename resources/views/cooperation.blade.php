@@ -4,6 +4,65 @@
 
     <div class="container">
         <p class="h2 text-center">Условия сотрудничества для оптовиков</p>
+        <div class="cooperation-steps">
+            <div class="step">
+                <div class="number">1</div>
+                <div class="info">
+                    <p>
+                        Для того чтобы увидеть оптовые цены, Войдите или пройдите Регистрацию. Процедура
+                        регистрации занимает 1 минуту, и вам сразу будут доступны оптовые цены.
+                    </p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="number">2</div>
+                <div class="info">
+                    <p>
+                        Минимальная сумма оптового заказа – 5 000 руб.
+                    </p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="number">3</div>
+                <div class="info">
+                    <p>
+                        Вы можете заказать только нужные вам размеры. Выкупать весь размерный ряд не обязательно.
+                    </p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="number">4</div>
+                <div class="info">
+                    <p>
+                        Оформить заказ можно любым удобным для вас способом: написать на почту svetozara54@mail.ru или заполнить форму заказа на сайте.
+                    </p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="number">5</div>
+                <div class="info">
+                    <p>
+                        Мы принимаем безналичный расчет.
+                    </p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="number">6</div>
+                <div class="info">
+                    <p>
+                        Наша компания работает с юридическими лицами, индивидуальными предпринимателями и организаторами СП.
+                    </p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="number">7</div>
+                <div class="info">
+                    <p>
+                        Мы отправляем заказы во все регионы России. До транспортной компании товар доставляется бесплатно.
+                    </p>
+                </div>
+            </div>
+        </div>
 
         <p class="h2 text-center">Реквизиты</p>
         <blockquote style="padding: 10px 20px;
