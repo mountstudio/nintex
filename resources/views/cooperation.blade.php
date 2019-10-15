@@ -62,9 +62,6 @@
                     </p>
                 </div>
             </div>
-
-
-
         </div>
 
         <p class="h2 text-center">Реквизиты</p>
