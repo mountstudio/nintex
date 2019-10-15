@@ -192,17 +192,3 @@
     border-radius: 0;
     padding: .4rem 0 .4rem;
 }
-.m-slider-menu{
-    margin: 0.6rem 0!important;
-}
-
-.j-size{
-
-}
-.bg-img{
-    background: url('../img/Vector.svg') no-repeat left bottom;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
