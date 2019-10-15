@@ -88,311 +88,17 @@
 }
 /*checkbox style*/
 
-@media (min-width: 0px){
-    /* all buttons font size */
-    body{
-        font-size: 0.7rem!important;
-    }
-    .btn{
-        font-size: 0.6rem!important;
-
-    }
-
-
-    /* checkbox*/
-    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white{
-        border: 1px solid black;
-        border-radius: 50%;
-        position: relative;
-        cursor: pointer;
-        height: 18px;
-        line-height: 18px;
-        margin: 0 8px 10px 0;
-        min-width: 18px;
-        padding: 0 10px;
-        text-align: center;
-    }
-    .checkbox {
-        display: block;
-        position: relative;
-        padding-left: 15px;
-        cursor: pointer;
-        font-size: 25px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-    /* Create a custom checkbox */
-    .checkmark {
-        position: absolute;
-        top: 50%!important;
-        left: 50%!important;
-        transform: translate(-85%, -69%)!important;
-        height: 15px;
-        width: 13px;
-    }
-    /* Style the checkmark/indicator */
-    .checkbox .checkmark:after{
-        left: 9px;
-        top: 5px;
-        width: 5px;
-        height: 10px;
-        border:3px solid white;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
-    .checkbox-white .checkmark:after{
-        left: 9px;
-        top: 5px;
-        width: 5px;
-        height: 10px;
-        border: solid white!important;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-        background: gray;
-    }
-}
-
-@media (min-width: 576px) {
-    /* all buttons font size */
-    body{
-        font-size: 0.7rem!important;
-    }
-    .btn{
-        font-size: 0.6rem!important;
-
-    }
-    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white{
-        border: 1px solid black;
-        border-radius: 50%;
-        position: relative;
-        cursor: pointer;
-        height: 20px;
-        line-height: 20px;
-        margin: 0 8px 10px 0;
-        min-width: 20px;
-        padding: 0 10px;
-        text-align: center;
-    }
-    .checkbox {
-        display: block;
-        position: relative;
-        padding-left: 15px;
-        cursor: pointer;
-        font-size: 22px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-    /* Create a custom checkbox */
-    .checkmark {
-        position: absolute;
-        top: 50%!important;
-        left: 50%!important;
-        transform: translate(-50%, -50%)!important;
-        height: 25px;
-        width: 23px;
-    }
-    /* Style the checkmark/indicator */
-    .checkbox .checkmark:after{
-        left: 9px;
-        top: 5px;
-        width: 5px;
-        height: 10px;
-        border:3px solid white;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
-    .checkbox-white .checkmark:after{
-        left: 9px;
-        top: 5px;
-        width: 5px;
-        height: 10px;
-        border: solid white!important;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-        background: gray;
-    }
-}
-@media (min-width: 768px) {
-    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white{
-        border: 1px solid black;
-        border-radius: 50%;
-        position: relative;
-        cursor: pointer;
-        height: 30px;
-        line-height: 30px;
-        margin: 0 8px 10px 0;
-        min-width: 30px;
-        padding: 0 10px;
-        text-align: center;
-    }
-    .checkbox {
-        display: block;
-        position: relative;
-        padding-left: 15px;
-        cursor: pointer;
-        font-size: 22px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-    /* Create a custom checkbox */
-    .checkmark {
-        position: absolute;
-        top: 50%!important;
-        left: 50%!important;
-        transform: translate(-53%, -50%)!important;
-        height: 25px;
-        width: 23px;
-    }
-    /* Style the checkmark/indicator */
-    .checkbox .checkmark:after{
-        left: 9px;
-        top: 5px;
-        width: 8px;
-        height: 13px;
-        border:3px solid white;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
-    .checkbox-white .checkmark:after{
-        left: 9px;
-        top: 5px;
-        width: 8px;
-        height: 13px;
-        border:3px solid white;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
-}
-@media (min-width: 992px) {
-    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white{
-        border: 1px solid black;
-        border-radius: 50%;
-        position: relative;
-        cursor: pointer;
-        height: 30px;
-        line-height: 30px;
-        margin: 0 8px 10px 0;
-        min-width: 30px;
-        padding: 0 10px;
-        text-align: center;
-    }
-    .checkbox {
-        display: block;
-        position: relative;
-        padding-left: 15px;
-        cursor: pointer;
-        font-size: 22px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-    /* Create a custom checkbox */
-    .checkmark {
-        position: absolute;
-        top: 50%!important;
-        left: 50%!important;
-        transform: translate(-52%, -55%)!important;
-        height: 25px;
-        width: 23px;
-    }
-    /* Style the checkmark/indicator */
-    .checkbox .checkmark:after{
-        left: 9px;
-        top: 5px;
-        width: 8px;
-        height: 15px;
-        border:3px solid white;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
-    .checkbox-white .checkmark:after{
-
-        left: 9px;
-        top: 5px;
-        border: solid white!important;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
-}
-@media (min-width: 1200px) {
-    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white{
-        border: 1px solid black;
-        border-radius: 50%;
-        position: relative;
-        cursor: pointer;
-        height: 35px;
-        line-height: 35px;
-        margin: 0 8px 10px 0;
-        min-width: 35px;
-        padding: 0 10px;
-        text-align: center;
-    }
-    .checkbox {
-        display: block;
-        position: relative;
-        padding-left: 15px;
-        cursor: pointer;
-        font-size: 22px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-    /* Create a custom checkbox */
-    .checkmark {
-        position: absolute;
-        top: 50%!important;
-        left: 50%!important;
-        transform: translate(-57%, -60%)!important;
-        height: 25px;
-        width: 23px;
-    }
-    /* Style the checkmark/indicator */
-    .checkbox .checkmark:after{
-        left: 9px;
-        top: 5px;
-        width: 10px;
-        height: 18px;
-        border:3px solid white;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
-    .checkbox-white .checkmark:after{
-        left: 9px;
-        top: 5px;
-        width: 10px;
-        height: 18px;
-        border: solid white!important;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
+.checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white{
+    border: 1px solid black;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 8px 10px 0;
+    min-width: 40px;
+    padding: 0 10px;
+    text-align: center;
 }
 
 .checkbox-white{
@@ -407,7 +113,18 @@
 .checkbox-red{
     background: red;
 }
-
+.checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
 /* Hide the browser's default checkbox */
 .checkbox input {
@@ -418,7 +135,15 @@
     width: 0;
 }
 
-
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 50%!important;
+    left: 50%!important;
+    transform: translate(-50%, -50%)!important;
+    height: 25px;
+    width: 23px;
+}
 
 /* On mouse-over, add a grey background color */
 
@@ -435,7 +160,30 @@
     display: block;
 }
 
-
+/* Style the checkmark/indicator */
+.checkbox .checkmark:after{
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border:3px solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.checkbox-white .checkmark:after{
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white!important;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: gray;
+}
 .btn-search {
     box-sizing: content-box;
     background-color: transparent;
