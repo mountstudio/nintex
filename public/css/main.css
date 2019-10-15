@@ -192,3 +192,36 @@
     border-radius: 0;
     padding: .4rem 0 .4rem;
 }
+.search-icon{
+    box-sizing: content-box;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    padding: 0.3rem 0 0.4rem;
+}
+@media(min-width: 1440px){
+
+    .bg-img{
+        background: url('../img/Vector.svg')  no-repeat left bottom;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+}
+.accordion .z-depth-0{
+    border-radius: 20px!important;
+    margin-top: 10px;
+    border: 1px solid black !important;
+}
+.fa-angle-down {
+    float: right;
+    padding: 19px;
+}
+
+
+
