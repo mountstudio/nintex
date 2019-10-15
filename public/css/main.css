@@ -192,76 +192,17 @@
     border-radius: 0;
     padding: .4rem 0 .4rem;
 }
-.search-icon{
-    box-sizing: content-box;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #ced4da;
-    border-radius: 0;
-    outline: none;
-    box-shadow: none;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    padding: 0.3rem 0 0.4rem;
-}
-@media(min-width: 1440px){
-
-    .bg-img{
-        background: url('../img/Vector.svg')  no-repeat left bottom;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }
-}
-.accordion .z-depth-0{
-    border-radius: 20px!important;
-    margin-top: 10px;
-    border: 1px solid black !important;
-}
-.fa-angle-down {
-    float: right;
-    padding: 19px;
+.m-slider-menu{
+    margin: 0.6rem 0!important;
 }
 
-.blockquote {
-    padding: 10px 20px;
-    margin: 0 0 20px;
-    font-size: 17px;
-    border-left: 5px solid #eee;
-}
-.cooperation-steps{
-    margin: 60px 0;
-}
+.j-size{
 
-.cooperation-steps .step {
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
-    margin: 0 0 20px 0;
-    overflow: hidden;
-    display: table;
-    width: 100%;
 }
-.cooperation-steps .step .number
-{
-    display: table-cell;
-    font-size: 36px;
-    text-align: center;
-    width: 80px;
-    padding: 0 20px;
-    background-color: #feedef;
-    color: #f24d61;
-    position: relative;
-    height: 100%;
-    vertical-align: middle;
-}
-.cooperation-steps .step .info{
-    vertical-align: middle;
-    display: table-cell;
-    padding: 20px;
-    font-size: 16px;
-}
-.cooperation-steps .step .info p{
-    margin: 0;
-    padding: 0;
+.bg-img{
+    background: url('../img/Vector.svg') no-repeat left bottom;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

@@ -14,15 +14,15 @@
             </li>
         </ul>
         <form class="form-inline md-form form-sm active-cyan-2 my-1">
-            <input class="form-control form-control-sm w-75" type="text" placeholder="Search"
+            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
                    aria-label="Search">
-            <i class="fas fa-search search-icon" aria-hidden="true"></i>
+            <i class="fas fa-search" aria-hidden="true"></i>
         </form>
         <ul class="navbar-nav ml-5 mt-2 mt-lg-0">
             <li class="nav-item mr-4">
                 <a href="#"
                    class="border-bottom-0 border-top-0 border-right-0 border-left-0 rounded-0 border-dark my-2 my-sm-0"><img
-                        src="{{ asset('img/basket.svg') }}" class="img-fluid" alt=""></a>
+                        src="img/basket.svg" class="img-fluid" alt=""></a>
             </li>
             <li class="nav-item mr-4">
                 <a href="#menu" class="border-bottom-0 border-top-0 border-right-0 border-left-0 rounded-0 border-dark my-2 my-sm-0"><img src="img/hamburber.svg" alt="" class="img-fluid"></a>
@@ -30,7 +30,7 @@
             <li class="nav-item mr-4">
                 <a href="{{ auth()->check() ? route('profile') : route('login') }}"
                    class="border-bottom-0 border-top-0 border-right-0 border-left-0 rounded-0 border-dark my-2 my-sm-0"><img
-                        src="{{ asset('img/user_avatar.svg') }}" class="img-fluid" alt=""></a>
+                        src="img/user_avatar.svg" class="img-fluid" alt=""></a>
             </li>
         </ul>
     </div>

@@ -2,7 +2,12 @@
 
 @section('content')
 
-    <section class="position-relative bg-img pt-5 bg-img">
+    <section class="position-relative bg-img pt-5"
+             style="background: url('{{ asset('img/Vector.svg') }}')  no-repeat center center;
+                 -webkit-background-size: cover;
+                 -moz-background-size: cover;
+                 -o-background-size: cover;
+                 background-size: cover; ">
 
         <!--Слайдер выбора одежды-->
         <div class="container-fluid  pt-5">
