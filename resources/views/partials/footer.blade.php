@@ -7,7 +7,7 @@
                     <a class="text-white mr-auto my-2" href="#" title="">- КАТЕГОРИИ</a>
                     <a class="text-white mr-auto" href="#" title="">- АКЦИИ</a>
                     <a class="text-white mr-auto my-2" href="#" title="">- КАТАЛОГ</a>
-                    <a class="text-white mr-auto" href="#" title="">- СОТРУДНИЧЕСТВО</a>
+                    <a class="text-white mr-auto" href="/cooperation" title="">- СОТРУДНИЧЕСТВО</a>
                     <a class="text-white mr-auto my-2" href="#" title="">- КОНТАКТЫ</a>
                 </nav>
             </div>

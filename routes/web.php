@@ -20,6 +20,9 @@ Route::get('/basket', function () {
 Route::get('/korzina', function () {
     return view('korzina');
 })->name('korzina');
+Route::get('/cooperation', function () {
+    return view('cooperation');
+})->name('cooperation');
 
 Auth::routes();
 
