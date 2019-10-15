@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="bg-nintex-color">
+    <section class="bg-img">
         <div class="container-fluid pt-5">
             <div class="row">
                 <div class="col-8 position-relative">
@@ -30,10 +30,8 @@
                         </a>
                     </div>
                     <div class="mt-3">
-                        <img class="position-absolute w-100" style="left: 0; bottom: 0;"
-                             src="{{ asset('img/Vector 1.svg') }}" alt="">
                         <div class="row mt-5">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <p>Цвет: черный</p>
                                 <div class="checkbox">
                                     <label class="checkbox-white">
@@ -58,14 +56,14 @@
                                 </div>
 
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6 pt-2 pt-md-0">
                                 <p class=""><img src="img/file.svg" alt=""> Лучшая ткань</p>
                                 <p class=""><img src="img/quality (1).svg" alt=""> Гарантия
                                     качества</p>
                             </div>
-                            <div class="col-5 pb-5 ">
+                            <div class="col-12 col-md-5 pb-0 pb-md-5">
                                 <p class="mb-4">Выбери свой размер</p>
-                                <div class="j-size-list size-list j-smart-overflow-instance">
+                                <div class="j-size-list size-list j-smart-overflow-instance ml-md-2">
                                     <label class="j-size  disabled j-sold-out tooltipstered size-button"
                                            data-characteristic-id="" data-size-name="S">
                                         <span>S</span>
@@ -99,11 +97,11 @@
 
                                     <i class="icon-step j-imigize hide"></i>
                                 </div>
-                                <a href="#" class="btn btn-lightblue mt-3">Начать покупки</a>
+                                <a href="#" class="btn btn-lightblue  mt-3">Таблица размеров</a>
                             </div>
-                            <div class="col-4 pb-5">
-                                <a href="#" class="btn btn-white btn-block mt-5">В избранное</a>
-                                <a href="#" class="btn btn-dark btn-block mt-2">В корзину</a>
+                            <div class="col-12 col-md-4 pb-5">
+                                <a href="#" class="btn btn-white btn-block mt-2 mt-md-5">В избранное</a>
+                                <a href="#" class="btn btn-dark btn-block mt-2 mt-md-2">В корзину</a>
                             </div>
                         </div>
                     </div>
@@ -113,18 +111,14 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid position-absolute" style="bottom: 0;">
-            <div class="row">
-                <div class="col-12">
 
-                </div>
-            </div>
-        </div>
     </section>
 
 
+
+
     <section>
-        <div class="container" >
+        <div class="container">
             <div class="row">
                 <div class="owl-carousel owl-theme">
                     <div class="item" style="background: linear-gradient(90deg, #EEEBEE, #EEEBEE 30%, #f8fafc 30%);">
@@ -137,17 +131,20 @@
                                                 ЗАГОЛОВОК КАКОЙ-ТО<br> АКЦИИ
                                             </p>
                                             <p class="py-3">
-                                                Сайт рыбатекст поможет дизайнеру,<br> верстальщику, вебмастеру сгенерировать<br>
+                                                Сайт рыбатекст поможет дизайнеру,<br> верстальщику, вебмастеру
+                                                сгенерировать<br>
                                                 несколько абзацев
                                                 более
                                             </p>
                                         </div>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <a class="btn-floating mr-1 text-center" href="#multi-item-example" data-slide="prev">
+                                        <a class="btn-floating mr-1 text-center" href="#multi-item-example"
+                                           data-slide="prev">
                                             <img src="img/Arrow_left.svg" alt="">
                                         </a>
-                                        <a class="btn-floating ml-1 text-center" href="#multi-item-example" data-slide="next">
+                                        <a class="btn-floating ml-1 text-center" href="#multi-item-example"
+                                           data-slide="next">
                                             <img class="text-center" src="img/Arrow_right.svg" alt="">
                                         </a>
                                     </div>
@@ -168,17 +165,20 @@
                                                 ЗАГОЛОВОК КАКОЙ-ТО<br> АКЦИИ
                                             </p>
                                             <p class="py-3">
-                                                Сайт рыбатекст поможет дизайнеру,<br> верстальщику, вебмастеру сгенерировать<br>
+                                                Сайт рыбатекст поможет дизайнеру,<br> верстальщику, вебмастеру
+                                                сгенерировать<br>
                                                 несколько абзацев
                                                 более
                                             </p>
                                         </div>
                                     </div>
                                     <div class="col-4 text-right">
-                                        <a class="btn-floating mr-1 text-center" href="#multi-item-example" data-slide="prev">
+                                        <a class="btn-floating mr-1 text-center" href="#multi-item-example"
+                                           data-slide="prev">
                                             <img src="img/Arrow_left.svg" alt="">
                                         </a>
-                                        <a class="btn-floating ml-1 text-center" href="#multi-item-example" data-slide="next">
+                                        <a class="btn-floating ml-1 text-center" href="#multi-item-example"
+                                           data-slide="next">
                                             <img class="text-center" src="img/Arrow_right.svg" alt="">
                                         </a>
                                     </div>
@@ -190,6 +190,72 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row justify-content-between">
+                        <div class="bd-example">
+                            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                                <div class="col-9">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="https://i.ytimg.com/vi/OXuIqaeg0SI/maxresdefault.jpg"
+                                                 class="d-block img-fluid" style="height: 500px!important; width: 100rem" alt="...">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>First slide label</h5>
+                                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="https://varlamov.me/2019/norwput4/00s.jpg" class="d-block img-fluid" style="height: 500px!important; width: 100rem;"
+                                                 alt="...">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Second slide label</h5>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="https://i.ytimg.com/vi/UlP7pqIui58/maxresdefault.jpg"
+                                                 class="d-block img-fluid m-slider-menu" style="height: 500px!important; width: 100rem;" alt="...">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5>Third slide label</h5>
+                                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3 position-absolute" style="top: 0; right: 0;">
+                                    <ul class="list-unstyled border border-dark">
+                                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active">
+                                            <a href="" class="img-fluid">
+                                                <img src="https://i.ytimg.com/vi/OXuIqaeg0SI/maxresdefault.jpg"
+                                                     class="img-fluid" alt="">
+                                            </a>
+                                        </li>
+                                        <li data-target="#carouselExampleCaptions" data-slide-to="1">
+                                            <a href="" class="img-fluid">
+                                                <img src="https://varlamov.me/2019/norwput4/00s.jpg" class="img-fluid"
+                                                     alt="">
+                                            </a>
+                                        </li>
+                                        <li data-target="#carouselExampleCaptions" data-slide-to="2">
+                                            <a href="" class="img-fluid">
+                                                <img src="https://i.ytimg.com/vi/UlP7pqIui58/maxresdefault.jpg"
+                                                     class="img-fluid" alt="">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -206,7 +272,7 @@
     <style>
         .h-slider {
 
-            height: 300px!important;
+            height: 300px !important;
         }
 
     </style>
@@ -216,16 +282,16 @@
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
     <script>
         $('.owl-carousel').owlCarousel({
-            margin:10,
-            loop:true,
+            margin: 10,
+            loop: true,
             width: 200,
             height: 500,
-            items:1,
+            items: 1,
             mouseDrag: true,
             touchDrag: true,
             freeDrag: false,
-            nav:true,
-            navText: ["1","2"],
+            nav: true,
+            navText: ["1", "2"],
 
         })
     </script>
