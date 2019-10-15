@@ -129,7 +129,7 @@
         </div>
     </section>
 
-    @include('category')
+    @include('partials.category')
 
     <section>
         <div class="container" style="background: linear-gradient(90deg, #EEEBEE, #EEEBEE 30%, #f8fafc 30%)">
