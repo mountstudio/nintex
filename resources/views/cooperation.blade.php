@@ -3,7 +3,8 @@
 @section('content')
 
     <div class="container">
-        <p class="h2 text-center">Условия сотрудничества для оптовиков</p>
+        <p class="h2 text-center" style="margin-top: 20px;
+    margin-bottom: 10px;">Условия сотрудничества для оптовиков</p>
         <div class="cooperation-steps">
             <div class="step">
                 <div class="number">1</div>
@@ -64,18 +65,15 @@
             </div>
         </div>
 
-        <p class="h2 text-center">Реквизиты</p>
-        <blockquote style="padding: 10px 20px;
-    margin: 0 0 20px;
-    font-size: 18px;
-    border-left: 5px solid #eee;">
+        <p class="h2 text-center" style="margin-top: 20px;margin-bottom: 10px;">Реквизиты</p>
+        <blockquote style="padding: 10px 20px;margin: 0 0 20px;font-size: 18px;border-left:5px solid #eee;">
             <p>Индивидуальный предприниматель Арыкова Нурайым Нурмамбековна</p>
             <p>ОГНИП 309541003400017</p>
             <p>ИНН 541001781566</p>
             <p>Дата присвоения ОГНИП 03.02.2019г.</p>
             <p>ОКВЭД 46.42&nbsp;</p>
         </blockquote>
-        <p class="h2 text-center">Часто задаваемые вопросы:</p>
+        <p class="h2 text-center" style="margin-top: 20px;margin-bottom: 10px;">Часто задаваемые вопросы:</p>
         <div class="accordion" id="accordionExample">
             <div class="card z-depth-0 bordered">
                 <div class="card-header" data-toggle="collapse" data-target="#collapseOne"
@@ -177,4 +175,5 @@
             </div>
         </div>
     </div>
+    @include('partials.footer')
 @endsection
