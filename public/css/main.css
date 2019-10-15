@@ -1,6 +1,9 @@
 .bg-img{
-    background: url("../img/Vector.svg") no-repeat;
-
+    background: url("../img/Vector.svg") no-repeat left bottom;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 .form-header {
     box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
