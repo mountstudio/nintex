@@ -129,31 +129,26 @@
     <section>
         <div class="container" >
             <div class="row">
-                <div class="owl-carousel owl-theme">
+                <div class="owl-carousel owl-theme position-relative">
                     <div class="item" style="background: linear-gradient(90deg, #EEEBEE, #EEEBEE 30%, #f8fafc 30%);">
                         <div class="col-12 my-5 pt-5">
                             <div class="row">
                                 <div class="col-8 ">
                                     <div class="row justify-content-center">
-                                        <div class="col-8 ">
+                                        <div class="col-8 flex text1">
                                             <p class="h2">
                                                 ЗАГОЛОВОК КАКОЙ-ТО<br> АКЦИИ
                                             </p>
+                                            <p class="header-sub-title blink">|</p>
                                             <p class="py-3">
                                                 Сайт рыбатекст поможет дизайнеру,<br> верстальщику, вебмастеру сгенерировать<br>
                                                 несколько абзацев
                                                 более
+
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-4 text-right">
-                                        <a class="btn-floating mr-1 text-center" href="#multi-item-example" data-slide="prev">
-                                            <img src="img/Arrow_left.svg" alt="">
-                                        </a>
-                                        <a class="btn-floating ml-1 text-center" href="#multi-item-example" data-slide="next">
-                                            <img class="text-center" src="img/Arrow_right.svg" alt="">
-                                        </a>
-                                    </div>
+
                                 </div>
                                 <div class="col-4 controls-top d-flex justify-content-end">
                                     <img src="img/kofta.svg" class="img-fluid" alt="">
@@ -166,25 +161,21 @@
                             <div class="row">
                                 <div class="col-8 ">
                                     <div class="row justify-content-center">
-                                        <div class="col-8 ">
-                                            <p class="h2">
+                                        <div class="col-8 flex text1">
+                                            <p class="h2" >
                                                 ЗАГОЛОВОК КАКОЙ-ТО<br> АКЦИИ
                                             </p>
+                                            <p class="header-sub-title blink">|</p>
                                             <p class="py-3">
                                                 Сайт рыбатекст поможет дизайнеру,<br> верстальщику, вебмастеру сгенерировать<br>
                                                 несколько абзацев
                                                 более
+
                                             </p>
+                                            <p class="header-sub-title blink">|</p>
                                         </div>
                                     </div>
-                                    <div class="col-4 text-right">
-                                        <a class="btn-floating mr-1 text-center" href="#multi-item-example" data-slide="prev">
-                                            <img src="img/Arrow_left.svg" alt="">
-                                        </a>
-                                        <a class="btn-floating ml-1 text-center" href="#multi-item-example" data-slide="next">
-                                            <img class="text-center" src="img/Arrow_right.svg" alt="">
-                                        </a>
-                                    </div>
+
                                 </div>
                                 <div class="col-4 controls-top d-flex justify-content-end">
                                     <img src="img/kofta.svg" class="img-fluid" alt="">
@@ -224,14 +215,18 @@
             width: 200,
             height: 500,
             items:1,
-            mouseDrag: true,
+            mouseDrag: false,
             touchDrag: true,
             freeDrag: false,
             nav:true,
-            navText: ["1","2"],
+            navText: ["<img src=\"img/Arrow_left.svg\" class='d-none d-lg-block d-xl-block' style=\"position: absolute; top: 39%; left: 15%;\" alt=\"\">","<img src=\"img/Arrow_right.svg\" class='d-none d-lg-block d-xl-block' style=\"position: absolute; top: 39%; left: 20%;\" alt=\"\">"],
+            center: true,
 
         })
     </script>
 
+    <script>
+
+    </script>
 
 @endpush

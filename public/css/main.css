@@ -521,3 +521,31 @@
         transform: rotate(45deg);
     }
 }
+.img-pos{
+    position: absolute!important;
+    top: 36%!important;
+    left: 11% !important;
+}
+#text1, #text2 {
+    color: #fff;
+    font-family: Roboto;
+    text-decoration: none;
+}
+p>a {
+    color: #fd084a;
+}
+.blink {
+    animation: blink 0.5s infinite;
+}
+@keyframes blink{
+    to { opacity: .0; }
+}
+.flex {
+    display: flex;
+}
+.header-sub-title {
+    color: #fff;
+    font-family: "Courier";
+    font-size: 20px;
+    padding: 0.1em;
+}
