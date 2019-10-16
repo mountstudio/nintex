@@ -1,10 +1,10 @@
 <div class="card hoverable mb-4">
     <div class="card-img">
-        <img src="{{ asset('img/clothes.jpg') }}" class="img-fluid" alt="">
+        <img src="{{ asset('img/pic.jpg') }}" class="img-fluid" alt="" style="width: 100%;">
     </div>
     <div class="card-body">
-        <h3>Title</h3>
-        <p>Text</p>
+        <p>Ref. 6407/514</p>
+        <p class="h3">Пальто из шерстицвет черный</p>
         <div class="j-size-list size-list j-smart-overflow-instance">
             <label class="j-size  disabled j-sold-out tooltipstered size-button"
                    data-characteristic-id="" data-size-name="XXS">
@@ -44,6 +44,7 @@
             </label>
 
             <i class="icon-step j-imigize hide"></i>
+            <p class="text-right font-weight-bold h5" >7300kgs</p>
         </div>
     </div>
 </div>

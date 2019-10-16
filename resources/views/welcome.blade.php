@@ -10,7 +10,7 @@
                  background-size: cover; ">
 
         <!--Слайдер выбора одежды-->
-        <div class="container  pt-5">
+        <div class="container pt-5">
             <div class="row">
                 <div class="col-8 position-relative">
                     <div class=" d-flex justify-content-end " style=" border-bottom-left-radius: 100px;">
