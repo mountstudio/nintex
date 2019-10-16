@@ -4,10 +4,10 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav ml-5 mr-auto mt-2 mt-lg-0 ">
             <li class="nav-item">
-                <a class="nav-link text-uppercase" href="#" title="Одежда">Одежда</a>
+                <a class="nav-link text-uppercase" href="/product" title="Одежда">Одежда</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link text-uppercase" href="#" title="Акссесуары">Акссесуары</a>
+                <a class="nav-link text-uppercase" href="/product" title="Акссесуары">Акссесуары</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-uppercase" href="#" title="Акции">Акции</a>
@@ -61,6 +61,7 @@
         <li><a href="/contact">Contact</a></li>
     </ul>
 </nav>
+
 @push('styles')
 
 @endpush

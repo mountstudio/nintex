@@ -39,8 +39,8 @@
                             <a href="" class="nav-link text-white small d-flex" title="Номер">
                                 <img src="icons/call 1.svg" alt="">&nbsp;
                                 <div class="col-12">
-                                    <p class="mb-1 font-weight-bold">+996508900500</p>
-                                    <p class="m-0 text-muted">Пн. – Вc.: с 9:00 до 18:00 (+6 GMT)</p>
+                                    <p class="mb-1 font-weight-bold">+996555449342</p>
+                                    <p class="m-0 text-muted">Пн. – Сб.: с 9:00 до 18:00 (+6 GMT)</p>
                                 </div>
                             </a>
                         </li>
@@ -48,7 +48,7 @@
                             <a href="" class="nav-link text-white small d-flex" title="Почта">
                                 <img src="icons/mail.svg" alt="">&nbsp;
                                 <div class="col-12">
-                                    <p class="mb-1 font-weight-bold">support@nintex.kg</p>
+                                    <p class="mb-1 font-weight-bold">nintexkg@gmail.com</p>
                                 </div>
                             </a>
                         </li>
@@ -57,7 +57,7 @@
                                 <img src="icons/placeholder 1.svg" alt="">
                                 <div class="col-12">
                                     <p class="mb-1 font-weight-bold">Кыргызстан, г. Бишкек,
-                                        ул. Тоголока Молдо 104</p>
+                                        ул. Проспект Мира 120</p>
                                 </div>
                             </a>
                         </li>
