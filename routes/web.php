@@ -26,6 +26,17 @@ Route::get('/cooperation', function () {
 
 Auth::routes();
 
+// Admin Routes
+Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
+    Route::get('/', 'AdminController@index')->name('admin');
+    Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
+    Route::resource('product', 'ProductController')->except(['index', 'show']);
+    Route::resource('category', 'CategoryController')->except(['index', 'show']);
+    Route::resource('size', 'SizeController')->except(['index', 'show']);
+    Route::resource('comment', 'CommentController')->except(['index', 'show']);
+});
+// End Admin Routes
+
 // Profile Routes
 Route::get('/profile', 'HomeController@index')->name('profile');
 Route::put('/user/update/email', 'UserController@updateEmail')->name('user.update.email');
@@ -35,9 +46,9 @@ Route::get('/profile/shopping', 'UserController@shopping')->name('user.shopping'
 // End Profile Routes
 
 // Resourse Routes
-Route::resource('product', 'ProductController');
-Route::resource('category', 'CategoryController');
-Route::resource('size', 'SizeController');
-Route::resource('comment', 'CommentController');
+Route::resource('product', 'ProductController')->only(['index', 'show']);
+Route::resource('category', 'CategoryController')->only(['index', 'show']);
+Route::resource('size', 'SizeController')->only(['index', 'show']);
+Route::resource('comment', 'CommentController')->only(['index', 'show', 'store']);
 // End Resource Routes
 
