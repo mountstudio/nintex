@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
 {
@@ -29,7 +31,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('admin.products.create', [
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -99,6 +105,18 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->back();
+    }
+
+    public function datatable(Request $request)
+    {
+        return view('admin.products.index', [
+            'products' => Product::all(),
+        ]);
+    }
+
+    public function datatableData(Request $request)
+    {
+        return DataTables::of(Product::query())->make(true);
     }
 
     public function favorite(Request $request, Product $product)

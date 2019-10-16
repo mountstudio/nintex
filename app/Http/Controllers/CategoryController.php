@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
 {
@@ -81,5 +82,17 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+    }
+
+    public function datatable(Request $request)
+    {
+        return view('admin.categories.index', [
+            'categories' => Category::all(),
+        ]);
+    }
+
+    public function datatableData(Request $request)
+    {
+        return DataTables::of(Category::query())->make(true);
     }
 }
