@@ -6,9 +6,9 @@
         <p>Ref. 6407/514</p>
         <p class="h3">Пальто из шерстицвет черный</p>
         <div class="j-size-list size-list j-smart-overflow-instance">
-            <label class="j-size  disabled j-sold-out tooltipstered size-button"
-                   data-characteristic-id="" data-size-name="XXS">
-                <span>XXS</span>
+            <label class="j-size j-sold-out tooltipstered size-button"
+                   data-characteristic-id="" data-size-name="XXL">
+                <span>XXL</span>
                 <input class="radio-size" id="size" name="size" type="radio" value="">
                 <i></i>
             </label>
