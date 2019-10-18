@@ -13,7 +13,7 @@ class AdminController extends Controller
 
     public function index(Request $request)
     {
-        return redirect()->route('admin.welcome');
+        return redirect()->route('admin.dashboard');
     }
 
     public function dashboard(Request $request)
