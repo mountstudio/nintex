@@ -540,15 +540,11 @@
     text-align: center;
 }
 
-.size-lists {
-
-}
-
-.slider_price{
-
-}
 
 .catalog_a {
     color: #2c3e50;
     text-decoration: none
+}
+.card_box_shadow{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0), 0 0px 0px 0 rgba(0,0,0,.12);
 }
