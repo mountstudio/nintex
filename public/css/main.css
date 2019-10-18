@@ -547,4 +547,10 @@
 }
 .card_box_shadow{
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0), 0 0px 0px 0 rgba(0,0,0,.12);
+    /*transition: 1s;*/
+}
+.box_sh:hover{
+    transform: scale(1.1);
+    /*background: #ff800a;*/
+    box-shadow: 2px 2px 10px rgba(0%, 0%, 0%, 0.1);
 }
