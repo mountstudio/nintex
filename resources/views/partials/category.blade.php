@@ -5,21 +5,21 @@
                 <h1>Категории</h1>
             </div>
             <div class="card-columns">
-                <div class="card">
+                <div class="card card_box_shadow ">
                     <div class="card-body">
                         <a href="">
                             <img src="img/pre.svg" class="card-img-top" alt="...">
                         </a>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card card_box_shadow">
                     <div class="card-body">
                         <a href="">
                             <img src="img/pre.svg" class="card-img-top" alt="...">
                         </a>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card card_box_shadow">
                     <div class="card-body">
                         <a href="">
                             <img src="img/pre.svg" class="card-img-top" alt="...">

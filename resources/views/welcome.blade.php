@@ -139,12 +139,12 @@
     <section>
         <div class="container" style="background: linear-gradient(90deg, #EEEBEE, #EEEBEE 30%, #f8fafc 30%)">
 
-            <div class="col-12 my-5 pt-5">
+            <div class="col-12 my-5 pt-5 " id="bottom_stocks">
                 <div class="row">
                     <div class="col-8 ">
                         <div class="row justify-content-center">
-                            <div class="col-8 ">
-                                <p class="h2">
+                            <div class="col-8">
+                                <p class="h2" >
                                     ЗАГОЛОВОК КАКОЙ-ТО<br> АКЦИИ
                                 </p>
                                 <p class="py-3">
@@ -191,4 +191,5 @@
             $(this).addClass('active');
         });
     </script>
+
 @endpush

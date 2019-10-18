@@ -1,16 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-light my-menu z-depth-0 bg-nintex-color">
+<nav class="navbar navbar-expand-lg navbar-light my-menu z-depth-0 bg-nintex-color" id="menu_yak">
     <a class="navbar-brand" style="width: 80px;" href="{{ route('home') }}"><img src="{{ asset('img/logo3.png') }}"
                                                                                  class="img-fluid" alt=""></a>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav ml-5 mr-auto mt-2 mt-lg-0 ">
             <li class="nav-item">
-                <a class="nav-link text-uppercase" href="/product" title="Одежда">Одежда</a>
+                <a class="nav-link text-uppercase" href="{{ route('product.index') }}" title="Одежда">Одежда</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link text-uppercase" href="/product" title="Акссесуары">Акссесуары</a>
+                <a class="nav-link text-uppercase" href="{{ route('product.index') }}" title="Акссесуары">Акссесуары</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-uppercase" href="#" title="Акции">Акции</a>
+                <a class="nav-link text-uppercase" href="/#bottom_stocks" title="Акции">Акции</a>
             </li>
         </ul>
         <form class="form-inline md-form form-sm active-cyan-2 my-1">
@@ -103,6 +103,16 @@
                         }
                     ]
                 });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#menu_yak").on("click","a", function (event) {
+                // event.preventDefault();
+                let id  = $(this).attr('href'),
+                    top = $(id).offset().top;
+                $('body,html').animate({scrollTop: top}, 1500);
+            });
+        });
     </script>
 @endpush
 
