@@ -1,6 +1,11 @@
 @extends('admin.dashboard')
 
 @section('dashboard_content')
+    <div class="row justify-content-end mb-4">
+        <div class="col-auto">
+            <a href="{{ route('admin.category.create') }}" class="btn btn-success">{{ __('Создать') }}</a>
+        </div>
+    </div>
     <table class="table table-bordered" id="categories-table">
         <thead>
         <tr>
