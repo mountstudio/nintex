@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Helpers\ImageSaver;
 use App\Product;
+//use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
+
 
 class ProductController extends Controller
 {
@@ -46,9 +49,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $products = new Product($request->all());
+        $products->save();
 
+        if ($logo = $request->logo)
+        {
+            $filename = ImageSaver::save($logo, 'uploads', 'nintex_logo');
+            $products->logo = $filename;
+            $products->save();
+        }
+        return redirect()->back();
+    }
     /**
      * Display the specified resource.
      *
@@ -57,7 +68,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show', [
+           'product' => $product,
+        ]);
     }
 
     /**
@@ -68,7 +81,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.products.edit', [
+            'product' => $product,
+        ]);
     }
 
     /**
@@ -81,6 +96,22 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $product->update($request->all());
+
+        if ($images = $request->images)
+        {
+            foreach ($images as $image)
+            {
+                $filename = ImageSaver::save($image, "uploads", "nintex");
+                $product->images = $filename;
+                $product->save();
+            }
+        }
+        if ($logo = $request->logo)
+        {
+            $filename = ImageSaver::save($logo, 'uploads', 'nintex_logo');
+            $product->logo = $filename;
+            $product->save();
+        }
 
         Session::flash('status', ['status' => 'success', 'message' => 'Товар был успешно обнолен']);
 
