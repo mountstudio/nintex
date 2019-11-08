@@ -40,12 +40,15 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-12">
+            <div class="col-6">
                 <fieldset id="buildyourform">
-                    <legend>Build your own form!</legend>
+                    <label>Выберите цвет</label>
                 </fieldset>
-                <input type="button" value="Preview form" class="add" id="preview" />
-                <input type="button" value="Add a field" class="add" id="add" />
+
+                <button type="button" id="add">
+                    <i class="fas fa-plus" id="add"></i>
+                </button>
+
             </div>
         </div>
         <button type="submit" title="{{ __('Создать') }}" class="btn btn-success">{{ __('Создать') }}</button>
