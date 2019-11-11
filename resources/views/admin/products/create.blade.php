@@ -25,6 +25,15 @@
                 </div>
             </div>
             <div class="col-6">
+                <fieldset id="buildyourform">
+                    <label>Выберите цвет</label>
+                </fieldset>
+                <input type="color" class="fieldname form-control" name="colors[]">
+                <button type="button" id="add">
+                    <i class="fas fa-plus" id="add"></i>
+                </button>
+            </div>
+            <div class="col-6">
                 <label>Выберите фото</label>
                 <input type="file" name="logo">
             </div>
@@ -41,23 +50,8 @@
                 </select>
             </div>
             <div class="col-6">
-                <fieldset id="buildyourform">
-                    <label>Выберите цвет</label>
-                </fieldset>
-                <input type="color" class="fieldname form-control" name="colors[]">
-                <button type="button" id="add">
-                    <i class="fas fa-plus" id="add"></i>
-                </button>
-            </div>
-            <div class="col-6">
-                 {{ Form::open(['url'=>'videos', 'files' => true])}}
-                 {{ Form::file('file_name')}}
-                 {{ Form::submit('Submit')}}
-                 {{ Form::close() }}
-                <form action="videos" method="get">
-
-                </form>
-
+                <label>Выберите фото</label>
+                <input type="file" name="video">
             </div>
         </div>
         <button type="submit" title="{{ __('Создать') }}" class="bt n btn-success">{{ __('Создать') }}</button>

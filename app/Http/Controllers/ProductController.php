@@ -75,15 +75,15 @@ class ProductController extends Controller
             $product->save();
         }
 
-        for ($i = 0; $i < count($request->file('video')); $i++)
-        {
-            $file =$request->file('video')[$i];
+
+            $file =$request->file('video');
             $destination_path = public_path().'/videos';
             $extension =$file->getClientOriginalExtension();
             $files =$file->getClientOriginalName();
             $fileName = $file.'_'.time().'.'.$extension;
             $file->move($destination_path, $fileName);
-        }
+            $product->video = $fileName;
+            $product->save();
 
 
             return redirect()->back();
