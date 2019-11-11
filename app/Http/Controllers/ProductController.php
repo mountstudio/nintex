@@ -74,7 +74,19 @@ class ProductController extends Controller
             $product->logo = $filename;
             $product->save();
         }
-        return redirect()->back();
+
+        for ($i = 0; $i < count($request->file('video')); $i++)
+        {
+            $file =$request->file('video')[$i];
+            $destination_path = public_path().'/videos';
+            $extension =$file->getClientOriginalExtension();
+            $files =$file->getClientOriginalName();
+            $fileName = $file.'_'.time().'.'.$extension;
+            $file->move($destination_path, $fileName);
+        }
+
+
+            return redirect()->back();
     }
     /**
      * Display the specified resource.
