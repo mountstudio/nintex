@@ -36,27 +36,7 @@
     background-color: #EAEFF8;
 }
 
-.left {
-    left: 0;
-    z-index: 5;
-    transform: translateX(-100%);
-}
-.right {
-    right: 0;
-    z-index: 5;
-    transform: translateX(100%);
-}
-.target {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    width: 100%;
-    transition: .3s ease;
-}
-#text{
-    z-index: 0;
-}
+
 /*End animation*/
 .double-nav .breadcrumb-dn {
     color: #fff;
@@ -526,26 +506,69 @@
     top: 36%!important;
     left: 11% !important;
 }
-#text1, #text2 {
-    color: #fff;
-    font-family: Roboto;
-    text-decoration: none;
+
+.slide .item{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    object-fit: cover;
 }
-p>a {
-    color: #fd084a;
+.slide .item.active{
+    opacity: 1;
+    visibility: visible;
 }
-.blink {
-    animation: blink 0.5s infinite;
-}
-@keyframes blink{
-    to { opacity: .0; }
-}
-.flex {
+
+.next, .prev{
+    position: absolute;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
-.header-sub-title {
-    color: #fff;
-    font-family: "Courier";
-    font-size: 20px;
-    padding: 0.1em;
+#container-slider{
+    position: relative;
+    height: 500px;
+    background: linear-gradient(90deg, #EEEBEE, #EEEBEE 30%, #f8fafc 30%);
+}
+.left {
+    left: 0;
+    z-index: 5;
+    transform: translateX(-100%);
+}
+.right {
+    right: 0;
+    z-index: 5;
+    transform: translateX(100%);
+}
+.target {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    transition: .3s ease;
+}
+#text{
+    z-index: 0;
+}
+.left-active{
+    left: 0;
+    z-index: 5;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+}
+.right-active{
+    right: 0;
+    z-index: 5;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
 }

@@ -155,10 +155,10 @@
                             </div>
                         </div>
                         <div class="col-4 text-right">
-                            <a class="btn-floating mr-1 text-center" href="#multi-item-example" data-slide="prev">
+                            <a class="btn-floating mr-1 text-center prev" href="#multi-item-example">
                                 <img src="img/Arrow_left.svg" alt="">
                             </a>
-                            <a class="btn-floating ml-1 text-center" href="#multi-item-example" data-slide="next">
+                            <a class="btn-floating ml-1 text-center next" href="#multi-item-example">
                                 <img class="text-center" src="img/Arrow_right.svg" alt="">
                             </a>
                         </div>

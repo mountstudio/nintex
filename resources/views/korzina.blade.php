@@ -127,7 +127,7 @@
     </section>
 
     <section>
-        <div class="container" >
+        <div class="container">
             <div class="row">
                 <div class="owl-carousel owl-theme position-relative">
                     <div class="item" style="background: linear-gradient(90deg, #EEEBEE, #EEEBEE 30%, #f8fafc 30%);">
@@ -141,7 +141,8 @@
                                             </p>
                                             <p class="header-sub-title blink">|</p>
                                             <p class="py-3">
-                                                Сайт рыбатекст поможет дизайнеру,<br> верстальщику, вебмастеру сгенерировать<br>
+                                                Сайт рыбатекст поможет дизайнеру,<br> верстальщику, вебмастеру
+                                                сгенерировать<br>
                                                 несколько абзацев
                                                 более
 
@@ -162,12 +163,13 @@
                                 <div class="col-8 ">
                                     <div class="row justify-content-center">
                                         <div class="col-8 flex text1">
-                                            <p class="h2" >
+                                            <p class="h2">
                                                 ЗАГОЛОВОК КАКОЙ-ТО<br> АКЦИИ
                                             </p>
                                             <p class="header-sub-title blink">|</p>
                                             <p class="py-3">
-                                                Сайт рыбатекст поможет дизайнеру,<br> верстальщику, вебмастеру сгенерировать<br>
+                                                Сайт рыбатекст поможет дизайнеру,<br> верстальщику, вебмастеру
+                                                сгенерировать<br>
                                                 несколько абзацев
                                                 более
 
@@ -188,6 +190,81 @@
             </div>
         </div>
     </section>
+    <section>
+        <div class="container position-relative" id="container-slider">
+            <div class="row">
+                <div class="slide col-12">
+                    <div class="item active">
+                        <div class="col-6 text" id="item-1">
+                            <p class="h2"> Lorem ipsum.</p>
+                            <p class="py-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Amet blanditiis
+                                magni perspiciatis reiciendis repellendus.</p>
+
+                        </div>
+
+
+                    </div>
+                    <div class="item">
+                        <div class="col-6 text" id="item-2">
+                            <p class="h2"> Lorem ipsum.</p>
+                            <p class="py-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor
+                                sit.
+                                <br> Lorem ipsum dolor sit amet. Amet blanditiis magni perspiciatis reiciendis
+                                repellendus.
+                            </p>
+                            <textarea id="textExample1" rows="5" cols="60">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Consectetur dolor et incidunt labore maxime.
+                                Atque dolores facilis impedit minima mollitia non optio possimus quia repudiandae.
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 text-right">
+                    <a class="btn-floating mr-4 prev" onclick="animateText(textExample)">
+                        <img src="img/Arrow_left.svg" alt="">
+                    </a>
+                    <a class="btn-floating ml-4 next" onclick="animateText(textExample1)">
+                        <img src="img/Arrow_right.svg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+       <div class="container">
+           <div class="row justify-content-between">
+               <div class="col-6">
+                   <div class="owl-carousel owl-theme" id="sync1">
+                       <div class="item">
+                           <p>Lorem ipsum</p>
+                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                               <br>Adipisci amet animi at eius nesciunt saepe.</p>
+                       </div>
+                       <div class="item">
+                           <p>Lorem ipsum</p>
+                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                               <br>Ab architecto deleniti eligendi maiores necessitatibus nulla quod velit.</p>
+                       </div>
+                       <div class="item">
+                           <p>Lorem ipsum</p>
+                           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                               <br>Cum magni quasi saepe.</p>
+                       </div>
+                   </div>
+               </div>
+               <div class="col-6">
+                   <div class="owl-carousel owl-theme" id="sync2">
+                       <div class="item"><img src="{{ asset('img/slider1.svg') }}" style="height: 300px;width: 500px;z-index: 0;"alt=""></div>
+                       <div class="item"><img src="{{ asset('img/slider2.svg') }}" style="height: 300px;width: 500px;z-index: 0;" alt=""></div>
+                       <div class="item"><img src="{{ asset('img/basket.svg') }}" style="height: 300px;width: 500px;z-index: 0;" alt=""></div>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+
+    </section>
 
 
 
@@ -200,7 +277,7 @@
     <style>
         .h-slider {
 
-            height: 300px!important;
+            height: 300px !important;
         }
 
     </style>
@@ -208,25 +285,107 @@
 
 @push("scripts")
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
+
+    <script type="text/javascript">
+        function animateText(textAnimate) {
+            let text = textAnimate.value;
+            let to = text.length,
+                from = 0;
+
+            animate({
+                duration: 5000,
+                timing: circ,
+                draw: function (progress) {
+                    let result = (to - from) * progress + from;
+                    textAnimate.value = text.substr(0, Math.ceil(result))
+                }
+            });
+        }
+
+
+        function circ(timeFraction) {
+            return 1 - Math.sin(Math.acos(timeFraction));
+        }
+    </script>
     <script>
-        $('.owl-carousel').owlCarousel({
-            margin:10,
-            loop:true,
-            width: 200,
-            height: 500,
-            items:1,
-            mouseDrag: false,
-            touchDrag: true,
-            freeDrag: false,
-            nav:true,
-            navText: ["<img src=\"img/Arrow_left.svg\" class='d-none d-lg-block d-xl-block' style=\"position: absolute; top: 39%; left: 15%;\" alt=\"\">","<img src=\"img/Arrow_right.svg\" class='d-none d-lg-block d-xl-block' style=\"position: absolute; top: 39%; left: 20%;\" alt=\"\">"],
-            center: true,
+        let text = $('.text');
+        console.log(text);
+    </script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+
+            $('.next').click(function () {
+                $('.slide').find('.item.active').next().addClass('active');
+                $('.slide').find('.item.active').prev().removeClass('active');
+            })
+            $('.prev').click(function () {
+                $('.slide').find('.item.active').prev().addClass('active');
+                $('.slide').find('.item.active').next().removeClass('active');
+            })
+
 
         })
-    </script>
-
-    <script>
 
     </script>
 
+    <script type="text/javascript">
+        var sync1 = $('#sync1'),
+            sync2 = $('#sync2'),
+            duration = 300,
+            thumbs = 1,
+            flag = true;
+
+        sync1.on('click', '.owl-next', function () {
+            sync2.trigger('next.owl.carousel')
+        });
+        sync1.on('click', '.owl-prev', function () {
+            sync2.trigger('prev.owl.carousel')
+        });
+
+        // Start Carousel
+        sync1.owlCarousel({
+            // center : true,
+            loop: true,
+            items : 1,
+            margin:0,
+            dots: false,
+            nav : true,
+            navText : ["&lsaquo;","&rsaquo;"]
+        })
+            .on('dragged.owl.carousel', function (e) {
+                if (e.relatedTarget.state.direction == 'left') {
+                    sync2.trigger('next.owl.carousel')
+                } else {
+                    sync2.trigger('prev.owl.carousel')
+                }
+            });
+
+
+        sync2.owlCarousel({
+            // center: true,
+            loop: true,
+            items : thumbs,
+            margin:10,
+            dots:
+
+        })
+            .on('click', '.owl-item', function() {
+                var i = $(this).index()-(thumbs);
+                sync2.trigger('to.owl.carousel', [i, duration, true]);
+                sync1.trigger('to.owl.carousel', [i, duration, true]);
+            })
+            .on('changed.owl.carousel', function (e) {
+                console.log(e.item.index-thumbs);
+                if (!flag) {
+                    sync1.trigger('to.owl.carousel', [e.item.index-thumbs, duration, true]);
+                    flag = false;
+                }
+            });
+    </script>
+    <script type="text/javascript">
+
+    </script>
 @endpush

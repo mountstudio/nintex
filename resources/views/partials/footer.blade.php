@@ -1,4 +1,4 @@
-<footer class="bg-dark" style="margin-top: 20px;">
+<footer class="bg-dark position-relative" style="margin-top: 20px;">
     <div class="container">
         <div class="row">
             <div class=" d-flex align-items-center col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2 text-left text-xs-left text-sm-left text-md-left mb-4 mb-md-0">
