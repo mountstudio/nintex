@@ -4,7 +4,8 @@
     </div>
     <div class="card-body">
         <p>Ref. 6407/514</p>
-        <p class="h3">Пальто из шерстицвет черный</p>
+
+        <a href="{{route('product.show', $product)}}"><p class="h3">Пальто из шерсти.Цвет черный.</p></a>
         <div class="j-size-list size-list j-smart-overflow-instance">
             <label class="j-size tooltipstered active size-button" data-characteristic-id=""
                    data-size-name="XS">
@@ -47,4 +48,6 @@
         </div>
     </div>
 </div>
+
+
 

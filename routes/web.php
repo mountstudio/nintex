@@ -56,3 +56,13 @@ Route::resource('size', 'SizeController')->only(['index', 'show']);
 Route::resource('comment', 'CommentController')->only(['index', 'show', 'store']);
 // End Resource Routes
 
+//Cart
+Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
+Route::post('/cart', 'CartController@store')->name('cart.store');
+Route::get('/cart/add/book', 'CartController@add')->name('cart.add');
+Route::get('/cart/delete/book', 'CartController@delete')->name('cart.delete');
+Route::get('/cart/remove/book', 'CartController@remove')->name('cart.remove');
+//End Cart
+
+Route::get('/products', 'Api\ProductController@index')->name('product.all');

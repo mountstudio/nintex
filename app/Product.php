@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Darryldecode\Cart\Facades\CartFacade;
 
 class Product extends Model
 {
@@ -26,4 +27,5 @@ class Product extends Model
     {
         return $this->belongsToMany(User::class);
     }
+//    public static function add()
 }

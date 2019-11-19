@@ -39,5 +39,302 @@
     <script src="{{ asset('js/mmenu.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
     @stack('scripts')
+    <script>
+        let token = "{{ Session::has('token') ? Session::get('token') : uniqid() }}";
+
+        let url = $('.cart').attr('href');
+        url += '?token=' + token;
+        $('.cart').attr('href', url);
+
+        function fetchCart() {
+            $.ajax({
+                url: '{{ route('cart.index') }}',
+                data: {
+                    token: token
+                },
+                success: data => {
+                    console.log(data);
+                    let result = freshCartHtml(data.html, data.total);
+                    result.find('.buy_book').each((index, item) => {
+                        registerCartBuyButtons($(item));
+                    });
+                    result.find('.remove_book').each((index, item) => {
+                        registerCartRemoveButtons($(item));
+                    });
+                    result.find('.delete_book').each((index, item) => {
+                        registerCartDeleteButtons($(item));
+                    });
+                },
+                error: () => {
+                    console.log('error');
+                }
+            });
+        }
+
+        function registerCartBuyButtons(data) {
+
+            data.click(e => {
+                e.preventDefault();
+                console.log('registered');
+
+                let btn = $(e.currentTarget);
+                let id = btn.data('id');
+                let cart = null;
+
+                $.ajax({
+                    url: '{{ route('cart.add') }}',
+                    data: {
+                        product_id: id,
+                        count: 1,
+                        token: token
+                    },
+                    success: data => {
+                        btn.addClass('btn-success').delay(2000).queue(function(){
+                            btn.removeClass("btn-success").dequeue();
+                        });
+                        $('.carts').addClass('btn-success');
+                        doBounce($('.cart-count'), 3, '5px', 90);
+                        cart = fetchCart();
+                    },
+                    error: () => {
+                        console.log('error');
+                    }
+                });
+            });
+        }
+        function doBounce(element, times, distance, speed) {
+            for(var i = 0; i < times; i++) {
+                element.animate({marginTop: '-='+distance}, speed)
+                    .animate({marginTop: '+='+distance}, speed);
+            }
+        }
+        function registerCartRemoveButtons(data) {
+
+            data.click(e => {
+                e.preventDefault();
+                console.log('registered');
+
+                let btn = $(e.currentTarget);
+                let id = btn.data('id');
+                let cart = null;
+
+                $.ajax({
+                    url: '{{ route('cart.remove') }}',
+                    data: {
+                        product_id: id,
+                        count: 1,
+                        token: token
+                    },
+                    success: data => {
+                        cart = fetchCart();
+                    },
+                    error: () => {
+                        console.log('error');
+                    }
+                });
+            });
+        }
+
+        function registerCartDeleteButtons(data) {
+
+            data.click(e => {
+                e.preventDefault();
+                console.log('registered');
+
+                let btn = $(e.currentTarget);
+                let id = btn.data('id');
+                let cart = null;
+
+                $.ajax({
+                    url: '{{ route('cart.delete') }}',
+                    data: {
+                        product_id: id,
+                        token: token
+                    },
+                    success: data => {
+                        cart = fetchCart();
+                    },
+                    error: () => {
+                        console.log('error');
+                    }
+                })
+            });
+        }
+
+        $('.buy_book').each((index, item) => {
+            registerCartBuyButtons($(item));
+        });
+
+        $('.remove_book').each((index, item) => {
+            registerCartRemoveButtons($(item));
+        });
+
+        $('.delete_book').each((index, item) => {
+            registerCartDeleteButtons($(item));
+        });
+
+        function freshCartHtml(html, total) {
+            total > 0 ? $('.cart-count').addClass('d-flex').html(total) : $('.cart-count').removeClass('d-flex').html('');
+            return $('.modal-body-cart').html(html);
+        }
+
+        fetchCart();
+
+        // $('.cart').click(e => {
+        //     e.preventDefault();
+        //     $('#cart-modal').modal('show');
+        //     // freshCartHtml(fetchedCart);
+        // });
+
+
+    </script><script>
+        let token = "{{ Session::has('token') ? Session::get('token') : uniqid() }}";
+
+        let url = $('.cart').attr('href');
+        url += '?token=' + token;
+        $('.cart').attr('href', url);
+
+        function fetchCart() {
+            $.ajax({
+                url: '{{ route('cart.index') }}',
+                data: {
+                    token: token
+                },
+                success: data => {
+                    console.log(data);
+                    let result = freshCartHtml(data.html, data.total);
+                    result.find('.buy_book').each((index, item) => {
+                        registerCartBuyButtons($(item));
+                    });
+                    result.find('.remove_book').each((index, item) => {
+                        registerCartRemoveButtons($(item));
+                    });
+                    result.find('.delete_book').each((index, item) => {
+                        registerCartDeleteButtons($(item));
+                    });
+                },
+                error: () => {
+                    console.log('error');
+                }
+            });
+        }
+
+        function registerCartBuyButtons(data) {
+
+            data.click(e => {
+                e.preventDefault();
+                console.log('registered');
+
+                let btn = $(e.currentTarget);
+                let id = btn.data('id');
+                let cart = null;
+
+                $.ajax({
+                    url: '{{ route('cart.add') }}',
+                    data: {
+                        product_id: id,
+                        count: 1,
+                        token: token
+                    },
+                    success: data => {
+                        btn.addClass('btn-success').delay(2000).queue(function(){
+                            btn.removeClass("btn-success").dequeue();
+                        });
+                        $('.carts').addClass('btn-success');
+                        doBounce($('.cart-count'), 3, '5px', 90);
+                        cart = fetchCart();
+                    },
+                    error: () => {
+                        console.log('error');
+                    }
+                });
+            });
+        }
+        function doBounce(element, times, distance, speed) {
+            for(var i = 0; i < times; i++) {
+                element.animate({marginTop: '-='+distance}, speed)
+                    .animate({marginTop: '+='+distance}, speed);
+            }
+        }
+        function registerCartRemoveButtons(data) {
+
+            data.click(e => {
+                e.preventDefault();
+                console.log('registered');
+
+                let btn = $(e.currentTarget);
+                let id = btn.data('id');
+                let cart = null;
+
+                $.ajax({
+                    url: '{{ route('cart.remove') }}',
+                    data: {
+                        product_id: id,
+                        count: 1,
+                        token: token
+                    },
+                    success: data => {
+                        cart = fetchCart();
+                    },
+                    error: () => {
+                        console.log('error');
+                    }
+                });
+            });
+        }
+
+        function registerCartDeleteButtons(data) {
+
+            data.click(e => {
+                e.preventDefault();
+                console.log('registered');
+
+                let btn = $(e.currentTarget);
+                let id = btn.data('id');
+                let cart = null;
+
+                $.ajax({
+                    url: '{{ route('cart.delete') }}',
+                    data: {
+                        product_id: id,
+                        token: token
+                    },
+                    success: data => {
+                        cart = fetchCart();
+                    },
+                    error: () => {
+                        console.log('error');
+                    }
+                })
+            });
+        }
+
+        $('.buy_book').each((index, item) => {
+            registerCartBuyButtons($(item));
+        });
+
+        $('.remove_book').each((index, item) => {
+            registerCartRemoveButtons($(item));
+        });
+
+        $('.delete_book').each((index, item) => {
+            registerCartDeleteButtons($(item));
+        });
+
+        function freshCartHtml(html, total) {
+            total > 0 ? $('.cart-count').addClass('d-flex').html(total) : $('.cart-count').removeClass('d-flex').html('');
+            return $('.modal-body-cart').html(html);
+        }
+
+        fetchCart();
+
+        // $('.cart').click(e => {
+        //     e.preventDefault();
+        //     $('#cart-modal').modal('show');
+        //     // freshCartHtml(fetchedCart);
+        // });
+
+
+    </script>
 </body>
 </html>

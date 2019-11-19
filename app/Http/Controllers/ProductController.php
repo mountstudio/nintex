@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Helpers\ImageSaver;
 use App\Product;
+//use Faker\Provider\Image;
+use App\Size;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
+
 
 class ProductController extends Controller
 {
@@ -35,6 +41,8 @@ class ProductController extends Controller
 
         return view('admin.products.create', [
             'categories' => $categories,
+            'sizes' => Size::all(),
+            'product' => Product::all(),
         ]);
     }
 
@@ -46,9 +54,36 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $product = new Product($request->all());
+        $product->save();
+        $product->sizes()->sync($request->sizes);
+        $product->sizes()->attach($request->size_id);
 
+        if ($images = $request->images)
+        {
+            foreach ($images as $image)
+            {
+                $filename = ImageSaver::save($image, "uploads", "nintex");
+                $product->images = $filename;
+                $product->save();
+            }
+        }
+        if ($logo = $request->logo)
+        {
+            $filename = ImageSaver::save($logo, 'uploads', 'nintex_logo');
+            $product->logo = $filename;
+            $product->save();
+        }
+            $file =$request->file('video');
+            $destination_path = public_path().'/videos';
+            $extension =$file->getClientOriginalExtension();
+            $files =$file->getClientOriginalName();
+            $fileName = $file.'_'.time().'.'.$extension;
+            $file->move($destination_path, $fileName);
+            $product->video = $fileName;
+            $product->save();
+            return redirect()->back();
+    }
     /**
      * Display the specified resource.
      *
@@ -57,7 +92,16 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show', [
+           'product' => $product,
+        ]);
+    }
+
+    public function card(Product $products) {
+        return view('products.card', [
+            'products' => $products,
+            'sizes' => Size::all(),
+        ]);
     }
 
     /**
@@ -68,7 +112,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.products.edit', [
+            'product' => $product,
+        ]);
     }
 
     /**
@@ -81,6 +127,22 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $product->update($request->all());
+
+        if ($images = $request->images)
+        {
+            foreach ($images as $image)
+            {
+                $filename = ImageSaver::save($image, "uploads", "nintex");
+                $product->images = $filename;
+                $product->save();
+            }
+        }
+        if ($logo = $request->logo)
+        {
+            $filename = ImageSaver::save($logo, 'uploads', 'nintex_logo');
+            $product->logo = $filename;
+            $product->save();
+        }
 
         Session::flash('status', ['status' => 'success', 'message' => 'Товар был успешно обнолен']);
 

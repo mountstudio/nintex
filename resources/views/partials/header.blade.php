@@ -32,6 +32,13 @@
                    class="border-bottom-0 border-top-0 border-right-0 border-left-0 rounded-0 border-dark my-2 my-sm-0"><img
                         src="img/user_avatar.svg" class="img-fluid" alt=""></a>
             </li>
+            <li class="nav-item mr-4">
+                <a href="{{ route('cart.checkout') }}">
+                    <div class="badge badge-danger rounded-circle shadow small position-absolute cart-count justify-content-center align-items-center" style="width: 21px; height: 21px;top: -8px; right: 5px;"></div>
+                    {{--<i style="color: #444;" class="fas carts fa-cart-plus fa-lg"></i>--}}
+                    <img class="img-fluid" src="{{ asset('images/cart.svg') }}" alt="">
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
