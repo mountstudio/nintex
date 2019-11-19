@@ -74,6 +74,40 @@ class ProductController extends Controller
             $product->logo = $filename;
             $product->save();
         }
+
+
+            $file =$request->file('video');
+            $destination_path = public_path().'/videos';
+            $extension =$file->getClientOriginalExtension();
+            $files =$file->getClientOriginalName();
+            $fileName = $file.'_'.time().'.'.$extension;
+            $file->move($destination_path, $fileName);
+            $product->video = $fileName;
+            $product->save();
+
+
+            return redirect()->back();
+    }
+        $product = new Product($request->all());
+        $product->save();
+        $product->sizes()->sync($request->sizes);
+        $product->sizes()->attach($request->size_id);
+
+        if ($images = $request->images)
+        {
+            foreach ($images as $image)
+            {
+                $filename = ImageSaver::save($image, "uploads", "nintex");
+                $product->images = $filename;
+                $product->save();
+            }
+        }
+        if ($logo = $request->logo)
+        {
+            $filename = ImageSaver::save($logo, 'uploads', 'nintex_logo');
+            $product->logo = $filename;
+            $product->save();
+        }
             $file =$request->file('video');
             $destination_path = public_path().'/videos';
             $extension =$file->getClientOriginalExtension();
@@ -92,6 +126,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        return view('products.show', [
+           'product' => $product,
+        ]);
         return view('products.show', [
            'product' => $product,
         ]);

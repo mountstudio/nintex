@@ -1,11 +1,9 @@
 @extends('admin.dashboard')
 
 @section('dashboard_content')
-    <form class="border container p-4 bg-white z-depth-1" action="{{ route('admin.product.store') }}" method="post">
+    <form class="border container p-4 bg-white z-depth-1" action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-
         <div class="row">
-
             <div class="col-6">
                 <!-- Material input -->
                 <div class="md-form">
@@ -55,13 +53,15 @@
                 <label>Выберите фото</label>
                 <input type="file" name="video">
             </div>
-            <div class="col-6">
-                <span class="multi-select"></span>
-            </div>
         </div>
-        <button type="submit" title="{{ __('Создать') }}" class="bt n btn-success">{{ __('Создать') }}</button>
+
+        <button type="submit" title="{{ __('Создать') }}" class="btn btn-success">{{ __('Создать') }}</button>
     </form>
 @endsection
+
+@push('scripts')
+    <script src="{{asset('js/field.js')}}"></script>
+@endpush
 
 @push('styles')
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
