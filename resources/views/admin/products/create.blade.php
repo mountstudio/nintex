@@ -29,7 +29,7 @@
                     <label>Выберите цвет</label>
                 </fieldset>
                 <input type="color" class="fieldname form-control" name="colors[]">
-                <button type="button" id="add">
+                <button type="button">
                     <i class="fas fa-plus" id="add"></i>
                 </button>
             </div>
@@ -42,64 +42,46 @@
                 <input type="file" name="images[]" multiple>
             </div>
             <div class="col-6">
-                <label>Выберите размер</label>
-                <select name="size_id" id="size_id">
+                <label>Выберите видео</label>
+                <input type="file" name="video">
+            </div>
+            <div class="col-6">
+                <label>Выберите размеры</label>
+                <select class="js-example-basic-multiple" name="sizes[]" multiple="multiple" id="select2" placeholder="size">
                     @foreach($sizes as $size)
-                        <option value="{{ $size->id }}">{{ $size->size }}</option>
+                        <option value="{{ $size->size }}">{{ $size ->size }}</option>
                     @endforeach
                 </select>
             </div>
-            <div class="col-6">
-                <label>Выберите фото</label>
-                <input type="file" name="video">
-            </div>
+
         </div>
 
         <button type="submit" title="{{ __('Создать') }}" class="btn btn-success">{{ __('Создать') }}</button>
     </form>
 @endsection
 
-@push('scripts')
-    <script src="{{asset('js/field.js')}}"></script>
-@endpush
 
 @push('styles')
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/multiselect.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/app_bs1') }}">
+    <style>
+        .select2-container {
+            width: auto !important;
+            min-width: 100px;
+        }
+    </style>
 @endpush
 
 @push('scripts')
-    <script src="{{asset('js/field.js')}}"></script>
     <script src="{{ asset('js/bundle.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-tagsinput.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+    <script src="{{asset('js/field.js')}}"></script>
     <script>
-        var multi = new SelectPure(".multi-select", {
-            options: [
-                {
-                    label: "S",
-                    value: "S",
-                },
-                {
-                    label: "M",
-                    value: "M",
-                },
-                {
-                    label: "L",
-                    value: "L",
-                },
-                {
-                    label: "XL",
-                    value: "XL",
-                },
-                {
-                    label: "XXL",
-                    value: "XXL",
-                },
-            ],
-            value: ["L", "S"],
-            multiple: true,
-            icon: "fa fa-times",
-            onChange: value => { console.log(value); },
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
         });
     </script>
 @endpush
