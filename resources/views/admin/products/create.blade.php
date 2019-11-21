@@ -29,7 +29,7 @@
                     <label>Выберите цвет</label>
                 </fieldset>
                 <input type="color" class="fieldname form-control" name="colors[]">
-                <button type="button">
+                <button type="button" id="add">
                     <i class="fas fa-plus" id="add"></i>
                 </button>
             </div>
@@ -59,6 +59,14 @@
         <button type="submit" title="{{ __('Создать') }}" class="btn btn-success">{{ __('Создать') }}</button>
     </form>
 @endsection
+
+
+
+@push('styles')
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/multiselect.css') }}">
+@endpush
 
 
 @push('styles')
