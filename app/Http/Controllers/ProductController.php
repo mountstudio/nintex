@@ -55,11 +55,16 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product($request->all());
+        $array = [];
+        $colors = $request->colors;
+        foreach ($colors as $index=>$color)
+        {
+            $array[$color] => $request->
+        }
         $product->save();
-//        $product->sizes()->sync($request->sizes);
-//        $product->sizes()->attach($request->size_id);
 
-        if ($images = $request->images)
+
+        if ($images = $request->colors)
         {
             foreach ($images as $image)
             {

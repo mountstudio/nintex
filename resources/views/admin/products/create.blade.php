@@ -29,6 +29,7 @@
                     <label>Выберите цвет</label>
                 </fieldset>
                 <input type="color" class="fieldname form-control" name="colors[]">
+                <input type="file" name="images[]" multiple>
                 <button type="button" id="add">
                     <i class="fas fa-plus" id="add"></i>
                 </button>
@@ -37,10 +38,10 @@
                 <label>Выберите фото</label>
                 <input type="file" name="logo">
             </div>
-            <div class="col-6">
-                <label>Выберите картинки</label>
-                <input type="file" name="images[]" multiple>
-            </div>
+{{--            <div class="col-6">--}}
+{{--                <label>Выберите картинки</label>--}}
+{{--                <input type="file" name="images[]" multiple>--}}
+{{--            </div>--}}
             <div class="col-6">
                 <label>Выберите видео</label>
                 <input type="file" name="video">

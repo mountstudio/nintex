@@ -5,13 +5,14 @@ $(document).ready(function() {
         var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
         fieldWrapper.data("idx", intId);
         var fName = $("<input type=\"color\" class=\"fieldname form-control\" name=\"colors[]\" />");
+        var fImages = $("<input type=\"file\" name=\"images[]\" multiple />");
         var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
         removeButton.click(function() {
             $(this).parent().remove();
         });
         fieldWrapper.append(fName);
+        fieldWrapper.append(fImages);
         fieldWrapper.append(removeButton);
-        // fieldWrapper.append(addButton);
         $("#buildyourform").append(fieldWrapper);
     });
     $("#preview").click(function() {
