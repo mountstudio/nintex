@@ -7,11 +7,11 @@ use Darryldecode\Cart\Facades\CartFacade;
 
 class Product extends Model
 {
-    protected $fillable = ['title', 'logo', 'images','description', 'colors', 'sizes', 'price', 'category_id',];
+    protected $fillable = ['title', 'logo','description', 'colors', 'sizes', 'price', 'category_id',];
 
     protected $casts = [
         'colors' => 'array',
-        'images' => 'array',
+//        'images' => 'array',
         'sizes' => 'array',
     ];
 

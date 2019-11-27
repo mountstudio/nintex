@@ -32,6 +32,45 @@ class CartController extends Controller
             'total' => $cart->getTotal(),
         ]);
     }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $token = $request->token ? $request->token : Session::has('token') ? Session::get('token') : uniqid();
+
+        TokenResolve::resolve($token);
+        $cart = CartFacade::session($token);
+
+        $newCart = new Cart();
+        $newCart->cart = [
+            'cart' => $cart->getContent(),
+            'total' => $cart->getTotal(),
+        ];
+        $newCart->user_id = auth()->check() ? auth()->user()->id : null;
+        $newCart->comment = $request->comment;
+        $newCart->name = $request->name;
+        $newCart->email = $request->email;
+        $newCart->phone = $request->phone;
+        $newCart->address = $request->address;
+        $newCart->total = $request->total;
+        if ($request->delivery == 'on'){
+            $newCart->delivery = true;
+            $newCart->sum = $request->sum;
+            $newCart->diff = $request->diff;
+        }
+        $newCart->save();
+
+        Session::forget(['cart', 'token']);
+        Session::flash('cart_success', 'Your info has successfully created!');
+
+        return redirect('/');
+    }
 //    /**
 ////     * Display a listing of the resource.
 ////     *
@@ -162,43 +201,7 @@ class CartController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $token = $request->token ? $request->token : Session::has('token') ? Session::get('token') : uniqid();
 
-        TokenResolve::resolve($token);
-        $cart = CartFacade::session($token);
-
-        $newCart = new Cart();
-        $newCart->cart = [
-            'cart' => $cart->getContent(),
-            'total' => $cart->getTotal(),
-        ];
-        $newCart->user_id = auth()->check() ? auth()->user()->id : null;
-        $newCart->comment = $request->comment;
-        $newCart->name = $request->name;
-        $newCart->email = $request->email;
-        $newCart->phone = $request->phone;
-        $newCart->address = $request->address;
-        $newCart->total = $request->total;
-        if ($request->delivery == 'on'){
-            $newCart->delivery = true;
-            $newCart->sum = $request->sum;
-            $newCart->diff = $request->diff;
-        }
-        $newCart->save();
-
-        Session::forget(['cart', 'token']);
-        Session::flash('cart_success', 'Your info has successfully created!');
-
-        return redirect('/');
-    }
 
     /**
      * Display the specified resource.

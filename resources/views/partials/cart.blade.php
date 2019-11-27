@@ -1,7 +1,6 @@
 <div class="container">
     <h1 class="text-uppercase h3 py-4">Корзина</h1>
     @if(count($cartItems))
-
         <div class="row d-none d-md-flex">
             <div class="col-4 h3">
                 Товар

@@ -100,9 +100,9 @@
 .checkbox-black{
     background: black;
 }
-.checkbox-red{
-    background: red;
-}
+/*.checkbox-red{*/
+/*    background: red;*/
+/*}*/
 
 /* Hide the browser's default checkbox */
 .checkbox input {

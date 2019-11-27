@@ -55,23 +55,21 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product($request->all());
-        $array = [];
-        $colors = $request->colors;
-        foreach ($colors as $index=>$color)
-        {
-            $array[$color] => $request->
-        }
         $product->save();
-
-
-        if ($images = $request->colors)
+        $arrColors = [];
+        if ($images = $request->images)
         {
-            foreach ($images as $image)
-            {
-                $filename = ImageSaver::save($image, "uploads", "nintex");
-                $product->images = $filename;
-                $product->save();
+            foreach ($request->colors as $index => $color) {
+                $arrFileNames = [];
+                foreach ($images[$index] as $image) {
+                    $filename = ImageSaver::save($image, "uploads", "nintex");
+                    $arrFileNames[] = $filename;
+                }
+
+                $arrColors[$color][] = $arrFileNames;
             }
+            $product->colors = $arrColors;
+            $product->save();
         }
         if ($logo = $request->logo)
         {
@@ -79,8 +77,6 @@ class ProductController extends Controller
             $product->logo = $filename;
             $product->save();
         }
-
-
             $file =$request->file('video');
             $destination_path = public_path().'/videos';
             $extension =$file->getClientOriginalExtension();
@@ -99,10 +95,14 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Product $product, Request $request)
     {
+        $colors =array('colors' => json_decode($request->colors));
         return view('products.show', [
            'product' => $product,
+            'sizes' => Size::all(),
+            'products' => Product::all(),
+            'colors' => $colors,
         ]);
     }
 

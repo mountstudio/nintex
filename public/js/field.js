@@ -1,18 +1,24 @@
 $(document).ready(function() {
+    let count = 0;
     $("#add").click(function() {
         var lastField = $("#buildyourform div:last");
         var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
         var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
         fieldWrapper.data("idx", intId);
-        var fName = $("<input type=\"color\" class=\"fieldname form-control\" name=\"colors[]\" />");
-        var fImages = $("<input type=\"file\" name=\"images[]\" multiple />");
+        count++;
+        console.log(count);
+        var fName = $("<input type=\"color\" class=\"fieldname form-control\" name=\"colors["+count+"]\" />");
+        var fImages = $('<input type="file" name="images['+ count +'][]" multiple />');
         var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
         removeButton.click(function() {
             $(this).parent().remove();
+            count--;
+            console.log(count);
         });
         fieldWrapper.append(fName);
         fieldWrapper.append(fImages);
         fieldWrapper.append(removeButton);
+
         $("#buildyourform").append(fieldWrapper);
     });
     $("#preview").click(function() {
@@ -36,6 +42,7 @@ $(document).ready(function() {
             fieldSet.append(label);
             fieldSet.append(input);
         });
+
         $("body").append(fieldSet);
     });
 });

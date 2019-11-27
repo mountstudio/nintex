@@ -28,8 +28,8 @@
                 <fieldset id="buildyourform">
                     <label>Выберите цвет</label>
                 </fieldset>
-                <input type="color" class="fieldname form-control" name="colors[]">
-                <input type="file" name="images[]" multiple>
+                <input type="color" class="fieldname form-control" name="colors[0]">
+                <input type="file" name="images[0][]" multiple>
                 <button type="button" id="add">
                     <i class="fas fa-plus" id="add"></i>
                 </button>
