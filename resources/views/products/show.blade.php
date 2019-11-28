@@ -4,12 +4,9 @@
     <section class="bg-nintex-color">
         <div class="container-fluid pt-5">
             <div class="row">
-                 <div class="col-8 position-relative">
+                <div class="col-8 position-relative">
                     <div class=" d-flex justify-content-end " style=" border-bottom-left-radius: 100px;">
                         <div class="col-6">
-                            <p>
-                                осенняя коллекция
-                            </p>
                             <p class="text-uppercase text-h1Size-bold pb-md-2 h3">
                                 {{ $product->title }}
                             </p>
@@ -21,20 +18,18 @@
                     </div>
 
                     <div class="mt-3">
-                        <img class="position-absolute w-100" style="left: 0; bottom: 0;" src="{{ asset('img/Vector 1.svg') }}" alt="">
+                        <img class="position-absolute w-100" style="left: 0; bottom: 0;"
+                             src="{{ asset('img/Vector 1.svg') }}" alt="">
                         <div class="row" style="margin-top: 100px;">
                             <div class="col-6 pl-5">
                                 <p>Цвет:</p>
                                 <div class="checkbox">
-
-                                        @foreach(array_keys($product->colors) as $colors)
-
+                                    @foreach(array_keys($product->colors) as $colors)
                                         <label class="checkbox-red" style="background: {{ $colors }};">
                                             <input id="cbox-red" type="checkbox">
                                             <span class="checkmark"></span>
                                         </label>
-
-                                        @endforeach
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="col-6 pt-3">
@@ -43,9 +38,8 @@
                                     качества</p>
                             </div>
                             <div class="col-5 pb-5 pl-5">
-                                <p class="mb-4">Размер: </p>
+                                <p class="mb-4">Размеры: </p>
                                 <div class="j-size-list size-list j-smart-overflow-instance">
-{{--                                    @dd($product->sizes)--}}
                                     @foreach($product->sizes as $size)
                                         <label class="j-size tooltipstered size-button" data-characteristic-id=""
                                                data-size-name="{{ $size }}">
@@ -53,20 +47,22 @@
                                             <input class="radio-size" id="size" name="size" type="radio" value="">
                                         </label>
                                     @endforeach
-                                    <i class="icon-step j-imigize hide"></i>
                                 </div>
-                                <a href="{{ route('cart.checkout') }}" class="btn btn-lightblue mt-3 cart">Начать покупки</a>
+                                <a href="{{ route('cart.checkout') }}" class="btn btn-lightblue mt-3 cart">Начать
+                                    покупки</a>
                             </div>
                             <div class="col-4 pb-5">
                                 <a href="#" class="btn btn-white btn-block mt-5">В избранное</a>
-                                <a href="#" class="btn btn-dark btn-block text-fut-book but-hov text-white buy_book d-lg-block d-none" data-id="{{ $product->id }}">В корзину</a>
+                                <a href="#"
+                                   class="btn btn-dark btn-block text-fut-book but-hov text-white buy_book d-lg-block d-none"
+                                   data-id="{{ $product->id }}">В корзину</a>
                             </div>
-
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
-                        <img style="width:394px;height:525px;" src="{{ asset('uploads/'.$product->logo)}}" alt="">
+                    <img style="bottom: 0px; position: absolute; width:394px;height:525px;"
+                         src="{{ asset('uploads/'.$product->logo)}}" alt="">
                 </div>
             </div>
         </div>
@@ -85,8 +81,7 @@
 @endsection
 @push('scripts')
     <script>
-        function getProducts(params = {})
-        {
+        function getProducts(params = {}) {
             $.ajax({
                 url: '{{ route('product.all') }}',
                 data: params,
@@ -103,5 +98,17 @@
             });
         }
     </script>
+    <script>
+        $('.j-size-list').on('click', 'label', function () {
+            $('.j-size-list label').removeClass('active');
+            $(this).addClass('active');
+            if ($('.j-size-list').className === 'active'){
+                var size = $(".j-size-list").attr('data-size-name');
+                console.log(size);
+            }
+            else { console.log('no size');}
+        });
+    </script>
+
 @endpush
 
