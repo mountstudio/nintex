@@ -25,8 +25,13 @@
                                 <p>Цвет:</p>
                                 <div class="checkbox">
                                     @foreach(array_keys($product->colors) as $colors)
-                                        <label class="checkbox-red" style="background: {{ $colors }};">
-                                            <input id="cbox-red" type="checkbox">
+{{--                                        <label class="checkbox-red" style="background: {{ $colors }};">--}}
+{{--                                            <input id="cbox-red" type="checkbox">--}}
+{{--                                            <span class="checkmark"></span>--}}
+{{--                                        </label>--}}
+                                        <label class="j-color checkbox-red" style="background: {{ $colors }};"
+                                               data-color="{{ $colors }}">
+                                            <input id="cbox-red" name="color" type="radio">
                                             <span class="checkmark"></span>
                                         </label>
                                     @endforeach
@@ -42,7 +47,7 @@
                                 <div class="j-size-list size-list j-smart-overflow-instance">
                                     @foreach($product->sizes as $size)
                                         <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="{{ $size }}">
+                                               data-size="{{ $size }}">
                                             <span>{{ $size }}</span>
                                             <input class="radio-size" id="size" name="size" type="radio" value="">
                                         </label>
@@ -99,14 +104,17 @@
         }
     </script>
     <script>
-        $('.j-size-list').on('click', 'label', function () {
+        $('.j-size-list').on('click', 'label', function (e) {
             $('.j-size-list label').removeClass('active');
             $(this).addClass('active');
-            if ($('.j-size-list').className === 'active'){
-                var size = $(".j-size-list").attr('data-size-name');
-                console.log(size);
-            }
-            else { console.log('no size');}
+            let btn = $(e.currentTarget);
+
+            $('.buy_book').attr('data-size', btn.data('size'));
+        });
+        $('.j-color').on('click', function (e) {
+            let btn = $(e.currentTarget);
+            console.log(btn);
+            $('.buy_book').attr('data-color', btn.data('color'));
         });
     </script>
 

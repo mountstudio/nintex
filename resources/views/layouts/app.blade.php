@@ -80,13 +80,17 @@
                 let btn = $(e.currentTarget);
                 let id = btn.data('id');
                 let cart = null;
+                let color = btn.data('color');
+                let size = btn.data('size');
 
                 $.ajax({
                     url: '{{ route('cart.add') }}',
                     data: {
                         product_id: id,
                         count: 1,
-                        token: token
+                        token: token,
+                        size: size,
+                        color: color
                     },
                     success: data => {
                         btn.addClass('btn-success').delay(2000).queue(function(){
