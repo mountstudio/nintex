@@ -53,12 +53,12 @@ class CartController extends Controller
             'total' => $cart->getTotal(),
         ];
         $newCart->user_id = auth()->check() ? auth()->user()->id : null;
-        $newCart->comment = $request->comment;
+//        $newCart->comment = $request->comment;
         $newCart->name = $request->name;
         $newCart->email = $request->email;
         $newCart->phone = $request->phone;
         $newCart->address = $request->address;
-        $newCart->total = $request->total;
+//        $newCart->total = $request->total;
         if ($request->delivery == 'on'){
             $newCart->delivery = true;
             $newCart->sum = $request->sum;

@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
 
-                            <input class="inp-cbx" name="delivery" id="cbx" type="checkbox" style="display: none;"/>
+                            <input class="inp-cbx" name="" id="cbx" type="checkbox" style="display: none;"/>
                             <label class="cbx" for="cbx">
                                 <span>
                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
@@ -62,10 +62,10 @@
                                 <input type="text" id="diff" name="diff" class="form-control input-erudit" readonly>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="comment">Комментарий к заказу</label>
-                            <textarea id="comment" name="comment" rows="6" class="form-control input-erudit scrollbar"></textarea>
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="comment">Комментарий к заказу</label>--}}
+{{--                            <textarea id="comment" name="comment" rows="6" class="form-control input-erudit scrollbar"></textarea>--}}
+{{--                        </div>--}}
                     </form>
                 </div>
                 <div class="col-12 col-lg-5 mt-4 mt-lg-0">

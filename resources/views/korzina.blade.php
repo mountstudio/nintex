@@ -59,8 +59,8 @@
 
                             </div>
                             <div class="col-6 pt-3">
-                                <p class=""><img src="img/file.svg" alt=""> Лучшая ткань</p>
-                                <p class=""><img src="img/quality (1).svg" alt=""> Гарантия
+                                <p class=""><img src="{{ asset('img/file.svg') }}" alt=""> Лучшая ткань</p>
+                                <p class=""><img src="{{ asset('img/quality (1).svg') }}" alt=""> Гарантия
                                     качества</p>
                             </div>
                             <div class="col-5 pb-5 ">

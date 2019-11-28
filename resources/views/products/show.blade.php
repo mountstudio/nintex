@@ -27,7 +27,6 @@
                                 <p>Цвет:</p>
                                 <div class="checkbox">
 
-
                                         @foreach(array_keys($product->colors) as $colors)
 
                                         <label class="checkbox-red" style="background: {{ $colors }};">
@@ -37,11 +36,10 @@
 
                                         @endforeach
                                 </div>
-
                             </div>
-                            <div class="col-6">
-                                <p class="" ><img src="img/file.svg" alt=""> Лучшая ткань</p>
-                                 <p class="" ><img src="img/quality (1).svg" alt=""> Гарантия
+                            <div class="col-6 pt-3">
+                                <p class=""><img src="{{ asset('img/file.svg') }}" alt=""> Лучшая ткань</p>
+                                <p class=""><img src="{{ asset('img/quality (1).svg') }}" alt=""> Гарантия
                                     качества</p>
                             </div>
                             <div class="col-5 pb-5 pl-5">
@@ -57,7 +55,7 @@
                                     @endforeach
                                     <i class="icon-step j-imigize hide"></i>
                                 </div>
-                                <a href="#" class="btn btn-lightblue mt-3">Начать покупки</a>
+                                <a href="{{ route('cart.checkout') }}" class="btn btn-lightblue mt-3 cart">Начать покупки</a>
                             </div>
                             <div class="col-4 pb-5">
                                 <a href="#" class="btn btn-white btn-block mt-5">В избранное</a>
