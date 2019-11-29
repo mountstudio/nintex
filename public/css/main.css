@@ -572,3 +572,24 @@
     -o-transform: translateX(0);
     transform: translateX(0);
 }
+#sync1 .owl-nav .owl-prev {
+    position: absolute!important;
+    right: 12%!important;
+    bottom: 0!important;
+}
+#sync1 .owl-nav .owl-next {
+    position: absolute!important;
+    right: 5%!important;
+    bottom: 0!important;
+}
+
+#carousel1 .owl-nav .owl-prev {
+    position: absolute!important;
+    left: 5%!important;
+    bottom: 0!important;
+}
+#carousel1 .owl-nav .owl-next {
+    position: absolute!important;
+    left: 12%!important;
+    bottom: 0!important;
+}

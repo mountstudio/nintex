@@ -39,6 +39,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/mmenu.js') }}"></script>
+    <script src="{{ asset('js/typed.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
     @stack('scripts')
 </body>
