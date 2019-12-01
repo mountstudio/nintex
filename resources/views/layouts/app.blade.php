@@ -21,6 +21,9 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
     @stack('styles')
+
+    <script src="https://js.cx/libs/animate.js"></script>
+
 </head>
 <body class="bg-white">
     <div id="app pt-4">
@@ -37,6 +40,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/mdb.min.js') }}"></script>
     <script src="{{ asset('js/mmenu.js') }}"></script>
+    <script src="{{ asset('js/typed.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
     @stack('scripts')
     <script>

@@ -5,29 +5,24 @@
     <section class="bg-nintex-color">
         <div class="container-fluid pt-5">
             <div class="row">
-                <div class="col-8 position-relative">
+                <div class="col-7 position-relative">
                     <div class=" d-flex justify-content-end " style=" border-bottom-left-radius: 100px;">
                         <div class="text-left">
-                            <p>
-                                осенняя коллекция
-                            </p>
-                            <p class="text-uppercase text-h1Size-bold pb-md-2 h3">
-                                Пальто из шерсти
+                            <p class="h3 text-uppercase">
+                                ДЛИННОЕ ПАЛЬТО ИЗ ШЕРСТИ С ПУГОВИЦЕЙ ИЗ КОЛЛЕКЦИИ HANDMADE
                             </p>
                             <p>
-                                Сайт рыбатекст поможет дизайнеру,
-                                верстальщику,<br> вебмастеру сгенерировать
-                                несколько абзацев более менее
+                                Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее
                             </p>
+                            <div id="rateYo"></div>
+                            <div id="otzyv">
+
+                            </div>
+                            <div id="cena">
+
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="controls-top d-flex justify-content-end">
-                        <a class="btn-floating mr-1" href="#multi-item-example" data-slide="prev">
-                            <img src="img/Arrow_left.svg" alt="">
-                        </a>
-                        <a class="btn-floating ml-1" href="#multi-item-example" data-slide="next">
-                            <img src="img/Arrow_right.svg" alt="">
-                        </a>
                     </div>
                     <div class="mt-3">
                         <img class="position-absolute w-100" style="left: 0; bottom: 0;" src="{{ asset('img/Vector 1.svg') }}" alt="">
@@ -107,8 +102,34 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-5">
+                    <div class="col-9">
+                        <div class="owl-carousel owl-theme" id="firstCarousel">
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                        </div>
 
+                    </div>
+                    <div class="col-3">
+                        <div class="owl-carousel owl-theme" id="secondCarousel">
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                            <div class="item"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,5 +153,30 @@
 @endpush
 
 @push("scripts")
+    <script>
+        let firstCar = $('#firstCarousel'),
+            secondCar = $('#secondCarousel'),
+            thumbs =
+        firstCar.owlCarousel({
+            loop: true,
+            items: 1,
+            margin: 0,
+            nav: false,
+            dots: false,
 
+        });
+
+        secondCar.owlCarousel({
+            loop: true,
+            items: 7,
+            margin: 0,
+            nav: false,
+            dots: false,
+
+        })
+
+        secondCar.on('click', '.owl-item', function(e) {
+
+        })
+    </script>
 @endpush

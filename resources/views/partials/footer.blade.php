@@ -1,4 +1,4 @@
-<footer class="bg-dark" style="margin-top: 20px;">
+<footer class="bg-dark position-relative" style="margin-top: 20px;">
     <div class="container">
         <div class="row">
             <div class=" d-flex align-items-center col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2 text-left text-xs-left text-sm-left text-md-left mb-4 mb-md-0">
@@ -21,14 +21,13 @@
                     <div class="col-12 col-md-6 text-center">
                         <a href="#" class="btn-dark"> Подписаться на рассылку </a>
                     </div>
-                    <form class="form-inline col-12 col-md-6 my-2 my-lg-0 position-relative">
-                        <input class="form-control mr-md-0 mr-sm-2" style="width: 280px!important" type="text">
-                        <button
-                            class="btn border-bottom-0 border-top-0 border-right-0 border-left-0 rounded-0 border-dark my-2 my-sm-0 position-absolute"
-                            style="bottom: 0; right: 20%; z-index: 5;" type="submit"><img src="img/mail.svg"
-                                                                                          class="img-fluid w-75" alt="">
-                        </button>
-                    </form>
+
+                    <div class="col-12 col-md-6 input-group">
+                        <input type="text" class="form-control" placeholder="example@example.com">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-envelope prefix"></i></span>
+                        </div>
+                    </div>
                 </div>
 
                 <hr color="white">
@@ -36,7 +35,7 @@
                     <div class="col-6 mt-3 mb-2 mr-0 text-white">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a href="" class="nav-link text-white small d-flex" title="Номер">
+                            <a href="" class="nav-link text-white d-flex" title="Номер">
                                 <img src="icons/call 1.svg" alt="">&nbsp;
                                 <div class="col-12">
                                     <p class="mb-1 font-weight-bold">+996555449342</p>
@@ -45,7 +44,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link text-white small d-flex" title="Почта">
+                            <a href="" class="nav-link text-white d-flex" title="Почта">
                                 <img src="icons/mail.svg" alt="">&nbsp;
                                 <div class="col-12">
                                     <p class="mb-1 font-weight-bold">nintexkg@gmail.com</p>
@@ -53,11 +52,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link text-white small d-flex" title="Адрес">
+                            <a href="" class="nav-link text-white d-flex" title="Адрес">
                                 <img src="icons/placeholder 1.svg" alt="">
                                 <div class="col-12">
                                     <p class="mb-1 font-weight-bold">Кыргызстан, г. Бишкек,
-                                        ул. Проспект Мира 120</p>
+                                        ул. Проспект Мира 120
+                                    </p>
                                 </div>
                             </a>
                         </li>
