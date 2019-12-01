@@ -108,7 +108,6 @@
             $('.j-size-list label').removeClass('active');
             $(this).addClass('active');
             let btn = $(e.currentTarget);
-
             $('.buy_book').attr('data-size', btn.data('size'));
         });
         $('.j-color').on('click', function (e) {

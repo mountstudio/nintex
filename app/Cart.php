@@ -17,14 +17,14 @@ class Cart extends Model
         return $this->belongsTo(User::class);
     }
 
-    public static function add(Product $product, $count = 1, $token) {
+    public static function add(Product $product, $count = 1, $token, $options = []) {
         if (CartFacade::session($token)->get($product->id)){
             return CartFacade::session($token)->update($product->id, [
-                'quantity' => $count
+                'quantity' => $count,
             ]);
         } else
         {
-            return CartFacade::session($token)->add($product->id, $product->title, $product->price, $count ? $count : 1);
+            return CartFacade::session($token)->add($product->id.$options['size'].$options['color'], $product->title, $product->price, $count ? $count : 1, ['size'=> $options['size'], 'colors' => $options['color']]);
         }
     }
 

@@ -218,7 +218,7 @@
 @media (min-width: 0px){
     /* all buttons font size */
     body{
-        font-size: 0.7rem!important;
+        /*font-size: 0.7rem!important;*/
     }
     .btn{
         font-size: 0.6rem!important;

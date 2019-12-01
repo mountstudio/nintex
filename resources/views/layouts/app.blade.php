@@ -96,6 +96,8 @@
                         btn.addClass('btn-success').delay(2000).queue(function(){
                             btn.removeClass("btn-success").dequeue();
                         });
+                        console.log(data);
+
                         $('.carts').addClass('btn-success');
                         doBounce($('.cart-count'), 3, '5px', 90);
                         cart = fetchCart();
