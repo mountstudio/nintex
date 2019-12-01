@@ -86,11 +86,13 @@
                 let cart = null;
                 let color = btn.data('color');
                 let size = btn.data('size');
+                let newId = id + size + color;
+                console.log(newId, id);
 
                 $.ajax({
                     url: '{{ route('cart.add') }}',
                     data: {
-                        product_id: id,
+                        product_id: size ? newId : id,
                         count: 1,
                         token: token,
                         size: size,
@@ -100,7 +102,6 @@
                         btn.addClass('btn-success').delay(2000).queue(function(){
                             btn.removeClass("btn-success").dequeue();
                         });
-                        console.log(data);
 
                         $('.carts').addClass('btn-success');
                         doBounce($('.cart-count'), 3, '5px', 90);
@@ -133,7 +134,7 @@
                     data: {
                         product_id: id,
                         count: 1,
-                        token: token
+                        token: token,
                     },
                     success: data => {
                         cart = fetchCart();
@@ -159,7 +160,7 @@
                     url: '{{ route('cart.delete') }}',
                     data: {
                         product_id: id,
-                        token: token
+                        token: token,
                     },
                     success: data => {
                         cart = fetchCart();

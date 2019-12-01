@@ -107,6 +107,7 @@ class CartController extends Controller
         $size = $request->size;
         $color = $request->color;
         $token = $request->token ? $request->token : uniqid();
+        $product_id = $request->product_id;
 
         if (!$product) {
              return response()->json([
@@ -116,7 +117,7 @@ class CartController extends Controller
         }
         $token = TokenResolve::resolve($token);
 
-        Cart::add($product, $count, $token, ['color' => $color, 'size' => $size]);
+        Cart::add($product, $count, $token, ['product_id' => $product_id, 'color' => $color, 'size' => $size]);
 
         Session::put('cart', CartFacade::session($token)->getContent());
         if (preg_match('/checkout/', $request->server->get('HTTP_REFERER'))) {
@@ -134,6 +135,7 @@ class CartController extends Controller
         $product = Product::find($request->product_id);
         $count = $request->count;
         $token = $request->token;
+        $product_id = $request->product_id;
 
         if (!$product) {
             return response()->json([
@@ -141,9 +143,9 @@ class CartController extends Controller
                 'status' => 'error',
             ]);
         }
-        $token =TokenResolve::resolve($token);
+        $token = TokenResolve::resolve($token);
 
-        if (!Cart::remove($product, $count, $token)) {
+        if (!Cart::remove($product, $count, $token, ['product_id' => $product_id])) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'book not found in cart',
@@ -166,6 +168,10 @@ class CartController extends Controller
     {
         $product = Product::find($request->product_id);
         $token = $request->token;
+        $size = $request->size;
+        $color = $request->color;
+        $product_id = $request->product_id;
+
         if (!$product) {
             return response()->json([
                 'message' => 'product not found',
@@ -173,7 +179,7 @@ class CartController extends Controller
             ]);
         }
         $token = TokenResolve::resolve($token);
-        if (!Cart::deleteProduct($product, $token)) {
+        if (!Cart::deleteProduct($product, $token, ['product_id' => $product_id, 'size' => $size, 'color' => $color])) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'product not found in cart',
