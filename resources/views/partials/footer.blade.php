@@ -1,8 +1,8 @@
 <footer class="bg-dark position-relative" style="margin-top: 20px;">
     <div class="container">
         <div class="row">
-            <div class=" d-flex align-items-center col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2 text-left text-xs-left text-sm-left text-md-left mb-4 mb-md-0">
-                <nav class="nav flex-column text-left">
+            <div class=" d-flex align-items-center col-12 col-md-3 col-lg-2 col-xl-2 text-left text-xs-left text-sm-left text-md-left mb-4 mb-md-0">
+                <nav class="nav flex-column text-center mx-auto mx-md-0">
                     <a class="text-white mr-auto" href="#" title="">- ГЛАВНАЯ</a>
                     <a class="text-white mr-auto my-2" href="#" title="">- КАТЕГОРИИ</a>
                     <a class="text-white mr-auto" href="#" title="">- АКЦИИ</a>
@@ -16,10 +16,10 @@
 {{--                <a class="text-white mx-auto" href="#">Акссесуары</a>--}}
 {{--                <a class="text-white mx-auto" href="#">Акции</a>--}}
 {{--            </div>--}}
-            <div class="col-8 text-white pt-5">
+            <div class="col-12 col-md-8 text-white pt-5">
                 <div class="row pb-3">
-                    <div class="col-12 col-md-6 text-center">
-                        <a href="#" class="btn-dark"> Подписаться на рассылку </a>
+                    <div class="col-12 col-md-6 text-center my-2">
+                        <a href="#" class="btn-dark "> Подписаться на рассылку </a>
                     </div>
 
                     <div class="col-12 col-md-6 input-group">
@@ -32,7 +32,7 @@
 
                 <hr color="white">
                 <div class="col-12 row">
-                    <div class="col-6 mt-3 mb-2 mr-0 text-white">
+                    <div class="col-12 col-md-6 mt-3 mb-2 mr-0 text-white">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a href="" class="nav-link text-white d-flex" title="Номер">
@@ -63,7 +63,7 @@
                     </ul>
 
                 </div>
-                <div class="col-6 d-flex justify-content-end align-items-end mt-3 mb-2 text-white">
+                <div class="col-12 col-md-6 d-flex justify-content-end align-items-end mt-3 mb-2 text-white">
                     @include('partials.socialnetworks')
                 </div>
                 </div>

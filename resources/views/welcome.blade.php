@@ -21,16 +21,19 @@
 
                             <div class="item">
 
-                                <img src="{{ asset('img/slider1.svg') }}" class="img-fluid mx-auto" style="height: 200px;width: 150px;z-index: 0;"alt="">
+                                <img src="{{ asset('img/slider1.svg') }}" class="img-fluid mx-auto"
+                                     style="height: 200px;width: 150px;z-index: 0;" alt="">
 
                             </div>
                             <div class="item">
-                                <img src="{{ asset('img/slider2.svg') }}" class="img-fluid mx-auto" style="height: 200px;width: 150px;z-index: 0;" alt="">
+                                <img src="{{ asset('img/slider2.svg') }}" class="img-fluid mx-auto"
+                                     style="height: 200px;width: 150px;z-index: 0;" alt="">
 
                             </div>
                             <div class="item">
 
-                                <img src="{{ asset('img/onePunchMan.jpg') }}" class="img-fluid mx-auto" style="height: 200px;width: 150px;z-index: 0;" alt="">
+                                <img src="{{ asset('img/onePunchMan.jpg') }}" class="img-fluid mx-auto"
+                                     style="height: 200px;width: 150px;z-index: 0;" alt="">
 
                             </div>
                         </div>
@@ -69,23 +72,23 @@
                         </div>
 
                         <div class="item ">
-                           <div class="row justify-content-end">
-                               <div class="col-12 col-lg-5" style=" border-bottom-left-radius: 100px;">
+                            <div class="row justify-content-end">
+                                <div class="col-12 col-lg-5" style=" border-bottom-left-radius: 100px;">
 
-                                   <div id="h2-strings2">
-                                       <p>Прикольное пальтишко</p>
-                                   </div>
-                                   <div id="typed-strings2">
-                                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-                                           Illum, perferendis?
-                                       </p>
-                                   </div>
+                                    <div id="h2-strings2">
+                                        <p>Прикольное пальтишко</p>
+                                    </div>
+                                    <div id="typed-strings2">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                                            Illum, perferendis?
+                                        </p>
+                                    </div>
 
 
-                                   <h2 class="mt-4 text-left" id="h2-2"></h2>
-                                   <p class="text-left" id="typed2"></p>
-                               </div>
-                           </div>
+                                    <h2 class="mt-4 text-left" id="h2-2"></h2>
+                                    <p class="text-left" id="typed2"></p>
+                                </div>
+                            </div>
                             {{--
                             <div class="controls-top d-flex justify-content-end">
                                 <a class="btn-floating mr-1" href="#multi-item-example" data-slide="prev">
@@ -133,263 +136,273 @@
                     <div class="owl-carousel owl-theme" id="sync3">
                         <div class="item">
                             <div class="mt-3">
-                            <div class="row">
-                                <div class="col-12 col-lg-5">
-                                    <p>Цвет: черный</p>
-                                    <div class="checkbox">
-                                        <label class="checkbox-white">
-                                            <input id="cbox-white" type="checkbox" checked="checked">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                <div class="row">
+                                    <div class="col-12 col-lg-5">
+                                        <p>Цвет: черный</p>
+                                        <div class="checkbox">
+                                            <label class="checkbox-white">
+                                                <input id="cbox-white" type="checkbox" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
 
-                                        <label class="checkbox-red">
-                                            <input id="cbox-red" type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                            <label class="checkbox-red">
+                                                <input id="cbox-red" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
 
-                                        <label class="checkbox-blue">
-                                            <input id="cbox-blue" type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                            <label class="checkbox-blue">
+                                                <input id="cbox-blue" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
 
-                                        <label class="checkbox-black">
-                                            <input id="cbox-black" type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                    <div class="media mt-4 px-1 text-md-left">
-                                        <img class="card-img-100 d-flex mr-3" src="img/file.svg" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            Лучшая ткань
+                                            <label class="checkbox-black">
+                                                <input id="cbox-black" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="media mt-4 px-1 text-md-left">
+                                            <img class="card-img-100 d-flex mr-3" src="img/file.svg"
+                                                 alt="Generic placeholder image" style="width: 30px !important; height: 30px !important;">
+                                            <div class="media-body">
+                                                Лучшая ткань
+                                            </div>
+                                        </div>
+                                        <div class="media mt-4 px-1 text-md-left">
+                                            <img class="card-img-100 d-flex mr-3" src="img/quality (1).svg"
+                                                 alt="Generic placeholder image" style="width: 30px !important; height: 30px !important;">
+                                            <div class="media-body">
+                                                Гарантия качества
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="media mt-4 px-1 text-md-left">
-                                        <img class="card-img-100 d-flex mr-3" src="img/quality (1).svg" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            Гарантия качества
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-7">
-                                    <p>Выбери свой размер</p>
-                                    <div class="j-size-list size-list j-smart-overflow-instance">
-                                        <label class="j-size  disabled j-sold-out tooltipstered size-button"
-                                               data-characteristic-id="" data-size-name="XXS">
-                                            <span>XXS</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered active size-button" data-characteristic-id=""
-                                               data-size-name="XS">
-                                            <span>XS</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="S">
-                                            <span>S</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="M">
-                                            <span>M</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="L">
-                                            <span>L</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="XL">
-                                            <span>XL</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
+                                    <div class="col-12 col-lg-7">
+                                        <p>Выбери свой размер</p>
+                                        <div class="j-size-list size-list j-smart-overflow-instance">
+                                            <label class="j-size  disabled j-sold-out tooltipstered size-button"
+                                                   data-characteristic-id="" data-size-name="XXS">
+                                                <span>XXS</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered active size-button"
+                                                   data-characteristic-id=""
+                                                   data-size-name="XS">
+                                                <span>XS</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                                   data-size-name="S">
+                                                <span>S</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                                   data-size-name="M">
+                                                <span>M</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                                   data-size-name="L">
+                                                <span>L</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                                   data-size-name="XL">
+                                                <span>XL</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
 
-                                        <i class="icon-step j-imigize hide"></i>
+                                            <i class="icon-step j-imigize hide"></i>
+                                        </div>
+                                        <a href="#" class="btn btn-lightblue ">Начать покупки</a>
                                     </div>
-                                    <a href="#" class="btn btn-lightblue ">Начать покупки</a>
                                 </div>
                             </div>
-                        </div>
                         </div>
                         <div class="item">
                             <div class="mt-3">
-                            <div class="row">
-                                <div class="col-12 col-lg-5">
-                                    <p>Цвет: черный</p>
-                                    <div class="checkbox">
-                                        <label class="checkbox-white">
-                                            <input id="cbox-white" type="checkbox" checked="checked">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                <div class="row">
+                                    <div class="col-12 col-lg-5">
+                                        <p>Цвет: черный</p>
+                                        <div class="checkbox">
+                                            <label class="checkbox-white">
+                                                <input id="cbox-white" type="checkbox" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
 
-                                        <label class="checkbox-red">
-                                            <input id="cbox-red" type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                            <label class="checkbox-red">
+                                                <input id="cbox-red" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
 
-                                        <label class="checkbox-blue">
-                                            <input id="cbox-blue" type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                            <label class="checkbox-blue">
+                                                <input id="cbox-blue" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
 
-                                        <label class="checkbox-black">
-                                            <input id="cbox-black" type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-
-                                    <div class="media mt-4 px-1 text-md-left">
-                                        <img class="card-img-100 d-flex mr-3" src="img/file.svg" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            Лучшая ткань
+                                            <label class="checkbox-black">
+                                                <input id="cbox-black" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
                                         </div>
-                                    </div>
-                                    <div class="media mt-4 px-1 text-md-left">
-                                        <img class="card-img-100 d-flex mr-3" src="img/quality (1).svg" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            Гарантия качества
+
+                                        <div class="media mt-4 px-1 text-md-left">
+                                            <img class="card-img-100 d-flex mr-3" src="img/file.svg"
+                                                 alt="Generic placeholder image" style="width: 30px !important; height: 30px !important;">
+                                            <div class="media-body">
+                                                Лучшая ткань
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="media mt-4 px-1 text-md-left">
+                                            <img class="card-img-100 d-flex mr-3" src="img/quality (1).svg"
+                                                 alt="Generic placeholder image" style="width: 30px !important; height: 30px !important;">
+                                            <div class="media-body">
+                                                Гарантия качества
+                                            </div>
+                                        </div>
 
-                                </div>
-                                <div class="col-12 col-lg-7">
-                                    <p>Выбери свой размер</p>
-                                    <div class="j-size-list size-list j-smart-overflow-instance">
-                                        <label class="j-size  disabled j-sold-out tooltipstered size-button"
-                                               data-characteristic-id="" data-size-name="XXS">
-                                            <span>XXS</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered active size-button" data-characteristic-id=""
-                                               data-size-name="XS">
-                                            <span>XS</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="S">
-                                            <span>S</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="M">
-                                            <span>M</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="L">
-                                            <span>L</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="XL">
-                                            <span>XL</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-
-                                        <i class="icon-step j-imigize hide"></i>
                                     </div>
-                                    <a href="#" class="btn btn-lightblue ">Начать покупки</a>
+                                    <div class="col-12 col-lg-7">
+                                        <p>Выбери свой размер</p>
+                                        <div class="j-size-list size-list j-smart-overflow-instance">
+                                            <label class="j-size  disabled j-sold-out tooltipstered size-button"
+                                                   data-characteristic-id="" data-size-name="XXS">
+                                                <span>XXS</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered active size-button"
+                                                   data-characteristic-id=""
+                                                   data-size-name="XS">
+                                                <span>XS</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                                   data-size-name="S">
+                                                <span>S</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                                   data-size-name="M">
+                                                <span>M</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                                   data-size-name="L">
+                                                <span>L</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                                   data-size-name="XL">
+                                                <span>XL</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+
+                                            <i class="icon-step j-imigize hide"></i>
+                                        </div>
+                                        <a href="#" class="btn btn-lightblue ">Начать покупки</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </div>
                         <div class="item">
                             <div class="mt-3">
-                            <div class="row">
-                                <div class="col-12 col-lg-5">
-                                    <p>Цвет: черный</p>
-                                    <div class="checkbox">
-                                        <label class="checkbox-white">
-                                            <input id="cbox-white" type="checkbox" checked="checked">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                <div class="row">
+                                    <div class="col-12 col-lg-5">
+                                        <p>Цвет: черный</p>
+                                        <div class="checkbox">
+                                            <label class="checkbox-white">
+                                                <input id="cbox-white" type="checkbox" checked="checked">
+                                                <span class="checkmark"></span>
+                                            </label>
 
-                                        <label class="checkbox-red">
-                                            <input id="cbox-red" type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                            <label class="checkbox-red">
+                                                <input id="cbox-red" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
 
-                                        <label class="checkbox-blue">
-                                            <input id="cbox-blue" type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
+                                            <label class="checkbox-blue">
+                                                <input id="cbox-blue" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
 
-                                        <label class="checkbox-black">
-                                            <input id="cbox-black" type="checkbox">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                    <div class="media mt-4 px-1 text-md-left">
-                                        <img class="card-img-100 d-flex mr-3" src="img/file.svg" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            Лучшая ткань
+                                            <label class="checkbox-black">
+                                                <input id="cbox-black" type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        <div class="media mt-4 px-1 text-md-left">
+                                            <img class=" d-flex mr-3" src="img/file.svg"
+                                                 alt="Generic placeholder image" style="width: 30px !important; height: 30px !important;">
+                                            <div class="media-body">
+                                                Лучшая ткань
+                                            </div>
+                                        </div>
+                                        <div class="media mt-4 px-1 text-md-left">
+                                            <img class="d-flex mr-3" src="img/quality (1).svg"
+                                                 alt="Generic placeholder image" style="width: 30px !important; height: 30px !important;">
+                                            <div class="media-body">
+                                                Гарантия качества
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="media mt-4 px-1 text-md-left">
-                                        <img class="card-img-100 d-flex mr-3" src="img/quality (1).svg" alt="Generic placeholder image">
-                                        <div class="media-body">
-                                            Гарантия качества
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-7">
-                                    <p>Выбери свой размер</p>
-                                    <div class="j-size-list size-list j-smart-overflow-instance">
-                                        <label class="j-size  disabled j-sold-out tooltipstered size-button"
-                                               data-characteristic-id="" data-size-name="XXS">
-                                            <span>XXS</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered active size-button" data-characteristic-id=""
-                                               data-size-name="XS">
-                                            <span>XS</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="S">
-                                            <span>S</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="M">
-                                            <span>M</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="L">
-                                            <span>L</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                                               data-size-name="XL" onmousedown="play('{{ asset('audio/one-punch.mp3') }}')">
-                                            <span>XL</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                            <i></i>
-                                        </label>
+                                    <div class="col-12 col-lg-7">
+                                        <p>Выбери свой размер</p>
+                                        <div class="j-size-list size-list j-smart-overflow-instance">
+                                            <label class="j-size  disabled j-sold-out tooltipstered size-button"
+                                                   data-characteristic-id="" data-size-name="XXS">
+                                                <span>XXS</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered active size-button"
+                                                   data-characteristic-id=""
+                                                   data-size-name="XS">
+                                                <span>XS</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                                   data-size-name="S">
+                                                <span>S</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                                   data-size-name="M">
+                                                <span>M</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                                   data-size-name="L">
+                                                <span>L</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
+                                            <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                                   data-size-name="XL"
+                                                   onmousedown="play('{{ asset('audio/one-punch.mp3') }}')">
+                                                <span>XL</span>
+                                                <input class="radio-size" id="size" name="size" type="radio" value="">
+                                                <i></i>
+                                            </label>
 
-                                        <i class="icon-step j-imigize hide"></i>
+                                            <i class="icon-step j-imigize hide"></i>
+                                        </div>
+                                        <a href="#" class="btn btn-lightblue ">Начать покупки</a>
                                     </div>
-                                    <a href="#" class="btn btn-lightblue ">Начать покупки</a>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -402,30 +415,23 @@
 
                             <div class="item">
 
-                                <img src="{{ asset('img/slider1.svg') }}" class="img-fluid" style="height: 550px;width: 300px;z-index: 0;"alt="">
+                                <img src="{{ asset('img/slider1.svg') }}" class="img-fluid"
+                                     style="height: 550px;width: 300px;z-index: 0;" alt="">
 
                             </div>
                             <div class="item">
-                                <img src="{{ asset('img/slider2.svg') }}" class="img-fluid" style="height: 550px;width: 300px;z-index: 0;" alt="">
+                                <img src="{{ asset('img/slider2.svg') }}" class="img-fluid"
+                                     style="height: 550px;width: 300px;z-index: 0;" alt="">
 
                             </div>
                             <div class="item">
 
-                                <img src="{{ asset('img/onePunchMan.jpg') }}" class="img-fluid" style="height: 550px;width: 300px;z-index: 0;" alt="">
+                                <img src="{{ asset('img/onePunchMan.jpg') }}" class="img-fluid"
+                                     style="height: 550px;width: 300px;z-index: 0;" alt="">
 
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-            </div>
-            <script src="js/main.js"></script>
-        </div>
-        <div class="container-fluid position-absolute" style="bottom: 0;">
-            <div class="row">
-                <div class="col-12">
-
                 </div>
             </div>
         </div>
@@ -437,12 +443,12 @@
         <div class="container" style="background: linear-gradient(90deg, #EEEBEE, #EEEBEE 30%, #f8fafc 30%)">
 
             <div class="col-12 my-5 pt-5">
-                <div class="row">
-                    <div class="col-8 ">
+                <div class="row justify-content-between">
+                    <div class="col-4">
                         <div class="owl-carousel owl-them" id="carousel1">
                             <div class="item">
                                 <div class="row justify-content-start">
-                                    <div class="col-8 ">
+                                    <div class="col-12">
                                         <p class="h2">
                                             ЗАГОЛОВОК КАКОЙ-ТО<br> АКЦИИ
                                         </p>
@@ -457,7 +463,7 @@
 
                             <div class="item">
                                 <div class="row justify-content-start">
-                                    <div class="col-8 ">
+                                    <div class="col-12">
                                         <p class="h2">
                                             ЗАГОЛОВОК КАКОЙ-ТО<br> АКЦИИ
                                         </p>
@@ -474,7 +480,7 @@
 
                             <div class="item">
                                 <div class="row justify-content-start">
-                                    <div class="col-8 ">
+                                    <div class="col-12 ">
                                         <p class="h2">
                                             ЗАГОЛОВОК КАКОЙ-ТО<br> АКЦИИ
                                         </p>

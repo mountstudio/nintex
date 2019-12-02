@@ -55,7 +55,7 @@
         mouseDrag: false,
         touchDrag: false,
         dots: false,
-        animateIn: 'tada',
+        animateIn: 'fadeIn',
         animateOut: 'fadeOut',
     })
 
@@ -124,6 +124,7 @@
         loop: true,// циклировать карусельку
         items : 1,// отоборажаемые элементы карусели
         margin:0,// отступы
+        animateIn: 'fadeIn',
         animateOut: 'fadeOut',
         nav : true,// включить элементы навигации
         navText : ["<img src=\"img/Arrow_left.svg\" alt=\"\">","<img src=\"img/Arrow_right.svg\" alt=\"\">"],// отображает стрелочки навигации
@@ -194,6 +195,7 @@
         mouseDrag: false,
         touchDrag: false,
         dots: false,
+        animateIn: 'fadeIn',
         animateOut: 'fadeOut',
 
 
@@ -234,6 +236,7 @@
         mouseDrag: false,
         touchDrag: false,
         dots: false,
+        animateIn: 'fadeIn',
         animateOut: 'fadeOut',
 
 
@@ -292,7 +295,6 @@
         loop: true,// циклировать карусельку
         items : 1,// отоборажаемые элементы карусели
         margin:0,// отступы
-        animateOut: 'fadeOut',
         nav : true,// включить элементы навигации
         navText : ["<img src=\"img/Arrow_left.svg\" alt=\"\">","<img src=\"img/Arrow_right.svg\" alt=\"\">"],// отображает стрелочки навигации
         dots: false,// выкл точки навигации
@@ -316,7 +318,6 @@
         mouseDrag: false,
         touchDrag: false,
         dots: false,
-        animateOut: 'fadeOut',
 
 
     })
