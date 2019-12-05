@@ -45,8 +45,9 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
 Route::get('/profile', 'HomeController@index')->name('profile');
 Route::put('/user/update/email', 'UserController@updateEmail')->name('user.update.email');
 Route::put('/user/update/password', 'UserController@updatePassword')->name('user.update.password');
-Route::get('/profile/favorites', 'UserController@favorites')->name('user.favorites');
-Route::get('/profile/shopping', 'UserController@shopping')->name('user.shopping');
+Route::get('/profile/favorites', 'Api\FavoriteController@show')->name('profile.favorites');
+Route::get('/profile/shopping', 'CartController@shopping')->name('user.shopping');
+Route::get('/profile/shopping/{cart}', 'CartController@show')->name('cart.shopping');
 // End Profile Routes
 
 // Resourse Routes

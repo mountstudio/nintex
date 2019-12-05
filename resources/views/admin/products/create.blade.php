@@ -54,7 +54,14 @@
                     @endforeach
                 </select>
             </div>
+            <div class="col-6">
+                <select class="js-example-basic-multiple" name="season" id="">
+                    @foreach(['осень/зима', 'весна/лето'] as $season)
+                        <option value="{{ $season }}">{{ $season }}</option>
+                    @endforeach
+                </select>
 
+            </div>
         </div>
 
         <button type="submit" title="{{ __('Создать') }}" class="btn btn-success">{{ __('Создать') }}</button>

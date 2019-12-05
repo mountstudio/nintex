@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\Product;
 use App\TokenResolve;
+use App\User;
 use Darryldecode\Cart\Facades\CartFacade;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
@@ -213,7 +215,20 @@ class CartController extends Controller
      */
     public function show(Cart $cart)
     {
-        //
+        return view('profile.history', [
+            'cart' => $cart,
+        ]);
+    }
+
+    public function shopping(Request $request){
+
+        $user = $request->user();
+        $carts = Cart::where('user_id', $user->id)->get();
+        return view('profile.shopping', [
+            'carts' => $carts,
+        ]);
+
+
     }
 
     /**

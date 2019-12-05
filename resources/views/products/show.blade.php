@@ -7,6 +7,9 @@
                 <div class="col-8 position-relative">
                     <div class=" d-flex justify-content-end " style=" border-bottom-left-radius: 100px;">
                         <div class="col-6">
+                            <p>
+                                {{ $product->season }}
+                            </p>
                             <p class="text-uppercase text-h1Size-bold pb-md-2 h3">
                                 {{ $product->title }}
                             </p>
@@ -57,10 +60,11 @@
                                     покупки</a>
                             </div>
                             <div class="col-4 pb-5">
-                                <a href="#" class="btn btn-white btn-block mt-5">В избранное</a>
+                                @include('partials.favorite', ['route' => \Illuminate\Support\Facades\Auth::check() ? '' : route('login'), 'data' => 'data-id='.$product->id.''])
+
                                 <a href="#"
                                    class="btn btn-dark btn-block text-fut-book but-hov text-white buy_book d-lg-block d-none"
-                                   data-id="{{ $product->id }}">В корзину</a>
+                                   data-id="{{ $product->id }}" id="basket">В корзину</a>
                             </div>
                         </div>
                     </div>
@@ -116,6 +120,10 @@
             $('.buy_book').attr('data-color', btn.data('color'));
         });
     </script>
-
+    <script>
+        $('#basket').removeAttr('disabled');
+        console.log('asd');
+    </script>
+    @includeWhen(auth()->check(), 'partials.scripts.favorite_click')
 @endpush
 

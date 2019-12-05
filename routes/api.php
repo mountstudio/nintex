@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('/favorite', 'Api\FavoriteController@favorite')->name('production.favorite');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

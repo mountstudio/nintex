@@ -97,12 +97,12 @@ class ProductController extends Controller
      */
     public function show(Product $product, Request $request)
     {
-        $colors =array('colors' => json_decode($request->colors));
+//        $colors =array('colors' => json_decode($request->colors));
         return view('products.show', [
            'product' => $product,
             'sizes' => Size::all(),
             'products' => Product::all(),
-            'colors' => $colors,
+//            'colors' => $colors,
         ]);
     }
 
@@ -208,5 +208,19 @@ class ProductController extends Controller
         }
 
         return response()->json($status);
+    }
+    public function add_to_favorites_with_auth_user(Request $request){
+        $product = Product::first();
+        $user = $request->user();
+        $this->be($user);
+
+        $product->addFavorite();
+
+        $this->assertDatabaseHas('favorites', [
+            'user_id' =>$user->id,
+            'favoriteable_id' => $product->id,
+            'favoriteable_type' => get_class($product),
+        ]);
+        $this->assertTrue($product->isFavorited());
     }
 }
