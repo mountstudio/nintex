@@ -25,6 +25,7 @@
 .cover {
     position: absolute;
     box-sizing: border-box;
+    background: #EAEFF8;
     width: 50%;
     height: 100%;
     top: 0;
@@ -50,13 +51,13 @@
     box-sizing: border-box;
     color: #000;
     cursor: pointer;
-    height: 30px;
+    height: 40px;
     line-height: 40px;
     margin: 0 8px 10px 0;
-    min-width: 30px;
+    min-width: 40px;
+    padding: 0 10px;
     position: relative;
     text-align: center;
-    text-justify: ;
 }
 .radio-size{
     position: absolute;
@@ -130,6 +131,7 @@
     padding: 0.3rem 0 0.4rem;
 }
 @media(min-width: 1440px){
+
     .bg-img{
         background: url('../img/Vector.svg')  no-repeat left bottom;
         -webkit-background-size: cover;
@@ -580,16 +582,6 @@
     right: 5%!important;
     bottom: 0!important;
 }
-#carNum1 .owl-nav .owl-prev {
-    position: absolute!important;
-    right: 12%!important;
-    bottom: 0!important;
-}
-#carNum1 .owl-nav .owl-next {
-    position: absolute!important;
-    right: 5%!important;
-    bottom: 0!important;
-}
 
 #carousel1 .owl-nav .owl-prev {
     position: absolute!important;
@@ -615,8 +607,4 @@
 }
 .sh-bord:hover{
     box-shadow: 0 5px 25px rgba(0,0,0,0.1) !important;
-}
-
-.unbold{
-    font-weight: normal!important;
 }

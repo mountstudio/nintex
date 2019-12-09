@@ -23,9 +23,6 @@ Route::get('/korzina', function () {
 Route::get('/cooperation', function () {
     return view('cooperation');
 })->name('cooperation');
-Route::get('/catalog', function () {
-    return view('catalog');
-})->name('catalog');
 
 Auth::routes();
 
