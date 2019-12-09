@@ -124,6 +124,9 @@
         $('#basket').removeAttr('disabled');
         console.log('asd');
     </script>
+    <script>
+
+    </script>
     @includeWhen(auth()->check(), 'partials.scripts.favorite_click')
 @endpush
 

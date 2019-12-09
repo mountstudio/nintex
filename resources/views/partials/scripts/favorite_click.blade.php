@@ -16,8 +16,10 @@
                 if (data.status === 'success') {
                     if (data.isFavorited) {
                         btn.find('.fa-heart').removeClass('far').addClass('fas');
+                        $('#favorite_button').text('Удалить из избранных');
                     } else {
                         btn.find('.fa-heart').removeClass('fas').addClass('far');
+                        $('#favorite_button').text('В избранное');
                     }
                 }
             },

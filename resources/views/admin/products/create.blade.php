@@ -11,11 +11,18 @@
                     <label for="title">{{ __('Название') }}</label>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-3">
                 <!-- Material input -->
                 <div class="md-form">
                     <input type="text" id="price" name="price" class="form-control">
                     <label for="price">{{ __('Цена') }}</label>
+                </div>
+            </div>
+            <div class="col-3">
+                <!-- Material input -->
+                <div class="md-form">
+                    <input type="text" id="wholesale_price" name="wholesale_price" class="form-control">
+                    <label for="wholesale_price">{{ __('Оптовая цена') }}</label>
                 </div>
             </div>
             <div class="col-6">

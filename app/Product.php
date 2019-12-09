@@ -9,7 +9,7 @@ use Darryldecode\Cart\Facades\CartFacade;
 
 class Product extends Model
 {
-    protected $fillable = ['title', 'logo','description', 'colors', 'sizes', 'price', 'season', 'category_id',];
+    protected $fillable = ['title', 'logo','description', 'colors', 'sizes', 'price', 'wholesale_price', 'season', 'category_id',];
 
     use Favoriteable;
 

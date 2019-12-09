@@ -212,7 +212,6 @@ class CartController extends Controller
     }
 
 
-
     /**
      * Display the specified resource.
      *
@@ -223,6 +222,7 @@ class CartController extends Controller
     {
         return view('profile.history', [
             'cart' => $cart,
+            'products' => Product::all(),
         ]);
     }
 

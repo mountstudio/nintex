@@ -11,20 +11,22 @@
                 <section>
                     <h2>История заказов</h2>
                     <div class="d-flex mt-5">
-                        @foreach($carts as $cart)
-{{--                            @foreach($cart as $item)--}}
-{{--                            @dd($cart->cart['cart'])--}}
-                            <div class="col-2">
-                                <a href="{{ route('cart.shopping', $cart) }}"><p class="h5">{{ $cart->cart['total'] }}</p></a>
-                            </div>
-                            <div class="col-2">
-                                <a href="#">
-                                    <p class="h5">{{ $cart->created_at }}</p>
-                                </a>
-                            </div>
-{{--                            @endforeach--}}
+                        <div class="row">
+                            @foreach($carts as $cart)
+                                {{--                            @foreach($cart as $item)--}}
+                                {{--                            @dd($cart->cart['cart']['109'])--}}
+                                <div class="col-2">
 
-                        @endforeach
+                                    <a href="{{ route('cart.shopping', $cart) }}"><p class="h5">{{ $cart->cart['total'] }}</p></a>
+                                </div>
+                                <div class="col-2">
+                                    <a href="#">
+                                        <p class="h5">{{ $cart->created_at }}</p>
+                                    </a>
+                                </div>
+                                {{--                            @endforeach--}}
+                            @endforeach
+                        </div>
                     </div>
                 </section>
 

@@ -9,8 +9,10 @@ use App\Http\Controllers\Controller;
 
 class FavoriteController extends Controller
 {
+
     public function favorite(Request $request)
     {
+//        dd($request->id);
         try {
             $product = Product::find($request->id);
             $product->toggleFavorite($request->user_id);
