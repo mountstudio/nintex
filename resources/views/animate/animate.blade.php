@@ -12,21 +12,18 @@
             typeSpeed: 20,
             backSpeed: 10,
             startDelay: 0,
-            showCursor: false,
         }),
         typed2 = new Typed('#typed2', {// element type
             stringsElement: '#typed-strings2',
             typeSpeed: 20,
             backSpeed: 10,
             startDelay: 0,
-            showCursor: false,
         }),
         typed3 = new Typed('#typed3', {// element type
             stringsElement: '#typed-strings3',
             typeSpeed: 20,
             backSpeed: 10,
             startDelay: 0,
-            showCursor: false,
         }),
         h2First = new Typed('#h2-1',{// element type
             stringsElement: '#h2-strings1',
@@ -34,7 +31,6 @@
             backSpeed: 10,
             startDelay: 0,
             smartBackspace: true,
-            showCursor: false,
         }),
         h2Second = new Typed('#h2-2',{// element type
             stringsElement: '#h2-strings2',
@@ -42,7 +38,6 @@
             backSpeed: 10,
             startDelay: 0,
             smartBackspace: true,
-            showCursor: false,
 
         }),
         h2Third = new Typed('#h2-3',{// element type
@@ -51,7 +46,6 @@
             backSpeed: 10,
             startDelay: 0,
             smartBackspace: true,
-            showCursor: false,
 
         });
     sync3.owlCarousel({
