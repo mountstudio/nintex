@@ -103,31 +103,69 @@
                     </div>
                 </div>
                 <div class="col-5">
-                    <div class="col-9">
-                        <div class="owl-carousel owl-theme" id="firstCarousel">
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                        </div>
+                    <div class="row">
+                        <div class="col-7">
+                            <div class="owl-carousel owl-theme" id="firstCarousel">
+                                <div class="item">
+                                    <img src="{{ asset('img/slider1.svg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/slider2.svg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/onePunchMan.jpg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/slider2.svg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/slider1.svg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/onePunchMan.jpg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/slider2.svg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/onePunchMan.jpg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/slider1.svg') }}" alt="" class="img-fluid">
+                                </div>
+                            </div>
 
-                    </div>
-                    <div class="col-3">
-                        <div class="owl-carousel owl-theme" id="secondCarousel">
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
-                            <div class="item"></div>
+                        </div>
+                        <div class="col-5">
+                            <div class="owl-carousel owl-theme" id="secondCarousel">
+                                <div class="item">
+                                    <img src="{{ asset('img/slider1.svg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/slider2.svg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/onePunchMan.jpg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/slider2.svg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/slider1.svg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/onePunchMan.jpg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/slider2.svg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/onePunchMan.jpg') }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="item">
+                                    <img src="{{ asset('img/slider1.svg') }}" alt="" class="img-fluid">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -148,7 +186,29 @@
 
 
 @push("styles")
-
+    <style>
+        #secondCarousel{
+            transform: rotate(90deg);
+            width: 300px;
+            ;
+            margin-top:100px;
+        }
+        #secondCarousel .item{
+            transform: rotate(-90deg);
+        }
+        #secondCarousel.owl-carousel .owl-nav{
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            width: 100%;
+            top: calc(50% - 33px);
+        }
+        div#secondCarousel.owl-carousel .owl-nav .owl-prev, div#secondCarousel.owl-carousel .owl-nav .owl-next{
+            font-size:36px;
+            top:unset;
+            bottom: 15px;
+        }
+    </style>
 
 @endpush
 
@@ -156,10 +216,10 @@
     <script>
         let firstCar = $('#firstCarousel'),
             secondCar = $('#secondCarousel'),
-            thumbs =
+            thumbs = 1;
         firstCar.owlCarousel({
             loop: true,
-            items: 1,
+            items: thumbs,
             margin: 0,
             nav: false,
             dots: false,
@@ -167,16 +227,21 @@
         });
 
         secondCar.owlCarousel({
+            items: 4,
             loop: true,
-            items: 7,
-            margin: 0,
-            nav: false,
-            dots: false,
-
+            mouseDrag: false,
+            touchDrag: false,
+            pullDrag: false,
+            rewind: true,
+            margin: 70,
+            center: true,
+            nav: true
         })
+            .on('click', 'owl-item', function () {
 
-        secondCar.on('click', '.owl-item', function(e) {
+            })
 
-        })
+
+
     </script>
 @endpush
