@@ -25,7 +25,6 @@
 .cover {
     position: absolute;
     box-sizing: border-box;
-    background: #EAEFF8;
     width: 50%;
     height: 100%;
     top: 0;
@@ -51,13 +50,13 @@
     box-sizing: border-box;
     color: #000;
     cursor: pointer;
-    height: 40px;
+    height: 30px;
     line-height: 40px;
     margin: 0 8px 10px 0;
-    min-width: 40px;
-    padding: 0 10px;
+    min-width: 30px;
     position: relative;
     text-align: center;
+    text-justify: ;
 }
 .radio-size{
     position: absolute;
@@ -131,7 +130,6 @@
     padding: 0.3rem 0 0.4rem;
 }
 @media(min-width: 1440px){
-
     .bg-img{
         background: url('../img/Vector.svg')  no-repeat left bottom;
         -webkit-background-size: cover;
@@ -582,16 +580,45 @@
     right: 5%!important;
     bottom: 0!important;
 }
+#carNum1 .owl-nav .owl-prev {
+    position: absolute!important;
+    right: 12%!important;
+    bottom: 0!important;
+}
+#carNum1 .owl-nav .owl-next {
+    position: absolute!important;
+    right: 5%!important;
+    bottom: 0!important;
+}
 
 #carousel1 .owl-nav .owl-prev {
     position: absolute!important;
-    left: 5%!important;
+    left: 10%!important;
     bottom: 0!important;
 }
 #carousel1 .owl-nav .owl-next {
     position: absolute!important;
-    left: 12%!important;
+    left: 27%!important;
     bottom: 0!important;
+}
+.img-hover-zoom--basic img {
+    transition: transform .3s ease;
+}
+
+.img-hover-zoom--basic:hover img {
+    transform: scale(1.2);
+}
+
+.sh-bord{
+    background: #FBFBFB;
+    transition: box-shadow .5s ease !important;
+}
+.sh-bord:hover{
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1) !important;
+}
+
+.unbold{
+    font-weight: normal!important;
 }
 
 .card-body .size-button {

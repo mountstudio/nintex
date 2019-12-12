@@ -17,12 +17,13 @@ Route::get('/', function () {
 Route::get('/basket', function () {
     return view('basket');
 })->name('basket');
-Route::get('/korzina', function () {
-    return view('korzina');
-})->name('korzina');
 Route::get('/cooperation', function () {
     return view('cooperation');
 })->name('cooperation');
+Route::get('/catalog', function () {
+    return view('catalog');
+})->name('catalog');
+
 
 Auth::routes();
 
