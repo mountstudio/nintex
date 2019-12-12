@@ -217,7 +217,7 @@
         </div>
     </section>
 
-    <section class="my-5">
+   {{-- <section class="my-5">
         <!--Слайдер выбора одежды-->
         <div class="container">
             <div class="row">
@@ -626,7 +626,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--}}
 
     @include('partials.footer')
 @endsection

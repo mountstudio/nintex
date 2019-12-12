@@ -4,7 +4,7 @@
 
     <div class="main-container">
         <div class="row">
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-3 my-5">
                 @include('catalog_blocks.nav_category')
                 @include('catalog_blocks.filters')
             </div>

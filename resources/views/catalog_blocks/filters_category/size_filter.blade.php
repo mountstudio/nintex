@@ -1,4 +1,4 @@
-<div class="col-12 col-lg-7">
+<div class="col-12">
     <div class="j-size-list size-list j-smart-overflow-instance">
         <label class="j-size  disabled j-sold-out tooltipstered size-button"
                data-characteristic-id="" data-size-name="XS">
