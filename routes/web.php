@@ -30,14 +30,20 @@ Auth::routes();
 Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::get('/', 'AdminController@index')->name('admin');
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
+
     Route::get('/product', 'ProductController@datatable')->name('product.datatable');
     Route::get('/product/datatable', 'ProductController@datatableData')->name('product.datatable.data');
     Route::resource('product', 'ProductController')->except(['index', 'show']);
+    Route::resource('order', 'CartController')->except('index', 'show');
+    Route::get('/order', 'CartController@datatable')->name('order.datatable');
+    Route::get('/order/datatable', 'CartController@datatableData')->name('order.datatable.data');
     Route::get('/category', 'CategoryController@datatable')->name('category.datatable');
     Route::get('/category/datatable', 'CategoryController@datatableData')->name('category.datatable.data');
     Route::resource('category', 'CategoryController')->except(['index', 'show']);
     Route::resource('size', 'SizeController')->except(['index', 'show']);
     Route::resource('comment', 'CommentController')->except(['index', 'show']);
+
+
 });
 // End Admin Routes
 

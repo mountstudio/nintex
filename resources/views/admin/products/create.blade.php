@@ -62,15 +62,20 @@
                 </select>
             </div>
             <div class="col-6">
-                <select class="js-example-basic-multiple" name="season" id="">
+                <select class="browser-default custom-select" name="season" id="">
                     @foreach(['осень/зима', 'весна/лето'] as $season)
                         <option value="{{ $season }}">{{ $season }}</option>
                     @endforeach
                 </select>
-
+            </div>
+            <div class="col-6">
+                <select class="browser-default custom-select" name="category_id">
+                    @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
-
         <button type="submit" title="{{ __('Создать') }}" class="btn btn-success">{{ __('Создать') }}</button>
     </form>
 @endsection

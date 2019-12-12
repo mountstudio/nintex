@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\Category;
 use App\Helpers\ImageSaver;
 use App\Product;
@@ -29,6 +30,7 @@ class ProductController extends Controller
             'products' => $products,
         ]);
     }
+
 
     /**
      * Show the form for creating a new resource.

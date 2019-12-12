@@ -93,6 +93,7 @@
                     url: '{{ route('cart.add') }}',
                     data: {
                         product_id: size ? newId : id,
+                        id: id,
                         count: 1,
                         token: token,
                         size: size,

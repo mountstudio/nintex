@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Yajra\DataTables\Facades\DataTables;
+
 
 class CartController extends Controller
 {
@@ -104,7 +106,7 @@ class CartController extends Controller
     }
 
     public function add(Request $request){
-        $product = Product::find($request->product_id);
+        $product = Product::find($request->id);
         $count = $request->count;
         $size = $request->size;
         $color = $request->color;
@@ -208,7 +210,7 @@ class CartController extends Controller
      */
     public function create()
     {
-        //
+//        return view('')
     }
 
 
@@ -269,5 +271,18 @@ class CartController extends Controller
     public function destroy(Cart $cart)
     {
         //
+    }
+
+    public function datatable(Request $request)
+    {
+        return view('admin.orders.index', [
+            'carts' => Cart::all(),
+        ]);
+    }
+
+    public function datatableData(Request $request)
+    {
+//        return DataTables::of(Product::query())->make(true);
+        return DataTables::of(Cart::query())->make(true);
     }
 }

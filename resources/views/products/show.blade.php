@@ -28,10 +28,6 @@
                                 <p>Цвет:</p>
                                 <div class="checkbox">
                                     @foreach(array_keys($product->colors) as $colors)
-{{--                                        <label class="checkbox-red" style="background: {{ $colors }};">--}}
-{{--                                            <input id="cbox-red" type="checkbox">--}}
-{{--                                            <span class="checkmark"></span>--}}
-{{--                                        </label>--}}
                                         <label class="j-color checkbox-red" style="background: {{ $colors }};"
                                                data-color="{{ $colors }}">
                                             <input id="cbox-red" name="color" type="radio">
@@ -49,7 +45,7 @@
                                 <p class="mb-4">Размеры: </p>
                                 <div class="j-size-list size-list j-smart-overflow-instance">
                                     @foreach($product->sizes as $size)
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                        <label class="j-size tooltipstered size-button " data-characteristic-id=""
                                                data-size="{{ $size }}">
                                             <span>{{ $size }}</span>
                                             <input class="radio-size" id="size" name="size" type="radio" value="">
@@ -62,9 +58,12 @@
                             <div class="col-4 pb-5">
                                 @include('partials.favorite', ['route' => \Illuminate\Support\Facades\Auth::check() ? '' : route('login'), 'data' => 'data-id='.$product->id.''])
 
-                                <a href="#"
-                                   class="btn btn-dark btn-block text-fut-book but-hov text-white buy_book d-lg-block d-none"
-                                   data-id="{{ $product->id }}" id="basket">В корзину</a>
+{{--                                <a href="#"--}}
+{{--                                   class="btn btn-dark btn-block text-fut-book but-hov text-white buy_book d-lg-block d-none"--}}
+{{--                                   data-id="{{ $product->id }}" id="basket">В корзину</a>--}}
+                                <div id="for-add-cart-btn">
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -108,16 +107,31 @@
         }
     </script>
     <script>
-        $('.j-size-list').on('click', 'label', function (e) {
-            $('.j-size-list label').removeClass('active');
-            $(this).addClass('active');
+        // $('.j-size-list').on('click', 'label', function (e) {
+        //     $('.j-size-list label').removeClass('active');
+        //     $(this).addClass('active');
+        //     let btn = $(e.currentTarget);
+        //     $('.buy_book').attr('data-size', btn.data('size'));
+        // });
+        //
+        // $('.j-color').on('click', function (e) {
+        //     let btn = $(e.currentTarget);
+        //     console.log(btn);
+        //     $('.buy_book').attr('data-color', btn.data('color'));
+        // });
+        $('.j-size.tooltipstered.size-button').on('click', function (e) {
+            e.preventDefault();
             let btn = $(e.currentTarget);
-            $('.buy_book').attr('data-size', btn.data('size'));
-        });
-        $('.j-color').on('click', function (e) {
-            let btn = $(e.currentTarget);
-            console.log(btn);
-            $('.buy_book').attr('data-color', btn.data('color'));
+            let size = btn.data('size');
+
+            $('div#for-add-cart-btn').empty();
+            const element = $('                <a href="#"' +
+                '                   class="btn btn-dark btn-block text-fut-book but-hov text-white buy_book d-lg-block d-none w-50"' +
+                '                   data-id=" {{ $product->id }}" data-size="' + size.size  + '"' +
+                '                   id="basket">Add to cart' +
+                '                </a>');
+            $('div#for-add-cart-btn').append(element);
+            registerCartBuyButtons(element);
         });
     </script>
     <script>

@@ -13,8 +13,6 @@ class Product extends Model
 
     use Favoriteable;
 
-
-
     protected $casts = [
         'colors' => 'array',
         'sizes' => 'array',
@@ -35,4 +33,8 @@ class Product extends Model
         return $this->belongsToMany(User::class);
     }
 //    public static function add()
+
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
 }

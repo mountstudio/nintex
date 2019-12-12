@@ -36,8 +36,7 @@
                             <input type="email" id="email" name="email" class="form-control input-erudit">
                         </div>
                         <div class="form-group">
-
-                            <input class="inp-cbx" name="" id="cbx" type="checkbox" style="display: none;"/>
+                            <input class="inp-cbx" name="delivery" id="cbx" type="checkbox" style="display: none;"/>
                             <label class="cbx" for="cbx">
                                 <span>
                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
@@ -149,7 +148,7 @@
                     diffInput.val('');
                 } else {
                     diffError.hide(300);
-                    diffInput.val((parseInt(input.val()) - parseInt(total)) + ' сом');
+                    diffInput.val((parseInt(input.val()) - parseInt(total)));
                 }
             }
         });

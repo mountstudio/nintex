@@ -38,7 +38,7 @@
                     <div class="d-flex ml-auto ml-md-0 justify-content-between align-items-center" style="width: 100px;">
                         <span class="pointer cart-btn rounded-circle shadow p-2 remove_book d-flex justify-content-center align-items-center" data-id="{{ $item->id }}">-</span>
                         <span class="mx-2">{{ $item->quantity }}</span>
-                        <span class="pointer cart-btn rounded-circle shadow buy_book p-2 d-flex justify-content-center align-items-center" data-id="{{ $item->id }}">+</span>
+                        <span class="pointer cart-btn rounded-circle shadow buy_book p-2 d-flex justify-content-center align-items-center" data-color="{{ $item->attributes->colors }}" data-size="{{ $item->attributes->size }}" data-id="{{ $item->id }}">+</span>
                     </div>
                 </div>
 
