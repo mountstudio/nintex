@@ -37,46 +37,6 @@
 
 @endsection
 
-@push('styles')
-    <style>
-
-        .main-container {
-            width: 100%;
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-
-        @media (min-width: 576px) {
-            .main-container {
-                max-width: 540px;
-            }
-        }
-        @media (min-width: 768px) {
-            .main-container {
-                max-width: 720px;
-            }
-        }
-        @media (min-width: 992px) {
-            .main-container {
-                max-width: 960px;
-            }
-        }
-        @media (min-width: 1200px) {
-            .main-container {
-                max-width: 1280px;
-            }
-        }
-
-
-
-
-
-
-    </style>
-@endpush
-
 @push('scripts')
 {{--    <script>--}}
 {{--        let params = [];//Create new array, in this array we save our parametrs--}}

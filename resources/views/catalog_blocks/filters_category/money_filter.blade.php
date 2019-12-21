@@ -1,12 +1,12 @@
 <div class="row">
 
     <!--Grid column-->
-    <div class="col-md-12 mb-4">
-
-        <form class="range-field">
-            <input type="range" min="0" max="100">
-        </form>
-
+    <div class="col-12">
+        <div class="slidecontainer">
+            <span>Мин:</span>
+            <span class="float-right">Макс:</span>
+            <input type="range" min="0" max="30000" value="0" id="myRange" class="slider">
+        </div>
     </div>
     <!--Grid column-->
 
@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-4 px-0">
                 <!-- Small input -->
-                <input class="form-control" type="text" placeholder="Введите цену">
+                <input class="form-control" type="text" placeholder="0">
 
             </div>
             <div class="col-1 px-0 text-center py-2">
@@ -23,7 +23,7 @@
             </div>
             <div class="col-4 px-0">
                 <!-- Small input -->
-                <input class="form-control" type="text" placeholder="Введите цену">
+                <input class="form-control" type="text" placeholder="30000">
 
             </div>
         </div>
@@ -60,5 +60,48 @@
     </div>
     <!--Checkbox-->
 </div>
+@push('styles')
+    <style>
+        .slidecontainer {
+            margin-bottom:20px ;
+            width: 100%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            border: 1px solid #000000;
+            height: 0px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #272727;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #272727;
+            cursor: pointer;
+        }
+    </style>
+@endpush
 
 

@@ -225,4 +225,7 @@ class ProductController extends Controller
         ]);
         $this->assertTrue($product->isFavorited());
     }
+    public function slider(){
+        return view('product_blocks.slider', ['products' => Product::all()]);
+    }
 }
