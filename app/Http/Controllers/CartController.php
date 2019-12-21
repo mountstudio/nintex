@@ -297,7 +297,16 @@ class CartController extends Controller
     public function datatableData(Request $request)
     {
 //        return DataTables::of(Product::query())->make(true);
-        return DataTables::of(Cart::query())->make(true);
+        return DataTables::of(Cart::query())
+            ->addColumn('action', function($row) {
+                return '<select class="form-control status-order">
+                            <option data-id="'.$row->id.'" value="'.Cart::$INWAIT.'">В ожидании</option>
+                            <option data-id="'.$row->id.'" value="'.Cart::$INPROGRESS.'">В процессе</option>
+                            <option data-id="'.$row->id.'" value="'.Cart::$DELIVERED.'">Доставлено</option>
+                            <option data-id="'.$row->id.'" value="'.Cart::$FINISHED.'">Закончено</option>
+                        </select>';
+            })
+            ->make(true);
     }
     public function purchases(Request $request) {
         $user = $request->user();

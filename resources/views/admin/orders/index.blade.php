@@ -12,6 +12,7 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>Action</th>
             <th>Created At</th>
             <th>Updated At</th>
         </tr>
@@ -29,21 +30,31 @@
         $(function() {
             var table = $('#carts-table').DataTable({
                 processing: true,
-                select: {
-                    items: 'cells',
-                    info: false,
-                },
                 serverSide: true,
                 ajax: '{!! route('admin.order.datatable.data') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },
+                    { data: 'action', name: 'action' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' }
-                ]
+                ],
+                'initComplete' : (settings, data) => {
+                    $('.status-order').each((e, i) => {
+                        registerSelectStatus($(i));
+                    })
+                }
             });
-            table.column(1).select();
         });
+
+        function registerSelectStatus(html) {
+            html.change(e => {
+                let select = $(e.currentTarget);
+                let id = select.children('option:selected').data('id');
+                let value = select.val();
+                console.log(value);
+            })
+        }
     </script>
 
 @endpush

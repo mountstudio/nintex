@@ -9,6 +9,11 @@ class Cart extends Model
 {
     protected $table ='carts';
     protected $fillable = ['id', 'name', 'sum', 'diff'];
+    public static $INWAIT = 0;
+    public static $INPROGRESS = 1;
+    public static $DELIVERED = 2;
+    public static $FINISHED = 3;
+
 
     protected $casts = [
         'cart' =>'array',
@@ -19,7 +24,7 @@ class Cart extends Model
     }
 
     public static function add(Product $product, $count = 1, $token, $options = []) {
-        if (CartFacade::session($token)->get($options['product_id'])){
+        if (CartFacade::session($token)->get($options['product_id']) && CartFacade::session($token)->get($options['size']) && CartFacade::session($token)->get($options['color'])){
             return CartFacade::session($token)->update($options['product_id'], [
                 'quantity' => $count,
             ]);

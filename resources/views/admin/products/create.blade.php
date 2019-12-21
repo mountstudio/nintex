@@ -15,20 +15,34 @@
                 <!-- Material input -->
                 <div class="md-form">
                     <input type="text" id="price" name="price" class="form-control">
-                    <label for="price">{{ __('Цена') }}</label>
+                    <label for="price">{{ __('Розничная Цена') }}</label>
                 </div>
             </div>
             <div class="col-3">
                 <!-- Material input -->
                 <div class="md-form">
                     <input type="text" id="wholesale_price" name="wholesale_price" class="form-control">
-                    <label for="wholesale_price">{{ __('Оптовая цена') }}</label>
+                    <label for="wholesale_price">{{ __('Мелкооптовая цена') }}</label>
                 </div>
             </div>
             <div class="col-6">
                 <div class="md-form">
                     <textarea id="description" name="description" class="md-textarea form-control" rows="3"></textarea>
                     <label for="description">{{ __('Описание') }}</label>
+                </div>
+            </div>
+            <div class="col-3">
+                <!-- Material input -->
+                <div class="md-form">
+                    <input type="text" id="m_wholesale_price" name="m_wholesale_price" class="form-control">
+                    <label for="m_wholesale_price">{{ __('Средняя оптовая цена') }}</label>
+                </div>
+            </div>
+            <div class="col-3">
+                <!-- Material input -->
+                <div class="md-form">
+                    <input type="text" id="l_wholesale_price" name="l_wholesale_price" class="form-control">
+                    <label for="l_wholesale_price">{{ __('Крупная оптовая цена') }}</label>
                 </div>
             </div>
             <div class="col-6">
