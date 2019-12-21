@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-5">
                     <div class="row">
-                        @include('basket_blocks.slider')
+                        @include('product_blocks.slider')
                     </div>
                 </div>
             </div>
@@ -118,12 +118,12 @@
         </div>
     </section>
 
-
     @include('partials.footer')
 @endsection
 
 
 @push("styles")
+
     <style>
         #secondCarousel{
             transform: rotate(90deg);

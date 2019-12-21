@@ -4,7 +4,7 @@
     <section class="bg-nintex-color">
         <div class="container-fluid pt-5">
             <div class="row">
-                <div class="col-8 position-relative">
+                <div class="col-7 position-relative">
                     <div class=" d-flex justify-content-end " style=" border-bottom-left-radius: 100px;">
                         <div class="col-6">
                             <p>
@@ -68,9 +68,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <img style="bottom: 0px; position: absolute; width:394px;height:525px;"
-                         src="{{ asset('uploads/'.$product->logo)}}" alt="">
+                <div class="col-5">
+                    {{--<img style="bottom: 0px; position: absolute; width:394px;height:525px;"
+                         src="{{ asset('uploads/'.$product->logo)}}" alt="">--}}
+
+                    <div class="row">
+                        @include('product_blocks.slider')
+                    </div>
                 </div>
             </div>
         </div>

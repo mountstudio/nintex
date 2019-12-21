@@ -1,5 +1,5 @@
 let fCarousel = $('#fCarousel'),
-    sCarousel = $('#sCarousel');
+    sCarousel = $('.slick-carousel');
 
 fCarousel.owlCarousel({
     loop: true,
@@ -9,36 +9,39 @@ fCarousel.owlCarousel({
     dots: false,
 
 });
-sCarousel.owlCarousel({
-    loop: true,
-    items: 4,
-    margin: 10,
-    nav: true,
-    dots: false,
-});
+sCarousel.slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    isfinite: true,
+    speed: 300,
+    vertical: true,
+    verticalSwiping: true,
+    nextArrow: '<div class="btn border-0 shadow-none px-2 slick-next"><img src="../icons/arrow-up.png" style="width: 24px; height: 24px;" alt=""></div>',
+    prevArrow: '<div class="btn border-0 shadow-none px-2 slick-prev"><img src="../icons/arrow-down.png" style="width: 24px; height: 24px;" alt=""></div>',
+
+})
 
 fCarousel.on('click','.owl-next', function () {
-    sCarousel.trigger('next.owl.carousel');
+    sCarousel.trigger('slickNext');
 });
 fCarousel.on('click','.owl-prev', function () {
-    sCarousel.trigger('prev.owl.carousel');
+    sCarousel.trigger('slickPrev');
 });
 
-sCarousel.on('click','.owl-next', function () {
+sCarousel.on('click','.slick-next', function () {
     fCarousel.trigger('next.owl.carousel');
 });
-sCarousel.on('click','.owl-prev', function () {
+sCarousel.on('click','.slick-prev', function () {
     fCarousel.trigger('prev.owl.carousel');
 });
 
-/*
+
 fCarousel.on('dragged.owl.carousel', function (e) {
 
     if (e.relatedTarget.state.direction == 'left') {
-        sCarousel.trigger('next.owl.carousel');
+        sCarousel.trigger('slickNext');
     } else {
-        sCarousel.trigger('prev.owl.carousel');
+        sCarousel.trigger('slickPrev');
     }
 
 });
-*/
