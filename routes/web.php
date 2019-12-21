@@ -44,7 +44,6 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::resource('size', 'SizeController')->except(['index', 'show']);
     Route::resource('comment', 'CommentController')->except(['index', 'show']);
 
-
 });
 // End Admin Routes
 

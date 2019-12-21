@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Cart_product;
 use App\Product;
 use App\TokenResolve;
 use App\User;
+use Carbon\Carbon;
 use Darryldecode\Cart\Facades\CartFacade;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use PHPUnit\Framework\Constraint\Callback;
 use Yajra\DataTables\Facades\DataTables;
 
 
@@ -69,6 +72,19 @@ class CartController extends Controller
             $newCart->diff = $request->diff;
         }
         $newCart->save();
+
+        $cartID = Cart::latest()->first();
+//        dd($newCart->cart);
+        $user = $request->user();
+
+        foreach ($newCart->cart['cart'] as $cart)
+        {
+            $cart_product = new Cart_product();
+            $cart_product->cart_id = $cartID->id;
+            $cart_product->quantity = $cart['quantity'];
+            $cart_product->user_id = auth()->check() ? auth()->user()->id : null;
+            $cart_product->save();
+        }
 
         Session::forget(['cart', 'token']);
         Session::flash('cart_success', 'Your info has successfully created!');
@@ -235,8 +251,6 @@ class CartController extends Controller
         return view('profile.shopping', [
             'carts' => $carts,
         ]);
-
-
     }
 
     /**
@@ -284,5 +298,15 @@ class CartController extends Controller
     {
 //        return DataTables::of(Product::query())->make(true);
         return DataTables::of(Cart::query())->make(true);
+    }
+    public function purchases(Request $request) {
+        $user = $request->user();
+
+        $quantity = Cart_product::sum('quantity')->where('user_id', $user->id)->get();
+//        if ($request->user)
+//        {
+//            $quantityPur = Cart::where('created_at', '>=', Carbon::now()->startOfMonth()->subMonth()->toDateString());
+//        }
+        return view('profile.dashboard', [ 'quantity' => $quantity]);
     }
 }

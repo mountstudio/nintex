@@ -12,8 +12,8 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-{{--            <th>Created At</th>--}}
-{{--            <th>Updated At</th>--}}
+            <th>Created At</th>
+            <th>Updated At</th>
         </tr>
         </thead>
     </table>
@@ -27,17 +27,23 @@
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script>
         $(function() {
-            $('#carts-table').DataTable({
+            var table = $('#carts-table').DataTable({
                 processing: true,
+                select: {
+                    items: 'cells',
+                    info: false,
+                },
                 serverSide: true,
                 ajax: '{!! route('admin.order.datatable.data') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },
-                    // { data: 'created_at', name: 'created_at' },
-                    // { data: 'updated_at', name: 'updated_at' }
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'updated_at', name: 'updated_at' }
                 ]
             });
+            table.column(1).select();
         });
     </script>
+
 @endpush

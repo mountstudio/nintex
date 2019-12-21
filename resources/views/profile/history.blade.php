@@ -24,7 +24,7 @@
                         <tbody>
                         @foreach($cart->cart['cart'] as $item)
 {{--                            @foreach($item['attributes'] as $value)--}}
-{{--                                @dd($item['attributes']['size'])--}}
+                                @dd($item)
                             <tr>
 
                                 <th scope="row">{{ $loop->iteration }}</th>
