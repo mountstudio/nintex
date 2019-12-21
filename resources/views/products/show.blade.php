@@ -92,6 +92,7 @@
 
 @endsection
 @push('scripts')
+    <script src="{{ asset('js/slider-basket.js') }}"></script>
     <script>
         function getProducts(params = {}) {
             $.ajax({
