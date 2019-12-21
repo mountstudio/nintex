@@ -140,7 +140,10 @@
                hThird.reset();//reset typing head text
                type3.reset();//reset typing text
 
-               //this script for img in comp version
+               //this script for img
+               //
+               //
+               // in comp version
                $('#left').addClass('left-active').removeClass('left');// функия открытия шторок
                $('#right').addClass('right-active').removeClass('right');// функия открытия шторок
                carNum2.trigger('next.owl.carousel');// то тогда сработает функция next во втором owl carousel
