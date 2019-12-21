@@ -78,12 +78,12 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid position-absolute" style="bottom: 0;">
-            <div class="row">
-                <div class="col-12">
 
-                </div>
-            </div>
+    </section>
+
+    <section>
+        <div class="container-fluid position-absolute" style="bottom: 0;">
+            @include('product_blocks.info_about_product')
         </div>
     </section>
 
