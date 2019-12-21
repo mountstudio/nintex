@@ -13,11 +13,11 @@
                 <a class="nav-link text-uppercase" href="/#bottom_stocks" title="Акции">Акции</a>
             </li>
         </ul>
-        <form class="form-inline md-form form-sm active-cyan-2 my-1">
-            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-                   aria-label="Search">
-            <i class="fas fa-search" aria-hidden="true"></i>
-        </form>
+{{--        <form class="form-inline md-form form-sm active-cyan-2 my-1">--}}
+{{--            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"--}}
+{{--                   aria-label="Search">--}}
+{{--            <i class="fas fa-search" aria-hidden="true"></i>--}}
+{{--        </form>--}}
         <ul class="navbar-nav ml-5 mt-2 mt-lg-0">
             <li class="nav-item mr-4">
                 <a href="#"
