@@ -151,7 +151,7 @@
 
 @endpush
 @push('scripts')
-    <script src="{{ asset('js/slider-basket.js') }}"></script>
+    <script src="{{ asset('js/slider-product.js }}"></script>
 @endpush
 
 
