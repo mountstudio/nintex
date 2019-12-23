@@ -86,15 +86,17 @@
                 let btn = $(e.currentTarget);
                 let id = btn.data('id');
                 let cart = null;
+                // let color = '#ff0000';
                 let color = btn.data('color');
                 let size = btn.data('size');
+                // let newId = id + size;
                 let newId = id + size + color;
                 console.log(newId, id);
 
                 $.ajax({
                     url: '{{ route('cart.add') }}',
                     data: {
-                        product_id: size ? newId : id,
+                        product_id: size ? id : newId,
                         id: id,
                         count: 1,
                         token: token,
