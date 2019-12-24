@@ -24,11 +24,15 @@ class Cart extends Model
     }
 
     public static function add(Product $product, $count = 1, $token, $options = []) {
-        //пересмотри условие оно какое то странное!
-        if (CartFacade::session($token)->get($options['product_id']) && CartFacade::session($token)->get($options['size']) && CartFacade::session($token)->get($options['color'])){
+        $p = CartFacade::session($token)->get($options['product_id']);
+//        dd($p, $p->id, $p->attributes->size, $p->attributes->colors, $options['product_id'], $product);
+        if (empty($p))
+        {
+            return CartFacade::session($token)->add($options['product_id'], $product->title, $product->price, $count ? $count : 1, ['size'=> $options['size'], 'colors' => $options['color'], 'p_id'=> $product->id]);
+        }
+        else
+        {
             return CartFacade::session($token)->update($options['product_id'], ['quantity' => $count,]);
-        } else {
-            return CartFacade::session($token)->add($options['product_id'], $product->title, $product->price, $count ? $count : 1, ['size'=> $options['size'], 'colors' => $options['color']]);
         }
     }
 

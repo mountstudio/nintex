@@ -121,7 +121,6 @@
             $('input:radio:checked').each(function(){
                 color = $(this).val();
             });
-            // alert(color);
             console.log(size, color);
             // console.log(size, color);
             $('div#for-add-cart-btn').empty();
