@@ -38,21 +38,21 @@
                 <!-- Default unchecked -->
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="new">
-                    <label class="custom-control-label" for="new">Новинка</label>
+                    <label class="custom-control-label" style="font-size: 14px" for="new">Новинка  </label>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <!-- Default unchecked -->
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="discount">
-                    <label class="custom-control-label" for="discount">Скидка</label>
+                    <label class="custom-control-label" style="font-size: 14px" for="discount">Скидка  </label>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <!-- Default unchecked -->
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="bestseller">
-                    <label class="custom-control-label" for="bestseller">Хит</label>
+                    <label class="custom-control-label" style="font-size: 14px" for="bestseller">Хит  </label>
                 </div>
             </div>
 

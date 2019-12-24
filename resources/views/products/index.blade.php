@@ -1,133 +1,22 @@
     @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid" style="margin-top: 20px">
+
+    <div class="main-container">
         <div class="row">
-            <div class="col-2 h-100 ">
-                <p class="h3 text-center">Каталог</p>
-                <div class="text_catalog" style="margin-bottom: 30px;margin-top:15px;font-size: 17px;line-height: 120%;letter-spacing: 0.05em;color: rgb(34, 34, 34);cursor: pointer;">
-                    <a href="" class="catalog_a">
-                        <p class="">
-                            Весь каталог
-                        </p>
-                    </a>
-                    <a href="" class="catalog_a">
-                        <p class="">
-                            Новинки
-                        </p>
-                    </a>
-                    <a href="" class="catalog_a">
-                        <p class="">
-                            Распродажа
-                        </p>
-                    </a>
-                    <a href="" class="catalog_a">
-                        <p class="">
-                            Пальто
-                        </p>
-                    </a>
-                    <a href="" class="catalog_a">
-                        <p class="">
-                            Блузки
-                        </p>
-                    </a>
-                    <a href="" class="catalog_a">
-                        <p class="">
-                            Брюки
-                        </p>
-                    </a>
-                    <a href="" class="catalog_a">
-                        <p class="">
-                            Пиджаки
-                        </p>
-                    </a>
-                    <a href="" class="catalog_a">
-                        <p class="">
-                            Сумки
-                        </p>
-                    </a>
-                    <a href="" class="catalog_a">
-                        <p class="">
-                            Юбки
-                        </p>
-                    </a>
-                </div>
-                <p class="h5 text-center">Фильтр</p>
-                <p class="" style="color: #626262;font-size: 14px;">Размеры:</p>
-                <div class="j-size-list size-lists j-smart-overflow-instance">
-                    <label class="j-size tooltipstered active size-button" data-characteristic-id=""
-                           data-size-name="XS">
-                        <span>XS</span>
-                        <input class="radio-size" id="size" name="size" type="radio" value="">
-                        <i></i>
-                    </label>
-                    <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                           data-size-name="S">
-                        <span>S</span>
-                        <input class="radio-size" id="size" name="size" type="radio" value="">
-                        <i></i>
-                    </label>
-                    <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                           data-size-name="M">
-                        <span>M</span>
-                        <input class="radio-size" id="size" name="size" type="radio" value="">
-                        <i></i>
-                    </label>
-                    <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                           data-size-name="L">
-                        <span>L</span>
-                        <input class="radio-size" id="size" name="size" type="radio" value="">
-                        <i></i>
-                    </label>
-                    <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                           data-size-name="XL">
-                        <span>XL</span>
-                        <input class="radio-size" id="size" name="size" type="radio" value="">
-                        <i></i>
-                    </label>
-                    <label class="j-size  j-sold-out tooltipstered size-button"
-                           data-characteristic-id="" data-size-name="XXL">
-                        <span>XXL</span>
-                        <input class="radio-size" id="size" name="size" type="radio" value="">
-                        <i></i>
-                    </label>
-                    <i class="icon-step j-imigize hide"></i>
-                </div>
-                <p class="h5 text-center" style="margin-top: 20px">Цены:</p>
-                <div class="col-12">
-                    <div class="slidecontainer">
-                        <span>Мин:</span>
-                        <span class="float-right">Макс:</span>
-                        <input type="range" min="0" max="15000" value="0" id="myRange" class="slider">
-                    </div>
-                </div>
-                <!-- Default inline 1-->
-                <div class="custom-control custom-checkbox" style="margin-top: 35px">
-                    <input type="checkbox" class="custom-control-input" id="defaultInline1">
-                    <label class="custom-control-label" style="padding: 3px" for="defaultInline1">Скидка</label>
-                </div>
-                <!-- Default inline 2-->
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="defaultInline2">
-                    <label class="custom-control-label" style="padding: 3px" for="defaultInline2">Новинка</label>
-                </div>
-                <!-- Default inline 3-->
-                <div class="custom-control custom-checkbox" style="margin-bottom: 20px">
-                    <input type="checkbox" class="custom-control-input" id="defaultInline3">
-                    <label class="custom-control-label" style="padding: 3px" for="defaultInline3">Хит</label>
-                </div>
-                <button type="button" class="btn btn-outline-default btn-rounded waves-effect"
-                        style="border-radius: 20px">Сбросить фильтр
-                </button>
+            <div class="col-12 col-md-3 my-5">
+                @include('catalog_blocks.nav_category')
+                @include('catalog_blocks.filters')
             </div>
-            <div class="col-10">
-                <div class="row px-2">
+            <div class="col-12 col-md-9 my-5">
+                <div class="row">
                     @foreach($products as $product)
-                        <div class="col-3">
-                            @include('products.card')
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            @include('catalog_blocks.product_card')
                         </div>
                     @endforeach
                 </div>
+
                 <nav aria-label="Page navigation example">
                     <ul class="pagination pagination-circle pg-blue">
                         <li class="page-item disabled"><a class="page-link">Пред</a></li>
@@ -151,24 +40,10 @@
                         <li class="page-item"><a class="page-link">След</a></li>
                     </ul>
                 </nav>
-                {{--                <nav aria-label="Page navigation example">--}}
-                {{--                    <ul class="pagination pagination-circle pg-blue">--}}
-                {{--                        <li class="page-item ">--}}
-                {{--                            <a class="page-link" tabindex="-1">Пред</a>--}}
-                {{--                        </li>--}}
-                {{--                        <li class="page-item"><a class="page-link">1</a></li>--}}
-                {{--                        <li class="page-item active">--}}
-                {{--                            <a class="page-link">2 <span class="sr-only">(current)</span></a>--}}
-                {{--                        </li>--}}
-                {{--                        <li class="page-item"><a class="page-link">3</a></li>--}}
-                {{--                        <li class="page-item ">--}}
-                {{--                            <a class="page-link">След</a>--}}
-                {{--                        </li>--}}
-                {{--                    </ul>--}}
-                {{--                </nav>--}}
             </div>
         </div>
     </div>
+
     @include('partials.footer')
 @endsection
 

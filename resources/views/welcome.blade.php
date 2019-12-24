@@ -102,11 +102,9 @@
                     </div>
                     <div class="col-7 position-relative mt-5">
                         <div class="card border-0 ">
-                            <div class="position-absolute" style="top:0;left:0;">
-                                <p class="h2 text-left">
-                                    Зимняя Коллекция 2019
-                                </p>
-                            </div>
+                            <p class="h2 text-left">
+                                Зимняя Коллекция 2019
+                            </p>
 
                         </div>
                     </div>
