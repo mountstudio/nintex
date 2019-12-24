@@ -30,7 +30,7 @@
                                     @foreach(array_keys($product->colors) as $colors)
                                         <label class="j-color checkbox-red" style="background: {{ $colors }};"
                                                data-color="{{ $colors }}">
-                                            <input id="cbox-red" name="color" type="radio">
+                                            <input id="cbox" checked="checked" value="{{ $colors }}" name="color" type="radio">
                                             <span class="checkmark"></span>
                                         </label>
                                     @endforeach
@@ -46,7 +46,7 @@
                                 <p class="mb-4">Размеры: </p>
                                 <div class="j-size-list size-list j-smart-overflow-instance">
                                     @foreach($product->sizes as $size)
-                                        <label class="j-size tooltipstered size-button" data-characteristic-id=""
+                                        <label class="j-size tooltipstered size-button " data-characteristic-id=""
                                                data-size="{{ $size }}">
                                             <span>{{ $size }}</span>
                                             <input class="radio-size" id="size" name="size" type="radio" value="">
@@ -56,23 +56,22 @@
                                 <a href="{{ route('cart.checkout') }}" class="btn btn-lightblue mt-3 cart">Начать
                                     покупки</a>
                             </div>
-                            <div class="col-4 pb-5 add_button">
+                            <div class="col-4 pb-5">
                                 @include('partials.favorite', ['route' => \Illuminate\Support\Facades\Auth::check() ? '' : route('login'), 'data' => 'data-id='.$product->id.''])
 
-                                <a href="#"
-                                   class="btn btn-dark btn-block text-fut-book but-hov text-white buy_book d-lg-block d-none"
-                                   data-id="{{ $product->id }}" id="basket">В корзину</a>
+{{--                                <a href="#"--}}
+{{--                                   class="btn btn-dark btn-block text-fut-book but-hov text-white buy_book d-lg-block d-none"--}}
+{{--                                   data-id="{{ $product->id }}" id="basket">В корзину</a>--}}
+                                <div id="for-add-cart-btn">
+
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-5">
-                    {{--<img style="bottom: 0px; position: absolute; width:394px;height:525px;"
-                         src="{{ asset('uploads/'.$product->logo)}}" alt="">--}}
-
-                    <div class="row">
-                        @include('product_blocks.slider')
-                    </div>
+                <div class="col-4">
+                    <img style="bottom: 0px; position: absolute; width:394px;height:525px;"
+                         src="{{ asset('uploads/'.$product->logo)}}" alt="">
                 </div>
             </div>
         </div>
@@ -81,7 +80,11 @@
 
     <section>
         <div class="container-fluid position-absolute" style="bottom: 0;">
-            @include('product_blocks.info_about_product')
+            <div class="row">
+                <div class="col-12">
+
+                </div>
+            </div>
         </div>
     </section>
 
@@ -90,7 +93,7 @@
 
 @endsection
 @push('scripts')
-    <script src="{{ asset('js/slider-product.js') }}"></script>
+    <script src="{{ asset('js/slider-basket.js') }}"></script>
     <script>
         function getProducts(params = {}) {
             $.ajax({
@@ -111,16 +114,23 @@
     </script>
     <script>
         $('.j-size-list').on('click', 'label', function (e) {
-            $('.j-size-list label').removeClass('active');
-            $(this).addClass('active');
+            e.preventDefault();
             let btn = $(e.currentTarget);
-            $('.buy_book').attr('data-size', btn.data('size'));
-        });
-
-        $('.j-color').on('click', function (e) {
-            let btn = $(e.currentTarget);
-            console.log(btn);
-            $('.buy_book').attr('data-color', btn.data('color'));
+            let size = btn.data('size');
+            let color = '';
+            $('input:radio:checked').each(function(){
+                color = $(this).val();
+            });
+            console.log(size, color);
+            // console.log(size, color);
+            $('div#for-add-cart-btn').empty();
+            const element = $('                <a href="#"' +
+                '                   class="btn btn-dark btn-block text-fut-book but-hov text-white buy_book d-lg-block d-none w-50"' +
+                '                   data-id=" {{ $product->id }}" data-size="' + size  + '" data-color="'+ color +'"' +
+                '                   id="basket">Add to cart' +
+                '                </a>');
+            $('div#for-add-cart-btn').append(element);
+            registerCartBuyButtons(element);
         });
         {{--$('.j-size.tooltipstered.size-button').on('click', function (e) {--}}
         {{--    e.preventDefault();--}}

@@ -20,9 +20,7 @@
             <div class="col-1 h3">
                 Цвет
             </div>
-
         </div>
-
         @foreach($cartItems as $item)
             <div class="row border-top border-bottom py-3 align-items-center">
                 <div class="col-2 col-md-4 col-lg-2 order-0 d-flex align-items-center">
@@ -38,10 +36,9 @@
                     <div class="d-flex ml-auto ml-md-0 justify-content-between align-items-center" style="width: 100px;">
                         <span class="pointer cart-btn rounded-circle shadow p-2 remove_book d-flex justify-content-center align-items-center" data-id="{{ $item->id }}">-</span>
                         <span class="mx-2">{{ $item->quantity }}</span>
-                        <span class="pointer cart-btn rounded-circle shadow buy_book p-2 d-flex justify-content-center align-items-center" data-color="{{ $item->attributes->colors }}" data-size="{{ $item->attributes->size }}" data-id="{{ $item->id }}">+</span>
+                        <span class="pointer cart-btn rounded-circle shadow buy_book p-2 d-flex justify-content-center align-items-center" data-color="{{ $item->attributes->colors }}" data-size="{{ $item->attributes->size }}" data-id="{{ $item->attributes->p_id }}">+</span>
                     </div>
                 </div>
-
 
                 <div class="col-lg-2 col-md-2 col-1 order-5 d-flex align-items-center">
                     <p class="m-0 text-left font-weight-bold"><span class="d-inline-block d-md-none">Итого:&nbsp;</span>{{ $item->getPriceSum() }} сом</p>
@@ -81,7 +78,6 @@
                 </a>
             </div>
         </div>
-
 
     @else
         <div class="row justify-content-center">

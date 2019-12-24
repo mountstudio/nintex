@@ -94,7 +94,8 @@
                 $.ajax({
                     url: '{{ route('cart.add') }}',
                     data: {
-                        product_id: size ? newId : id,
+                        product_id: newId,
+                        // product_id: size ? id : newId,
                         id: id,
                         count: 1,
                         token: token,
