@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
+use function GuzzleHttp\Promise\all;
 
 
 class ProductController extends Controller
@@ -22,13 +23,84 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function filter($request)
     {
-        $products = Product::all();
 
+        $products = Product::all();
+        $size = [];
+        $size[0] = 'XS';
+        $size[1] = 'S';
+        $size[2] = 'M';
+        $size[3] = 'L';
+        $size[4] = 'XL';
+        $size[5] = 'XXL';
         return view('products.index', [
             'products' => $products,
+            'sizes' => $size,
         ]);
+    }
+
+    public function index(Request $request)
+    {
+//        if (empty($request->all()))
+//        {
+            dd($request->all(), $request->white, $request->blue, $request->black);
+            $products = Product::all();
+            $size = [];
+            $size[0] = 'XS';
+            $size[1] = 'S';
+            $size[2] = 'M';
+            $size[3] = 'L';
+            $size[4] = 'XL';
+            $size[5] = 'XXL';
+
+            return view('products.index', [
+                'products' => $products,
+                'sizes' => $size,
+            ]);
+//        }
+//        else
+//        {
+//            $products = Product::where('title', 'LIKE', '%пальто%')->get();
+//            dd($request->all());
+//
+//            //каталоги
+//            $allCatalog = $request->allCatalog;
+//            $newDress = $request->newDress;
+//            $sellOut = $request->sellOut;
+//            $coat = $request->coat;
+//            $blouses = $request->blouses;
+//            $pants = $request->pants;
+//            $jackets = $request->jackets;
+//            $bags = $request->bags;
+//            $skirts = $request->skirts;
+//
+//            //размеры
+//            $sizeXS = $request->sizeXS;
+//            $sizeS = $request->sizeS;
+//            $sizeM = $request->sizeM;
+//            $sizeL = $request->sizeL;
+//            $sizeXL = $request->sizeXL;
+//            $sizeXXL = $request->sizeXXL;
+//
+//            //цвета
+//            $white = $request->white;
+//            $blue = $request->blue;
+//            $black = $request->black;
+//
+//            ////////////////////////
+//            $size = [];
+//            $size[0] = 'XS';
+//            $size[1] = 'S';
+//            $size[2] = 'M';
+//            $size[3] = 'L';
+//            $size[4] = 'XL';
+//            $size[5] = 'XXL';
+//            return view('products.index', [
+//                'products' => $products,
+//                'sizes' => $size,
+//            ]);
+//        }
     }
 
 

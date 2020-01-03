@@ -1,14 +1,11 @@
 <div class="col-7">
     <div class="owl-carousel" id="fCarousel">
         @foreach($product['colors'] as $item)
-            @foreach($item as $value)
-                @foreach($value as $key)
-{{--                    @dd($key)--}}
+            @foreach($item[0] as $value)
                     <div class="item">
-                        <img class="carousel-img1" src="{{ asset('uploads/'.$key) }}"
+                        <img class="carousel-img1" src="{{ asset('uploads/'.$value) }}"
                              style="height: 600px; width: 300px;" alt="">
                     </div>
-                @endforeach
             @endforeach
         @endforeach
     </div>
