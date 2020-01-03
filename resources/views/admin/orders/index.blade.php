@@ -47,6 +47,8 @@
             });
         });
 
+
+
         function registerSelectStatus(html) {
             html.change(e => {
                 let select = $(e.currentTarget);
@@ -55,6 +57,53 @@
                 console.log(value);
             })
         }
+
+        $(document).ready(function ()
+        {
+            $(document).on('change', 'select', function () {
+                let optVal = $(this).val();
+                let id = $(this).data('id');
+                console.log(optVal, id);
+
+                $.ajax({
+                    url: "{{ route('cart.save_select') }}",
+                    method: 'POST',
+                    data: {
+                        value: optVal,
+                        id: id
+                    },
+                    success: data => {
+                        console.log(data, 'Успех');
+                    },
+                    error: data => {
+                        console.log(data, 'Ошибка');
+                    }
+                })
+            })
+        });
+        {{--$('#select_id').ready(function () {--}}
+        {{--    // let target = $(this.relatedTarget);--}}
+        {{--    // let action_value = target.val();--}}
+        {{--    let action_value = $(this.val());--}}
+        {{--    let id = $(this.data('id'));--}}
+        {{--    // let id = target.data('id');--}}
+        {{--    console.log('azret');--}}
+        {{--    $.ajax({--}}
+        {{--        url: "{{ route('cart.save_select') }}",--}}
+        {{--        method: 'POST',--}}
+        {{--        data: {--}}
+        {{--            id: id,--}}
+        {{--            value: action_value,--}}
+        {{--        },--}}
+        {{--        success: data => {--}}
+        {{--            console.log(data, 'Успех');--}}
+        {{--        },--}}
+        {{--        error: data => {--}}
+        {{--            console.log(data, 'Ошибка');--}}
+        {{--        }--}}
+
+        {{--    })--}}
+        {{--});--}}
     </script>
 
 @endpush

@@ -73,3 +73,5 @@ Route::get('/cart/remove/book', 'CartController@remove')->name('cart.remove');
 //End Cart
 
 Route::get('/products', 'Api\ProductController@index')->name('product.all');
+
+Route::post('/save/select', 'CartController@save_select')->name('cart.save_select');

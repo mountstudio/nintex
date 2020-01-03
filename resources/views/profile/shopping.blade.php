@@ -7,7 +7,7 @@
                 @include('profile.sidebar')
             </div>
             <div class="col">
-                @include('profile.dashboard')
+{{--                @include('profile.dashboard')--}}
                 <section>
                     <h2>История заказов</h2>
                     <div class="d-flex mt-5">

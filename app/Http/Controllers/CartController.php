@@ -247,7 +247,9 @@ class CartController extends Controller
     public function shopping(Request $request){
 
         $user = $request->user();
+//        dd($user->id);
         $carts = Cart::where('user_id', $user->id)->get();
+
         return view('profile.shopping', [
             'carts' => $carts,
         ]);
@@ -296,15 +298,16 @@ class CartController extends Controller
 
     public function datatableData(Request $request)
     {
+
 //        return DataTables::of(Product::query())->make(true);
         return DataTables::of(Cart::query())
             ->addColumn('action', function($row) {
-                return '<select class="form-control status-order">
-                            <option data-id="'.$row->id.'" value="'.Cart::$INWAIT.'">В ожидании</option>
-                            <option data-id="'.$row->id.'" value="'.Cart::$INPROGRESS.'">В процессе</option>
-                            <option data-id="'.$row->id.'" value="'.Cart::$DELIVERED.'">Доставлено</option>
-                            <option data-id="'.$row->id.'" value="'.Cart::$FINISHED.'">Закончено</option>
-                        </select>';
+                return '<select class="form-control status-order select_id" data-id="'.$row->id.'">'.
+                            '<option value="'.Cart::$INWAIT.'" selected="'.$row->action = Cart::$INWAIT ? 1 : 2 .'">В ожидании</option>'.
+                            '<option value="'.Cart::$INPROGRESS.'" selected="'.$row->action = Cart::$INPROGRESS ? 1 : 2 .'">В процессе</option>'.
+                            '<option value="'.Cart::$DELIVERED.'" selected="'.$row->action = Cart::$DELIVERED ? 1 : 2 .'">Доставлено</option>'.
+                            '<option value="'.Cart::$FINISHED.'" selected="'.$row->action = Cart::$FINISHED ? 1 : 2 .'">Закончено</option>'.
+                        '</select>';
             })
             ->make(true);
     }
@@ -312,10 +315,14 @@ class CartController extends Controller
         $user = $request->user();
 
         $quantity = Cart_product::sum('quantity')->where('user_id', $user->id)->get();
-//        if ($request->user)
-//        {
-//            $quantityPur = Cart::where('created_at', '>=', Carbon::now()->startOfMonth()->subMonth()->toDateString());
-//        }
+//        dd($quantity);
         return view('profile.dashboard', [ 'quantity' => $quantity]);
+    }
+    public function save_select(Request $request){
+//        dd($id);
+        $cart = Cart::find($request->id);
+        $cart->action = $request->value;
+        $cart->save();
+        return response()->json('Успехх');
     }
 }

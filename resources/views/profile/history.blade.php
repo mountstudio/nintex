@@ -1,9 +1,12 @@
 @extends('profile.profile')
 @section('content')
     <div class="container-fluid py-5">
+
         <div class="row justify-content-center">
             <div class="col-2">
+                @include('profile.sidebar')
             </div>
+
             <div class="col">
                 <section>
                     <h4>Сумма: {{ $cart->cart['total'] }}</h4>
@@ -24,7 +27,7 @@
                         <tbody>
                         @foreach($cart->cart['cart'] as $item)
 {{--                            @foreach($item['attributes'] as $value)--}}
-                                @dd($item)
+{{--                                @dd($item)--}}
                             <tr>
 
                                 <th scope="row">{{ $loop->iteration }}</th>

@@ -3,7 +3,7 @@
         <div class="col-2 px-0 mx-2">
             <div class="card py-4 px-2 text-center">
                 <p class="h1 text-success">{{ $quantity }}</p>
-                <p class="text-muted">покупки за Сентябрь</p>
+                <p class="text-muted">покупки за последний месяц</p>
             </div>
         </div>
         <div class="col-2 px-0 mx-2">

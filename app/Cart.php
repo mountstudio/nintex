@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cart extends Model
 {
     protected $table ='carts';
-    protected $fillable = ['id', 'name', 'sum', 'diff'];
+    protected $fillable = ['id', 'name', 'sum', 'diff', 'action'];
     public static $INWAIT = 0;
     public static $INPROGRESS = 1;
     public static $DELIVERED = 2;

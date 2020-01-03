@@ -76,9 +76,7 @@
                 </div>
             </div>
         </div>
-
     </section>
-
     <section>
         <div class="container-fluid position-absolute" style="bottom: 0;">
             @include('product_blocks.info_about_product')
