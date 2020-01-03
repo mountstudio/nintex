@@ -5,14 +5,17 @@
     <div class="main-container">
         <div class="row">
             <div class="col-12 col-md-3 my-5">
-                @include('catalog_blocks.nav_category')
-                @include('catalog_blocks.filters')
+                <form action="{{ route('product.index') }}">
+                    @include('catalog_blocks.nav_category')
+                    @include('catalog_blocks.filters')
+                    <button type="submit" class="btn btn-primary">Применить филтр</button>
+                </form>
             </div>
             <div class="col-12 col-md-9 my-5">
                 <div class="row">
                     @foreach($products as $product)
                         <div class="col-lg-3 col-md-6 mb-4">
-                            @include('catalog_blocks.product_card')
+                            @include('catalog_blocks.product_card', ['product' => $product ])
                         </div>
                     @endforeach
                 </div>
@@ -102,5 +105,37 @@
             $(this).addClass('active').siblings().removeClass('active');
         });
     </script>
+
+{{--    <script>--}}
+{{--        //функция для добавления кнопки--}}
+{{--        function showFilterButton(){--}}
+{{--            $('#divFilterButton').empty();--}}
+{{--            $('#divFilterButton').append('<button type="button" class="btn btn-info">Применить фильтр</button>');--}}
+{{--        }--}}
+
+{{--        $('input.sizeClass').click(function () {--}}
+{{--            showFilterButton();--}}
+{{--            requestAnimationFrame()--}}
+{{--        });--}}
+
+        {{--$('div#divFilterButton').click(function () {--}}
+        {{--    let size = '';--}}
+        {{--    $('input:radio:checked').each(function(){--}}
+        {{--        size = $(this).val();--}}
+        {{--    });--}}
+        {{--    $.ajax({--}}
+        {{--        url: "{{ route('product.filter') }} ",--}}
+        {{--        data: {--}}
+        {{--            size: size--}}
+        {{--        },--}}
+        {{--        success: data => {--}}
+        {{--            console.log(data);--}}
+        {{--        },--}}
+        {{--        error: () => {--}}
+        {{--            console.log('error');--}}
+        {{--        }--}}
+        {{--    })--}}
+        {{--});--}}
+{{--    </script>--}}
 
 @endpush

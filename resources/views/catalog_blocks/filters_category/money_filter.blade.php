@@ -34,24 +34,24 @@
     <!--Checkbox-->
     <div class="col-12 my-5">
         <div class="row">
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 form-group">
                 <!-- Default unchecked -->
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="new">
+                    <input type="checkbox" class="custom-control-input" id="new" name="new">
                     <label class="custom-control-label" style="font-size: 14px" for="new">Новинка  </label>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 form-group">
                 <!-- Default unchecked -->
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="discount">
+                    <input type="checkbox" class="custom-control-input" id="discount" name="discount">
                     <label class="custom-control-label" style="font-size: 14px" for="discount">Скидка  </label>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 form-group">
                 <!-- Default unchecked -->
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="bestseller">
+                    <input type="checkbox" class="custom-control-input" id="bestseller" name="bestseller">
                     <label class="custom-control-label" style="font-size: 14px" for="bestseller">Хит  </label>
                 </div>
             </div>

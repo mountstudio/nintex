@@ -78,9 +78,20 @@
 .checkbox-black{
     background: black;
 }
-/*.checkbox-red{*/
-/*    background: red;*/
-/*}*/
+
+.checkbox-pink{
+    background: pink;
+}
+
+.checkbox-red{
+    background: red;
+}
+.checkbox-green{
+    background: green;
+}
+.checkbox-orange{
+    background: orange;
+}
 
 /* Hide the browser's default checkbox */
 .checkbox input {
@@ -204,7 +215,7 @@
 
 
     /* checkbox*/
-    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white{
+    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white,.checkbox-green,.checkbox-pink,.checkbox-orange{
         border: 1px solid black;
         border-radius: 50%;
         position: relative;
@@ -271,7 +282,7 @@
         font-size: 0.6rem!important;
 
     }
-    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white{
+    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white,.checkbox-green,.checkbox-pink,.checkbox-orange{
         border: 1px solid black;
         border-radius: 50%;
         position: relative;
@@ -329,7 +340,7 @@
     }
 }
 @media (min-width: 768px) {
-    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white{
+    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white,.checkbox-green,.checkbox-pink,.checkbox-orange{
         border: 1px solid black;
         border-radius: 50%;
         position: relative;
@@ -386,7 +397,7 @@
     }
 }
 @media (min-width: 992px) {
-    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white{
+    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white,.checkbox-green,.checkbox-pink,.checkbox-orange{
         border: 1px solid black;
         border-radius: 50%;
         position: relative;
@@ -442,7 +453,7 @@
     }
 }
 @media (min-width: 1200px) {
-    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white{
+    .checkbox-black, .checkbox-red, .checkbox-blue,.checkbox-white,.checkbox-green,.checkbox-pink,.checkbox-orange{
         border: 1px solid black;
         border-radius: 50%;
         position: relative;
@@ -486,17 +497,17 @@
         -ms-transform: rotate(45deg);
         transform: rotate(45deg);
     }
-    .checkbox-white .checkmark:after{
-        left: 9px;
-        top: 5px;
-        width: 10px;
-        height: 18px;
-        border: solid white!important;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
+    /*.checkbox-white .checkmark:after{*/
+    /*    left: 9px;*/
+    /*    top: 5px;*/
+    /*    width: 10px;*/
+    /*    height: 18px;*/
+    /*    border: solid white!important;*/
+    /*    border-width: 0 3px 3px 0;*/
+    /*    -webkit-transform: rotate(45deg);*/
+    /*    -ms-transform: rotate(45deg);*/
+    /*    transform: rotate(45deg);*/
+    /*}*/
 }
 .img-pos{
     position: absolute!important;
