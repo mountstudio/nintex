@@ -3,7 +3,7 @@
         @foreach($sizes as $size)
             <label class="j-size j-sold-out tooltipstered size-button" data-sizeName="{{ $size }}">
                 <span>{{ $size }}</span>
-                <input class="radio-size sizeClass" id="size{{ $size }}" name="size{{ $size }}" type="checkbox" value="{{ $size }}">
+                <input class="radio-size sizeClass" id="size{{ $size }}" name="sizes[{{ $size }}]" type="checkbox" value="{{ $size }}">
             </label>
         @endforeach
    {{--     <label class="j-size  disabled j-sold-out tooltipstered size-button"
@@ -61,7 +61,12 @@
     </script>
     <script>
         $('.j-size-list').on('click', 'label', function () {
-            $(this).addClass('active');
+           if( $(this).hasClass('active') == false){
+               $(this).addClass('active');
+           }else if( $(this).addClass('active') == true ){
+               $(this).removeClass('active');
+           }
+
         });
     </script>
 

@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
 use function GuzzleHttp\Promise\all;
+use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Builder;
 
 
 class ProductController extends Controller
@@ -25,8 +27,76 @@ class ProductController extends Controller
      */
     public function filter($request)
     {
+        if (!empty($request->allCatalog))
+        {
+            $catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
+                return $item->products;
+            });
+            $products = [];
+            foreach ($catProducts as $p) {
+                foreach ($p as $product) {
+                    $products[] = $product;
+                }
+            }
+            if (!empty($request->sizes))
+            {
+                $productTemp = [];
+                $flag = true;
+                foreach ($products as $product)
+                {
+                    foreach ($product->sizes as $size)
+                    {
+                        if ($flag == true)
+                        {
+                            foreach ($request->sizes as $s1)
+                            {
+                                if ($size == $s1)
+                                {
+                                    $productTemp = $product;
+                                    $flag = false;
+                                }
+                            }
+                        }
+                    }
+                    $flag = true;
+                }
+                $products = $productTemp;
+            }
+        }
+        else
+        {
+            $products = Product::all();
+            if (!empty($request->sizes))
+            {
+                $productTemp = [];
+                $flag = true;
+                foreach ($products as $product)
+                {
+                    foreach ($product->sizes as $size)
+                    {
+                        if ($flag == true)
+                        {
+                            foreach ($request->sizes as $s1)
+                            {
+                                if ($size == $s1)
+                                {
+                                    $productTemp = $product;
+                                    $flag = false;
+                                }
+                            }
+                        }
+                    }
+                    $flag = true;
+                }
+                $products = $productTemp;
+            }
+        }
+        //цвета
+        $white = $request->white;
+        $blue = $request->blue;
+        $black = $request->black;
 
-        $products = Product::all();
+        ////////////////////////
         $size = [];
         $size[0] = 'XS';
         $size[1] = 'S';
@@ -42,10 +112,95 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-//        if (empty($request->all()))
-//        {
-            dd($request->all(), $request->white, $request->blue, $request->black);
+        if (empty($request->all()))
+        {
             $products = Product::all();
+            $size = [];
+            $size[0] = "XS";
+            $size[1] = "S";
+            $size[2] = "M";
+            $size[3] = "L";
+            $size[4] = "XL";
+            $size[5] = "XXL";
+            return view('products.index', [
+                'products' => $products,
+                'sizes' => $size,
+            ]);
+        }
+        else
+        {
+//            $this->filter($request);
+            if (!empty($request->allCatalog))
+            {
+                $catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
+                    return $item->products;
+                });
+                $products = [];
+                foreach ($catProducts as $p) {
+                    foreach ($p as $product) {
+                        $products[] = $product;
+                    }
+                }
+                if (!empty($request->sizes))
+                {
+                    $productTemp = [];
+                    $flag = true;
+                    foreach ($products as $product)
+                    {
+                        foreach ($product->sizes as $size)
+                        {
+                            if ($flag == true)
+                            {
+                                foreach ($request->sizes as $s1)
+                                {
+                                    if ($size == $s1)
+                                    {
+                                        $productTemp = $product;
+                                        $flag = false;
+                                    }
+                                }
+                            }
+                        }
+                        $flag = true;
+                    }
+                    $products = $productTemp;
+                }
+            }
+            else
+            {
+                $products = Product::all()->except('category_id', '=', '12');
+                if (!empty($request->sizes))
+                {
+                    $productTemp = [];
+                    $flag = true;
+                    foreach ($products as $product)
+                    {
+                        foreach ($product->sizes as $size)
+                        {
+                            if ($flag == true)
+                            {
+                                foreach ($request->sizes as $s1)
+                                {
+                                    if ($size == $s1)
+                                    {
+                                        $productTemp[] = $product;
+                                        $flag = false;
+                                    }
+                                }
+                            }
+                        }
+                        $flag = true;
+                    }
+                    $products = $productTemp;
+//                    dd($products, $productTemp);
+                }
+            }
+            //цвета
+            $white = $request->white;
+            $blue = $request->blue;
+            $black = $request->black;
+
+            ////////////////////////
             $size = [];
             $size[0] = 'XS';
             $size[1] = 'S';
@@ -53,54 +208,11 @@ class ProductController extends Controller
             $size[3] = 'L';
             $size[4] = 'XL';
             $size[5] = 'XXL';
-
             return view('products.index', [
                 'products' => $products,
                 'sizes' => $size,
             ]);
-//        }
-//        else
-//        {
-//            $products = Product::where('title', 'LIKE', '%пальто%')->get();
-//            dd($request->all());
-//
-//            //каталоги
-//            $allCatalog = $request->allCatalog;
-//            $newDress = $request->newDress;
-//            $sellOut = $request->sellOut;
-//            $coat = $request->coat;
-//            $blouses = $request->blouses;
-//            $pants = $request->pants;
-//            $jackets = $request->jackets;
-//            $bags = $request->bags;
-//            $skirts = $request->skirts;
-//
-//            //размеры
-//            $sizeXS = $request->sizeXS;
-//            $sizeS = $request->sizeS;
-//            $sizeM = $request->sizeM;
-//            $sizeL = $request->sizeL;
-//            $sizeXL = $request->sizeXL;
-//            $sizeXXL = $request->sizeXXL;
-//
-//            //цвета
-//            $white = $request->white;
-//            $blue = $request->blue;
-//            $black = $request->black;
-//
-//            ////////////////////////
-//            $size = [];
-//            $size[0] = 'XS';
-//            $size[1] = 'S';
-//            $size[2] = 'M';
-//            $size[3] = 'L';
-//            $size[4] = 'XL';
-//            $size[5] = 'XXL';
-//            return view('products.index', [
-//                'products' => $products,
-//                'sizes' => $size,
-//            ]);
-//        }
+        }
     }
 
 
@@ -123,7 +235,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -131,8 +243,7 @@ class ProductController extends Controller
         $product = new Product($request->all());
         $product->save();
         $arrColors = [];
-        if ($images = $request->images)
-        {
+        if ($images = $request->images) {
             foreach ($request->colors as $index => $color) {
                 $arrFileNames = [];
                 foreach ($images[$index] as $image) {
@@ -145,42 +256,43 @@ class ProductController extends Controller
             $product->colors = $arrColors;
             $product->save();
         }
-        if ($logo = $request->logo)
-        {
+        if ($logo = $request->logo) {
             $filename = ImageSaver::save($logo, 'uploads', 'nintex_logo');
             $product->logo = $filename;
             $product->save();
         }
-            $file =$request->file('video');
-            $destination_path = public_path().'/videos';
-            $extension =$file->getClientOriginalExtension();
-            $files =$file->getClientOriginalName();
-            $fileName = $file.'_'.time().'.'.$extension;
-            $file->move($destination_path, $fileName);
-            $product->video = $fileName;
-            $product->save();
+        $file = $request->file('video');
+        $destination_path = public_path() . '/videos';
+        $extension = $file->getClientOriginalExtension();
+        $files = $file->getClientOriginalName();
+        $fileName = $file . '_' . time() . '.' . $extension;
+        $file->move($destination_path, $fileName);
+        $product->video = $fileName;
+        $product->save();
 
 
-            return redirect()->back();
+        return redirect()->back();
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product, Request $request)
     {
 //        $colors =array('colors' => json_decode($request->colors));
         return view('products.show', [
-           'product' => $product,
+            'product' => $product,
             'sizes' => Size::all(),
             'products' => Product::all(),
 //            'colors' => $colors,
         ]);
     }
 
-    public function card(Product $products) {
+    public function card(Product $products)
+    {
         return view('products.card', [
             'products' => $products,
             'sizes' => Size::all(),
@@ -191,7 +303,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
@@ -204,25 +316,22 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Product $product)
     {
         $product->update($request->all());
 
-        if ($images = $request->images)
-        {
-            foreach ($images as $image)
-            {
+        if ($images = $request->images) {
+            foreach ($images as $image) {
                 $filename = ImageSaver::save($image, "uploads", "nintex");
                 $product->images = $filename;
                 $product->save();
             }
         }
-        if ($logo = $request->logo)
-        {
+        if ($logo = $request->logo) {
             $filename = ImageSaver::save($logo, 'uploads', 'nintex_logo');
             $product->logo = $filename;
             $product->save();
@@ -236,15 +345,15 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
     {
         if (count($product->images)) {
             foreach ($product->images as $image) {
-                if (file_exists(storage_path('public/').$image->image)) {
-                    unlink(storage_path('public/').$image->image);
+                if (file_exists(storage_path('public/') . $image->image)) {
+                    unlink(storage_path('public/') . $image->image);
                 }
             }
         }
@@ -283,7 +392,9 @@ class ProductController extends Controller
 
         return response()->json($status);
     }
-    public function add_to_favorites_with_auth_user(Request $request){
+
+    public function add_to_favorites_with_auth_user(Request $request)
+    {
         $product = Product::first();
         $user = $request->user();
         $this->be($user);
@@ -291,13 +402,15 @@ class ProductController extends Controller
         $product->addFavorite();
 
         $this->assertDatabaseHas('favorites', [
-            'user_id' =>$user->id,
+            'user_id' => $user->id,
             'favoriteable_id' => $product->id,
             'favoriteable_type' => get_class($product),
         ]);
         $this->assertTrue($product->isFavorited());
     }
-    public function slider(){
+
+    public function slider()
+    {
         return view('product_blocks.slider', ['products' => Product::all()]);
     }
 }
