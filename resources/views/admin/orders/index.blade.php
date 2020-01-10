@@ -42,7 +42,7 @@
                 'initComplete' : (settings, data) => {
                     $('.status-order').each((e, i) => {
                         registerSelectStatus($(i));
-                    })
+                    });
                 }
             });
         });
@@ -58,11 +58,18 @@
             })
         }
 
+
+
+
+
         $(document).ready(function ()
         {
             $(document).on('change', 'select', function () {
                 let optVal = $(this).val();
                 let id = $(this).data('id');
+
+
+
                 console.log(optVal, id);
 
                 $.ajax({
@@ -81,29 +88,24 @@
                 })
             })
         });
-        {{--$('#select_id').ready(function () {--}}
-        {{--    // let target = $(this.relatedTarget);--}}
-        {{--    // let action_value = target.val();--}}
-        {{--    let action_value = $(this.val());--}}
-        {{--    let id = $(this.data('id'));--}}
-        {{--    // let id = target.data('id');--}}
-        {{--    console.log('azret');--}}
-        {{--    $.ajax({--}}
-        {{--        url: "{{ route('cart.save_select') }}",--}}
-        {{--        method: 'POST',--}}
-        {{--        data: {--}}
-        {{--            id: id,--}}
-        {{--            value: action_value,--}}
-        {{--        },--}}
-        {{--        success: data => {--}}
-        {{--            console.log(data, 'Успех');--}}
-        {{--        },--}}
-        {{--        error: data => {--}}
-        {{--            console.log(data, 'Ошибка');--}}
-        {{--        }--}}
 
-        {{--    })--}}
-        {{--});--}}
     </script>
+    <script>
 
+
+        // $('.select_id').ready(function(e){
+        //
+        //     let data = $(this).data('action');
+        //     console.log($(this));
+        //
+        //     localStorage.setItem("Select1", data);
+        //
+        //     $('.select_id').find('option').each(function(i,e){
+        //         console.log($(e).val(),"as");
+        //         if($(e).val() == localStorage.getItem("Select1")){
+        //             $('.select_id').prop('selectedIndex',i);
+        //         }
+        //     });
+        // });
+    </script>
 @endpush
