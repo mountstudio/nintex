@@ -27,8 +27,7 @@ class ProductController extends Controller
      */
     public function filter($request)
     {
-        if (!empty($request->allCatalog))
-        {
+        if (!empty($request->allCatalog)) {
             $catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
                 return $item->products;
             });
@@ -38,20 +37,13 @@ class ProductController extends Controller
                     $products[] = $product;
                 }
             }
-            if (!empty($request->sizes))
-            {
                 $productTemp = [];
                 $flag = true;
-                foreach ($products as $product)
-                {
-                    foreach ($product->sizes as $size)
-                    {
-                        if ($flag == true)
-                        {
-                            foreach ($request->sizes as $s1)
-                            {
-                                if ($size == $s1)
-                                {
+                foreach ($products as $product) {
+                    foreach ($product->sizes as $size) {
+                        if ($flag == true) {
+                            foreach ($request->sizes as $s1) {
+                                if ($size == $s1) {
                                     $productTemp = $product;
                                     $flag = false;
                                 }
@@ -62,24 +54,16 @@ class ProductController extends Controller
                 }
                 $products = $productTemp;
             }
-        }
-        else
-        {
+        } else {
             $products = Product::all();
-            if (!empty($request->sizes))
-            {
+            if (!empty($request->sizes)) {
                 $productTemp = [];
                 $flag = true;
-                foreach ($products as $product)
-                {
-                    foreach ($product->sizes as $size)
-                    {
-                        if ($flag == true)
-                        {
-                            foreach ($request->sizes as $s1)
-                            {
-                                if ($size == $s1)
-                                {
+                foreach ($products as $product) {
+                    foreach ($product->sizes as $size) {
+                        if ($flag == true) {
+                            foreach ($request->sizes as $s1) {
+                                if ($size == $s1) {
                                     $productTemp = $product;
                                     $flag = false;
                                 }
@@ -112,6 +96,7 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
+        /*
         if (empty($request->all()))
         {
             $products = Product::all();
@@ -129,7 +114,6 @@ class ProductController extends Controller
         }
         else
         {
-//            $this->filter($request);
             if (!empty($request->allCatalog))
             {
                 $catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
@@ -168,7 +152,8 @@ class ProductController extends Controller
             }
             else
             {
-                $products = Product::all()->except('category_id', '=', '12');
+                $products = Product::all();
+
                 if (!empty($request->sizes))
                 {
                     $productTemp = [];
@@ -195,6 +180,26 @@ class ProductController extends Controller
 //                    dd($products, $productTemp);
                 }
             }
+
+            /*$catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
+                return $item->products;
+            });
+            $products = [];
+            foreach ($catProducts as $p) {
+                foreach ($p as $product) {
+                    $products[] = $product;
+                }
+            }
+
+            foreach ($products as $product)
+            {
+                foreach ($product->colors as $key => $c)
+                {
+                    $colors[] = $key;
+                }
+            }
+            dd($colors);
+
             //цвета
             $white = $request->white;
             $blue = $request->blue;
@@ -212,7 +217,82 @@ class ProductController extends Controller
                 'products' => $products,
                 'sizes' => $size,
             ]);
+        }*/
+
+        $params = $request->params;
+        $type = $request->type;
+//        dd($request->type);
+        $cats = Category::all();
+        if ($params) {
+            $cats = $cats->whereIn('id', $params);
         }
+
+        $productions = collect();
+        foreach ($cats as $cat) {
+            $productions = $productions->merge($cat->productions);
+        }
+        $productions = $productions->unique('id');
+
+        if ($type == 'productions') {
+            $productions = $productions->where('type', $type);
+//            $products = $products->where('type', $type);
+        }
+        if ($type == 'service') {
+            $productions = $productions->where('type', $type);
+//            $products = $products->where('type', $type);
+        }
+        if ($type == 'product') {
+            $productions = $productions->where('type', $type);
+//            $products = $products->where('type', $type);
+        }
+
+        $productions = $productions->map(function ($item) {
+            return new Production($item->only(['id', 'slug', 'logo', 'title', 'views']));
+        });
+
+        $productions = $productions->paginate(16);
+
+
+        $size = [];
+        $size[0] = 'XS';
+        $size[1] = 'S';
+        $size[2] = 'M';
+        $size[3] = 'L';
+        $size[4] = 'XL';
+        $size[5] = 'XXL';
+        return view('products.index', [
+            'products' => $productions,
+            'sizes' => $size,
+        ]);
+//        return response()->json([
+//            'html' => view('productions.list', [
+//                'productions' => $productions,
+//            ])->render(),
+//            'productions' => $productions,
+//            'count' => count($productions),
+//            'filters' => $request->query->all(),
+////            'products' => $products,
+//        ]);
+    }
+
+    public function colorFilter(Request $request)
+    {
+        $catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
+            return $item->products;
+        });
+        $products = [];
+        foreach ($catProducts as $p) {
+            foreach ($p as $product) {
+                $products[] = $product;
+            }
+        }
+
+        foreach ($products as $product) {
+            foreach ($product->colors as $key => $c) {
+                $colors[] = $key;
+            }
+        }
+        dd($colors);
     }
 
 

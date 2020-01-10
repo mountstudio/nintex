@@ -27,42 +27,42 @@
     <li>
         <!-- Default checked -->
         <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input" id="coat" name="allCatalog[]" value="Пальто" >
+            <input type="checkbox" class="custom-control-input catalogs" id="coat" name="allCatalog[]" value="Пальто" >
             <label class="custom-control-label unbold h5" for="coat">Пальто</label>
         </div>
     </li>
     <li>
         <!-- Default checked -->
         <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input" id="blouses" name="allCatalog[]" value="Блузки">
+            <input type="checkbox" class="custom-control-input catalogs" id="blouses" name="allCatalog[]" value="Блузки">
             <label class="custom-control-label  unbold h5" for="blouses">Блузки</label>
         </div>
     </li>
     <li>
         <!-- Default checked -->
         <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input" id="pants" name="allCatalog[]" value="Брюки">
+            <input type="checkbox" class="custom-control-input catalogs" id="pants" name="allCatalog[]" value="Брюки">
             <label class="custom-control-label  unbold h5" for="pants">Брюки</label>
         </div>
     </li>
     <li>
         <!-- Default checked -->
         <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input" id="jackets" name="allCatalog[]" value="Пиджаки">
+            <input type="checkbox" class="custom-control-input catalogs" id="jackets" name="allCatalog[]" value="Пиджаки">
             <label class="custom-control-label  unbold h5" for="jackets">Пиджаки</label>
         </div>
     </li>
     <li>
         <!-- Default checked -->
         <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input" id="bags" name="allCatalog[]" value="Сумки">
+            <input type="checkbox" class="custom-control-input catalogs" id="bags" name="allCatalog[]" value="Сумки">
             <label class="custom-control-label  unbold h5" for="bags">Сумки</label>
         </div>
     </li>
     <li>
         <!-- Default checked -->
         <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input" id="skirts" name="allCatalog[]" value="Юбки">
+            <input type="checkbox" class="custom-control-input catalogs" id="skirts" name="allCatalog[]" value="Юбки">
             <label class="custom-control-label  unbold h5" for="skirts">Юбки</label>
         </div>
     </li>
@@ -95,4 +95,5 @@
             }
         });
     </script>
+
 @endpush
