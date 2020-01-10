@@ -37,6 +37,7 @@ class ProductController extends Controller
                     $products[] = $product;
                 }
             }
+            if (!empty($request->sizes)) {
                 $productTemp = [];
                 $flag = true;
                 foreach ($products as $product) {

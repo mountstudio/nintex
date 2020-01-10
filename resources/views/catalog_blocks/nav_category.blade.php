@@ -73,8 +73,6 @@
         $('#allCatalog').on('click.change', function () {
             if ($('#allCatalog').prop('checked'))
             {
-                // $("#newDress").prop('checked', true);
-                // $("#sellOut").prop('checked', true);
                 $("#coat").prop('checked', true);
                 $("#blouses").prop('checked', true);
                 $("#pants").prop('checked', true);
@@ -84,8 +82,6 @@
             }
             else
             {
-                // $("#newDress").prop('checked', false);
-                // $("#sellOut").prop('checked', false);
                 $("#coat").prop('checked', false);
                 $("#blouses").prop('checked', false);
                 $("#pants").prop('checked', false);
