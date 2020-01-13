@@ -32,7 +32,7 @@
     <!--Input form for sum-->
 
     <!--Checkbox-->
-    <div class="col-12 my-5">
+    {{--<div class="col-12 my-5">
         <div class="row">
             <div class="col-12 col-md-4 form-group">
                 <!-- Default unchecked -->
@@ -64,7 +64,7 @@
             </div>
 
         </div>
-    </div>
+    </div>--}}
     <!--Checkbox-->
 </div>
 @push('styles')
