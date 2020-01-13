@@ -13,20 +13,19 @@ class Product extends Model
 
     use Favoriteable;
 
-    protected $casts = [
-        'colors' => 'array',
-        'sizes' => 'array',
-    ];
+//    protected $casts = [
+//        'colors' => 'array',
+//        'sizes' => 'array',
+//    ];
 
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
-//    public function sizes()
-//    {
-//        return $this->belongsToMany(Size::class, 'product_size', 'product_id', 'size_id');
-//    }
-
+    public function sizes()
+    {
+        return $this->belongsToMany(Size::class, 'product_size', 'product_id', 'size_id')->withPivot('colors', 'quantity');
+    }
 
     public function users()
     {
