@@ -96,7 +96,7 @@ class ProductController extends Controller
     }
 
     public function index(Request $request)
-    {
+    {/*
         if (!empty($request->allCatalog))
         {
             $catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
@@ -138,7 +138,8 @@ class ProductController extends Controller
             }
             $products = $productTemp;
         }
-
+*/
+        $products = Product::all();
         $size = [];
         $size[0] = 'XS';
         $size[1] = 'S';
