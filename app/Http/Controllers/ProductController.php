@@ -96,7 +96,7 @@ class ProductController extends Controller
     }
 
     public function index(Request $request)
-    {/*
+    {
         if (!empty($request->allCatalog))
         {
             $catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
@@ -138,8 +138,6 @@ class ProductController extends Controller
             }
             $products = $productTemp;
         }
-*/
-        $products = Product::all();
         $size = [];
         $size[0] = 'XS';
         $size[1] = 'S';
@@ -242,6 +240,7 @@ class ProductController extends Controller
     public function show(Product $product, Request $request)
     {
 //        $colors =array('colors' => json_decode($request->colors));
+//        dd($product);
         return view('products.show', [
             'product' => $product,
             'sizes' => Size::all(),
