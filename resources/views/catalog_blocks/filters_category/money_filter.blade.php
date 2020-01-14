@@ -1,11 +1,14 @@
 <div class="row">
 
     <!--Grid column-->
-    <div class="col-12">
-        <div class="slidecontainer">
-            <span>Мин:</span>
-            <span class="float-right">Макс:</span>
-            <input type="range" min="0" max="30000" value="0" id="myRange" class="slider">
+    <div class="col-4">
+        <div class="example">
+            <div id="html5" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr"></div>
+            <form class="py-5" action="">
+                <input type="number" min="0" max="30000" step="1" id="input-first">
+                <input type="number" min="0" max="30000" step="1" id="input-second">
+
+            </form>
         </div>
     </div>
     <!--Grid column-->
@@ -102,6 +105,36 @@
             cursor: pointer;
         }
     </style>
+@endpush
+
+@push('scripts')
+    <script>
+        var html5Slider = document.getElementById('html5');
+        var inputNumber1 = document.getElementById('input-first'),
+            inputNumber2 = document.getElementById('input-second');
+
+        noUiSlider.create(html5Slider, {
+            start: [0, 30000],
+            connect: true,
+            margin: 2500,
+            step: 100,
+            range: {
+                'min': 0,
+                'max': 30000
+            }
+        });
+
+        html5Slider.noUiSlider.on('update', function (values, handle) {
+
+            var value = values[handle];
+
+            if (handle) {
+                inputNumber2.value = value;
+            } else {
+                inputNumber1.value = Math.round(value);
+            }
+        });
+    </script>
 @endpush
 
 

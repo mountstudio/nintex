@@ -64,6 +64,5 @@
             $(this).addClass('active');
         });
     </script>
-
     @include('animate.animate')
 @endpush
