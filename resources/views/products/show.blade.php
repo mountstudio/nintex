@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
     <section class="bg-nintex-color">
         <div class="container-fluid pt-5">
             <div class="row">
@@ -17,7 +16,6 @@
                                 {{ $product->description }}
                             </p>
                         </div>
-
                     </div>
 
                     <div class="mt-3">
@@ -27,7 +25,8 @@
                             <div class="col-6 pl-5">
                                 <p>Цвет:</p>
                                 <div class="checkbox">
-                                    @foreach(array_keys($product->colors) as $colors)
+                                    @dd($product->sizesWholesale[11]->price)
+                                    @foreach( array_keys($product->color) as $colors)
                                         <label class="j-color checkbox-red" style="background: {{ $colors }};"
                                                data-color="{{ $colors }}">
                                             <input id="cbox" checked="checked" value="{{ $colors }}" name="color" type="radio">
@@ -45,13 +44,13 @@
                             <div class="col-5 pb-5 pl-5">
                                 <p class="mb-4">Размеры: </p>
                                 <div class="j-size-list size-list j-smart-overflow-instance">
-                                    @foreach($product->sizes as $size)
-                                        <label class="j-size tooltipstered size-button " data-characteristic-id=""
-                                               data-size="{{ $size }}">
-                                            <span>{{ $size }}</span>
-                                            <input class="radio-size" id="size" name="size" type="radio" value="">
-                                        </label>
-                                    @endforeach
+{{--                                    @foreach($product->sizes as $size)--}}
+{{--                                        <label class="j-size tooltipstered size-button " data-characteristic-id=""--}}
+{{--                                               data-size="{{ $size }}">--}}
+{{--                                            <span>{{ $size }}</span>--}}
+{{--                                            <input class="radio-size" id="size" name="size" type="radio" value="">--}}
+{{--                                        </label>--}}
+{{--                                    @endforeach--}}
                                 </div>
                                 <a href="{{ route('cart.checkout') }}" class="btn btn-lightblue mt-3 cart">Начать
                                     покупки</a>

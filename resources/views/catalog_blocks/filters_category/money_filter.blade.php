@@ -35,13 +35,20 @@
     <!--Input form for sum-->
 
     <!--Checkbox-->
-    <div class="col-12 my-5">
+    {{--<div class="col-12 my-5">
         <div class="row">
             <div class="col-12 col-md-4 form-group">
                 <!-- Default unchecked -->
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="new" name="new">
-                    <label class="custom-control-label" style="font-size: 14px" for="new">Новинка  </label>
+                    <label class="custom-control-label" style="font-size: 14px" for="new">Новинки</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 form-group">
+                <!-- Default unchecked -->
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="sellOut" name="sellOut">
+                    <label class="custom-control-label" style="font-size: 14px" for="sellOut">Распродажа</label>
                 </div>
             </div>
             <div class="col-12 col-md-4 form-group">
@@ -60,7 +67,7 @@
             </div>
 
         </div>
-    </div>
+    </div>--}}
     <!--Checkbox-->
 </div>
 @push('styles')

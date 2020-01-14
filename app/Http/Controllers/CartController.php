@@ -302,12 +302,31 @@ class CartController extends Controller
 //        return DataTables::of(Product::query())->make(true);
         return DataTables::of(Cart::query())
             ->addColumn('action', function($row) {
-                return '<select class="form-control status-order select_id" data-id="'.$row->id.'">'.
-                            '<option value="'.Cart::$INWAIT.'" selected="'.$row->action = Cart::$INWAIT ? 1 : 2 .'">В ожидании</option>'.
-                            '<option value="'.Cart::$INPROGRESS.'" selected="'.$row->action = Cart::$INPROGRESS ? 1 : 2 .'">В процессе</option>'.
-                            '<option value="'.Cart::$DELIVERED.'" selected="'.$row->action = Cart::$DELIVERED ? 1 : 2 .'">Доставлено</option>'.
-                            '<option value="'.Cart::$FINISHED.'" selected="'.$row->action = Cart::$FINISHED ? 1 : 2 .'">Закончено</option>'.
-                        '</select>';
+                $select = '<select class="form-control status-order select_id" id="s" data-id="'.$row->id.'" data-action="'.$row->action.'">';
+                if ($row->action == Cart::$INWAIT) {
+                    $select .= '<option value="'.Cart::$INWAIT.'" data-action="'.$row->action.'" selected>В ожидании</option>';
+                } else {
+                    $select .= '<option value="'.Cart::$INWAIT.'" data-action="'.$row->action.'">В ожидании</option>';
+                }
+                if ($row->action == Cart::$INPROGRESS) {
+                    $select .= '<option value="'.Cart::$INPROGRESS.'" data-action="'.$row->action.'" selected>В процессе</option>';
+                } else {
+                    $select .= '<option value="'.Cart::$INPROGRESS.'" data-action="'.$row->action.'">В процессе</option>';
+                }
+                if ($row->action == Cart::$DELIVERED) {
+                    $select .= '<option value="'.Cart::$DELIVERED.'" data-action="'.$row->action.'" selected>Доставлено</option>';
+                } else {
+                    $select .= '<option value="'.Cart::$DELIVERED.'" data-action="'.$row->action.'">Доставлено</option>';
+                }
+                if ($row->action == Cart::$FINISHED) {
+                    $select .= '<option value="'.Cart::$FINISHED.'" data-action="'.$row->action.'" selected>Закончено</option>';
+                } else {
+                    $select .= '<option value="'.Cart::$FINISHED.'" data-action="'.$row->action.'">Закончено</option>';
+                }
+                $select .= '</select>';
+
+
+                return $select;
             })
             ->make(true);
     }

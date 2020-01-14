@@ -31,20 +31,6 @@
                     <label for="description">{{ __('Описание') }}</label>
                 </div>
             </div>
-            <div class="col-3">
-                <!-- Material input -->
-                <div class="md-form">
-                    <input type="text" id="m_wholesale_price" name="m_wholesale_price" class="form-control">
-                    <label for="m_wholesale_price">{{ __('Средняя оптовая цена') }}</label>
-                </div>
-            </div>
-            <div class="col-3">
-                <!-- Material input -->
-                <div class="md-form">
-                    <input type="text" id="l_wholesale_price" name="l_wholesale_price" class="form-control">
-                    <label for="l_wholesale_price">{{ __('Крупная оптовая цена') }}</label>
-                </div>
-            </div>
             <div class="col-6">
                 <fieldset id="buildyourform">
                     <label>Выберите цвет</label>
@@ -69,7 +55,7 @@
             </div>
             <div class="col-6">
                 <label>Выберите размеры</label>
-                <select class="js-example-basic-multiple" name="sizes[]" multiple="multiple" id="select2" placeholder="size">
+                <select class="js-example-basic-multiple" name="sizes" multiple="multiple" id="select2" placeholder="size">
                     @foreach($sizes as $size)
                         <option value="{{ $size->size }}">{{ $size ->size }}</option>
                     @endforeach

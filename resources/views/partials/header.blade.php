@@ -7,7 +7,7 @@
                 <a class="nav-link text-uppercase" href="{{ route('product.index') }}" title="Одежда">Одежда</a>
             </li>
             <li class="nav-item mx-3">
-                <a class="nav-link text-uppercase" href="{{ route('product.index') }}" title="Акссесуары">Акссесуары</a>
+                <a class="nav-link text-uppercase" href="{{ route('product.index') }}" title="Акссесуары">Продукция</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-uppercase" href="/#bottom_stocks" title="Акции">Акции</a>
