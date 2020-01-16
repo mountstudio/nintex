@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+    @dd(array_keys($product->sizesWholesale[11]->price))
+
     <section class="bg-nintex-color">
         <div class="container-fluid pt-5">
             <div class="row">
