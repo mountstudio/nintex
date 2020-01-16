@@ -69,6 +69,5 @@
 
         });
     </script>
-
     @include('animate.animate')
 @endpush
