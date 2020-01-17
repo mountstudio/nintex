@@ -7,6 +7,7 @@ use App\Category;
 use App\Helpers\ImageSaver;
 use App\Product;
 //use Faker\Provider\Image;
+use App\ProductSize;
 use App\Size;
 use App\User;
 use Illuminate\Http\Request;
@@ -97,6 +98,7 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
+        /*
         if (!empty($request->allCatalog))
         {
             $catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
@@ -138,18 +140,105 @@ class ProductController extends Controller
             }
             $products = $productTemp;
         }
-        $size = [];
-        $size[0] = 'XS';
-        $size[1] = 'S';
-        $size[2] = 'M';
-        $size[3] = 'L';
-        $size[4] = 'XL';
-        $size[5] = 'XXL';
+//        $size = [];
+//        $size[0] = 'XS';
+//        $size[1] = 'S';
+//        $size[2] = 'M';
+//        $size[3] = 'L';
+//        $size[4] = 'XL';
+//        $size[5] = 'XXL';
+//        return view('products.index', [
+//            'products' => $products,
+//            'sizes' => $size,
+//        ]);
+*/
+//        dd($request);---------------------------------------
+
+        if (!empty($request->allCatalog))
+        {
+            //если был выбран тип продукта в каталоге размеров, то выбрать необходимые продукты
+            $catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
+                return $item->products;
+            });
+            $products = [];
+            foreach ($catProducts as $p) {
+                foreach ($p as $product) {
+                    $products[] = $product;
+                }
+            }
+        }
+        else
+        {
+            //иначе извлечь все продукты
+            $products = Product::all();
+        }
+        if (!empty($request->sizes))
+        {
+            //если в фильтре были укзаны размеры, то выбрать все продукты у которых есть размеры указанные в фильтре
+            $productTemp = [];
+            $flag = true;
+            //проход по все продуктам
+            foreach ($products as $product)
+            {
+                //если у продукта есть размеры для розничной продажи
+                if (!empty($product->sizes[0]))
+                {
+                    //проход по всем размерам продукта
+                    foreach ($product->sizes->unique('id') as $size)
+                    {
+                        if ($flag == true)
+                        {
+                            //проход по размерам которые были укзаны в фильтре
+                            foreach ($request->sizes as $s1)
+                            {
+                                if ($size->size == $s1)
+                                {
+                                    //проверка на совпадение размеров, если размер совпал,
+                                    //то добавить продукт в промежуточный массив продуктов
+                                    // и перключить флаг в "false"
+                                    $productTemp[] = $product;
+                                    $flag = false;
+                                }
+                            }
+                        }
+                    }
+                    $flag = true;
+                }
+                else
+                {
+                    $productSizes = ProductSize::where('product_id', $product->id)->where('sizes', 'LIKE', '%[%')->get()->unique('sizes');
+                    if (!empty($productSizes[0]))
+                    {
+                        foreach ($productSizes as $pS)
+                        {
+                            foreach (json_decode($pS->sizes) as $size)
+                            {
+                                if ($flag == true)
+                                {
+                                    foreach ($request->sizes as $s1)
+                                    {
+                                        if ($size == $s1)
+                                        {
+                                            $productTemp[] = $product;
+                                            $flag = false;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        $flag = true;
+                    }
+                }
+            }
+            $products = $productTemp;
+        }
+//        dd($products, $msg);
+
+        $sizes = Size::all();
         return view('products.index', [
             'products' => $products,
-            'sizes' => $size,
+            'sizes' => $sizes,
         ]);
-
     }
 
     public function colorFilter(Request $request)
