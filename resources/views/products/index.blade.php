@@ -5,7 +5,7 @@
     <div class="main-container">
         <div class="row">
             <div class="col-12 col-md-3 my-5">
-                <form action="{{ route('product.index') }}">
+                <form action="{{ route('product.index') }}" method="GET">
                     @include('catalog_blocks.nav_category')
                     @include('catalog_blocks.filters')
                     <button type="submit" class="btn btn-primary">Применить филтр</button>
