@@ -1,35 +1,34 @@
 <div class="row">
 
     <!--Grid column-->
-    <div class="col-4">
-        <div class="example">
-            <div id="html5" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr"></div>
-            <form class="py-5" action="">
-                <input type="number" min="0" max="30000" step="1" id="input-first">
-                <input type="number" min="0" max="30000" step="1" id="input-second">
+    <div class="col-12">
 
-            </form>
-        </div>
     </div>
     <!--Grid column-->
 
     <!--Input form for sum-->
     <div class="col-12">
-        <div class="row">
-            <div class="col-4 px-0">
-                <!-- Small input -->
-                <input class="form-control" type="text" placeholder="0">
 
-            </div>
-            <div class="col-1 px-0 text-center py-2">
-                <img src="{{ asset('img/Line.png') }}" alt="">
-            </div>
-            <div class="col-4 px-0">
-                <!-- Small input -->
-                <input class="form-control" type="text" placeholder="30000">
+        <div class="example">
+            <div id="html5" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr"></div>
 
+            <div class="row my-4 pl-3">
+                <div class="col-4 px-0">
+                    <!-- Small input -->
+                    <input class="form-control" type="number" min="0" max="30000" step="1" id="input-first">
+
+                </div>
+                <div class="col-1 px-0 text-center py-2">
+                    <img src="{{ asset('img/Line.png') }}" alt="">
+                </div>
+                <div class="col-4 px-0">
+                    <!-- Small input -->
+                    <input class="form-control" type="number" min="0" max="30000" step="1" id="input-second">
+
+                </div>
             </div>
         </div>
+
     </div>
 
     <!--Input form for sum-->
