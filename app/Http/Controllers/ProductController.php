@@ -137,7 +137,7 @@ class ProductController extends Controller
         }
 
         //поиск по стоимости
-        if (is_null($request->inputFirst) || is_null($request->inputSecond))
+        if (!is_null($request->inputFirst) && !is_null($request->inputSecond))
         {
             if (($request->retail == 'on' && $request->wholesale == 'on') == true ||
                 (is_null($request->retail) && is_null($request->wholesale)) == true)
@@ -158,7 +158,7 @@ class ProductController extends Controller
         return view('products.index', [
             'products' => $products,
             'sizes' => $sizes,
-            'requestVales' => $request,
+            'requestValues' => $request,
         ]);
     }
     //поиск продуктов по розничной стоимости
