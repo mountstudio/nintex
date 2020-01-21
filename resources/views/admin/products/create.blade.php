@@ -29,56 +29,74 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-12">
-                <label for=""><h4>Розница</h4></label>
-                <br>
-                <label>Выберите цвет</label>
-                <div class="row">
-                    <div class="col-2">
-                        <input type="color" class="fieldname color form-control" name="color">
-                    </div>
-                    <div class="col-4">
-                        <input type="file" name="colorsize[0][]" multiple>
-                    </div>
-                    <div class="col-2">
-                        <button type="button" id="add">
-                            <i class="fas fa-plus" id="add"></i>
-                        </button>
-                    </div>
-                </div>
-                <fieldset id="buildyourform">
-
-                </fieldset>
-            </div>
-            <div class="col-12">
-                <fieldset id="buildyourform">
-                    <label>Выберите размер</label>
-                </fieldset>
-                <div class="j-size-list size-list j-smart-overflow-instance">
-                    @foreach($sizes as $size)
-                        <label class="j-size tooltipstered size-button " data-characteristic-id=""
-                               data-size="{{ $size->size }}">
-                            <span>{{ $size->size }}</span>
-                            <input class="check-size" name="sizes" type="checkbox" value="{{ $size->size }}">
-                        </label>
-                    @endforeach
-                </div>
-                <div class="col-6">
-                    <div class="md-form">
-                        <input type="text" id="price" name="price" class="form-control" required>
-                        <label for="price">{{ __('Розничная Цена') }}</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 for-size-color"></div>
-            <div class="col-12">
-                <label for=""><h4>Оптом</h4></label>
-                <div class="row">
-
-                </div>
-            </div>
-
         </div>
+{{--        <------------------------------------------------tabs------------------------------------------------>--}}
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#retail" role="tab" aria-controls="home"
+                   aria-selected="true">Розница</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#wholesale" role="tab" aria-controls="profile"
+                   aria-selected="false">Оптом</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="retail" role="tabpanel" aria-labelledby="home-tab">
+                <div>
+                    <div class="col-12">
+                        <br>
+                        <label>Выберите цвет</label>
+                        <div class="row">
+                            <div class="col-2">
+                                <input type="color" class="fieldname color form-control" name="color">
+                            </div>
+                            <div class="col-4">
+                                <input type="file" name="colorsize[0][]" multiple>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" id="add">
+                                    <i class="fas fa-plus" id="add"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <fieldset id="buildyourform">
+
+                        </fieldset>
+                    </div>
+                    <div class="col-12">
+                        <fieldset id="buildyourform">
+                            <label>Выберите размер</label>
+                        </fieldset>
+                        <div class="j-size-list size-list j-smart-overflow-instance">
+                            @foreach($sizes as $size)
+                                <label class="j-size tooltipstered size-button " data-characteristic-id=""
+                                       data-size="{{ $size->size }}">
+                                    <span>{{ $size->size }}</span>
+                                    <input class="check-size" name="sizes" type="checkbox" value="{{ $size->size }}">
+                                </label>
+                            @endforeach
+                        </div>
+                        <div class="col-6">
+                            <div class="md-form">
+                                <input type="text" id="price" name="price" class="form-control" required>
+                                <label for="price">{{ __('Розничная Цена') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-12 for-size-color"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="wholesale" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="col-12">
+                    <div class="row">
+                        <input type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+{{--        <------------------------------------------------endtabs------------------------------------------------>--}}
         <button type="submit" title="{{ __('Создать') }}" class="btn btn-success">{{ __('Создать') }}</button>
     </form>
 @endsection
@@ -135,7 +153,7 @@
         });
 
         $(document).ready(function (e) {
-            $(this).getElementsByClassName("check-size").checked=false;
+            $(this).getElementsByClassName("check-size").checked = false;
         })
     </script>
 

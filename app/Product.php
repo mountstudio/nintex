@@ -24,7 +24,7 @@ class Product extends Model
     }
     public function sizes()
     {
-        return $this->belongsToMany(Size::class, 'product_size', 'product_id', 'sizes')->withPivot('color', 'quantity', 'images', 'price');
+//        return $this->belongsToMany(Size::class, 'product_size', 'product_id', 'sizes')->withPivot('color', 'quantity', 'images', 'price');
         return $this->belongsToMany(Size::class, 'product_size', 'product_id', 'sizes')->withPivot('color', 'quantity', 'images', 'price', 'type');
     }
 
