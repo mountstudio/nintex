@@ -164,10 +164,18 @@
                 </div>
             </div>
         </div>
+
+    </section>
+    <section class="position-relative py-5 my-5">
+        <div class="box">
+            <h1>
+                CSS <span>Border</span>Hover <br>Effects
+            </h1>
+        </div>
     </section>
     @include('partials.category')
 
-    <section>
+{{--    <section>
         <div class="container" style="background: linear-gradient(90deg, #EEEBEE, #EEEBEE 30%, #f8fafc 30%)">
 
             <div class="col-12 my-5 pt-5">
@@ -238,7 +246,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--}}
 
    {{-- <section class="my-5">
         <!--Слайдер выбора одежды-->
@@ -672,14 +680,15 @@
         });
     </script>
     <script>
-        $('.owl-carousel').owlCarousel({
+        $('#nintexCarousel').owlCarousel({
             center: true,
             items: 1,
             loop:true,
             dots:true,
             margin:10,
             nav:false,
-        })
+        });
+
     </script>
 
     @include('animate.animate')
