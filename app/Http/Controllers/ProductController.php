@@ -98,62 +98,7 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        /*
-        if (!empty($request->allCatalog))
-        {
-            $catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
-                return $item->products;
-            });
-            $products = [];
-            foreach ($catProducts as $p) {
-                foreach ($p as $product) {
-                    $products[] = $product;
-                }
-            }
-        }
-        else
-        {
-            $products = Product::all();
-        }
-        if (!empty($request->sizes))
-        {
-            $productTemp = [];
-            $flag = true;
-            foreach ($products as $product)
-            {
-                foreach ($product->sizes as $size)
-                {
-                    if ($flag == true)
-                    {
-                        foreach ($request->sizes as $s1)
-                        {
-                            if ($size == $s1)
-                            {
-//                                dd($product);
-                                $productTemp[] = $product;
-                                $flag = false;
-                            }
-                        }
-                    }
-                }
-                $flag = true;
-            }
-            $products = $productTemp;
-        }
-//        $size = [];
-//        $size[0] = 'XS';
-//        $size[1] = 'S';
-//        $size[2] = 'M';
-//        $size[3] = 'L';
-//        $size[4] = 'XL';
-//        $size[5] = 'XXL';
-//        return view('products.index', [
-//            'products' => $products,
-//            'sizes' => $size,
-//        ]);
-*/
-//        dd($request);---------------------------------------
-
+        // поиск по категориям
         if (!empty($request->allCatalog))
         {
             //если был выбран тип продукта в каталоге размеров, то выбрать необходимые продукты
@@ -172,73 +117,234 @@ class ProductController extends Controller
             //иначе извлечь все продукты
             $products = Product::all();
         }
+
+        //поиск по размерам
         if (!empty($request->sizes))
         {
-            //если в фильтре были укзаны размеры, то выбрать все продукты у которых есть размеры указанные в фильтре
-            $productTemp = [];
-            $flag = true;
-            //проход по все продуктам
-            foreach ($products as $product)
+            if (($request->retail == 'on' && $request->wholesale == 'on') == true ||
+                (is_null($request->retail) && is_null($request->wholesale)) == true)
             {
-                //если у продукта есть размеры для розничной продажи
-                if (!empty($product->sizes[0]))
+                $products = $this->searchProductByRetailAndWholesaleSize($products, $request);
+            }
+            if ($request->retail == 'on')
+            {
+                $products = $this->searchProductByRetailSize($products, $request);
+            }
+            if ($request->wholesale == 'on')
+            {
+                $products = $this->searchProductByWholesaleSize($products, $request);
+            }
+        }
+
+        //поиск по стоимости
+        if (is_null($request->inputFirst) || is_null($request->inputSecond))
+        {
+            if (($request->retail == 'on' && $request->wholesale == 'on') == true ||
+                (is_null($request->retail) && is_null($request->wholesale)) == true)
+            {
+                $products = $this->searchProductByRetailAndWholesalePrice($products, $request);
+            }
+            if ($request->retail == 'on')
+            {
+                $products = $this->searchProductByRetailPrice($products, $request);
+            }
+            if ($request->wholesale == 'on')
+            {
+                $products = $this->searchProductByWholesalePrice($products, $request);
+            }
+        }
+
+        $sizes = Size::all();   //извлечение вех размеров
+        return view('products.index', [
+            'products' => $products,
+            'sizes' => $sizes,
+            'requestVales' => $request,
+        ]);
+    }
+    //поиск продуктов по розничной стоимости
+    public function searchProductByRetailPrice($products, $request)
+    {
+        $productTemp = [];
+        foreach ($products as $product) {
+            if ($product->price >= $request->inputFirst && $product->price <= $request->inputSecond)
+            {
+                $productTemp[] = $product;
+            }
+        }
+        return $productTemp;
+    }
+    //поиск продуктов по оптовой стоимости
+    public function searchProductByWholesalePrice($products, $request)
+    {
+        $productTemp = [];
+        foreach ($products as $product)
+        {
+            $productSizeByPrice = ProductSize::where('product_id', $product->id)->
+            where('price', '>=', $request->inputFirst)->
+            where('price', '>=', $request->inputSecond)->get();
+            if (!empty($productSizeByPrice[0]))
+            {
+                $productTemp[] = $product;
+            }
+        }
+        return $productTemp;
+    }
+    //поиск продуктов по оптовой и розничной стоимости
+    public function searchProductByRetailAndWholesalePrice($products, $request)
+    {
+        $productTemp = [];
+        $flag = true;
+        foreach ($products as $product) {
+            if ($product->price >= $request->inputFirst && $product->price <= $request->inputSecond)
+            {
+                $productTemp[] = $product;
+                $flag = false;
+            }
+            if ($flag == true)
+            {
+                $productSizeByPrice = ProductSize::where('product_id', $product->id)->
+                                            where('price', '>=', $request->inputFirst)->
+                                            where('price', '>=', $request->inputSecond)->get();
+
+                if (!empty($productSizeByPrice[0]))
                 {
-                    //проход по всем размерам продукта
-                    foreach ($product->sizes->unique('id') as $size)
+                    $productTemp[] = $product;
+                }
+            }
+            $flag = true;
+        }
+        return $productTemp;
+    }
+
+    //поиск продуктов по размеру в розницу
+    public function searchProductByRetailSize($products, $request)
+    {
+        //если в фильтре были укзаны размеры, то выбрать все продукты у которых есть размеры указанные в фильтре
+        $productTemp = [];
+        $flag = true;
+        //проход по все продуктам
+        foreach ($products as $product) {
+            //если у продукта есть размеры для розничной продажи
+            if (!empty($product->sizes[0])) {
+                //проход по всем размерам продукта
+                foreach ($product->sizes->unique('id') as $size) {
+                    if ($flag == true) {
+                        //проход по размерам которые были укзаны в фильтре
+                        foreach ($request->sizes as $s1) {
+                            if ($size->size == $s1) {
+                                //проверка на совпадение размеров, если размер совпал,
+                                //то добавить продукт в промежуточный массив продуктов
+                                // и перключить флаг в "false"
+                                $productTemp[] = $product;
+                                $flag = false;
+                            }
+                        }
+                    }
+                }
+                $flag = true;
+            }
+        }
+        return $productTemp;
+    }
+    //поиск продуктов по размеру в оптом
+    public function searchProductByWholesaleSize($products, $request)
+    {
+        //если в фильтре были укзаны размеры, то выбрать все продукты у которых есть размеры указанные в фильтре
+        $productTemp = [];
+        $flag = true;
+        //проход по все продуктам
+        foreach ($products as $product) //В отдельных ветках поиска можно избавиться от этого цикла,
+                                        // просто используя вызов это функци в цикле продуктов из вне
+        {
+            //если у продукта есть размеры для розничной продажи
+            if (empty($product->sizes[0]))
+            {
+                $productSizes = ProductSize::where('product_id', $product->id)->where('sizes', 'LIKE', '%[%')->get()->unique('sizes');
+                if (!empty($productSizes[0]))
+                {
+                    foreach ($productSizes as $pS)
                     {
-                        if ($flag == true)
+                        foreach (json_decode($pS->sizes) as $size)
                         {
-                            //проход по размерам которые были укзаны в фильтре
-                            foreach ($request->sizes as $s1)
+                            if ($flag == true)
                             {
-                                if ($size->size == $s1)
+                                foreach ($request->sizes as $s1)
                                 {
-                                    //проверка на совпадение размеров, если размер совпал,
-                                    //то добавить продукт в промежуточный массив продуктов
-                                    // и перключить флаг в "false"
-                                    $productTemp[] = $product;
-                                    $flag = false;
+                                    if ($size == $s1)
+                                    {
+                                        $productTemp[] = $product;
+                                        $flag = false;
+                                    }
                                 }
                             }
                         }
                     }
                     $flag = true;
                 }
-                else
+            }
+        }
+        return $productTemp;
+    }
+    //поиск продуктов по размеру оптом и в розницу
+    public function searchProductByRetailAndWholesaleSize($products, $request)
+    {
+        //если в фильтре были укзаны размеры, то выбрать все продукты у которых есть размеры указанные в фильтре
+        $productTemp = [];
+        $flag = true;
+        //проход по все продуктам
+        foreach ($products as $product)
+        {
+            //если у продукта есть размеры для розничной продажи
+            if (!empty($product->sizes[0]))
+            {
+                //проход по всем размерам продукта
+                foreach ($product->sizes->unique('id') as $size)
                 {
-                    $productSizes = ProductSize::where('product_id', $product->id)->where('sizes', 'LIKE', '%[%')->get()->unique('sizes');
-                    if (!empty($productSizes[0]))
+                    if ($flag == true)
                     {
-                        foreach ($productSizes as $pS)
+                        //проход по размерам которые были укзаны в фильтре
+                        foreach ($request->sizes as $s1)
                         {
-                            foreach (json_decode($pS->sizes) as $size)
+                            if ($size->size == $s1)
                             {
-                                if ($flag == true)
+                                //проверка на совпадение размеров, если размер совпал,
+                                //то добавить продукт в промежуточный массив продуктов
+                                // и перключить флаг в "false"
+                                $productTemp[] = $product;
+                                $flag = false;
+                            }
+                        }
+                    }
+                }
+                $flag = true;
+            }
+            else
+            {
+                $productSizes = ProductSize::where('product_id', $product->id)->where('sizes', 'LIKE', '%[%')->get()->unique('sizes');
+                if (!empty($productSizes[0]))
+                {
+                    foreach ($productSizes as $pS)
+                    {
+                        foreach (json_decode($pS->sizes) as $size)
+                        {
+                            if ($flag == true)
+                            {
+                                foreach ($request->sizes as $s1)
                                 {
-                                    foreach ($request->sizes as $s1)
+                                    if ($size == $s1)
                                     {
-                                        if ($size == $s1)
-                                        {
-                                            $productTemp[] = $product;
-                                            $flag = false;
-                                        }
+                                        $productTemp[] = $product;
+                                        $flag = false;
                                     }
                                 }
                             }
                         }
-                        $flag = true;
                     }
+                    $flag = true;
                 }
             }
-            $products = $productTemp;
         }
-//        dd($products, $msg);
-
-        $sizes = Size::all();
-        return view('products.index', [
-            'products' => $products,
-            'sizes' => $sizes,
-        ]);
+        return $productTemp;
     }
 
     public function colorFilter(Request $request)
