@@ -13,17 +13,17 @@
             <div id="html5" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr"></div>
 
             <div class="row my-4 pl-3">
-                <div class="col-4 px-0">
+                <div class="col-4 px-0 form-group">
                     <!-- Small input -->
-                    <input class="form-control" type="number" min="0" max="30000" step="1" id="input-first">
+                    <input class="form-control" type="number" min="0" max="30000" step="1" id="input-first" name="inputFirst">
 
                 </div>
                 <div class="col-1 px-0 text-center py-2">
                     <img src="{{ asset('img/Line.png') }}" alt="">
                 </div>
-                <div class="col-4 px-0">
+                <div class="col-4 px-0 form-group">
                     <!-- Small input -->
-                    <input class="form-control" type="number" min="0" max="30000" step="1" id="input-second">
+                    <input class="form-control" type="number" min="0" max="30000" step="1" id="input-second" name="inputSecond">
 
                 </div>
             </div>
@@ -118,7 +118,6 @@
         var html5Slider = document.getElementById('html5');
         var inputNumber1 = document.getElementById('input-first'),
             inputNumber2 = document.getElementById('input-second');
-
         noUiSlider.create(html5Slider, {
             start: [0, 30000],
             connect: true,

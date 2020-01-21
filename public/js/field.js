@@ -3,46 +3,33 @@ $(document).ready(function() {
     $("#add").click(function() {
         var lastField = $("#buildyourform div:last");
         var intId = (lastField && lastField.length && lastField.data("idx") + 1) || 1;
-        var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + intId + "\"/>");
+        var fieldWrapper = $("<div class=\"fieldwrapper\" id=\"field" + count++ + "\"/>");
         fieldWrapper.data("idx", intId);
-        count++;
+        // count++;
         console.log(count);
-        var fName = $("<input type=\"color\" class=\"fieldname form-control\" name=\"colors["+count+"]\" />");
-        var fImages = $('<input type="file" name="images['+ count +'][]" multiple />');
-        var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
-        removeButton.click(function() {
-            $(this).parent().remove();
+
+        var line = $("<div class=\"row\">\n" +
+            "                    <div class=\"col-2\">\n" +
+            "                        <input type=\"color\" class=\"fieldname color form-control\" name=\"color\">\n" +
+            "                    </div>\n" +
+            "                    <div class=\"col-4\">\n" +
+            "                        <input type=\"file\" name=\"colorsize["+ count +"][]\" multiple>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"col-2\" class=\"rmveButton\">\n" +
+            "                        <button type=\"button\" class=\"remove\">\n" +
+            "                            <i class=\"fas fa-minus\"></i>\n" +
+            "                        </button>\n" +
+            "                    </div>\n" +
+            "                </div>");
+
+        let button = line.find('.remove').click(function () {
+            fieldWrapper.remove();
+            console.log('remove')
             count--;
-            console.log(count);
+            console.log('count=', count);
         });
-        fieldWrapper.append(fName);
-        fieldWrapper.append(fImages);
-        fieldWrapper.append(removeButton);
+        fieldWrapper.append(line);
 
         $("#buildyourform").append(fieldWrapper);
-    });
-    $("#preview").click(function() {
-        $("#yourform").remove();
-        var fieldSet = $("<fieldset id=\"yourform\"><legend>Your Form</legend></fieldset>");
-        $("#buildyourform div").each(function() {
-            var id = "input" + $(this).attr("id").replace("field","");
-            var label = $("<label for=\"" + id + "\">" + $(this).find("input.fieldname").first().val() + "</label>");
-            var input;
-            switch ($(this).find("select.fieldtype").first().val()) {
-                case "checkbox":
-                    input = $("<input type=\"checkbox\" id=\"" + id + "\" name=\"" + id + "\" />");
-                    break;
-                case "textbox":
-                    input = $("<input type=\"text\" id=\"" + id + "\" name=\"" + id + "\" />");
-                    break;
-                case "textarea":
-                    input = $("<textarea id=\"" + id + "\" name=\"" + id + "\" ></textarea>");
-                    break;
-            }
-            fieldSet.append(label);
-            fieldSet.append(input);
-        });
-
-        $("body").append(fieldSet);
     });
 });
