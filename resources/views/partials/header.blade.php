@@ -8,17 +8,17 @@
         <div class="col-4 pt-3">
             <ul class="navigation" id="anchor-style">
                 <li class="navigation-item">
-                    <a style="font-size: 16px" href="{{ route('product.index') }}" class="text-uppercase text-for-a" title="Просмотреть новинки">
+                    <a style="font-size: 16px" href="{{ route('product.index') }}" class="text-uppercase text-for-a px-1 pb-1" title="Просмотреть новинки">
                         Новинки
                     </a>
                 </li>
                 <li class="navigation-item">
-                    <a style="font-size: 16px" href="{{ route('product.index') }}"class="text-uppercase text-for-a" title="Просмотреть Коллекции">
+                    <a style="font-size: 16px" href="{{ route('product.index') }}"class="text-uppercase text-for-a px-1 pb-1" title="Просмотреть Коллекции">
                         Коллекция
                     </a>
                 </li>
                 <li class="navigation-item">
-                    <a style="font-size: 16px" href="/#bottom_stocks" class="text-uppercase text-for-a" title="Просмотреть Акции">
+                    <a style="font-size: 16px" href="/#bottom_stocks" class="text-uppercase text-for-a px-1 pb-1" title="Просмотреть Акции">
                         Акции
                     </a>
                 </li>
