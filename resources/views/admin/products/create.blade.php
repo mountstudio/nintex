@@ -65,25 +65,29 @@
                         </fieldset>
                     </div>
                     <div class="col-12">
-                        <fieldset id="buildyourform">
-                            <label>Выберите размер</label>
-                        </fieldset>
-                        <div class="j-size-list size-list j-smart-overflow-instance">
-                            @foreach($sizes as $size)
-                                <label class="j-size tooltipstered size-button " data-characteristic-id=""
-                                       data-size="{{ $size->size }}">
-                                    <span>{{ $size->size }}</span>
-                                    <input class="check-size" name="sizes" type="checkbox" value="{{ $size->size }}">
-                                </label>
-                            @endforeach
-                        </div>
-                        <div class="col-6">
-                            <div class="md-form">
-                                <input type="text" id="price" name="price" class="form-control" required>
-                                <label for="price">{{ __('Розничная Цена') }}</label>
+                        <div class="row">
+                            <div class="col-6">
+                                <fieldset id="buildyourform">
+                                    <label>Выберите размер</label>
+                                </fieldset>
+                                <div class="j-size-list size-list j-smart-overflow-instance">
+                                    @foreach($sizes as $size)
+                                        <label class="j-size tooltipstered size-button " data-characteristic-id=""
+                                               data-size="{{ $size->size }}">
+                                            <span>{{ $size->size }}</span>
+                                            <input class="check-size" name="sizes" type="checkbox" value="{{ $size->size }}">
+                                        </label>
+                                    @endforeach
+                                </div>
                             </div>
+                            <div class="col-6">
+                                <div class="md-form">
+                                    <input type="text" id="price" name="price" class="form-control" required>
+                                    <label for="price">{{ __('Розничная Цена') }}</label>
+                                </div>
+                            </div>
+                            <div class="col-12 for-size-color"></div>
                         </div>
-                        <div class="col-12 for-size-color"></div>
                     </div>
                 </div>
             </div>
@@ -151,10 +155,6 @@
                 $('.for-size-color').append(input);
             });
         });
-
-        $(document).ready(function (e) {
-            $(this).getElementsByClassName("check-size").checked = false;
-        })
     </script>
 
 @endpush
