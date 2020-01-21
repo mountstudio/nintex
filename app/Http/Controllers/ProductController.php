@@ -202,34 +202,39 @@ class ProductController extends Controller
         $product = new Product($request->all());
         $product->save();
         $arrColors = [];
-        if ($images = $request->images) {
-            foreach ($request->colors as $index => $color) {
-                $arrFileNames = [];
-                foreach ($images[$index] as $image) {
-                    $filename = ImageSaver::save($image, "uploads", "nintex");
-                    $arrFileNames[] = $filename;
-                }
+        $arrFileNames = [];
 
-                $arrColors[$color][] = $arrFileNames;
+        foreach ($request->colorsize as $key1 => $item) {
+            $arrFileNames = [];
+
+            foreach ($item['images'] as $image) {
+                $filename = ImageSaver::save($image, "uploads", "nintex");
+                $arrFileNames[] = $filename;
             }
-            $product->colors = $arrColors;
-            $product->save();
+            foreach ($item['sizes'] as $key => $value) {
+                $product->sizes()->attach($key, ['price' => $request->price, 'color' => $key1, 'quantity' => $value, 'images' => json_encode($arrFileNames)]);
+            }
         }
+//        dd($product->sizes);
+//            $sizes = Size::all();
+//            foreach ($sizes as $size) {
+//                $product->sizes()->attach($size->id, ['price' => $request->price, 'images' => json_encode($arrFileNames), 'color' => $request->color]);
+//            }
+////        $product->sizes()->save($size->id, ['price' => $request->price, 'images' => $request->images]);
+
         if ($logo = $request->logo) {
             $filename = ImageSaver::save($logo, 'uploads', 'nintex_logo');
             $product->logo = $filename;
             $product->save();
         }
-        $file = $request->file('video');
-        $destination_path = public_path() . '/videos';
-        $extension = $file->getClientOriginalExtension();
-        $files = $file->getClientOriginalName();
-        $fileName = $file . '_' . time() . '.' . $extension;
-        $file->move($destination_path, $fileName);
-        $product->video = $fileName;
-        $product->save();
-
-
+//        $file = $request->file('video');
+//        $destination_path = public_path() . '/videos';
+//        $extension = $file->getClientOriginalExtension();
+//        $files = $file->getClientOriginalName();
+//        $fileName = $file . '_' . time() . '.' . $extension;
+//        $file->move($destination_path, $fileName);
+//        $product->video = $fileName;
+//        $product->save();
         return redirect()->back();
     }
 

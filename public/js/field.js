@@ -9,16 +9,34 @@ $(document).ready(function() {
         console.log(count);
         var fName = $("<input type=\"color\" class=\"fieldname form-control\" name=\"colors["+count+"]\" />");
         var fImages = $('<input type="file" name="images['+ count +'][]" multiple />');
-        var removeButton = $("<input type=\"button\" class=\"remove\" value=\"-\" />");
-        removeButton.click(function() {
+        // var removeButton = $(" <button type=\"button\" id=\"remove\">\n" +
+        //     "                            <i class=\"fas fa-minus\" id=\"add\"></i>\n" +
+        //     "                        </button>");
+        var line = $("<div class=\"row\">\n" +
+            "                    <div class=\"col-2\">\n" +
+            "                        <input type=\"color\" class=\"fieldname color form-control\" name=\"color\">\n" +
+            "                    </div>\n" +
+            "                    <div class=\"col-4\">\n" +
+            "                        <input type=\"file\" name=\"colorsize["+ count +"][]\" multiple>\n" +
+            "                    </div>\n" +
+            "                    <div class=\"col-2\" class=\"rmveButton\">\n" +
+            "                        <button type=\"button\" class=\"remove\">\n" +
+            "                            <i class=\"fas fa-minus\"></i>\n" +
+            "                        </button>" +
+            "                    </div>\n" +
+            "                </div>");
+        let button = line.find('.remove');
+
+        button.click(function() {
             $(this).parent().remove();
             count--;
-            console.log(count);
+            console.log('count=', count);
         });
-        fieldWrapper.append(fName);
-        fieldWrapper.append(fImages);
-        fieldWrapper.append(removeButton);
 
+        fieldWrapper.append(line);
+        fieldWrapper.append(button);
+
+        // $("#rmveButton").append(button);
         $("#buildyourform").append(fieldWrapper);
     });
     $("#preview").click(function() {
@@ -45,4 +63,6 @@ $(document).ready(function() {
 
         $("body").append(fieldSet);
     });
+
+
 });

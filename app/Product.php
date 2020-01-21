@@ -9,7 +9,7 @@ use Darryldecode\Cart\Facades\CartFacade;
 
 class Product extends Model
 {
-    protected $fillable = ['title', 'logo','description', 'colors', 'sizes', 'price', 'wholesale_price', 'season', 'category_id',];
+    protected $fillable = ['title', 'logo','description', 'season', 'category_id',];
 
     use Favoriteable;
 
@@ -24,7 +24,7 @@ class Product extends Model
     }
     public function sizes()
     {
-        return $this->belongsToMany(Size::class, 'product_size', 'product_id', 'sizes')->withPivot('colors', 'quantity', 'images', 'price');
+        return $this->belongsToMany(Size::class, 'product_size', 'product_id', 'sizes')->withPivot('color', 'quantity', 'images', 'price');
     }
 
     public function users()
