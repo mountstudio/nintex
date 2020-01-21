@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="position-relative bg-img pt-5"
+    {{--<section class="position-relative bg-img pt-5"
              style="background: url('{{ asset('img/Vector.svg') }}')  no-repeat center center;
                  -webkit-background-size: cover;
                  -moz-background-size: cover;
@@ -138,8 +138,33 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>--}}<!--Comment block with two sync sliders-->
+    <section>
+        <div class="container-fluid px-0">
+            <div class="col-12 owl-carousel px-0" id="nintexCarousel">
+                <div class="item">
+                    <a href="{{ route('product.index') }}">
+                        <img src="{{ asset('img/spring-summer.png') }}" class="img-fluid" alt="">
+                        <a href="">
+                            <p>
 
+                            </p>
+                        </a>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="{{ route('product.index') }}">
+                        <img src="{{ asset('img/spring-summer.png') }}" class="img-fluid" alt="">
+                        <a href="">
+                            <p>
+
+                            </p>
+                        </a>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
     @include('partials.category')
 
     <section>
@@ -645,6 +670,16 @@
             $('.j-size-list label').removeClass('active');
             $(this).addClass('active');
         });
+    </script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            center: true,
+            items: 1,
+            loop:true,
+            dots:true,
+            margin:10,
+            nav:false,
+        })
     </script>
 
     @include('animate.animate')

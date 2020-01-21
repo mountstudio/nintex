@@ -15,16 +15,15 @@
             <a href="{{route('product.show', $product)}}" class="text-dark" style="font-size: 16px;"><p class="h3">{{$product->title}}</p></a>
             <div class="col-12 text-left">
                 <div class="row">
-                    @foreach($product->sizes as $size)
+                    @foreach( $product->sizes->unique('id') as $size)
                         <label class="j-size tooltipstered size-button" data-characteristic-id=""
-                               data-size="{{ $size }}">
-                            <span>{{ $size }}</span>
+                               data-size="{{ $size->size }}">
+                            <span>{{ $size->size }}</span>
                             <input class="radio-size" id="size" name="size" type="radio" value="">
                         </label>
                     @endforeach
                 </div>
             </div>
-
             <p class="font-weight-bold blue-text text-right " style="font-size: 16px;">
                 <strong>{{ $product->price }} kgs</strong>
             </p>
@@ -45,6 +44,13 @@
         );
     </script>
     <script>
+        $('.j-size-list').on('click', 'label', function () {
+            $('.j-size-list label').removeClass('active');
+            $(this).addClass('active');
+        });
+    </script>
+    <script>
+
         $('.j-size-list').on('click', 'label', function () {
             $('.j-size-list label').removeClass('active');
             $(this).addClass('active');

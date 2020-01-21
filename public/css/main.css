@@ -68,7 +68,6 @@
     box-shadow: inset 0 0 0 1px #ff579d;
 }
 
-
 .checkbox-white{
     background: white;
 }
@@ -78,11 +77,9 @@
 .checkbox-black{
     background: black;
 }
-
 .checkbox-pink{
     background: pink;
 }
-
 .checkbox-red{
     background: red;
 }
@@ -101,9 +98,6 @@
     height: 0;
     width: 0;
 }
-
-
-
 /* On mouse-over, add a grey background color */
 
 
@@ -648,7 +642,6 @@
     position: relative;
     text-align: center;
 }
-
 
 .catalog_a {
     color: #2c3e50;

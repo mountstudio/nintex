@@ -21,6 +21,7 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/nouislider.css') }}">
     @stack('styles')
 
     <script src="https://js.cx/libs/animate.js"></script>
@@ -44,6 +45,7 @@
     <script src="{{ asset('js/typed.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
     <script src="{{ asset('js/slick.js') }}"></script>
+    <script src="{{ asset('js/nouislider.js')}}"></script>
     @stack('scripts')
     <script>
         let token = "{{ Session::has('token') ? Session::get('token') : uniqid() }}";
