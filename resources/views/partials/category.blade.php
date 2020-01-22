@@ -1,22 +1,28 @@
 <section>
     <div class="container mt-5">
         <div class="row justify-content-center">
+            <div class="col-12">
+                <h1 class="text-center">
+                    Категории
+                </h1>
+            </div>
 
 
-
-            <div class="col-lg-3 col-md-6 col-12 mb-4">
+            <div class="col-lg-3 col-md-4 col-10 mb-4">
 
                 <!--Collection card-->
-                <div class="card collection-card z-depth-1-half">
+                <div class="card collection-card z-depth-1-half" style="width: 255px; height: auto;">
+
                     <!--Card image-->
                     <div class="view zoom">
                         <a href="#">
                             <img src="{{ asset('img/hits.png') }}" class="img-fluid" alt="">
 
-                            <div class="stripe dark">
+                            <div class="stripe light">
                                 <a>
-                                    <p>Red trousers
-                                        <i class="fas fa-angle-right"></i>
+                                    <p>
+                                        <h2>Хиты <i class="fas fa-angle-right pt-1 pt-1"></i></h2>
+
                                     </p>
                                 </a>
                             </div>
@@ -27,18 +33,20 @@
                 <!--Collection card-->
 
             </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-4">
+            <div class="col-lg-3 col-md-4 col-10 mb-4">
 
                 <!--Collection card-->
-                <div class="card collection-card z-depth-1-half">
+                <div class="card collection-card z-depth-1-half" style="width: 255px; height: auto;">
+
                     <!--Card image-->
                     <div class="view zoom">
                         <a href="{{ route('product.index') }}">
                             <img src="{{ asset('img/stock.png') }}" class="img-fluid" alt="">
                             <div class="stripe light">
                                 <a>
-                                    <p>Red trousers
-                                        <i class="fas fa-angle-right"></i>
+                                    <p>
+                                        <h2>Новинки <i class="fas fa-angle-right pt-1"></i></h2>
+
                                     </p>
                                 </a>
                             </div>
@@ -49,18 +57,20 @@
                 <!--Collection card-->
 
             </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-4">
+            <div class="col-lg-3 col-md-4 col-10 mb-4">
 
                 <!--Collection card-->
-                <div class="card collection-card z-depth-1-half">
+                <div class="card collection-card z-depth-1-half" style="width: 255px; height: auto;">
+
                     <!--Card image-->
                     <div class="view zoom">
                         <a href="{{ route('product.index') }}">
                             <img src="{{ asset('img/new.png') }}" class="img-fluid" alt="">
-                            <div class="stripe dark">
+                            <div class="stripe light">
                                 <a>
-                                    <p>Red trousers
-                                        <i class="fas fa-angle-right"></i>
+                                    <p>
+                                        <h2>Акции <i class="fas fa-angle-right pt-1"></i></h2>
+
                                     </p>
                                 </a>
                             </div>

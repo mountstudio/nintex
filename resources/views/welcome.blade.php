@@ -166,13 +166,13 @@
         </div>
 
     </section>
-    <section class="position-relative py-5 my-5">
+   {{-- <section class="position-relative py-5 my-5">
         <div class="box">
             <h1>
                 CSS <span>Border</span>Hover <br>Effects
-            </h1>
+            </h1> <!-- эксперемент -->
         </div>
-    </section>
+    </section>--}}
     @include('partials.category')
 
 {{--    <section>
