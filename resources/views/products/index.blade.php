@@ -4,7 +4,15 @@
 
     <div class="main-container">
         <div class="row">
-            <div class="col-12 col-md-3 my-5">
+            <div class="col-12 d-block d-lg-none col-md-3 my-5">
+
+                {{--<form action="{{ route('product.index') }}" method="GET">
+                    @include('catalog_blocks.nav_category')
+                    @include('catalog_blocks.filters')
+                    <button type="submit" class="btn btn-primary">Применить филтр</button>
+                </form>--}}
+            </div>
+            <div class="col-12 d-none d-lg-block col-md-3 my-5">
                 <form action="{{ route('product.index') }}" method="GET">
                     @include('catalog_blocks.nav_category')
                     @include('catalog_blocks.filters')
@@ -21,26 +29,18 @@
                 </div>
 
                 <nav aria-label="Page navigation example">
-                    <ul class="pagination pagination-circle pg-blue">
-                        <li class="page-item disabled"><a class="page-link">Пред</a></li>
+                    <ul class="pagination pg-blue justify-content-center">
                         <li class="page-item disabled">
-                            <a class="page-link" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                                <span class="sr-only">Previous</span>
-                            </a>
+                            <a class="page-link" tabindex="-1">Пред</a>
                         </li>
-                        <li class="page-item active"><a class="page-link">1</a></li>
+                        <li class="page-item"><a class="page-link">1</a></li>
                         <li class="page-item"><a class="page-link">2</a></li>
                         <li class="page-item"><a class="page-link">3</a></li>
                         <li class="page-item"><a class="page-link">4</a></li>
                         <li class="page-item"><a class="page-link">5</a></li>
                         <li class="page-item">
-                            <a class="page-link" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                                <span class="sr-only">Next</span>
-                            </a>
+                            <a class="page-link">След</a>
                         </li>
-                        <li class="page-item"><a class="page-link">След</a></li>
                     </ul>
                 </nav>
             </div>

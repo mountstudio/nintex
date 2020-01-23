@@ -1,7 +1,7 @@
 <footer class="bg-dark position-relative" style="margin-top: 20px;">
     <div class="container">
         <div class="row">
-            <div class=" d-flex align-items-center col-12 col-md-3 col-lg-2 col-xl-2 text-left text-xs-left text-sm-left text-md-left mb-4 mb-md-0">
+            <div class=" d-flex align-items-center col-12 col-md-3 col-lg-2 col-xl-2 text-left text-xs-left text-sm-left text-md-left mb-4 mb-md-0 pt-4 pt-md-0">
                 <nav class="nav flex-column text-center mx-auto mx-md-0">
                     <a class="text-white mr-auto" href="#" title="">- ГЛАВНАЯ</a>
                     <a class="text-white mr-auto my-2" href="#" title="">- КАТЕГОРИИ</a>
