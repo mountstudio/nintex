@@ -154,11 +154,25 @@ class ProductController extends Controller
             }
         }
 
+        $productsSizes = [[]];
+        foreach ($products as $product)
+        {
+            $productsSizesUniqe = ProductSize::where('product_id', $product->id)->get()->unique('sizes');
+            foreach ($productsSizesUniqe as $productsSizeUniqe)
+            {
+                if (is_array(json_decode($productsSizeUniqe->sizes)))
+                {
+                    $productsSizes[$product->id][] = $productsSizeUniqe;
+                }
+            }
+        }
+
         $sizes = Size::all();   //извлечение вех размеров
         return view('products.index', [
             'products' => $products,
             'sizes' => $sizes,
             'requestValues' => $request,
+            'productsSizes' => $productsSizes,
         ]);
     }
     //поиск продуктов по розничной стоимости
@@ -166,9 +180,19 @@ class ProductController extends Controller
     {
         $productTemp = [];
         foreach ($products as $product) {
-            if ($product->price >= $request->inputFirst && $product->price <= $request->inputSecond)
+            $productSizeByPrice = ProductSize::where('product_id', $product->id)->
+            where('price', '>=', $request->inputFirst)->
+            where('price', '>=', $request->inputSecond)->get();
+            if (!empty($productSizeByPrice[0]))
             {
-                $productTemp[] = $product;
+                foreach ($productSizeByPrice as $productSize)
+                {
+                    if (!is_array(json_decode($productSize->sizes)))
+                    {
+                        $productTemp[] = $product;
+                        break;
+                    }
+                }
             }
         }
         return $productTemp;
@@ -177,14 +201,20 @@ class ProductController extends Controller
     public function searchProductByWholesalePrice($products, $request)
     {
         $productTemp = [];
-        foreach ($products as $product)
-        {
+        foreach ($products as $product) {
             $productSizeByPrice = ProductSize::where('product_id', $product->id)->
-            where('price', '>=', $request->inputFirst)->
-            where('price', '>=', $request->inputSecond)->get();
+                    where('price', '>=', $request->inputFirst)->
+                    where('price', '>=', $request->inputSecond)->get();
             if (!empty($productSizeByPrice[0]))
             {
-                $productTemp[] = $product;
+                foreach ($productSizeByPrice as $productSize)
+                {
+                    if (is_array(json_decode($productSize->sizes)))
+                    {
+                        $productTemp[] = $product;
+                        break;
+                    }
+                }
             }
         }
         return $productTemp;
@@ -195,23 +225,13 @@ class ProductController extends Controller
         $productTemp = [];
         $flag = true;
         foreach ($products as $product) {
-            if ($product->price >= $request->inputFirst && $product->price <= $request->inputSecond)
+            $productSizeByPrice = ProductSize::where('product_id', $product->id)->
+                where('price', '>=', $request->inputFirst)->
+                where('price', '>=', $request->inputSecond)->get();
+            if (!empty($productSizeByPrice[0]))
             {
                 $productTemp[] = $product;
-                $flag = false;
             }
-            if ($flag == true)
-            {
-                $productSizeByPrice = ProductSize::where('product_id', $product->id)->
-                                            where('price', '>=', $request->inputFirst)->
-                                            where('price', '>=', $request->inputSecond)->get();
-
-                if (!empty($productSizeByPrice[0]))
-                {
-                    $productTemp[] = $product;
-                }
-            }
-            $flag = true;
         }
         return $productTemp;
     }

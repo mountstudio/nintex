@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    @dd(array_keys($product->sizesWholesale[11]->price))
+{{--    @dd(array_keys($product->sizesWholesale[11]->price))--}}
 
     <section class="bg-nintex-color">
         <div class="container-fluid pt-5">
@@ -27,14 +27,14 @@
                             <div class="col-6 pl-5">
                                 <p>Цвет:</p>
                                 <div class="checkbox">
-                                    @dd($product->sizesWholesale[11]->price)
-                                    @foreach( array_keys($product->color) as $colors)
-                                        <label class="j-color checkbox-red" style="background: {{ $colors }};"
-                                               data-color="{{ $colors }}">
-                                            <input id="cbox" checked="checked" value="{{ $colors }}" name="color" type="radio">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    @endforeach
+{{--                                    @dd($product->sizesWholesale[11]->price)--}}
+{{--                                    @foreach( array_keys($product->color) as $colors)--}}
+{{--                                        <label class="j-color checkbox-red" style="background: {{ $colors }};"--}}
+{{--                                               data-color="{{ $colors }}">--}}
+{{--                                            <input id="cbox" checked="checked" value="{{ $colors }}" name="color" type="radio">--}}
+{{--                                            <span class="checkmark"></span>--}}
+{{--                                        </label>--}}
+{{--                                    @endforeach--}}
                                 </div>
                             </div>
 {{--                            @dd($product->colors)--}}
@@ -123,7 +123,7 @@
             console.log(size, color);
             // console.log(size, color);
             $('div#for-add-cart-btn').empty();
-            const element = $('                <a href="#"' +
+            const element = $('     <a href="#"' +
                 '                   class="btn btn-dark btn-block text-fut-book but-hov text-white buy_book d-lg-block d-none w-50"' +
                 '                   data-id=" {{ $product->id }}" data-size="' + size  + '" data-color="'+ color +'"' +
                 '                   id="basket">Add to cart' +

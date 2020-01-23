@@ -624,6 +624,23 @@
 .unbold{
     font-weight: normal!important;
 }
+.circle {
+    width: 16px;
+    height: 16px;
+    background: #9c9d9b;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    /*border-radius: 50px;*/
+    margin: 1px;
+}
+.index {
+    /*width: 100%;*/
+    margin: 3px;
+}
+
+.endLine {
+    width: 100%;
+}
 
 .card-body .size-button {
     display: inline-block;
