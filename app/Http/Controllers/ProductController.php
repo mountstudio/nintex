@@ -85,7 +85,6 @@ class ProductController extends Controller
             }
         }
 
-
         $productsRetailSize = [[]];
         $productsRetailPrice = [];
         foreach ($products as $product)
@@ -115,6 +114,7 @@ class ProductController extends Controller
             'productsWholesaleSize' => $productsWholesaleSize,
             'productsRetailSize' => $productsRetailSize,
             'productsRetailPrice' => $productsRetailPrice,
+            'backRequest' => $request,
         ]);
     }
     //поиск продуктов по розничной стоимости
