@@ -26,75 +26,6 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function filter($request)
-    {
-        if (!empty($request->allCatalog)) {
-            $catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
-                return $item->products;
-            });
-            $products = [];
-            foreach ($catProducts as $p) {
-                foreach ($p as $product) {
-                    $products[] = $product;
-                }
-            }
-            if (!empty($request->sizes)) {
-                $productTemp = [];
-                $flag = true;
-                foreach ($products as $product) {
-                    foreach ($product->sizes as $size) {
-                        if ($flag == true) {
-                            foreach ($request->sizes as $s1) {
-                                if ($size == $s1) {
-                                    $productTemp = $product;
-                                    $flag = false;
-                                }
-                            }
-                        }
-                    }
-                    $flag = true;
-                }
-                $products = $productTemp;
-            }
-        } else {
-            $products = Product::all();
-            if (!empty($request->sizes)) {
-                $productTemp = [];
-                $flag = true;
-                foreach ($products as $product) {
-                    foreach ($product->sizes as $size) {
-                        if ($flag == true) {
-                            foreach ($request->sizes as $s1) {
-                                if ($size == $s1) {
-                                    $productTemp = $product;
-                                    $flag = false;
-                                }
-                            }
-                        }
-                    }
-                    $flag = true;
-                }
-                $products = $productTemp;
-            }
-        }
-        //цвета
-        $white = $request->white;
-        $blue = $request->blue;
-        $black = $request->black;
-
-        ////////////////////////
-        $size = [];
-        $size[0] = 'XS';
-        $size[1] = 'S';
-        $size[2] = 'M';
-        $size[3] = 'L';
-        $size[4] = 'XL';
-        $size[5] = 'XXL';
-        return view('products.index', [
-            'products' => $products,
-            'sizes' => $size,
-        ]);
-    }
 
     public function index(Request $request)
     {
@@ -144,15 +75,16 @@ class ProductController extends Controller
             {
                 $products = $this->searchProductByRetailAndWholesalePrice($products, $request);
             }
-            if ($request->retail == 'on')
+            else if ($request->retail == 'on')
             {
                 $products = $this->searchProductByRetailPrice($products, $request);
             }
-            if ($request->wholesale == 'on')
+            else if ($request->wholesale == 'on')
             {
                 $products = $this->searchProductByWholesalePrice($products, $request);
             }
         }
+
 
         $productsRetailSize = [[]];
         $productsRetailPrice = [];
@@ -192,7 +124,7 @@ class ProductController extends Controller
         foreach ($products as $product) {
             $productSizeByPrice = ProductSize::where('product_id', $product->id)->
             where('price', '>=', $request->inputFirst)->
-            where('price', '>=', $request->inputSecond)->get();
+            where('price', '<=', $request->inputSecond)->get();
             if (!empty($productSizeByPrice[0]))
             {
                 foreach ($productSizeByPrice as $productSize)
@@ -214,7 +146,7 @@ class ProductController extends Controller
         foreach ($products as $product) {
             $productSizeByPrice = ProductSize::where('product_id', $product->id)->
                     where('price', '>=', $request->inputFirst)->
-                    where('price', '>=', $request->inputSecond)->get();
+                    where('price', '<=', $request->inputSecond)->get();
             if (!empty($productSizeByPrice[0]))
             {
                 foreach ($productSizeByPrice as $productSize)
@@ -237,7 +169,7 @@ class ProductController extends Controller
         foreach ($products as $product) {
             $productSizeByPrice = ProductSize::where('product_id', $product->id)->
                 where('price', '>=', $request->inputFirst)->
-                where('price', '>=', $request->inputSecond)->get();
+                where('price', '<=', $request->inputSecond)->get();
             if (!empty($productSizeByPrice[0]))
             {
                 $productTemp[] = $product;

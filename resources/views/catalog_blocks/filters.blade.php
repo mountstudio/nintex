@@ -6,8 +6,8 @@
     <li>
         <!-- Default checked -->
         <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
+            <input type="checkbox" class="custom-control-input" id="retail" name="retail">
             <label class="custom-control-label  unbold h5" for="retail">В розницу</label>
-            <input type="checkbox" class="custom-control-input" id="retail" {{ $requestValues->retail != null ? "checked" : " " }} name="retail">
         </div>
     </li>
     <li>
