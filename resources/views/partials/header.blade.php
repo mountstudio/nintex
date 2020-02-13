@@ -61,7 +61,7 @@
                 <li class="nav-item list-inline-item mx-2 mb-2">
                     <a href="{{ auth()->check() ? route('profile') : route('login') }}"
                        class="border-bottom-0 border-top-0 border-right-0 border-left-0 rounded-0 border-dark my-2 my-sm-0"><img
-                            src="img/user_avatar.svg" class="img-fluid" alt=""></a>
+                            src="{{ asset('img/user_avatar.svg') }}" class="img-fluid" alt=""></a>
                 </li>
                 <!--Cart link-->
                 <li class="nav-item list-inline-item mr-4 position-relative mb-2" id="basket">
@@ -75,6 +75,7 @@
         </div>
     </div>
 </div>
+<!-- This header for mobile version -->
 <div class="container-fluid d-block d-xl-none">
     <div class="row justify-content-between justify-content-lg-start">
         <div class="col-4 col-lg-2">
@@ -136,7 +137,7 @@
                 <li class="nav-item list-inline-item ml-2 mr-0 mb-2 pt-md-3">
                     <a href="{{ auth()->check() ? route('profile') : route('login') }}"
                        class="border-bottom-0 border-top-0 border-right-0 border-left-0 rounded-0 border-dark my-2 my-sm-0"><img
-                            src="img/user_avatar.svg" class="img-fluid" alt=""></a>
+                            src="{{ asset('img/user_avatar.svg') }}" class="img-fluid" alt=""></a>
                 </li>
                 <!--Cart link-->
                 <li class="nav-item list-inline-item mx-2 mr-md-4 position-relative mb-2 pt-md-3" id="basket">

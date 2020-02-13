@@ -26,5 +26,6 @@
 {{--@include('catalog_blocks.filters_category.color_filter')--}}
 
 <p class="mt-3 mb-4" style="margin-top: 20px; font-size: 16px;">Цены:</p>
-@include('catalog_blocks.filters_category.money_filter')
+@include('catalog_blocks.filters_category.money_filter_lg')
+@include('catalog_blocks.filters_category.money_filter_mobile')
 

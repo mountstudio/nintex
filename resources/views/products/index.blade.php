@@ -4,8 +4,37 @@
 
     <div class="main-container">
         <div class="row">
-            <div class="col-12 d-block d-lg-none col-md-3 my-5">
+            <div class="col-12 d-block d-lg-none col-md-3 my-3">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary mx-5" data-toggle="modal" data-target="#basicExampleModal">
+                    Выбрать категории
+                </button>
 
+                <!-- Modal -->
+                <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Выберите категории</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{ route('product.index') }}" method="GET"><!-- исправить фильтр суммы -->
+                                    @include('catalog_blocks.nav_category')
+                                    @include('catalog_blocks.filters')
+                                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Применить филтр</button>
+                                </form>
+                            </div>
+                            {{--<div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" >Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>--}}
+                        </div>
+                    </div>
+                </div>
                 {{--<form action="{{ route('product.index') }}" method="GET">
                     @include('catalog_blocks.nav_category')
                     @include('catalog_blocks.filters')
@@ -22,7 +51,7 @@
             <div class="col-12 col-md-9 my-5">
                 <div class="row">
                     @foreach($products as $product)
-                        <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="col-lg-4 col-md-6 mb-4">
                             @include('catalog_blocks.product_card', ['product' => $product ])
                         </div>
                     @endforeach
