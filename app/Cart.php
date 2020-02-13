@@ -28,7 +28,10 @@ class Cart extends Model
 //        dd($p, $p->id, $p->attributes->size, $p->attributes->colors, $options['product_id'], $product);
         if (empty($p))
         {
-            return CartFacade::session($token)->add($options['product_id'], $product->title, $product->price, $count ? $count : 1, ['size'=> $options['size'], 'colors' => $options['color'], 'p_id'=> $product->id]);
+            return CartFacade::session($token)->add($options['product_id'], $product->title, $options['price'], $count ? $count : 1, ['size'=> $options['size'],
+                                                    'colors' => $options['color'], 'p_id'=> $product->id,
+                                                    'sizeName' => $options['sizeName'], 'productSizeId' => $options['productSizeId'],
+                                                    'objProduct' => $options['objProduct'], 'images' => $options['images']]);
         }
         else
         {
@@ -36,26 +39,10 @@ class Cart extends Model
         }
     }
 
-//    public static function add(Product $product, $count = 1, $token, $options = []) {
-//        if ($pro = CartFacade::session($token)->get($options['product_id'])){
-//            if ($pro->attributes['size'] == $options['size']) {
-//                return CartFacade::session($token)->update($options['product_id'], [
-//                    'quantity' => $count,
-//                ]);
-//            }else{
-//                return CartFacade::session($token)->add($options['product_id'], $product->title, $product->price, $count ? $count : 1, ['size'=> $options['size'], 'colors' => $options['color']]);
-//            }
-//
-//        } else {
-//            return CartFacade::session($token)->add($options['product_id'], $product->title, $product->price, $count ? $count : 1, ['size'=> $options['size'], 'colors' => $options['color']]);
-//        }
-//    }
-
     public static function remove(Product $product, $count, $token, $options = []){
         if (!CartFacade::session($token)->get($options['product_id'])){
             return null;
         }
-
         if (CartFacade::session($token)->get($options['product_id'])->quantity == $count){
             return CartFacade::session($token)->remove($options['product_id']);
         } else {

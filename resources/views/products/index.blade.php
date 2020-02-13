@@ -56,7 +56,6 @@
                         </div>
                     @endforeach
                 </div>
-
                 <nav aria-label="Page navigation example">
                     <ul class="pagination pg-blue justify-content-center">
                         <li class="page-item disabled">

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnToProductsTable5 extends Migration
+class AddColumnsProductSizeToTableCartProducts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnToProductsTable5 extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->json('sizes')->after('colors');
+        Schema::table('cart_products', function (Blueprint $table) {
+            $table->integer('product_size_id')->nullable();
         });
     }
 
@@ -25,8 +25,8 @@ class AddColumnToProductsTable5 extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('sizes');
+        Schema::table('cart_products', function (Blueprint $table) {
+            $table->dropColumn('product_size_id');
         });
     }
 }

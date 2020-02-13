@@ -1,94 +1,63 @@
 <!--Card-->
 <div class="card align-items-center rounded border-0 shadow ">
-            <!--Card image-->
-            <div class="view overlay">
-                <img src="{{ asset('img/clothes.png') }}" class="img-fluid" alt="">
-                <a>
-                    <div class="mask rgba-white-slight waves-effect waves-light"></div>
-                </a>
-            </div>
-            <!--Card image-->
-            <!--Card content-->
-            <div class="card-body px-2" style="width: 205px!important;">
-                <!--Category & Title-->
-                <a href="{{route('product.show', $product)}}" class="text-dark" style="font-size: 16px;"><p
-                        class="h3">{{$product->title}}</p></a>
-                <div class="col-12">
-                    <div class="row">
-                        {{--//---------------------------ВЫВОД РАЗМЕРОВ И СТОИМОСТИ ПРОДУКТА В РОЗНИЦУ---------------------------//--}}
-                        {{--                    проверка на наличие продукта в розницу--}}
-                        @if(!empty($product->sizes->unique('id')[0]))
-                            <div class="col-4 pl-0 pr-0">
-                                <label for="size" class="mr-1">В розницу:</label>
-                            </div>
-                        @endif
-                        {{--                    вывод размеров в розницу--}}
-                        <div class="col-5 pl-0 pr-0">
-                            @foreach( $product->sizes->unique('id') as $size)
-                                <label class="circle" id="size" data-size="{{ $size->size }}">
-                                    <span class="index">{{ $size->size }}</span>
-                                </label>
-                            @endforeach
-                        </div>
-                        @if(!empty($product->sizesWholesale[0]))
-                            @foreach($product->sizesWholesale as $productSize)
-                                @if(!is_array(json_decode($productSize->sizes)))
-                                    <div class="col-3 text-right pl-0 pr-0">
-                                        <p class="blue-text" style="font-size: 12px;">{{ $product->sizesWholesale[0]->price }}
-                                            kgs</p>
-                                    </div>
-                                    @break
-                                @endif
-                            @endforeach
-                        @endif
-                        <div class="endLine"></div>
-                    </div>
-                </div>
-                <div class="col-12 text-left">
-                    <div class="row">
-                        @if(!empty($productsSizes[$product->id]))
-                            @foreach($productsSizes[$product->id] as $ps)
-                                <div class="col-4 pl-0 pr-0">
-                                    <label for="size">Оптом:</label>
-                                </div>
-                                <div class="col-5 pl-0 pr-0">
-                                    @foreach(json_decode($ps->sizes) as $size1)
-                                        <label class="circle" id="size" data-size="{{ $size1 }}">
-                                            <span class="index">{{ $size1 }}</span>
-                                        </label>
-                                    @endforeach
-                                </div>
-                                <div class="col-3 text-right pl-0 pr-0">
-                                    <p class="blue-text" style="font-size: 12px;">{{ $ps->price }}kgs</p>
-                                </div>
-                                <div class="endLine"></div>
-                            @endforeach
-                        @endif
-                    </div>
-                </div>
+    <!--Card image-->
+    <div class="view overlay">
+        <a href="{{route('product.show', $product)}}">
+            <img src="{{ asset('img/clothes.png') }}" class="img-fluid" alt="">
 
-        {{--            <div class="col-12 text-left">
-                        <div class="row">
-                            @if(!empty($productsSizes[$product->id]))
-                                @foreach($productsSizes[$product->id] as $ps)
-                                    <div class="col-2 pl-0">
-                                        <label for="size">Оптом:</label>
-                                    </div>
-                                    <div class="col-6 text-left">
-                                        @foreach(json_decode($ps->sizes) as $size1)
-                                            <label class="circle" id="size" data-size="{{ $size1 }}">
-                                                <span class="index">{{ $size1 }}</span>
-                                            </label>
-                                        @endforeach
-                                    </div>
-                                    <div class="col-4">
-                                        <p class="blue-text" style="font-size: 12px;">{{ $ps->price }}kgs</p>
-                                    </div>
-                                    <div class="endLine"></div>
-                                @endforeach
-                            @endif
+            <div class="mask rgba-white-slight waves-effect waves-light"></div>
+        </a>
+    </div>
+    <!--Card image-->
+    <!--Card content-->
+    <div class="card-body px-2" style="width: 205px!important;">
+        <!--Category & Title-->
+        <a href="{{route('product.show', $product)}}" class="text-dark" style="font-size: 16px;"><p
+                class="h3">{{$product->title}}</p></a>
+        <div class="col-12">
+            <div class="row">
+                {{--//---------------------------ВЫВОД РАЗМЕРОВ И СТОИМОСТИ ПРОДУКТА В РОЗНИЦУ---------------------------//--}}
+                @if(!empty($productsRetailSize[$product->id]))
+                    <div class="col-4 pl-0 pr-0">
+                        <label for="size" class="mr-1">В розницу:</label>
+                    </div>
+                    <div class="col-5 pl-0 pr-0 text-center">
+                        @foreach($productsRetailSize[$product->id] as $ps)
+                            <label class="grey rounded" id="size" data-size="{{ $ps->size }}">
+                                <span class="pl-1 pr-1">{{ $ps->size }}</span>
+                            </label>
+                        @endforeach
+                    </div>
+                    <div class="col-3 text-right pl-0 pr-0">
+                        <p class="blue-text" style="font-size: 12px;">{{ $productsRetailPrice[$product->id] }}kgs</p>
+                    </div>
+                    <div class="endLine"></div>
+                @endif
+            </div>
+        </div>
+        {{--//---------------------------ВЫВОД РАЗМЕРОВ И СТОИМОСТИ ПРОДУКТА ОПТОМ---------------------------//--}}
+        <div class="col-12 text-left">
+            <div class="row">
+                @if(!empty($productsWholesaleSize[$product->id]))
+                    @foreach($productsWholesaleSize[$product->id] as $ps)
+                        <div class="col-4 pl-0 pr-0">
+                            <label for="size">Оптом:</label>
                         </div>
-                    </div>--}}
+                        <div class="col-5 pl-0 pr-0 text-center">
+                            <div class="grey rounded">
+                                @foreach(json_decode($ps->sizes) as $size1)
+                                    <span class="pl-1 pr-1 pt-1 pb-1">{{ $size1 }}</span>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="col-3 text-right pl-0 pr-0">
+                            <p class="blue-text" style="font-size: 12px;">{{ $ps->price }}kgs</p>
+                        </div>
+                        <div class="endLine"></div>
+                    @endforeach
+                @endif
+            </div>
+        </div>
     </div>
     <!--Card content-->
 </div>

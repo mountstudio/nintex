@@ -72,12 +72,17 @@
                         @foreach($cartItems as $item)
                             <div class="d-flex py-3">
                                 <div class="col-5 col-md-4 col-lg-3 pr-0">
-                                    <img src="{{ asset('storage/'.\App\Product::find($item->id)->image) }}" style="height: 100px; width: auto;" alt="">
+                                    <img src="{{ asset('img/'.json_decode($item->attributes->images)[0]) }}" style="height: 150px; width: auto;" alt="">
                                 </div>
-                                <div class="col p-0">
-                                    <p class="font-weight-bold h5">{{ $item->title }}</p>
-                                    <p><span class="font-weight-bold">Количество:</span> {{ $item->quantity }}</p>
-                                    <p class="text-muted">{{ $item->price }} сом</p>
+                                <div class="col pl-3">
+                                    <a href="{{ route('product.show', $item->attributes->objProduct) }}">
+                                        <p class="h4"> {{ $item->name }} </p>
+                                    </a>
+                                    <p class="text-red m-0 "><b >Размер :</b> {{ $item->attributes->sizeName == null ? $item->attributes->size : $item->attributes->sizeName }} </p>
+                                    <p class="m-0" style="color: {{ $item->attributes->colors }}"><b>Цвет :</b> {{ $item->attributes->colors }} </p>
+                                    <p class="m-0"><b >Количество :</b> {{ $item->quantity }} </p>
+                                    <p class="m-0"><b>Цена :</b> {{ $item->price }} $</p>
+                                    <p><b>Итог :</b> {{ $item->price * $item->quantity }} $</p>
                                 </div>
                             </div>
                         @endforeach

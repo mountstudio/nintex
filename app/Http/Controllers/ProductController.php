@@ -26,75 +26,6 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function filter($request)
-    {
-        if (!empty($request->allCatalog)) {
-            $catProducts = Category::all()->whereIn('title', $request->allCatalog)->map(function ($item) {
-                return $item->products;
-            });
-            $products = [];
-            foreach ($catProducts as $p) {
-                foreach ($p as $product) {
-                    $products[] = $product;
-                }
-            }
-            if (!empty($request->sizes)) {
-                $productTemp = [];
-                $flag = true;
-                foreach ($products as $product) {
-                    foreach ($product->sizes as $size) {
-                        if ($flag == true) {
-                            foreach ($request->sizes as $s1) {
-                                if ($size == $s1) {
-                                    $productTemp = $product;
-                                    $flag = false;
-                                }
-                            }
-                        }
-                    }
-                    $flag = true;
-                }
-                $products = $productTemp;
-            }
-        } else {
-            $products = Product::all();
-            if (!empty($request->sizes)) {
-                $productTemp = [];
-                $flag = true;
-                foreach ($products as $product) {
-                    foreach ($product->sizes as $size) {
-                        if ($flag == true) {
-                            foreach ($request->sizes as $s1) {
-                                if ($size == $s1) {
-                                    $productTemp = $product;
-                                    $flag = false;
-                                }
-                            }
-                        }
-                    }
-                    $flag = true;
-                }
-                $products = $productTemp;
-            }
-        }
-        //цвета
-        $white = $request->white;
-        $blue = $request->blue;
-        $black = $request->black;
-
-        ////////////////////////
-        $size = [];
-        $size[0] = 'XS';
-        $size[1] = 'S';
-        $size[2] = 'M';
-        $size[3] = 'L';
-        $size[4] = 'XL';
-        $size[5] = 'XXL';
-        return view('products.index', [
-            'products' => $products,
-            'sizes' => $size,
-        ]);
-    }
 
     public function index(Request $request)
     {
@@ -144,26 +75,34 @@ class ProductController extends Controller
             {
                 $products = $this->searchProductByRetailAndWholesalePrice($products, $request);
             }
-            if ($request->retail == 'on')
+            else if ($request->retail == 'on')
             {
                 $products = $this->searchProductByRetailPrice($products, $request);
             }
-            if ($request->wholesale == 'on')
+            else if ($request->wholesale == 'on')
             {
                 $products = $this->searchProductByWholesalePrice($products, $request);
             }
         }
 
-        $productsSizes = [[]];
+        $productsRetailSize = [[]];
+        $productsRetailPrice = [];
         foreach ($products as $product)
         {
-            $productsSizesUniqe = ProductSize::where('product_id', $product->id)->get()->unique('sizes');
+            $productsSizesRetailUniqe = ProductSize::where('product_id', $product->id)->where('type', "retail")->get()->unique('sizes');
+            foreach ($productsSizesRetailUniqe as $productsSizeRetailUniqe)
+            {
+                $productsRetailSize[$product->id][] = Size::find($productsSizeRetailUniqe->sizes);
+                $productsRetailPrice[$product->id] = $productsSizeRetailUniqe->price;
+            }
+        }
+        $productsWholesaleSize = [[]];
+        foreach ($products as $product)
+        {
+            $productsSizesUniqe = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->get()->unique('sizes');
             foreach ($productsSizesUniqe as $productsSizeUniqe)
             {
-                if (is_array(json_decode($productsSizeUniqe->sizes)))
-                {
-                    $productsSizes[$product->id][] = $productsSizeUniqe;
-                }
+                $productsWholesaleSize[$product->id][] = $productsSizeUniqe;
             }
         }
 
@@ -172,7 +111,10 @@ class ProductController extends Controller
             'products' => $products,
             'sizes' => $sizes,
             'requestValues' => $request,
-            'productsSizes' => $productsSizes,
+            'productsWholesaleSize' => $productsWholesaleSize,
+            'productsRetailSize' => $productsRetailSize,
+            'productsRetailPrice' => $productsRetailPrice,
+            'backRequest' => $request,
         ]);
     }
     //поиск продуктов по розничной стоимости
@@ -182,7 +124,7 @@ class ProductController extends Controller
         foreach ($products as $product) {
             $productSizeByPrice = ProductSize::where('product_id', $product->id)->
             where('price', '>=', $request->inputFirst)->
-            where('price', '>=', $request->inputSecond)->get();
+            where('price', '<=', $request->inputSecond)->get();
             if (!empty($productSizeByPrice[0]))
             {
                 foreach ($productSizeByPrice as $productSize)
@@ -204,7 +146,7 @@ class ProductController extends Controller
         foreach ($products as $product) {
             $productSizeByPrice = ProductSize::where('product_id', $product->id)->
                     where('price', '>=', $request->inputFirst)->
-                    where('price', '>=', $request->inputSecond)->get();
+                    where('price', '<=', $request->inputSecond)->get();
             if (!empty($productSizeByPrice[0]))
             {
                 foreach ($productSizeByPrice as $productSize)
@@ -227,7 +169,7 @@ class ProductController extends Controller
         foreach ($products as $product) {
             $productSizeByPrice = ProductSize::where('product_id', $product->id)->
                 where('price', '>=', $request->inputFirst)->
-                where('price', '>=', $request->inputSecond)->get();
+                where('price', '<=', $request->inputSecond)->get();
             if (!empty($productSizeByPrice[0]))
             {
                 $productTemp[] = $product;
@@ -459,14 +401,83 @@ class ProductController extends Controller
      */
     public function show(Product $product, Request $request)
     {
-//        $colors =array('colors' => json_decode($request->colors));
-//        dd($product);
+        //Определение переменных
+        $productRetailSizes = [[]];
+        $productsRetailPrice = null;
+        $productRetailColors = null;
+        $retailProductQuantity = null;
+        $productWholesaleSizes = null;
+        $productWholesaleColors = null;
+        $wholesaleProductQuantity = null;
+
+        $productSizesRetailUniqe = ProductSize::where('product_id', $product->id)->where('type', "retail")->get()->unique('sizes');     //выбор размеров продукта для розничной продажи
+        foreach ($productSizesRetailUniqe as $productsSizeRetailUniqe)
+        {
+            $productRetailSizes[$product->id][] = Size::find($productsSizeRetailUniqe->sizes);
+            $productsRetailPrice = $productsSizeRetailUniqe->price;
+        }
+        $productRetailColors = ProductSize::where('product_id', $product->id)->where('type', "retail")->get()->unique('color');     //выбор всех цветов продукта в розницу
+        $retailProductQuantity = (int)ProductSize::where('product_id', $product->id)->where('type', "retail")->sum('quantity');     //количество продукта в розницу
+
+        $productWholesaleSizes = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->get()->unique('sizes');    //выбор размеров продукта для оптовой продажи
+        $productWholesaleColors = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->where('quantity', '>', '0')->get()->unique('color');   //выбор всех цветов продукта для оптовой продажи
+        $wholesaleProductQuantity = (int)ProductSize::where('product_id', $product->id)->where('type', "wholesale")->sum('quantity');   //количество продукта оптом
+
+//        dd($retailProductQuantity, $wholesaleProductQuantity);
+
         return view('products.show', [
             'product' => $product,
-            'sizes' => Size::all(),
+            'productRetailSizes' => $productRetailSizes,
+            'productsRetailPrice' => $productsRetailPrice,
+            'productRetailColors' => $productRetailColors,
+            'retailProductQuantity' => $retailProductQuantity,
+            'productWholesaleSizes' => $productWholesaleSizes,
+            'productWholesaleColors' => $productWholesaleColors,
+            'wholesaleProductQuantity' => $wholesaleProductQuantity,
             'products' => Product::all(),
-//            'colors' => $colors,
         ]);
+
+        //итог:
+        //выбор размеров продукта для розничной продажи
+        //выбор всех цветов продукта в розницу
+        //количество продукта в розницу
+
+        //выбор размеров продукта для оптовой продажи
+        //выбор всех цветов продукта для оптовой продажи
+        //количество продукта оптом
+
+        dd($product, $productsSizeWholesale, $productsSizeRetail);
+    }
+
+    public function selectColorsForRetailSize(Request $request)
+    {
+        $s = Size::where('size', $request->size)->get();
+        $productSizeColors = ProductSize::where('product_id', $request->product_id)->
+                                          where('sizes', $s[0]->id)->
+                                          where('quantity', '>', '0')->
+                                          where('type', 'retail')->get()->unique('color');
+        $retailQuantity = (int)ProductSize::where('product_id', $request->product_id)->
+                                        where('sizes', $s[0]->id)->
+                                        where('quantity', '>', '0')->
+                                        where('type', 'retail')->sum('quantity');
+        return response()->json(['colors' => $productSizeColors, 'quantity' => $retailQuantity]);
+    }
+
+    public function selectQuantityProductColor(Request $request)
+    {
+        $quantityProduct = (int)ProductSize::where('product_id', $request->product_id)->
+                                    where('sizes', $request->size)->
+                                    where('color', $request->color)->
+                                    sum('quantity');
+        return response()->json(['quantity' => $quantityProduct]);
+    }
+
+    public function selectProductSize(Request $request)
+    {
+        $productSize = ProductSize::where('product_id', $request->product_id)->
+                                    where('sizes', $request->size)->
+                                    where('color', $request->color)->get();
+        return response()->json($productSize->first());
     }
 
     public function card(Product $products)

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnToProductsTable4 extends Migration
+class ChangeUserIdPropertyToCartProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddColumnToProductsTable4 extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->integer('season_id')->after('price');
+        Schema::table('cart_products', function (Blueprint $table) {
+            $table->integer('user_id')->nullable(true)->change();
         });
     }
 
@@ -25,8 +25,8 @@ class AddColumnToProductsTable4 extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('season_id');
+        Schema::table('cart_products', function (Blueprint $table) {
+            $table->integer('user_id')->nullable(false)->default(0)->change();
         });
     }
 }

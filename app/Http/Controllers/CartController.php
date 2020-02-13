@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Cart;
 use App\Cart_product;
 use App\Product;
+use App\ProductSize;
+use App\Size;
 use App\TokenResolve;
 use App\User;
 use Carbon\Carbon;
@@ -14,7 +16,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use PHPUnit\Framework\Constraint\Callback;
+use Yajra\DataTables\Exceptions\Exception;
 use Yajra\DataTables\Facades\DataTables;
+use function GuzzleHttp\Promise\all;
 
 
 class CartController extends Controller
@@ -49,6 +53,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+
         $token = $request->token ? $request->token : Session::has('token') ? Session::get('token') : uniqid();
 
         TokenResolve::resolve($token);
@@ -59,6 +64,7 @@ class CartController extends Controller
             'cart' => $cart->getContent(),
             'total' => $cart->getTotal(),
         ];
+
         $newCart->user_id = auth()->check() ? auth()->user()->id : null;
 //        $newCart->comment = $request->comment;
         $newCart->name = $request->name;
@@ -74,13 +80,12 @@ class CartController extends Controller
         $newCart->save();
 
         $cartID = Cart::latest()->first();
-//        dd($newCart->cart);
         $user = $request->user();
-
         foreach ($newCart->cart['cart'] as $cart)
         {
             $cart_product = new Cart_product();
             $cart_product->cart_id = $cartID->id;
+            $cart_product->product_size_id = $cart['attributes']['productSizeId'];
             $cart_product->quantity = $cart['quantity'];
             $cart_product->user_id = auth()->check() ? auth()->user()->id : null;
             $cart_product->save();
@@ -128,6 +133,11 @@ class CartController extends Controller
         $color = $request->color;
         $token = $request->token ? $request->token : uniqid();
         $product_id = $request->product_id;
+        $size = str_replace("'",'"', $size);
+        $sizeName = null;
+        if (is_numeric($size)){
+            $sizeName = Size::find($size)->size;
+        }
 
         if (!$product) {
              return response()->json([
@@ -135,20 +145,51 @@ class CartController extends Controller
                  'status' => 'error',
              ]);
         }
+        $cartProduct = CartFacade::session($token)->get($product_id);
+        $productSize = ProductSize::where('product_id', $request->id)->
+                                            where('sizes', $size)->where('color', $color)->get();
+         if ($cartProduct != null)
+        {
+            if ($productSize->first()->quantity == 0){
+                CartFacade::session($token)->remove($product_id);
+                return response()->json([
+                    'quantityError' => 'Количество товара в наличии = '
+                        .$productSize->first()->quantity.'! Вы не можете приобрести товар больше чем есть в наличии!',
+                ]);
+            }
+            else if ($productSize->first()->quantity < $cartProduct->quantity) {
+                CartFacade::session($token)->update($product_id, ['quantity' => -1]);
+                return response()->json([
+                    'quantityError' => 'Количество товара в наличии = '
+                        .$productSize->first()->quantity.'! Вы не можете приобрести товар больше чем есть в наличии!',
+                ]);
+            }
+            else if ($productSize->first()->quantity < ($cartProduct->quantity + 1)) {
+                return response()->json([
+                    'quantityError' => 'Количество товара в наличии = '
+                        .$productSize->first()->quantity.'! Вы не можете приобрести товар больше чем есть в наличии!',
+                ]);
+            }
+        }
         $token = TokenResolve::resolve($token);
+        $size = str_replace('"',"'", $size);
 
-        Cart::add($product, $count, $token, ['product_id' => $product_id, 'color' => $color, 'size' => $size]);
-
+        Cart::add($product, $count, $token, ['product_id' => $product_id, 'color' => $color,
+                                            'size' => $size, 'sizeName' => $sizeName, 'productSizeId' => $productSize->first()->id,
+                                            'images' => $productSize->first()->images, 'objProduct' => $product, 'price' => $productSize->first()->price]);
         Session::put('cart', CartFacade::session($token)->getContent());
         if (preg_match('/checkout/', $request->server->get('HTTP_REFERER'))) {
             Session::flash('cart_checkout', true);
         }
+
+//        dd('условие не сработало');
 
         return response()->json([
             'status' => 'success',
             'meassage' => 'product added tp cart',
             'cart' => CartFacade::session($token)->getContent(),
             'token' => $token,
+            'quantityError' => '1',
         ]);
     }
     public function remove(Request $request){
