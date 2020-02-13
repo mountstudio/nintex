@@ -1,77 +1,124 @@
 <footer class="bg-dark position-relative" style="margin-top: 20px;">
     <div class="container">
-        <div class="row">
-            <div class=" d-flex align-items-center col-12 col-md-3 col-lg-2 col-xl-2 text-left text-xs-left text-sm-left text-md-left mb-4 mb-md-0">
+        <div class="row py-4">
+            <div class="col-12 col-xl-2">
+                <p class="h3 text-white">
+                    Навигация
+                </p>
                 <nav class="nav flex-column text-center mx-auto mx-md-0">
-                    <a class="text-white mr-auto" href="#" title="">- ГЛАВНАЯ</a>
-                    <a class="text-white mr-auto my-2" href="#" title="">- КАТЕГОРИИ</a>
-                    <a class="text-white mr-auto" href="#" title="">- АКЦИИ</a>
-                    <a class="text-white mr-auto my-2" href="#" title="">- КАТАЛОГ</a>
-                    <a class="text-white mr-auto" href="/cooperation" title="">- СОТРУДНИЧЕСТВО</a>
-                    <a class="text-white mr-auto my-2" href="#" title="">- КОНТАКТЫ</a>
+                    <a class="text-white mr-auto fz-footer hover-nav" href="#" title="">- ГЛАВНАЯ</a>
+                    <a class="text-white mr-auto fz-footer hover-nav my-2" href="#" title="">- КАТЕГОРИИ</a>
+                    <a class="text-white mr-auto fz-footer hover-nav" href="#" title="">- АКЦИИ</a>
+                    <a class="text-white mr-auto fz-footer hover-nav my-2" href="#" title="">- КАТАЛОГ</a>
+                    <a class="text-white mr-auto fz-footer hover-nav" href="/cooperation" title="">- СОТРУДНИЧЕСТВО</a>
+                    <a class="text-white mr-auto fz-footer hover-nav my-2" href="#" title="">- КОНТАКТЫ</a>
                 </nav>
             </div>
-{{--            <div class="col-8  pt-4 d-flex justify-content-around">--}}
-{{--                <a class="text-white mx-auto" href="#">Одежда</a>--}}
-{{--                <a class="text-white mx-auto" href="#">Акссесуары</a>--}}
-{{--                <a class="text-white mx-auto" href="#">Акции</a>--}}
-{{--            </div>--}}
-            <div class="col-12 col-md-8 text-white pt-5">
-                <div class="row pb-3">
-                    <div class="col-12 col-md-6 text-center my-2">
-                        <a href="#" class="btn-dark "> Подписаться на рассылку </a>
-                    </div>
+            <div class="col-12 col-xl-3">
+                <p class="h3 text-white">
+                    Категории
+                </p>
+                <nav class="nav flex-column text-center mx-auto mx-md-0">
+                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Новинки Январь</a>
+                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Распродажа</a>
+                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Теплые костюмы</a>
+                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Коллекция офис</a>
+                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Вечерние платья</a>
+                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Платья</a>
+                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Длинные платья</a>
+                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Блузки</a>
+                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Женские брюки</a>
+                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Юбки</a>
+                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Женские комбинезоны</a>
+                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Женская одежда больших размеров</a>
+                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Костюмы</a>
+                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Верхняя одежда</a>
 
-                    <div class="col-12 col-md-6 input-group">
-                        <input type="text" class="form-control" placeholder="example@example.com">
-                        <div class="input-group-append">
-                            <span class="input-group-text"><i class="fas fa-envelope prefix"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <hr color="white">
-                <div class="col-12 row">
-                    <div class="col-12 col-md-6 mt-3 mb-2 mr-0 text-white">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a href="" class="nav-link text-white d-flex" title="Номер">
-                                <img src="icons/call 1.svg" alt="">&nbsp;
-                                <div class="col-12">
-                                    <p class="mb-1 font-weight-bold">+996555449342</p>
-                                    <p class="m-0 text-muted">Пн. – Сб.: с 9:00 до 18:00 (+6 GMT)</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link text-white d-flex" title="Почта">
-                                <img src="icons/mail.svg" alt="">&nbsp;
-                                <div class="col-12">
-                                    <p class="mb-1 font-weight-bold">nintexkg@gmail.com</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link text-white d-flex" title="Адрес">
-                                <img src="icons/placeholder 1.svg" alt="">
-                                <div class="col-12">
-                                    <p class="mb-1 font-weight-bold">Кыргызстан, г. Бишкек,
-                                        ул. Проспект Мира 120
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="col-12 col-md-6 d-flex justify-content-end align-items-end mt-3 mb-2 text-white">
-                    @include('partials.socialnetworks')
-                </div>
-                </div>
+                </nav>
             </div>
+            <div class="col-12 col-xl-4">
+                <p class="h3 text-white">
+                    Частые вопросы
+                </p>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="" class="text-white mr-auto fz-footer hover-que">
+                            - Как узнать оптовые цены?
+                        </a>
+                    </li>
+                    <li class="nav-item my-2">
+                        <a href="" class="text-white mr-auto  fz-footer hover-que">
+                            - Есть ли возможность бронировать товар?
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="text-white mr-auto fz-footer hover-que">
+                            - Как быстро происходит отгрузка ?
+                        </a>
+                    </li>
+                    <li class="nav-item my-2">
+                        <a href="" class="text-white mr-auto  fz-footer hover-que">
+                            - Товар в наличии или отшиваете под заказ?
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-xl-3">
+                <p class="h3 text-white">
+                    Контакты
+                </p>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-white d-flex px-0 hover-contact" title="Контактный номер и График работы">
+                            <img src="{{ asset('icons/call_1.svg') }}" alt="Номер">&nbsp;
+                            <p class="mb-1 font-weight-bold pl-1 fz-footer py-2">+996555449342</p>
+                            <p class="m-0 text-muted pl-1 fz-footer">Пн. – Сб.: с 9:00 до 18:00 (+6 GMT)</p>
+                            {{--                            <div class="col-12">--}}
+                            {{--                                --}}
+                            {{--                            </div>--}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-white d-flex px-0 hover-contact" title="Электронная почта">
+                            <img src="{{ asset('icons/mail.svg') }}" alt="Почта">&nbsp;
+                            <p class="mb-1 font-weight-bold pl-1 fz-footer">nintexkg@gmail.com</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link text-white d-flex px-0 hover-contact" title="Наш адрес">
+                            <img src="{{ asset('icons/placeholder_1.svg') }}" alt="Адрес">
+                            <p class="mb-1 font-weight-bold pl-1 fz-footer">Кыргызстан, г. Бишкек,
+                                ул. Проспект Мира 120
+                            </p>
+                        </a>
+                    </li>
+                    <!-- Убрал подписаться на рассылки -->
+                    {{--<li class="nav-item">
+                        <div class="row pb-3">
+                            <div class="col-12 col-xl-6">
+                                <input type="text" class="form-control" placeholder="example@example.com">
 
-
+                            </div>
+                            <div class="col-12 col-xl-4 text-center my-2">
+                                <div class="input-group-append d-none d-xl-block">
+                                    <span class="input-group-text" title="Подписаться на рассылку"><i class="fas fa-envelope prefix"></i></span>
+                                </div>
+                                <div class="input-group-append d-block d-xl-none">
+                                    <a href="#" class="btn-dark "> Подписаться на рассылку </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>--}}
+                </ul>
+            </div>
+            <div class="col-12 d-flex justify-content-center mt-3 mb-2 text-white">
+                @include('partials.socialnetworks')
+            </div>
         </div>
+    </div>
+
+
+    </div>
 
     </div>
 </footer>

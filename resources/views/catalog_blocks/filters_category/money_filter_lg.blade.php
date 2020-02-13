@@ -1,13 +1,6 @@
 <div class="row">
 
-    <!--Grid column-->
-    <div class="col-12">
-
-    </div>
-    <!--Grid column-->
-
-    <!--Input form for sum-->
-    <div class="col-12">
+    <div class="col-12 d-none d-lg-block">
 
         <div class="example">
             <div id="html5" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr"></div>
@@ -28,12 +21,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
-    <!--Input form for sum-->
-
-    <!--Checkbox-->
     {{--<div class="col-12 my-5">
         <div class="row">
             <div class="col-12 col-md-4 form-group">
@@ -115,8 +103,8 @@
 
 @push('scripts')
     <script>
-        var html5Slider = document.getElementById('html5');
-        var inputNumber1 = document.getElementById('input-first'),
+        let html5Slider = document.getElementById('html5');
+        let inputNumber1 = document.getElementById('input-first'),
             inputNumber2 = document.getElementById('input-second');
         noUiSlider.create(html5Slider, {
             start: [0, 30000],
@@ -131,7 +119,7 @@
 
         html5Slider.noUiSlider.on('update', function (values, handle) {
 
-            var value = values[handle];
+            let value = values[handle];
 
             if (handle) {
                 inputNumber2.value = value;
@@ -140,6 +128,5 @@
             }
         });
     </script>
+
 @endpush
-
-

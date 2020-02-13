@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnToProductsTable3 extends Migration
+class CreateProductSizeTableZero extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddColumnToProductsTable3 extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->boolean('season')->after('price');
+        Schema::create('product_size', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('product_id')->nullable();
+            $table->unsignedInteger('size_id')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddColumnToProductsTable3 extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('season');
-        });
+        Schema::dropIfExists('product_size');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DropColumnToProductsTable extends Migration
+class AddColumnToProductsTableFive extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class DropColumnToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-//            $table->dropColumn('season');
+            $table->integer('wholesale_price')->after('price');
         });
     }
 
@@ -26,7 +26,7 @@ class DropColumnToProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-//            $table->integer('season');
+            $table->dropColumn('wholesale_price');
         });
     }
 }
