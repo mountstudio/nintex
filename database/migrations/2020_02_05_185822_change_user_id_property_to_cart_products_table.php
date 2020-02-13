@@ -14,7 +14,7 @@ class ChangeUserIdPropertyToCartProductsTable extends Migration
     public function up()
     {
         Schema::table('cart_products', function (Blueprint $table) {
-            $table->integer('user_id')->nullable()->change();
+            $table->integer('user_id')->nullable(true)->change();
         });
     }
 
@@ -26,7 +26,7 @@ class ChangeUserIdPropertyToCartProductsTable extends Migration
     public function down()
     {
         Schema::table('cart_products', function (Blueprint $table) {
-            $table->integer('user_id')->nullable(false)->change();
+            $table->integer('user_id')->nullable(false)->default(0)->change();
         });
     }
 }

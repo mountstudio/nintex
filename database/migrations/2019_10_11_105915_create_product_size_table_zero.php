@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnToProductsTable extends Migration
+class CreateProductSizeTableZero extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class AddColumnToProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->integer('sum');
-            $table->integer('diff')->after('sum');
+        Schema::create('product_size', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('product_id')->nullable();
+            $table->unsignedInteger('size_id')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -26,9 +28,6 @@ class AddColumnToProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('sum');
-            $table->dropColumn('diff');
-        });
+        Schema::dropIfExists('product_size');
     }
 }
