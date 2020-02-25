@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Collections\ProductCollection;
 use ChristianKuri\LaravelFavorite\Traits\Favoriteability;
 use ChristianKuri\LaravelFavorite\Traits\Favoriteable;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +17,11 @@ class Product extends Model
 //        'colors' => 'array',
 //        'sizes' => 'array',
 //    ];
+
+    public function newCollection(array $models = [])
+    {
+        return new ProductCollection($models);
+    }
 
     public function comments()
     {
@@ -41,4 +47,5 @@ class Product extends Model
     public function category() {
         return $this->belongsTo(Category::class);
     }
+
 }
