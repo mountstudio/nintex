@@ -14,7 +14,7 @@ class AddColumnToProductsTableThree extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->boolean('season')->after('price');
+//            $table->boolean('season')->after('price');
         });
     }
 
@@ -26,7 +26,7 @@ class AddColumnToProductsTableThree extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('season');
+//            $table->dropColumn('season');
         });
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DropColumnToProductsTable2 extends Migration
+class ChangeToNullableColumnSumToProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class DropColumnToProductsTable2 extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-//            $table->dropColumn('season');
+            $table->integer('sum')->nullable()->change();
         });
     }
 
@@ -26,7 +26,7 @@ class DropColumnToProductsTable2 extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-//            $table->string('season');
+            $table->integer('sum')->nullable(false)->change();
         });
     }
 }

@@ -66,7 +66,7 @@
                 <!--Cart link-->
                 <li class="nav-item list-inline-item mr-4 position-relative mb-2" id="basket">
                     <a href="{{ route('cart.checkout') }}" class="text-fut-book cart" style="text-decoration: none; color: #444444;">
-                        <div class="badge badge-danger rounded-circle shadow small position-absolute cart-count justify-content-center align-items-center" style="width: 21px; height: 21px;top: -10px; right: 12px;"></div>
+                        <div class="badge badge-danger rounded-circle shadow small position-absolute cart-count justify-content-center align-items-center" style="width: 20px; height: 20px;top: -10px; right: -10px;"></div>
                         {{--<i style="color: #444;" class="fas carts fa-cart-plus fa-lg"></i>--}}
                         <img class="img-fluid" src="{{ asset('images/cart.svg') }}" alt="">
                     </a>

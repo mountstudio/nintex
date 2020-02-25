@@ -8,6 +8,7 @@ use App\Helpers\ImageSaver;
 use App\Product;
 //use Faker\Provider\Image;
 use App\ProductSize;
+use App\Services\ImageUploader;
 use App\Size;
 use App\User;
 use Illuminate\Http\Request;
@@ -356,6 +357,8 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product($request->all());
+        $product->fill(['wholesale_price' => $request->wholesale]);
+//        dd($product);
         $product->save();
         $arrColors = [];
         $arrFileNames = [];
@@ -364,11 +367,11 @@ class ProductController extends Controller
             foreach ($request->colorsize as $key1 => $item) {
                 $arrFileNames = [];
                 foreach ($item['images'] as $image) {
-                    $filename = ImageSaver::save($image, "uploads", "nintex");
+                    $filename = ImageUploader::upload($image, "products", "nintex", 40);
                     $arrFileNames[] = $filename;
                 }
                 foreach ($item['sizes'] as $key => $value) {
-                    $product->sizes()->attach($key, ['price' => $request->price, 'color' => $key1, 'quantity' => $value, 'images' => json_encode($arrFileNames)]);
+                    $product->sizes()->attach($key, ['price' => $request->price, 'color' => $key1, 'quantity' => $value, 'images' => json_encode($arrFileNames), 'type' => 'retail']);
                 }
             }
         } elseif (empty($request->colorsize)) {
@@ -381,21 +384,21 @@ class ProductController extends Controller
             foreach ($request->color as $k => $val) {
                 $arrFileNames = [];
                 foreach ($val['images'] as $image) {
-                    $filename = ImageSaver::save($image, "uploads", "nintex");
+                    $filename = ImageUploader::upload($image, "products", "nintex", 40);
                     $arrFileNames[] = $filename;
                 }
-                $product->sizes()->attach($k, ['sizes' => json_encode($sizes), 'color' => $k, 'quantity' => $val[0], 'images' => json_encode($arrFileNames), 'price' => $request->wholesale]);
+                $product->sizes()->attach($k, ['sizes' => json_encode($sizes), 'color' => $k, 'quantity' => $val[0], 'images' => json_encode($arrFileNames), 'price' => $request->wholesale, 'type' => 'wholesale']);
             }
         } else {
 //            dd($request);
             foreach ($request->colorsize as $key1 => $item) {
                 $arrFileNames = [];
                 foreach ($item['images'] as $image) {
-                    $filename = ImageSaver::save($image, "uploads", "nintex");
+                    $filename = ImageUploader::upload($image, "products", "nintex", 40);
                     $arrFileNames[] = $filename;
                 }
                 foreach ($item['sizes'] as $key => $value) {
-                    $product->sizes()->attach($key, ['price' => $request->price, 'color' => $key1, 'quantity' => $value, 'images' => json_encode($arrFileNames)]);
+                    $product->sizes()->attach($key, ['price' => $request->price, 'color' => $key1, 'quantity' => $value, 'images' => json_encode($arrFileNames), 'retail']);
                 }
             }
             $sizes = [];
@@ -405,14 +408,14 @@ class ProductController extends Controller
             foreach ($request->color as $k => $val) {
                 $arrFileNames = [];
                 foreach ($val['images'] as $image) {
-                    $filename = ImageSaver::save($image, "uploads", "nintex");
+                    $filename = ImageUploader::upload($image, "products", "nintex", 40);
                     $arrFileNames[] = $filename;
                 }
-                $product->sizes()->attach($k, ['sizes' => json_encode($sizes), 'color' => $k, 'quantity' => $val[0], 'images' => json_encode($arrFileNames), 'price' => $request->wholesale]);
+                $product->sizes()->attach($k, ['sizes' => json_encode($sizes), 'color' => $k, 'quantity' => $val[0], 'images' => json_encode($arrFileNames), 'price' => $request->wholesale, 'type' => 'wholesale']);
             }
         }
         if ($logo = $request->logo) {
-            $filename = ImageSaver::save($logo, 'uploads', 'nintex_logo');
+            $filename = ImageUploader::upload($image, "products", "nintex_logo_", 40);
             $product->logo = $filename;
             $product->save();
         }
