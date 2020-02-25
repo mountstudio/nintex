@@ -636,4 +636,8 @@ class ProductController extends Controller
     {
         return view('product_blocks.slider', ['products' => Product::all()]);
     }
+
+    public function filter(Request $request){
+
+    }
 }
