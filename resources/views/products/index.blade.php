@@ -24,7 +24,14 @@
                             <div class="modal-body">
                                 <form action="{{ route('product.index') }}" method="GET"><!-- исправить фильтр суммы -->
                                     @include('catalog_blocks.nav_category')
-                                    @include('catalog_blocks.filters')
+{{--                                    @include('catalog_blocks.filters')--}}
+
+                                    {{--<p class="mt-3 mb-3" style="margin-top: 20px; font-size: 16px;">Цвета:</p>--}}
+                                    {{--@include('catalog_blocks.filters_category.color_filter')--}}
+
+                                    <p class="mt-3 mb-4" style="margin-top: 20px; font-size: 16px;">Цены:</p>
+                                    @include('catalog_blocks.filters_category.money_filter_mobile')
+
                                     <button type="submit" class="btn btn-primary" data-dismiss="modal">Применить филтр</button>
                                 </form>
                             </div>
@@ -44,7 +51,14 @@
             <div class="col-12 d-none d-lg-block col-md-3 my-5">
                 <form action="{{ route('product.index') }}" method="GET">
                     @include('catalog_blocks.nav_category')
-                    @include('catalog_blocks.filters')
+{{--                    @include('catalog_blocks.filters')--}}
+
+                    {{--<p class="mt-3 mb-3" style="margin-top: 20px; font-size: 16px;">Цвета:</p>--}}
+                    {{--@include('catalog_blocks.filters_category.color_filter')--}}
+
+                    <p class="mt-3 mb-4" style="margin-top: 20px; font-size: 16px;">Цены:</p>
+                    @include('catalog_blocks.filters_category.money_filter_lg')
+
                     <button type="submit" class="btn btn-primary">Применить филтр</button>
                 </form>
             </div>
@@ -56,21 +70,11 @@
                         </div>
                     @endforeach
                 </div>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination pg-blue justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" tabindex="-1">Пред</a>
-                        </li>
-                        <li class="page-item"><a class="page-link">1</a></li>
-                        <li class="page-item"><a class="page-link">2</a></li>
-                        <li class="page-item"><a class="page-link">3</a></li>
-                        <li class="page-item"><a class="page-link">4</a></li>
-                        <li class="page-item"><a class="page-link">5</a></li>
-                        <li class="page-item">
-                            <a class="page-link">След</a>
-                        </li>
-                    </ul>
-                </nav>
+                @if($products instanceof \Illuminate\Pagination\LengthAwarePaginator)
+                    <div class="row justify-content-center mt-5">
+                        {{ $products->appends(request()->query())->links() }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -121,19 +125,83 @@
         }
     </style>
 @endpush
-@push("scripts")
-    <script>
-        // $("#ex2").slider({});
+    @push('scripts')
+        <script>
+            let moneySlider = document.getElementById('money2');
+            let inputNumberFirst = document.getElementById('input-1'),
+                inputNumberSecond = document.getElementById('input-2');
+            noUiSlider.create(moneySlider, {
+                start: [0, 30000],
+                connect: true,
+                margin: 2500,
+                step: 100,
+                range: {
+                    'min': 0,
+                    'max': 30000
+                }
+            });
 
-        // Without JQuery
-        // var slider = new Slider('#ex2', {});
-    </script>
-    <script>
-        $('li').click(function () {
-            $(this).addClass('active').siblings().removeClass('active');
-        });
-    </script>
+            moneySlider.noUiSlider.on('update', function (values, handle) {
 
+                let value = values[handle];
+
+                if (handle) {
+                    inputNumberSecond.value = value;
+                } else {
+                    inputNumberFirst.value = Math.round(value);
+                }
+            });
+        </script>
+    @endpush
+    @push('scripts')
+        <script>
+            let moneySlider1 = document.getElementById('money');
+            let inputNumberFirst2 = document.getElementById('input-first'),
+                inputNumberSecond3 = document.getElementById('input-second');
+            noUiSlider.create(moneySlider1, {
+                start: [0, 30000],
+                connect: true,
+                margin: 2500,
+                step: 100,
+                range: {
+                    'min': 0,
+                    'max': 30000
+                }
+            });
+
+            moneySlider1.noUiSlider.on('update', function (values, handle) {
+
+                let value = values[handle];
+
+                if (handle) {
+                    inputNumberSecond3.value = value;
+                } else {
+                    inputNumberFirst2.value = Math.round(value);
+                }
+            });
+        </script>
+    @endpush
+
+    @push("scripts")
+    <script>
+        $('li').click(e => {
+            e.preventDefault();
+            let li = $(e.currentTarget);
+
+
+            li.find('input').attr('checked', (index, attr) => {
+                return attr == 'checked' ? null : 'checked';
+            });
+
+            if (li.prop('id') == 'allCatalog') {
+                if (li.find('input').is(':checked')) {
+                    console.log($('ul.list-unstyled.filter').find('input').not('#allCatalog input').attr('checked', 'checked'));
+                } else {
+                    console.log($('ul.list-unstyled.filter').find('input').not('#allCatalog input').removeAttr('checked'));
+                }
+            }
+        })
+    </script>
 {{--    <script>--}}
 {{--        //функция для добавления кнопки--}}
 {{--        function showFilterButton(){--}}

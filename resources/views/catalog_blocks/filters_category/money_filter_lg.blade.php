@@ -3,12 +3,12 @@
     <div class="col-12 d-none d-lg-block">
 
         <div class="example">
-            <div id="html5" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr"></div>
+            <div id="money" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr"></div>
 
             <div class="row my-4 pl-3">
                 <div class="col-4 px-0 form-group">
                     <!-- Small input -->
-                    <input class="form-control" type="number" min="0" max="30000" step="1" id="input-first" name="inputFirst">
+                    <input class="form-control" type="number" value="0" min="0" max="30000" step="1" id="input-first" name="inputFirst">
 
                 </div>
                 <div class="col-1 px-0 text-center py-2">

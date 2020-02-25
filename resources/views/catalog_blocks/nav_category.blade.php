@@ -2,93 +2,24 @@
     Catalog
 </p>
 
-<ul class="list-unstyled">
-    <li>
+<ul class="list-unstyled filter">
+    <li id="allCatalog">
         <!-- Default checked -->
         <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input" id="allCatalog">
-            <label class="custom-control-label  unbold h5" for="allCatalog">Весь каталог</label>
+            <input type="checkbox" class="custom-control-input" name="allCatalog[0]" {{ empty($backRequest->allCatalog[0]) ? " " : "checked"}}>
+            <label class="custom-control-label font-weight-normal h5" for="allCatalog">Весь каталог</label>
         </div>
     </li>
-{{--    <li>--}}
-{{--        <!-- Default checked -->--}}
-{{--        <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">--}}
-{{--            <input type="checkbox" class="custom-control-input" id="newDress" name="newDress">--}}
-{{--            <label class="custom-control-label  unbold h5" for="newDress">Новинки</label>--}}
-{{--        </div>--}}
-{{--    </li>--}}
-{{--    <li>--}}
-{{--        <!-- Default checked -->--}}
-{{--        <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">--}}
-{{--            <input type="checkbox" class="custom-control-input" id="sellOut" name="sellOut">--}}
-{{--            <label class="custom-control-label  unbold h5" for="sellOut">Распродажа</label>--}}
-{{--        </div>--}}
-{{--    </li>--}}
-    <li>
-        <!-- Default checked -->
-        <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input catalogs" id="coat" {{ empty($backRequest->allCatalog['Пальто']) ? " " : "checked"}} name="allCatalog[Пальто]" value="Пальто" >
-            <label class="custom-control-label unbold h5" for="coat">Пальто</label>
-        </div>
-    </li>
-    <li>
-        <!-- Default checked -->
-        <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input catalogs" id="blouses" {{ empty($backRequest->allCatalog['Блузки']) ? " " : "checked"}} name="allCatalog[Блузки]" value="Блузки">
-            <label class="custom-control-label  unbold h5" for="blouses">Блузки</label>
-        </div>
-    </li>
-    <li>
-        <!-- Default checked -->
-        <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input catalogs" id="pants" {{ empty($backRequest->allCatalog['Брюки']) ? " " : "checked"}} name="allCatalog[Брюки]" value="Брюки">
-            <label class="custom-control-label  unbold h5" for="pants">Брюки</label>
-        </div>
-    </li>
-    <li>
-        <!-- Default checked -->
-        <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input catalogs" id="jackets" {{ empty($backRequest->allCatalog['Пиджаки']) ? " " : "checked"}} name="allCatalog[Пиджаки]" value="Пиджаки">
-            <label class="custom-control-label  unbold h5" for="jackets">Пиджаки</label>
-        </div>
-    </li>
-    <li>
-        <!-- Default checked -->
-        <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input catalogs" id="bags" {{ empty($backRequest->allCatalog['Сумки']) ? " " : "checked"}} name="allCatalog[Сумки]" value="Сумки">
-            <label class="custom-control-label  unbold h5" for="bags">Сумки</label>
-        </div>
-    </li>
-    <li>
-        <!-- Default checked -->
-        <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
-            <input type="checkbox" class="custom-control-input catalogs" id="skirts" {{ empty($backRequest->allCatalog['Юбки']) ? " " : "checked"}} name="allCatalog[Юбки]" value="Юбки">
-            <label class="custom-control-label  unbold h5" for="skirts">Юбки</label>
-        </div>
-    </li>
+    @foreach($categories as $cat)
+        <li>
+            <div class="custom-control custom-checkbox py-1 mt-0 mb-0 form-group">
+                <input type="checkbox" class="custom-control-input catalogs" id="filter-{{ $cat->id }}" {{ empty($backRequest->allCatalog[$cat->id]) ? " " : "checked"}} name="allCatalog[{{ $cat->id }}]">
+                <label class="custom-control-label font-weight-normal h5" for="filter-{{ $cat->id }}">{{ $cat->title }}</label>
+            </div>
+        </li>
+    @endforeach
 </ul>
 
 @push("scripts")
-    <script>
-        $('#allCatalog').on('click.change', function () {
-            if ($('#allCatalog').prop('checked'))
-            {
-                $("#coat").prop('checked', true);
-                $("#blouses").prop('checked', true);
-                $("#pants").prop('checked', true);
-                $("#jackets").prop('checked', true);
-                $("#bags").prop('checked', true);
-                $("#skirts").prop('checked', true);
-            }
-            else
-            {
-                $("#coat").prop('checked', false);
-                $("#blouses").prop('checked', false);
-                $("#pants").prop('checked', false);
-                $("#jackets").prop('checked', false);
-                $("#bags").prop('checked', false);
-                $("#skirts").prop('checked', false);
-            }
-        });
-    </script>
+
 @endpush
