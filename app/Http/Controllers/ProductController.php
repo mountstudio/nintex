@@ -445,7 +445,7 @@ class ProductController extends Controller
         $retailProductQuantity = null;
         $productWholesaleSizes = null;
         $productWholesaleColors = null;
-        $wholesaleProductQuantity = null;
+//        $wholesaleProductQuantity = null;
 
         $productSizesRetailUniqe = ProductSize::where('product_id', $product->id)->where('type', "retail")->get()->unique('sizes');     //выбор размеров продукта для розничной продажи
         foreach ($productSizesRetailUniqe as $productsSizeRetailUniqe)
@@ -453,14 +453,9 @@ class ProductController extends Controller
             $productRetailSizes[$product->id][] = Size::find($productsSizeRetailUniqe->sizes);
             $productsRetailPrice = $productsSizeRetailUniqe->price;
         }
-        $productRetailColors = ProductSize::where('product_id', $product->id)->where('type', "retail")->get()->unique('color');     //выбор всех цветов продукта в розницу
-        $retailProductQuantity = (int)ProductSize::where('product_id', $product->id)->where('type', "retail")->sum('quantity');     //количество продукта в розницу
 
         $productWholesaleSizes = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->get()->unique('sizes');    //выбор размеров продукта для оптовой продажи
         $productWholesaleColors = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->where('quantity', '>', '0')->get()->unique('color');   //выбор всех цветов продукта для оптовой продажи
-        $wholesaleProductQuantity = (int)ProductSize::where('product_id', $product->id)->where('type', "wholesale")->sum('quantity');   //количество продукта оптом
-
-//        dd($retailProductQuantity, $wholesaleProductQuantity);
 
         return view('products.show', [
             'product' => $product,
@@ -470,7 +465,6 @@ class ProductController extends Controller
             'retailProductQuantity' => $retailProductQuantity,
             'productWholesaleSizes' => $productWholesaleSizes,
             'productWholesaleColors' => $productWholesaleColors,
-            'wholesaleProductQuantity' => $wholesaleProductQuantity,
             'products' => Product::all(),
         ]);
 

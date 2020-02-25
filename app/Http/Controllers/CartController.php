@@ -131,6 +131,7 @@ class CartController extends Controller
         $count = $request->count;
         $size = $request->size;
         $color = $request->color;
+        $logo = $request->logo;
         $token = $request->token ? $request->token : uniqid();
         $product_id = $request->product_id;
         $size = str_replace("'",'"', $size);
@@ -176,7 +177,7 @@ class CartController extends Controller
 
         Cart::add($product, $count, $token, ['product_id' => $product_id, 'color' => $color,
                                             'size' => $size, 'sizeName' => $sizeName, 'productSizeId' => $productSize->first()->id,
-                                            'images' => $productSize->first()->images, 'objProduct' => $product, 'price' => $productSize->first()->price]);
+                                            'images' => $productSize->first()->images, 'objProduct' => $product, 'price' => $productSize->first()->price, 'logo' => $logo]);
         Session::put('cart', CartFacade::session($token)->getContent());
         if (preg_match('/checkout/', $request->server->get('HTTP_REFERER'))) {
             Session::flash('cart_checkout', true);

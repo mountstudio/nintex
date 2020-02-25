@@ -22,6 +22,7 @@
             </div>
         </div>
         @foreach($cartItems as $item)
+{{--            @dd($item)--}}
             <div class="row border-top border-bottom py-3 align-items-center">
                 <div class="col-2 col-md-4 col-lg-2 order-0 d-flex align-items-center">
                     <img src="{{ asset('storage/medium/'.json_decode($item->attributes->images)[0]) }}" style="height: 100px; width: auto;" alt="">
