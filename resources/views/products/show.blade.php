@@ -5,7 +5,7 @@
             <div class="row justify-content-center">
                 <div class="col-9 col-lg-4">
                     <img style=""
-                         src="{{ asset('uploads/'.$product->logo)}}" class="img-fluid" alt="">
+                         src="{{ asset('storage/large/'.$product->logo)}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-12 col-lg-6 position-relative">
                     <div class=" d-flex justify-lg-content-end justify-content-center" style=" border-bottom-left-radius: 100px;">

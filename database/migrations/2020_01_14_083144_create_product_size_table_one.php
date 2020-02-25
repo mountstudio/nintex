@@ -13,6 +13,7 @@ class CreateProductSizeTableOne extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('product_size');
         Schema::create('product_size', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id')->nullable();
