@@ -184,7 +184,7 @@
 
     @push("scripts")
     <script>
-        $('li').click(e => {
+        $('ul.list-unstyled.filter li').click(e => {
             e.preventDefault();
             let li = $(e.currentTarget);
 

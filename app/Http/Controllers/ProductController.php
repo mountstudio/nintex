@@ -32,7 +32,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
 
-        $products = Product::all()->sortAndFilter($request)->paginate(10);
+        $products = Product::all()->sortAndFilter($request)->paginate(1);
 
         $sizes = Size::all();   //извлечение вех размеров
         return view('products.index', [
