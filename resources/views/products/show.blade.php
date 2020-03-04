@@ -55,7 +55,8 @@
                                         <label class="checkbox-red"
                                                style="background-color: {{$productWholesaleColor->color}}"
                                                @if($productWholesaleColor->quantity <= 0) disabled @endif>
-                                            <input id="cbox-red" class="checkbox-color" type="radio" name="colorWholesale"
+                                            <input id="cbox-red" class="checkbox-color" type="radio"
+                                                   name="colorWholesale"
                                                    data-color="{{ $productWholesaleColor->color }}"
                                                    data-prod_id="{{ $product->id }}"
                                                    value="{{ $productWholesaleColor->color }}">
@@ -136,20 +137,48 @@
     <!-- Блок для отзывов -->
     <section>
         <div class="container">
+            <button class="btn btn-block" id="post">
+                оставить отзыв
+            </button>
             <div class="row">
-                <div class="col-3">
-                    <button class="btn btn-block " id="post">
-                        оставить отзыв
-                    </button>
-                    <div class="form-group mt-4 " style="display: none;" id="childPost">
-                        <label for="quickReplyFormComment">Your comment</label>
-                        <textarea class="form-control" id="quickReplyFormComment" rows="5"></textarea>
-
-                        <div class="text-center my-4">
-                            <button class="btn btn-primary btn-sm waves-effect waves-light" type="submit"
-                                    id="childPostButton">Post
-                            </button>
-                        </div>
+                <div class="col-12">
+                    <div class="" style="display: none;" id="childPost">
+                        <form action="{{ route('comment.store') }}" method="post" id="commentcreate">
+                            @csrf
+                            <label for="quickReplyFormComment">Your comment</label>
+                            @if(Auth::user())
+                                <div class="row">
+                                    <div class="col-3">
+                                        <textarea class="form-control" name="comment" placeholder="your comment"
+                                                  id="quickReplyFormComment" rows="5"></textarea>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="row">
+                                    <div class="col-3">
+                                    <textarea class="form-control" name="comment" placeholder="your comment"
+                                              id="quickReplyFormComment" rows="5"></textarea>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" name="name" value="" class="form-control" placeholder="name">
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" name="phone" value="" class="form-control"
+                                               placeholder="phone">
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" name="email" value="" class="form-control"
+                                               placeholder="email">
+                                    </div>
+                                </div>
+                            @endif
+                            <div class="text-center my-4">
+                                <button class="btn btn-primary btn-sm waves-effect waves-light"
+                                        type="submit"
+                                        id="childPostButton">Post
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="col-12 mt-5">
@@ -159,71 +188,58 @@
                 </div>
                 <div class="col-12">
                     <section class="my-5">
-
                         <!-- Card header -->
                         <div class="card-header border-0 font-weight-bold">4 comments</div>
+                        @foreach($comments as $key => $comment)
+                            <div class="media mt-4 col-12" id="play">
+                                <div class="media-body  text-center text-md-left px-4">
+                                    <h5 class="font-weight-bold mt-0">
 
-                        <div class="media d-block d-md-flex mt-4" id="play">
-                            <a href="#" target="_blank" title="Перейти на страницу пользователя">
-                                <img class="card-img-64 d-flex mx-auto mb-3 rounded-circle"
-                                     src="https://mdbootstrap.com/img/Photos/Avatars/img (20).jpg"
-                                     alt="Generic placeholder image">
-                            </a>
-                            <div class="media-body text-center text-md-left ml-md-3 ml-0">
-                                <h5 class="font-weight-bold mt-0">
-                                    <a href="">Miley Steward</a>
-                                    <a href="" class="pull-right">
-                                        <i class="fas fa-reply"></i>
-                                    </a>
-                                </h5>
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat
-                                cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                <div class="media d-block d-md-flex mt-4">
-                                    <a href="#" target="_blank">
-                                        <img class="card-img-64 d-flex mx-auto mb-3 rounded-circle"
-                                             src="https://mdbootstrap.com/img/Photos/Avatars/img (27).jpg"
-                                             alt="Generic placeholder image">
-                                    </a>
-                                    <div class="media-body text-center text-md-left ml-md-3 ml-0">
-                                        <h5 class="font-weight-bold mt-0">
-                                            <a href="">Tommy Smith</a>
-                                            <a href="" class="pull-right">
-                                                <i class="fas fa-reply"></i>
-                                            </a>
-                                        </h5>
-                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                        doloremque laudantium, totam rem aperiam, eaque
-                                        ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
-                                        sunt explicabo.
-                                    </div>
-                                </div>
-                                <div class="media d-block d-md-flex mt-3">
-                                    <a href="#" target="_blank">
-                                        <img class="card-img-64 d-flex mx-auto mb-3 rounded-circle"
-                                             src="https://mdbootstrap.com/img/Photos/Avatars/img (21).jpg"
-                                             alt="Generic placeholder image">
-                                    </a>
-                                    <div class="media-body text-center text-md-left ml-md-3 ml-0">
-                                        <h5 class="font-weight-bold mt-0">
-                                            <a href="">Sylvester the Cat</a>
-                                            <a href="" class="pull-right">
-                                                <i class="fas fa-reply"></i>
-                                            </a>
-                                        </h5>
-                                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-                                        adipisci velit, sed quia non numquam eius modi
-                                        tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
-                                    </div>
-                                </div>
-
+                                        <a href="">@if(empty($comment->name)){{ $user->name }}@else{{ $comment->name }} @endif</a>
+                                        @admin
+                                        <a href="#" class="pull-right answer" data-id="{{ $key }}" id="">
+                                            <i class="fas fa-reply"></i>
+                                        </a>
+                                        @endadmin
+                                    </h5>
+                                    <h6 class="ml-3">{{$comment->comment}}</h6>
+                                    <form class="comment" action="{{ route('comment.store') }}" method="post"
+                                          style="display: none;">
+                                        @csrf
+                                        <div class="row" data-comment="{{ $key }}">
+                                            <div class="col-10">
+                                            <textarea name="comment" id="" cols="30" rows="10"
+                                                      style="width: 850px; height: 50px;"></textarea>
+                                            </div>
+                                            <div class="col-2" style="display:none"><input type="text" name="parent_id"
+                                                                                           value="{{$comment->id}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <button class="btn btn-primary btn-sm waves-effect waves-light"
+                                                    type="submit"
+                                                    id="">Post
+                                            </button>
+                                        </div>
+                                    </form>
+                                    @if($comment->id === $comment->parent_id)
+                                        <div class="media d-block d-md-flex mt-4">
+                                            <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                                                <h5 class="font-weight-bold mt-0">
+                                                    <a href="">{{$comment->name}}</a>
+                                                </h5>
+                                                {{$comment->comment}}
+                                            </div>
+                                        </div>
+                                     @endif
                                 <!-- Quick Reply -->
-
-
+                                </div>
                             </div>
-                        </div>
+                    @endforeach
                     {{--                        <div class="media d-block d-md-flex mt-3">--}}
-                    {{--                            <img class="card-img-64 d-flex mx-auto mb-3" src="https://mdbootstrap.com/img/Photos/Avatars/img (30).jpg" alt="Generic placeholder image">--}}
+                    {{--                            <img class="card-img-64 d-flex mx-auto mb-3"--}}
+                    {{--                                 src="https://mdbootstrap.com/img/Photos/Avatars/img (30).jpg"--}}
+                    {{--                                 alt="Generic placeholder image">--}}
                     {{--                            <div class="media-body text-center text-md-left ml-md-3 ml-0">--}}
                     {{--                                <h5 class="font-weight-bold mt-0">--}}
                     {{--                                    <a href="">Caroline Horwitz</a>--}}
@@ -231,11 +247,12 @@
                     {{--                                        <i class="fas fa-reply"></i>--}}
                     {{--                                    </a>--}}
                     {{--                                </h5>--}}
-                    {{--                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti--}}
-                    {{--                                quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa officia deserunt mollitia animi, id est laborum et dolorum fuga.--}}
+                    {{--                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium--}}
+                    {{--                                voluptatum deleniti atque corrupti--}}
+                    {{--                                quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,--}}
+                    {{--                                similique sunt in culpa officia deserunt mollitia animi, id est laborum et dolorum fuga.--}}
                     {{--                            </div>--}}
                     {{--                        </div>--}}
-
                     <!--Pagination -->
                         <nav class="d-flex justify-content-center mt-5">
                             <ul class="pagination pg-blue mb-0">
@@ -327,8 +344,6 @@
     <script>
 
 
-
-
         $('input:radio[name = "colorWholesale"]').on('click, change', function (e) {
             let size = '', color = '';
             $('input:checkbox[name = "sizeWholesale"]:checked').each(function () {
@@ -417,7 +432,6 @@
                 }
             })
         });
-
     </script>
     <script>
         $('#basket').removeAttr('disabled');
@@ -427,6 +441,16 @@
         $('#post').click(function () {
             $('#childPost').show();
         });
+        $('.answer').click(function (e) {
+            e.preventDefault();
+            let answer = $(e.currentTarget);
+
+            let media = answer.parents('.media');
+            $('.media').find('.comment').hide();
+            let textarea = media.find('.comment').show();
+
+            console.log(media);
+        })
     </script>
     @includeWhen(auth()->check(), 'partials.scripts.favorite_click')
 @endpush

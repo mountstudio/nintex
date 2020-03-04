@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Cart::class);
     }
+
+    public function isAdmin()
+    {
+        return $this->admin;
+    }
 }

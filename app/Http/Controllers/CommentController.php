@@ -35,7 +35,25 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        dd($request);
+            $user = auth()->user();
+            if (preg_match('/\/product\//', url()->previous())) {
+                $attrs = explode('/', url()->previous());
+
+                $comment = new Comment($request->all());
+                if (\Auth::user()){
+                    $comment->fill(['product_id' => array_pop($attrs), 'user_id' => $user->id, 'email' => $user->email, 'name' => $user->name]);
+                }
+                elseif  ($user->admin == 1){
+                    $comment->fill(['product_id' => array_pop($attrs), 'user_id' => $user->id, 'email' => $user->email, 'name' => $user->name, 'parent_id' => $request->parent_id]);
+                }
+                else{
+                    $comment->fill(['product_id' => array_pop($attrs)]);
+                }
+                $comment->save();
+                return redirect()->back();
+            }
+            abort(404);
     }
 
     /**
@@ -46,7 +64,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        //
+
     }
 
     /**

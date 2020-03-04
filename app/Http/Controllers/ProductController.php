@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cart;
 use App\Category;
+use App\Comment;
 use App\Helpers\ImageSaver;
 use App\Product;
 //use Faker\Provider\Image;
@@ -31,9 +32,7 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-
         $products = Product::all()->sortAndFilter($request)->paginate(1);
-
         $sizes = Size::all();   //извлечение вех размеров
         return view('products.index', [
             'products' => $products,
@@ -151,33 +150,21 @@ class ProductController extends Controller
     public function show(Product $product, Request $request)
     {
         //Определение переменных
-        $productRetailSizes = [[]];
-        $productsRetailPrice = null;
-        $productRetailColors = null;
-        $retailProductQuantity = null;
+
         $productWholesaleSizes = null;
         $productWholesaleColors = null;
-//        $wholesaleProductQuantity = null;
-
-        $productSizesRetailUniqe = ProductSize::where('product_id', $product->id)->where('type', "retail")->get()->unique('sizes');     //выбор размеров продукта для розничной продажи
-        foreach ($productSizesRetailUniqe as $productsSizeRetailUniqe)
-        {
-            $productRetailSizes[$product->id][] = Size::find($productsSizeRetailUniqe->sizes);
-            $productsRetailPrice = $productsSizeRetailUniqe->price;
-        }
 
         $productWholesaleSizes = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->get()->unique('sizes');    //выбор размеров продукта для оптовой продажи
         $productWholesaleColors = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->where('quantity', '>', '0')->get()->unique('color');   //выбор всех цветов продукта для оптовой продажи
+        $comments = Comment::where('product_id', $product->id)->get();
 
         return view('products.show', [
             'product' => $product,
-            'productRetailSizes' => $productRetailSizes,
-            'productsRetailPrice' => $productsRetailPrice,
-            'productRetailColors' => $productRetailColors,
-            'retailProductQuantity' => $retailProductQuantity,
             'productWholesaleSizes' => $productWholesaleSizes,
             'productWholesaleColors' => $productWholesaleColors,
             'products' => Product::all(),
+            'comments' => $comments,
+            'user' => \auth()->user(),
         ]);
 
         //итог:
@@ -223,11 +210,14 @@ class ProductController extends Controller
         return response()->json($productSize->first());
     }
 
-    public function card(Product $products)
+    public function card(Product $products, Request $request)
     {
-        return view('products.card', [
+        $productSize = ProductSize::find($request->id);
+        dd($productSize);
+
+        return view('catalog_blocks.product_card', [
             'products' => $products,
-            'sizes' => Size::all(),
+            'productSize' => $productSize,
         ]);
     }
 

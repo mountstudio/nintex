@@ -177,7 +177,7 @@ class CartController extends Controller
 
         Cart::add($product, $count, $token, ['product_id' => $product_id, 'color' => $color,
                                             'size' => $size, 'sizeName' => $sizeName, 'productSizeId' => $productSize->first()->id,
-                                            'images' => $productSize->first()->images, 'objProduct' => $product, 'price' => $productSize->first()->price, 'logo' => $logo]);
+                                            'images' => $productSize->first()->images, 'objProduct' => $product, 'price' => $productSize->first()->price]);
         Session::put('cart', CartFacade::session($token)->getContent());
         if (preg_match('/checkout/', $request->server->get('HTTP_REFERER'))) {
             Session::flash('cart_checkout', true);
