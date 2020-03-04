@@ -191,7 +191,7 @@
                         <!-- Card header -->
                         <div class="card-header border-0 font-weight-bold">4 comments</div>
                         @foreach($comments as $key => $comment)
-                            <div class="media mt-4 col-12" id="play">
+                            <div class="media my-5 col-12" id="play">
                                 <div class="media-body  text-center text-md-left px-4">
                                     <h5 class="font-weight-bold mt-0">
 
@@ -222,16 +222,16 @@
                                             </button>
                                         </div>
                                     </form>
-                                    @if($comment->id === $comment->parent_id)
-                                        <div class="media d-block d-md-flex mt-4">
-                                            <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                                    @foreach($comment->children as $answer)
+                                        <div class="media d-block d-md-flex mt-1">
+                                            <div class="media-body text-center text-md-left ml-md-5 ml-0">
                                                 <h5 class="font-weight-bold mt-0">
-                                                    <a href="">{{$comment->name}}</a>
+                                                    <a href="">{{ $answer->name }}</a>
                                                 </h5>
-                                                {{$comment->comment}}
+                                                {{ $answer->comment }}
                                             </div>
                                         </div>
-                                     @endif
+                                    @endforeach
                                 <!-- Quick Reply -->
                                 </div>
                             </div>
