@@ -159,12 +159,8 @@ class ProductController extends Controller
         $productWholesaleSizes = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->get()->unique('sizes');    //выбор размеров продукта для оптовой продажи
         $productWholesaleColors = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->where('quantity', '>', '0')->get()->unique('color');   //выбор всех цветов продукта для оптовой продажи
         $comments = Comment::where('product_id', $product->id)->where('parent_id', 0)->get();
-        $answers = [];
-
-        foreach ($comments as $comment)
-        {
-            $answers[] = $comment->parent_id;
-        }
+        $commentsQuantity = Comment::where('product_id', $product->id);
+        $commentCount = $commentsQuantity->count();
 
         return view('products.show', [
             'product' => $product,
@@ -173,7 +169,8 @@ class ProductController extends Controller
             'products' => Product::all(),
             'comments' => $comments,
             'user' => \auth()->user(),
-            'answers' => $answers,
+            'commentCount' => $commentCount,
+
         ]);
 
         //итог:
@@ -185,7 +182,6 @@ class ProductController extends Controller
         //выбор всех цветов продукта для оптовой продажи
         //количество продукта оптом
 
-        dd($product, $productsSizeWholesale, $productsSizeRetail);
     }
 
     public function selectColorsForRetailSize(Request $request)

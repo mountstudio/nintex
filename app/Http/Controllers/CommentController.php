@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Product;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\DocBlock\Tags\Method;
+use Yajra\DataTables\Facades\DataTables;
 
 class CommentController extends Controller
 {
@@ -42,10 +45,12 @@ class CommentController extends Controller
 
                 $comment = new Comment($request->all());
                 if (\Auth::user()){
-                    $comment->fill(['product_id' => array_pop($attrs), 'user_id' => $user->id, 'email' => $user->email, 'name' => $user->name]);
-                }
-                elseif  ($user->admin == 1){
-                    $comment->fill(['product_id' => array_pop($attrs), 'user_id' => $user->id, 'email' => $user->email, 'name' => $user->name, 'parent_id' => $request->parent_id]);
+                    if  ($user->admin == 1){
+                        $comment->fill(['product_id' => array_pop($attrs), 'user_id' => $user->id, 'email' => $user->email, 'name' => $user->name, 'parent_id' => $request->parent_id]);
+                    }
+                    else {
+                        $comment->fill(['product_id' => array_pop($attrs), 'user_id' => $user->id, 'email' => $user->email, 'name' => $user->name]);
+                    }
                 }
                 else{
                     $comment->fill(['product_id' => array_pop($attrs)]);
@@ -67,6 +72,22 @@ class CommentController extends Controller
 
     }
 
+    public function datatable(Request $request)
+    {
+        return view('admin.comment.index', [
+            'comments' => Comment::all(),
+        ]);
+    }
+
+    public function datatableData(){
+        $comment = Comment::with('product');
+        return DataTables::of($comment)
+            ->addColumn('action', function($comment) {
+                return view('admin.comment.actions', ['comment' => $comment]);
+            })
+            ->make(true);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -75,7 +96,9 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        return view('admin.comment.edit', [
+            'comment' => $comment,
+        ]);
     }
 
     /**
@@ -87,7 +110,8 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $comment->update($request->all());
+        return redirect()->route('admin.comment.datatable');
     }
 
     /**
@@ -98,6 +122,7 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return redirect()->back();
     }
 }

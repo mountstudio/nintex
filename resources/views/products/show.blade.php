@@ -189,13 +189,13 @@
                 <div class="col-12">
                     <section class="my-5">
                         <!-- Card header -->
-                        <div class="card-header border-0 font-weight-bold">4 comments</div>
+                        <div class="card-header border-0 font-weight-bold">{{$commentCount}} comments</div>
                         @foreach($comments as $key => $comment)
                             <div class="media my-5 col-12" id="play">
                                 <div class="media-body  text-center text-md-left px-4">
                                     <h5 class="font-weight-bold mt-0">
 
-                                        <a href="">@if(empty($comment->name)){{ $user->name }}@else{{ $comment->name }} @endif</a>
+                                        <a href="">{{ $comment->name }} </a>
                                         @admin
                                         <a href="#" class="pull-right answer" data-id="{{ $key }}" id="">
                                             <i class="fas fa-reply"></i>

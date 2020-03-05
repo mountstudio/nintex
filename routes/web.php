@@ -42,7 +42,9 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::get('/category/datatable', 'CategoryController@datatableData')->name('category.datatable.data');
     Route::resource('category', 'CategoryController')->except(['index', 'show']);
     Route::resource('size', 'SizeController')->except(['index', 'show']);
-    Route::resource('comment', 'CommentController')->except(['index', 'show']);
+    Route::get('/comments/datatable', 'CommentController@datatableData')->name('comment.datatable.data');
+    Route::resource('comment', 'CommentController')->except(['show']);
+    Route::get('/comment', 'CommentController@datatable')->name('comment.datatable');
 
 });
 // End Admin Routes
