@@ -60,7 +60,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', ['category' => $category]);
     }
 
     /**
@@ -72,7 +72,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update($request->all());
+        return redirect()->route('admin.category.datatable');
     }
 
     /**
@@ -83,7 +84,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->back();
     }
 
     public function datatable(Request $request)
@@ -95,6 +97,11 @@ class CategoryController extends Controller
 
     public function datatableData(Request $request)
     {
-        return DataTables::of(Category::query())->make(true);
+
+        return DataTables::of(Category::query())
+            ->addColumn('action', function (Category $category) {
+                return view('admin.categories.actions', ['category' => $category]);
+            })
+            ->make(true);
     }
 }

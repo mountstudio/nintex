@@ -217,12 +217,12 @@ class ProductController extends Controller
 
     public function card(Product $products, Request $request)
     {
-        $productSize = ProductSize::find($request->id);
-        dd($productSize);
+//        $productSize = ProductSize::where;
+//        dd($productSize);
 
         return view('catalog_blocks.product_card', [
             'products' => $products,
-            'productSize' => $productSize,
+//            'productSize' => $productSize,
         ]);
     }
 
@@ -237,6 +237,7 @@ class ProductController extends Controller
     {
         return view('admin.products.edit', [
             'product' => $product,
+            'categories' => Category::all(),
         ]);
     }
 
@@ -277,13 +278,13 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        if (count($product->images)) {
-            foreach ($product->images as $image) {
-                if (file_exists(storage_path('public/') . $image->image)) {
-                    unlink(storage_path('public/') . $image->image);
-                }
-            }
-        }
+//        if (count($product->images)) {
+//            foreach ($product->images as $image) {
+//                if (file_exists(storage_path('public/') . $image->image)) {
+//                    unlink(storage_path('public/') . $image->image);
+//                }
+//            }
+//        }
         $product->delete();
 
         return redirect()->back();
@@ -298,7 +299,11 @@ class ProductController extends Controller
 
     public function datatableData(Request $request)
     {
-        return DataTables::of(Product::query())->make(true);
+        return DataTables::of(Product::query())
+            ->addColumn('action', function (Product $product){
+                return view('admin.products.action', ['product' => $product]);
+            })
+            ->make(true);
     }
 
     public function favorite(Request $request, Product $product)

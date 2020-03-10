@@ -17,27 +17,33 @@
         {{--//---------------------------ВЫВОД РАЗМЕРОВ И СТОИМОСТИ ПРОДУКТА ОПТОМ---------------------------//--}}
         <div class="col-12 text-left">
             <div class="row">
-                ghjkl
-{{--                @if(!empty($productsWholesaleSize[$product->id]))--}}
-{{--                    @foreach($productsWholesaleSize[$product->id] as $ps)--}}
-                        <div class="col-4 pl-0 pr-0">
-
-                            <label for="size">Оптом:</label>
+                {{--                @if(!empty($productsWholesaleSize[$product->id]))--}}
+                {{--                    @foreach($productsWholesaleSize[$product->id] as $ps)--}}
+                <div class="col-4 pl-0 pr-0">
+                    <label for="size">Оптом:</label>
+                </div>
+                <div class="col-5 pl-0 pr-0 text-center">
+                    @foreach($productSize as $size1)
+                        <div class="grey rounded">
+                            <span class="pl-1 pr-1 pt-1 pb-1">{{ $size1->sizes }}</span>
                         </div>
-                        <div class="col-5 pl-0 pr-0 text-center">
-                            <div class="grey rounded">
-{{--                                @foreach(json_decode($ps->sizes) as $size1)--}}
-{{--                                    <span class="pl-1 pr-1 pt-1 pb-1">{{ $size1 }}</span>--}}
-{{--                                @endforeach--}}
-{{--                                @dd($productSize)--}}
-                            </div>
+                        @break
+                    @endforeach
+                </div>
+                <div class="col-4 pl-0 pr-0">
+                    <label for="size">Цена:</label>
+                </div>
+                <div class="col-5 pl-0 pr-0 text-center">
+                    @foreach($productSize as $size1)
+                        <div class="col-7 text-right pl-0 pr-0">
+                            <p class="blue-text" style="font-size: 12px;">{{ $size1->price }}kgs</p>
                         </div>
-                        <div class="col-3 text-right pl-0 pr-0">
-{{--                            <p class="blue-text" style="font-size: 12px;">{{ $ps->price }}kgs</p>--}}
-                        </div>
-                        <div class="endLine"></div>
-{{--                    @endforeach--}}
-{{--                @endif--}}
+                        @break
+                    @endforeach
+                </div>
+                <div class="endLine"></div>
+                {{--                    @endforeach--}}
+                {{--                @endif--}}
             </div>
         </div>
     </div>

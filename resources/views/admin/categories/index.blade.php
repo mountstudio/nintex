@@ -11,8 +11,7 @@
         <tr>
             <th>Id</th>
             <th>Title</th>
-            <th>Created At</th>
-            <th>Updated At</th>
+            <th>Actions</th>
         </tr>
         </thead>
     </table>
@@ -34,8 +33,7 @@
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'title', name: 'title' },
-                    { data: 'created_at', name: 'created_at' },
-                    { data: 'updated_at', name: 'updated_at' }
+                    { data: 'action', name: 'action' },
                 ]
             });
         });
