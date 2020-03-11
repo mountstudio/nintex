@@ -59,11 +59,14 @@ Route::get('/profile/shopping/{cart}', 'CartController@show')->name('cart.shoppi
 // End Profile Routes
 
 // Resourse Routes
-Route::resource('product', 'ProductController')->only(['index', 'show']);
+Route::resource('product', 'ProductController');
 Route::resource('category', 'CategoryController')->only(['index', 'show']);
 Route::resource('size', 'SizeController')->only(['index', 'show']);
 Route::resource('comment', 'CommentController')->only(['index', 'show', 'store']);
 // End Resource Routes
+
+Route::get('/new_products', 'ProductController@index2')->name('product.index2');
+Route::get('/discount_products', 'ProductController@discount')->name('product.discount');
 
 //Cart
 Route::get('/cart', 'CartController@index')->name('cart.index');

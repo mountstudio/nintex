@@ -13,6 +13,7 @@ use App\Services\ImageUploader;
 use App\Size;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Yajra\DataTables\Facades\DataTables;
@@ -32,13 +33,30 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        $products = Product::all()->sortAndFilter($request)->paginate(1);
-        $sizes = Size::all();   //извлечение вех размеров
+        $products = Product::all()->sortAndFilter($request)->paginate(10);
         return view('products.index', [
             'products' => $products,
-            'sizes' => $sizes,
             'requestValues' => $request,
             'backRequest' => $request,
+            'categories' => Category::all(),
+        ]);
+    }
+    public function index2(Request $request)
+    {
+        $products = Product::all()->sortAndFilter($request)->paginate(10);
+        $last_15_days = Product::where('created_at', '>=', Carbon::now()->subdays(7))->get();
+        return view('products.week_products', [
+            'products' => $products,
+            'categories' => Category::all(),
+            'newProducts' => $last_15_days,
+        ]);
+    }
+    public function discount(Request $request){
+        $products = Product::all()->sortAndFilter($request)->paginate(10);
+        $discount = Product::where('discount', '>', 0)->get();
+        return view('products.discount_products', [
+            'products' => $products,
+            'disProducts' => $discount,
             'categories' => Category::all(),
         ]);
     }
@@ -220,10 +238,10 @@ class ProductController extends Controller
 //        $productSize = ProductSize::where;
 //        dd($productSize);
 
-        return view('catalog_blocks.product_card', [
-            'products' => $products,
+//        return view('catalog_blocks.product_card', [
+//            'products' => $products,
 //            'productSize' => $productSize,
-        ]);
+//        ]);
     }
 
 

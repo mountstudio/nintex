@@ -36,6 +36,12 @@
                     @endforeach
                 </select>
             </div>
+            <div>
+                <div class="md-form">
+                    <input type="text" class="form-control" name="discount" id="discount"}}">
+                    <label for="discount">Скидка</label>
+                </div>
+            </div>
         </div>
         <button type="Сохранить" class="btn btn-primary">Сохранить</button>
     </form>
