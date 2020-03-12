@@ -6,6 +6,7 @@
     background-size: cover;
 }
 
+.dropdown:hover .dropdown-menu {display: block;}/*for header dropdown */
 .form-header {
     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
     color: #fff;
@@ -984,14 +985,14 @@
     }
 
     /* style for header*/
-    .navigation {
-        padding: 20px 10px;
-    }
+    /*.navigation {*/
+    /*    padding: 20px 10px;*/
+    /*}*/
 
-    .navigation .navigation-item {
-        display: inline;
-        padding-right: 15px;
-    }
+    /*.navigation .navigation-item {*/
+    /*    display: inline;*/
+    /*    padding-right: 15px;*/
+    /*}*/
 
 
     .navigation-item a {

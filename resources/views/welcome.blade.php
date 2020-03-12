@@ -142,22 +142,22 @@
     <section>
         <div class="container-fluid px-0">
             <div class="col-12 owl-carousel px-0" id="nintexCarousel">
-                <div class="item">
+                <div class="item position-relative">
                     <a href="{{ route('product.index') }}">
                         <img src="{{ asset('img/spring-summer.png') }}" class="img-fluid" alt="">
-                        <a href="">
-                            <p>
-
+                        <a href="" class="position-absolute text-white" style="top: 30%;left: 20%;font-size: 16px;">
+                            <p style="width: 300px;">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ratione!
                             </p>
                         </a>
                     </a>
                 </div>
-                <div class="item">
+                <div class="item position-relative">
                     <a href="{{ route('product.index') }}">
                         <img src="{{ asset('img/spring-summer.png') }}" class="img-fluid" alt="">
-                        <a href="">
-                            <p>
-
+                        <a href="" class="position-absolute text-white" style="top: 30%;left: 20%;font-size: 16px;">
+                            <p style="width: 300px;">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa doloribus enim esse et hic minima, molestiae nam natus, non porro quam quos sed similique, sunt.
                             </p>
                         </a>
                     </a>
