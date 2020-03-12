@@ -20,13 +20,13 @@
                 {{--                @if(!empty($productsWholesaleSize[$product->id]))--}}
                 {{--                    @foreach($productsWholesaleSize[$product->id] as $ps)--}}
                 <div class="col-4 pl-0 pr-0">
-                    <label for="size">Оптом:</label>
+                    <label for="size" class="mt-2 pt-1">Оптом:</label>
                 </div>
-                <div class="col-5 pl-0 pr-0 text-center">
-                    <div class="grey rounded">
+                <div class="col-8 pl-0 pr-0 mb-2">
+                    <div class=" d-flex justify-content-start">
                         @foreach($productSize as $size1)
                             @foreach(json_decode($size1['sizes']) as $value)
-                                <span class="">{{ $value }}</span>
+                                <span class="border rounded-circle my-2 ml-1 p-1">{{ $value }}</span>
                             @endforeach
                         @endforeach
                     </div>
@@ -37,7 +37,7 @@
                 <div class="col-5 pl-0 pr-0 text-center">
                     @foreach($productSize as $size1)
                         <div class="col-7 text-right pl-0 pr-0">
-                            <p class="blue-text" style="font-size: 12px;">{{ $size1->price }}kgs</p>
+                            <p class="text-info" style="font-size: 12px;">{{ $size1->price }}kgs</p>
                         </div>
                         @break
                     @endforeach

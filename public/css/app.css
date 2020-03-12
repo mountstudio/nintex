@@ -9990,10 +9990,6 @@ a.text-dark:focus, a.text-dark:hover {
     background-color: #2196f3 !important
 }
 
-.blue-text {
-    color: #2196f3 !important
-}
-
 .rgba-blue-slight, .rgba-blue-slight:after {
     background-color: rgba(33, 150, 243, .1)
 }
