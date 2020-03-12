@@ -10,7 +10,7 @@ fCarousel.owlCarousel({
 
 });
 sCarousel.slick({
-    slidesToShow: 4,
+    slidesToShow: 1,
     slidesToScroll: 1,
     isfinite: true,
     speed: 300,
@@ -22,10 +22,10 @@ sCarousel.slick({
 })
 
 fCarousel.on('click','.owl-next', function () {
-    sCarousel.trigger('slickNext');
+    sCarousel.slick('slickNext');
 });
 fCarousel.on('click','.owl-prev', function () {
-    sCarousel.trigger('slickPrev');
+    sCarousel.slick('slickPrev');
 });
 
 sCarousel.on('click','.slick-next', function () {
@@ -39,9 +39,9 @@ sCarousel.on('click','.slick-prev', function () {
 fCarousel.on('dragged.owl.carousel', function (e) {
 
     if (e.relatedTarget.state.direction == 'left') {
-        sCarousel.trigger('slickNext');
+        sCarousel.slick('slickNext');
     } else {
-        sCarousel.trigger('slickPrev');
+        sCarousel.slick('slickPrev');
     }
 
 });

@@ -40,7 +40,7 @@
 
                     <!--Card image-->
                     <div class="view zoom">
-                        <a href="{{ route('product.index') }}">
+                        <a href="{{ route('product.index2') }}">
                             <img src="{{ asset('img/stock.png') }}" class="img-fluid" alt="">
                             <div class="stripe light">
                                 <a>
@@ -64,7 +64,7 @@
 
                     <!--Card image-->
                     <div class="view zoom">
-                        <a href="{{ route('product.index') }}">
+                        <a href="{{ route('product.discount') }}">
                             <img src="{{ asset('img/new.png') }}" class="img-fluid" alt="">
                             <div class="stripe light">
                                 <a>

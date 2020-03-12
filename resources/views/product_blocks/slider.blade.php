@@ -1,27 +1,30 @@
-<div class="col-7">
-    <div class="owl-carousel" id="fCarousel">
-        @foreach($product['colors'] as $item)
-            @foreach($item[0] as $value)
-                    <div class="item">
-                        <img class="carousel-img1" src="{{ asset('uploads/'.$value) }}"
-                             style="height: 600px; width: 300px;" alt="">
-                    </div>
-            @endforeach
-        @endforeach
-    </div>
-</div>
+<div class="row">
 
-<div class="col-5">
-    <div class="slick-carousel">
-        @foreach($product['colors'] as $item)
-            @foreach($item as $value)
-                @foreach($value as $key)
-        <div class="">
-            <img src="{{  asset('uploads/'.$key) }}" style="height: 114px; width: 57px;" alt="">
-        </div>
+    <div class="col-4 px-0">
+        <div class="slick-carousel  d-flex justify-content-center">
+            @foreach($productWholesaleSizes as $item)
+                @foreach(json_decode($item['images']) as $value)
+                    <div class="item pb-1">
+                        <img class="carousel-img1" src="{{ asset('storage/large/'.$value) }}"
+                             style="height: 150px; width: 75px;" alt="">
+                    </div>
                 @endforeach
             @endforeach
-        @endforeach
+        </div>
+    </div>
+    <div class="col-8 px-0">
+        <div class="owl-carousel" id="fCarousel">
+            {{--        <img style=""--}}
+            {{--             src="{{ asset('storage/medium/'.$product->logo)}}" class="img-fluid" alt="">--}}
+            @foreach($productWholesaleSizes as $item)
+                @foreach(json_decode($item['images']) as $value)
+                    <div class="item">
+                        <img class="carousel-img1" src="{{ asset('storage/large/'.$value) }}"
+                             style="height: 600px; width: 300px;" alt="">
+                    </div>
+                @endforeach
+            @endforeach
+        </div>
     </div>
 </div>
 

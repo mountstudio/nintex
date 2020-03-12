@@ -13,10 +13,11 @@
                 </div>
             </div>
             <div class="col-6">
-                <div class="md-form">
-                    <textarea id="description" name="description" value="{{ $product->description }}" class="md-textarea form-control" rows="3"></textarea>
-                    <label for="description">{{ __('Описание') }}</label>
-                </div>
+{{--                <div class="md-form">--}}
+{{--                    @dd( $product->description)--}}
+{{--                    <textarea id="description" name="description" value="{{ $product->description }}" class="md-textarea form-control" rows="3"></textarea>--}}
+{{--                    <label for="description">{{ __('Описание') }}</label>--}}
+{{--                </div>--}}
             </div>
             <div class="col-6">
                 <label>Выберите фото</label>

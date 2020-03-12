@@ -19,6 +19,18 @@
                 </div>
             </div>
             <div class="col-6">
+                <div class="md-form">
+                    <textarea id="composition" name="information" class="md-textarea form-control" rows="3"></textarea>
+                    <label for="composition">{{ __('ИНформация о товаре') }}</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="md-form">
+                    <textarea id="composition" name="composition" class="md-textarea form-control" rows="3"></textarea>
+                    <label for="composition">{{ __('Состав/Уход') }}</label>
+                </div>
+            </div>
+            <div class="col-6">
                 <label>Выберите фото</label>
                 <input type="file" name="logo">
             </div>

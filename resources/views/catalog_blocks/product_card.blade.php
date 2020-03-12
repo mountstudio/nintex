@@ -23,12 +23,13 @@
                     <label for="size">Оптом:</label>
                 </div>
                 <div class="col-5 pl-0 pr-0 text-center">
-                    @foreach($productSize as $size1)
-                        <div class="grey rounded">
-                            <span class="pl-1 pr-1 pt-1 pb-1">{{ $size1->sizes }}</span>
-                        </div>
-                        @break
-                    @endforeach
+                    <div class="grey rounded">
+                        @foreach($productSize as $size1)
+                            @foreach(json_decode($size1['sizes']) as $value)
+                                <span class="">{{ $value }}</span>
+                            @endforeach
+                        @endforeach
+                    </div>
                 </div>
                 <div class="col-4 pl-0 pr-0">
                     <label for="size">Цена:</label>

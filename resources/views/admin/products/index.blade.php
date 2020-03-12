@@ -14,6 +14,7 @@
             <th>Created At</th>
             <th>Updated At</th>
             <th>Action</th>
+            <th>Hit</th>
         </tr>
         </thead>
     </table>
@@ -37,9 +38,16 @@
                     { data: 'title', name: 'title' },
                     { data: 'created_at', name: 'created_at' },
                     { data: 'updated_at', name: 'updated_at' },
-                    { data: 'action', name: 'action' }
+                    { data: 'action', name: 'action' },
+                    { data: 'checkbox', name: 'checkbox', orderable: false, searchable: false }
                 ]
             });
-        });
+        });d
+    </script>
+    <script>
+            $('.check').click(function(){
+                let check = $(this).currentTarget;
+                console.log(check);
+            })
     </script>
 @endpush

@@ -4,8 +4,7 @@
         <div class="container-fluid pt-5">
             <div class="row justify-content-center">
                 <div class="col-9 col-lg-4">
-                    <img style=""
-                         src="{{ asset('storage/medium/'.$product->logo)}}" class="img-fluid" alt="">
+                    @include('product_blocks.slider')
                 </div>
                 <div class="col-12 col-lg-6 position-relative">
                     <div class=" d-flex justify-lg-content-end" style=" border-bottom-left-radius: 100px;">
@@ -116,18 +115,17 @@
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                              aria-labelledby="pills-home-tab">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt hic ipsum iste optio,
-                            quia quis quod velit voluptas!
+                            {{ $product->information }}
                         </div>
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                              aria-labelledby="pills-profile-tab">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem eveniet id neque nisi, optio
-                            perspiciatis.
+                            {{ $product->composition }}
                         </div>
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                              aria-labelledby="pills-contact-tab">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A doloremque eligendi harum iure
-                            placeat porro reiciendis similique ut vitae.
+                            Доставку по всему Кыргызстану и СНГ
+                            Наш телефон для связи: 0777 57-89-58,
+                            0555 65-98-58, 0703 96-58-74
                         </div>
                     </div>
                 </div>
@@ -451,6 +449,9 @@
 
             console.log(media);
         })
+    </script>
+    <script src="{{ asset('js/slider-product.js') }}">
+
     </script>
     @includeWhen(auth()->check(), 'partials.scripts.favorite_click')
 @endpush

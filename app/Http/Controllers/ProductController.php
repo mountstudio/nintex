@@ -33,7 +33,7 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        $products = Product::all()->sortAndFilter($request)->paginate(10);
+        $products = Product::all()->sortAndFilter($request)->paginate(9);
         return view('products.index', [
             'products' => $products,
             'requestValues' => $request,
@@ -41,17 +41,21 @@ class ProductController extends Controller
             'categories' => Category::all(),
         ]);
     }
+
     public function index2(Request $request)
     {
-        $products = Product::all()->sortAndFilter($request)->paginate(10);
-        $last_15_days = Product::where('created_at', '>=', Carbon::now()->subdays(7))->get();
+//        $last_15_days = Product::where('created_at', '>=', Carbon::now()->subdays(7))->get();
+        $products = Product::all()->sortAndFilter($request)->paginate(9)
+            ->where('created_at', '>=', Carbon::now()->subdays(7));
         return view('products.week_products', [
             'products' => $products,
             'categories' => Category::all(),
-            'newProducts' => $last_15_days,
+            'newProducts' => $products,
         ]);
     }
-    public function discount(Request $request){
+
+    public function discount(Request $request)
+    {
         $products = Product::all()->sortAndFilter($request)->paginate(10);
         $discount = Product::where('discount', '>', 0)->get();
         return view('products.discount_products', [
@@ -173,13 +177,15 @@ class ProductController extends Controller
         $productWholesaleColors = null;
 
 
-
         $productWholesaleSizes = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->get()->unique('sizes');    //выбор размеров продукта для оптовой продажи
         $productWholesaleColors = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->where('quantity', '>', '0')->get()->unique('color');   //выбор всех цветов продукта для оптовой продажи
         $comments = Comment::where('product_id', $product->id)->where('parent_id', 0)->get();
         $commentsQuantity = Comment::where('product_id', $product->id);
         $commentCount = $commentsQuantity->count();
-
+        $images = [];
+        foreach ($productWholesaleSizes as $value) {
+            $images[] = $value->images;
+        }
         return view('products.show', [
             'product' => $product,
             'productWholesaleSizes' => $productWholesaleSizes,
@@ -206,30 +212,30 @@ class ProductController extends Controller
     {
         $s = Size::where('size', $request->size)->get();
         $productSizeColors = ProductSize::where('product_id', $request->product_id)->
-                                          where('sizes', $s[0]->id)->
-                                          where('quantity', '>', '0')->
-                                          where('type', 'retail')->get()->unique('color');
+        where('sizes', $s[0]->id)->
+        where('quantity', '>', '0')->
+        where('type', 'retail')->get()->unique('color');
         $retailQuantity = (int)ProductSize::where('product_id', $request->product_id)->
-                                        where('sizes', $s[0]->id)->
-                                        where('quantity', '>', '0')->
-                                        where('type', 'retail')->sum('quantity');
+        where('sizes', $s[0]->id)->
+        where('quantity', '>', '0')->
+        where('type', 'retail')->sum('quantity');
         return response()->json(['colors' => $productSizeColors, 'quantity' => $retailQuantity]);
     }
 
     public function selectQuantityProductColor(Request $request)
     {
         $quantityProduct = (int)ProductSize::where('product_id', $request->product_id)->
-                                    where('sizes', $request->size)->
-                                    where('color', $request->color)->
-                                    sum('quantity');
+        where('sizes', $request->size)->
+        where('color', $request->color)->
+        sum('quantity');
         return response()->json(['quantity' => $quantityProduct]);
     }
 
     public function selectProductSize(Request $request)
     {
         $productSize = ProductSize::where('product_id', $request->product_id)->
-                                    where('sizes', $request->size)->
-                                    where('color', $request->color)->get();
+        where('sizes', $request->size)->
+        where('color', $request->color)->get();
         return response()->json($productSize->first());
     }
 
@@ -285,7 +291,7 @@ class ProductController extends Controller
 
         Session::flash('status', ['status' => 'success', 'message' => 'Товар был успешно обнолен']);
 
-        return redirect()->route('product.index');
+        return redirect()->route('admin.product.datatable');
     }
 
     /**
@@ -318,9 +324,16 @@ class ProductController extends Controller
     public function datatableData(Request $request)
     {
         return DataTables::of(Product::query())
-            ->addColumn('action', function (Product $product){
+            ->addColumn('action', function (Product $product) {
                 return view('admin.products.action', ['product' => $product]);
             })
+            ->addColumn('checkbox', function ($product) {
+                return '<div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input check"  id="'. $product->id .'">
+                            <label class="custom-control-label" for="'. $product->id .'"></label>
+                        </div>';
+            })
+            ->rawColumns(['checkbox', 'action'])
             ->make(true);
     }
 
@@ -364,7 +377,14 @@ class ProductController extends Controller
         return view('product_blocks.slider', ['products' => Product::all()]);
     }
 
-    public function filter(Request $request){
+    public function filter(Request $request)
+    {
 
+    }
+    public function checkbox(Request $request){
+        $check = Product::find($request->id);
+        $check->hit = $request->value;
+        $check->save();
+        return response()->json('Успех');
     }
 }

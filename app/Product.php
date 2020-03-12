@@ -12,11 +12,11 @@ class Product extends Model
 {
     use Favoriteable;
 
-    protected $fillable = ['title', 'logo','description', 'season', 'category_id', 'wholesale_price', 'discount'];
-//    protected $casts = [
-//        'colors' => 'array',
-//        'sizes' => 'array',
-//    ];
+    protected $fillable = ['title', 'logo','description', 'season', 'category_id', 'wholesale_price', 'discount', 'information', 'composition', 'hit'];
+    protected $casts = [
+        'sizes' => 'array',
+        'images' => 'array',
+    ];
 
     public function newCollection(array $models = [])
     {
