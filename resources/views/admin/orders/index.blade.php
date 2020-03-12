@@ -68,8 +68,6 @@
                 let optVal = $(this).val();
                 let id = $(this).data('id');
 
-
-
                 console.log(optVal, id);
 
                 $.ajax({

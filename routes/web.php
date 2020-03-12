@@ -81,6 +81,7 @@ Route::get('/products', 'Api\ProductController@index')->name('product.all');
 //Route::get('/products/filter', 'ProductController@filter')->name('product.filter');
 
 Route::post('/save/select', 'CartController@save_select')->name('cart.save_select');
+Route::post('/check', 'ProductController@checkbox')->name('cart.checkbox');
 
 //Ajax route
 Route::get('/selectColorsForRetailSize', 'ProductController@selectColorsForRetailSize')->name('product.selectColorsForRetailSize');
