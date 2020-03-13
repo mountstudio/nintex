@@ -27,7 +27,7 @@
                         <img class="position-absolute w-100" style="left: 0; bottom: 0;"
                              src="{{ asset('img/Vector 1.svg') }}" alt="">
 
-                        <div class="col-5 pb-5 pl-5 mt-5">
+                        <div class="col-12 pb-5 pl-5 mt-5">
                             <div class="j-size-list size-list j-smart-overflow-instance">
                                 {{--                                @if($wholesaleProductQuantity > 0)--}}
                                 <p class="mb-0 h5">Линейка размеров:</p>
