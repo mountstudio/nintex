@@ -40,9 +40,9 @@
                                                data-size="{{ $productWholesaleSize->sizes }}"
                                                value="{{ $productWholesaleSize->sizes }}">
                                         {{--                                        @dd($productWholesaleSize->sizes)--}}
-                                        <label for="defaultUnchecked" class="blue rounded">
+                                        <label for="defaultUnchecked" class="mt-2">
                                             @foreach(json_decode($productWholesaleSize->sizes) as $size)
-                                                <span id="sizeText" class="pl-1 pr-1 h5">{{ $size }}</span>
+                                                <span id="sizeText" class="p-1 ml-1 h5 border border-dark rounded-circle">{{ $size }}</span>
                                             @endforeach
                                         </label>
                                         </input>

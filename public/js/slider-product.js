@@ -10,15 +10,13 @@ fCarousel.owlCarousel({
 
 });
 sCarousel.slick({
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     isfinite: true,
     speed: 300,
     vertical: true,
     verticalSwiping: true,
-    nextArrow: '<div class="btn border-0 shadow-none px-2 slick-next"><img src="../icons/arrow-up.png" style="width: 24px; height: 24px;" alt=""></div>',
-    prevArrow: '<div class="btn border-0 shadow-none px-2 slick-prev"><img src="../icons/arrow-down.png" style="width: 24px; height: 24px;" alt=""></div>',
-
+    arrows: false
 })
 
 fCarousel.on('click','.owl-next', function () {

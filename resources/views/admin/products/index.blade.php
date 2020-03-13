@@ -42,12 +42,30 @@
                     { data: 'checkbox', name: 'checkbox', orderable: false, searchable: false }
                 ]
             });
-        });d
+        });
     </script>
     <script>
-            $('.check').click(function(){
-                let check = $(this).currentTarget;
-                console.log(check);
+        $(document).ready(function () {
+            $(document).on('click', '.check', function(){
+                let check = $(this).val();
+                let id = $(this).attr('id');
+                console.log(check, id);
+                $.ajax({
+                    url: "{{ route('cart.checkbox') }}",
+                    method: 'post',
+                    data: {
+                        value: check,
+                        id: id
+                    },
+                    success: data => {
+                        console.log(data, 'Успех');
+                    },
+                    error: data => {
+                      console.log(data, 'Ошибка');
+                    }
+                })
             })
+        })
+
     </script>
 @endpush
