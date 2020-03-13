@@ -683,6 +683,8 @@
         $('#nintexCarousel').owlCarousel({
             center: true,
             items: 1,
+            autoplay:true,
+            autoplaySpeed: 2000,
             loop:true,
             dots:true,
             margin:10,

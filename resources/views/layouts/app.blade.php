@@ -26,7 +26,6 @@
     @stack('styles')
 
     <script src="https://js.cx/libs/animate.js"></script>
-
 </head>
 <body class="bg-white">
     <div id="app pt-4">

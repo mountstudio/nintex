@@ -391,9 +391,8 @@ class ProductController extends Controller
     public function checkbox(Request $request)
     {
         $check = Product::find($request->id);
-        dd($request->value);
         if ($request->value) {
-            $check->hit = 0;
+            $check->hit = !$check->hit;
             $check->save();
         }
         return response()->json('Успех');
