@@ -325,39 +325,37 @@
                     <a class="nav-link dropdown-toggle text-uppercase pt-1 px-1 pb-1" style="font-size: 16px" title="Все Коллекции"
                        id="navbarDropdownMenuLink3" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Коллекция</a>
-                    <div class="dropdown-menu mega-menu v-2 z-depth-1 bg-light py-5 px-3"
-                         aria-labelledby="navbarDropdownMenuLink3" style="width: 1200px!important; left: -200%!important;">
+                    <div class="dropdown-menu mega-menu v-2 z-depth-1 bg-white py-5 px-3"
+                         aria-labelledby="navbarDropdownMenuLink3" style="width: 1200px!important; left: -230%!important;">
                         <div class="row">
                             <div class="col-4 sub-menu mb-md-0 mb-4">
-                                <h6 class="sub-title text-uppercase font-weight-bold white-text">Related</h6>
+                                <h6 class="sub-title text-uppercase font-weight-bold text-dark">Хиты</h6>
                                 <div class="row">
                                     <div class="col-6">
                                         <ul class="list-unstyled">
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    <i class="fas fa-caret-right pl-1 pr-3"></i>Quis nostrud exercitation
+                                                    Lorem ipsum.
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    <i class="fas fa-caret-right pl-1 pr-3"></i>Duis aute irure dolor in
+                                                    Lorem ipsum.
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    <i class="fas fa-caret-right pl-1 pr-3"></i>Laboris nisi ut aliquip ex ea
-                                                    commodo consequat
+                                                    Lorem ipsum.
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    <i class="fas fa-caret-right pl-1 pr-3"></i>Reprehenderit in voluptate
+                                                    Lorem ipsum.
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    <i class="fas fa-caret-right pl-1 pr-3"></i>Esse cillum dolore eu fugiat
-                                                    nulla pariatur
+                                                    Lorem ipsum.
                                                 </a>
                                             </li>
                                         </ul>
@@ -366,29 +364,27 @@
                                         <ul class="list-unstyled">
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-
+                                                    Lorem ipsum.
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    <i class="fas fa-caret-right pl-1 pr-3"></i>Duis aute irure dolor in
+                                                    Lorem ipsum.
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    <i class="fas fa-caret-right pl-1 pr-3"></i>Laboris nisi ut aliquip ex ea
-                                                    commodo consequat
+                                                    Lorem ipsum.
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    <i class="fas fa-caret-right pl-1 pr-3"></i>Reprehenderit in voluptate
+                                                    Lorem ipsum.
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    <i class="fas fa-caret-right pl-1 pr-3"></i>Esse cillum dolore eu fugiat
-                                                    nulla pariatur
+                                                    Lorem ipsum.
                                                 </a>
                                             </li>
                                         </ul>
@@ -397,39 +393,70 @@
                             </div>
 
                             <div class="col-4 sub-menu mb-0">
-                                <h6 class="sub-title text-uppercase font-weight-bold white-text">Коллекции</h6>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a class="menu-item pl-0" href="#!">
-                                            Зимнии коллекции
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="menu-item pl-0" href="#!">
-                                            <i class="fas fa-caret-right pl-1 pr-3"></i>Sunt in culpa qui officia
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="menu-item pl-0" href="#!">
-                                            <i class="fas fa-caret-right pl-1 pr-3"></i>Sed ut perspiciatis unde omnis
-                                            iste natus error
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="menu-item pl-0" href="#!">
-                                            <i class="fas fa-caret-right pl-1 pr-3"></i>Mollit anim id est laborum
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="menu-item pl-0" href="#!">
-                                            <i class="fas fa-caret-right pl-1 pr-3"></i>Accusantium doloremque
-                                            laudantium
-                                        </a>
-                                    </li>
-                                </ul>
+                                <h6 class="sub-title text-uppercase font-weight-bold text-dark">Коллекции</h6>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Зимнии коллекции
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Весеннии коллекции
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Летнии коллекции
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Осеннии коллекции
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Юбки
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Зимнии коллекции
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Весеннии коллекции
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Летнии коллекции
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Осеннии коллекции
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Юбки
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-4 sub-menu mb-xl-0 mb-4">
-                                <h6 class="sub-title text-uppercase font-weight-bold white-text">Featured</h6>
+                                <h6 class="sub-title text-uppercase font-weight-bold text-dark">Featured</h6>
                                 <!--Featured image-->
                                 <a href="#!" class="view overlay z-depth-1 p-0 mb-2">
                                     <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/8-col/img%20(37).jpg"
