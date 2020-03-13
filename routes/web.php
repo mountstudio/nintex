@@ -67,6 +67,7 @@ Route::resource('comment', 'CommentController')->only(['index', 'show', 'store']
 
 Route::get('/new_products', 'ProductController@index2')->name('product.index2');
 Route::get('/discount_products', 'ProductController@discount')->name('product.discount');
+Route::get('/hits', 'ProductController@hit')->name('product.hit');
 
 //Cart
 Route::get('/cart', 'CartController@index')->name('cart.index');

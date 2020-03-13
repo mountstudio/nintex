@@ -52,7 +52,7 @@
                 console.log(check, id);
                 $.ajax({
                     url: "{{ route('cart.checkbox') }}",
-                    method: 'post',
+                    method: 'POST',
                     data: {
                         value: check,
                         id: id

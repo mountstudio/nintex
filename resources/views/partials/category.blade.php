@@ -15,7 +15,7 @@
 
                     <!--Card image-->
                     <div class="view zoom">
-                        <a href="#">
+                        <a href="{{ route('product.hit') }}">
                             <img src="{{ asset('img/hits.png') }}" class="img-fluid" alt="">
 
                             <div class="stripe light">

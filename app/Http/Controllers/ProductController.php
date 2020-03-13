@@ -64,6 +64,15 @@ class ProductController extends Controller
             'categories' => Category::all(),
         ]);
     }
+    public function hit(Request $request){
+        $products = Product::all()->sortAndFilter($request)->paginate(10);
+        $hit = Product::where('hit', '=', 1)->get();
+        return view('products.hit', [
+            'products' => $products,
+            'hits' => $hit,
+            'categories' => Category::all(),
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -328,10 +337,7 @@ class ProductController extends Controller
                 return view('admin.products.action', ['product' => $product]);
             })
             ->addColumn('checkbox', function ($product) {
-                return '<div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input check"  id="'. $product->id .'">
-                            <label class="custom-control-label" for="'. $product->id .'"></label>
-                        </div>';
+                return view('admin.products.checkbox', ['product' => $product]);
             })
             ->rawColumns(['checkbox', 'action'])
             ->make(true);
@@ -381,10 +387,15 @@ class ProductController extends Controller
     {
 
     }
-    public function checkbox(Request $request){
+
+    public function checkbox(Request $request)
+    {
         $check = Product::find($request->id);
-        $check->hit = $request->value;
-        $check->save();
+        dd($request->value);
+        if ($request->value) {
+            $check->hit = 0;
+            $check->save();
+        }
         return response()->json('Успех');
     }
 }
