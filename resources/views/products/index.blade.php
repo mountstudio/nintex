@@ -65,7 +65,7 @@
             <div class="col-12 col-md-9 my-5">
                 <div class="row">
                     @foreach($products as $product)
-                        <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="col-lg-4 col-6 px-1 mb-4">
                             @include('catalog_blocks.product_card', ['product' => $product, 'productSize' => \App\ProductSize::where('product_id', $product->id)->get() ])
                         </div>
                     @endforeach

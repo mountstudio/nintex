@@ -1,9 +1,23 @@
+
 .bg-img {
     background: url("../img/Vector.svg") no-repeat left bottom;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.item-size {/* style for size in index.blade.php*/
+    background-color: #f7f7f7;
+    border-radius: 50%;
+    border: 1px solid #0f0f0f;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 11px;
+    text-align: center;
+    display: inline-block;
+    margin: 2px;
 }
 
 .dropdown:hover .dropdown-menu {display: block;}/*for header dropdown */
@@ -1108,3 +1122,16 @@
     color: #008FCD!important;
 }
 /* end footer style */
+.card-width{/* style for card in index.blade.php */
+    width: 135px;
+}
+.card-text{
+    font-size: 16px;
+}
+.card-price{
+    font-size: 14px;
+}
+.text-bold{
+    font-weight: bold;
+}
+@import "media.css" all;
