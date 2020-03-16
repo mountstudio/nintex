@@ -38,18 +38,22 @@
                             <div class="col-5 sub-menu position-relative mb-xl-0 mb-4">
                                 <div class="row justify-content-between">
                                     <div class="col-6">
-                                        <a href="#!" class="menu-block-slide view overlay z-depth-1 p-0 mb-2">
-                                            <img src="https://cdn.shopify.com/s/files/1/2714/9310/products/Unique_Vintage_1950s_Black_Embroidered_Red_Rose_Baltimore_Swing_Dress_1024x1024.jpg?v=1571711475"
+                                        <a href="{{ route('product.index2') }}"
+                                           class="menu-block-slide view overlay z-depth-1 p-0 mb-2">
+                                            <img src="{{ asset('img/modals/girl-black-collection.jpg') }}"
                                                  class="img-fluid " alt="First sample image">
-                                            <span class="menu-block-text">Lorem ipsum</span>
+                                            <span class="menu-block-text">Новинки</span>
                                         </a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="#!" class="menu-block-slide view overlay z-depth-1 p-0 mb-2">
-                                            <img src="https://cdn.shopify.com/s/files/1/2714/9310/products/Unique_Vintage_1950s_Black_Embroidered_Red_Rose_Baltimore_Swing_Dress_1024x1024.jpg?v=1571711475"
-                                                 class="img-fluid " alt="First sample image">
-                                            <span class="menu-block-text">Lorem ipsum</span>
-                                        </a>
+                                        @foreach($random as $value)
+                                            <a href="{{ route('product.show', $value) }}"
+                                               class="menu-block-slide view overlay z-depth-1 p-0 mb-2">
+                                                <img src="{{ asset('storage/medium/'.$value->logo) }}"
+                                                     class="img-fluid " alt="First sample image">
+                                                <span class="menu-block-text">{{ $value->category->title }}</span>
+                                            </a>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -57,31 +61,14 @@
                                 <div class="pl-5">
                                     <h6 class="sub-title text-uppercase font-weight-bold text-dark">Хиты</h6>
                                     <ul class="list-unstyled">
-                                        <li>
-                                            <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                Lorem ipsum.
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                Lorem ipsum.
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                Lorem ipsum.
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                Lorem ipsum.
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                Lorem ipsum.
-                                            </a>
-                                        </li>
+                                        @foreach($hits as $hit)
+                                            <li>
+                                                <a class="menu-item pl-0" style="font-size: 14px;"
+                                                   href="{{ route('product.show', $hit) }}">
+                                                    {{ $hit->title }}
+                                                </a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -90,100 +77,22 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <ul class="list-unstyled">
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Новинки
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Зимнии коллекции
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Весеннии коллекции
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Летнии коллекции
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Осеннии коллекции
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Юбки
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Платья
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Топы
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Шорты
-                                                </a>
-                                            </li>
+                                            {{--                                            @dd($categories)--}}
+                                            @foreach($categories->split(2) as $category)
+                                                {{--                                                @dd($category)--}}
+                                                @foreach($category as $value)
+                                                    <li>
+                                                        <a class="menu-item pl-0"
+                                                           href="{{ route('product.index', ['allCatalog['. $value->id .']' => 'on']) }}">
+                                                            {{ $value->title }}
+                                                        </a>
+                                                    </li>
+                                                @endforeach
                                         </ul>
                                     </div>
                                     <div class="col-6">
                                         <ul class="list-unstyled">
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Толстовки
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Куртки
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Пальто
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Пиджаки
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Джинсы
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Трикотаж
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Рубашки
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Футболки
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Боди
-                                                </a>
-                                            </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>

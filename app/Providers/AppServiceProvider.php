@@ -2,8 +2,11 @@
 
 namespace App\Providers;
 
+use App\Category;
+use App\Product;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 
@@ -54,5 +57,20 @@ class AppServiceProvider extends ServiceProvider
             }
             return false;
         });
+
+//        view()->composer('blocks.right-sidebar.new', function ($view) use ($articles_for_subblock) {
+//            $view->with('articles_for_subblock', $articles_for_subblock);
+//        });
+
+        $collection = Product::all();
+        $random = $collection->random(1);
+        View::share('random', $random);
+
+        $categories = Category::all();
+        View::share('categories', $categories);
+
+        $hits = Product::where('hit', '=', 1)->get();
+        $rand_hit = $hits->random(7);
+        View::share('hits', $rand_hit);
     }
 }

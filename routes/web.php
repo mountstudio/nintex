@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
 Route::get('/basket', function () {
     return view('basket');
 })->name('basket');
