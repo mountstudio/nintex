@@ -46,9 +46,6 @@
                 }
             });
         });
-
-
-
         function registerSelectStatus(html) {
             html.change(e => {
                 let select = $(e.currentTarget);
@@ -57,11 +54,6 @@
                 console.log(value);
             })
         }
-
-
-
-
-
         $(document).ready(function ()
         {
             $(document).on('change', 'select', function () {
