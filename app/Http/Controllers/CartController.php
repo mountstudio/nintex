@@ -344,7 +344,6 @@ class CartController extends Controller
 
     public function datatableData(Request $request)
     {
-
 //        return DataTables::of(Product::query())->make(true);
         return DataTables::of(Cart::query())
             ->addColumn('action', function($row) {
