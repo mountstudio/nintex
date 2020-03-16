@@ -10,6 +10,9 @@
     .card-price{
     font-size: 13px;
 }
+    .owl-stage .owl-item {
+        height: 350px!important;
+    }
 }
 @media screen and (min-width: 768px) {
     .card-width {
@@ -19,6 +22,9 @@
     .card-price{
     font-size: 14px;
 }
+    .owl-stage .owl-item {
+        height: 400px!important;
+    }
 }
 @media screen and (min-width: 992px) {
     .card-width {
@@ -27,6 +33,9 @@
     .card-price{
     font-size: 14px;
 }
+    .owl-stage .owl-item {
+        height: 540px!important;
+    }
 }
 @media screen and (min-width: 1200px) {
     .card-width {
@@ -35,4 +44,7 @@
     .card-price{
     font-size: 14px;
 }
+    .owl-stage .owl-item {
+        height: 580px!important;
+    }
 }

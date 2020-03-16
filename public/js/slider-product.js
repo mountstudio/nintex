@@ -1,42 +1,40 @@
-let fCarousel = $('#fCarousel'),
-    sCarousel = $('.slick-carousel');
+let fCarousel = $('.slick-one-item'),
+    sCarousel = $('.slick-five-item');
 
-fCarousel.owlCarousel({
-    loop: true,
-    items: 1,
-    margin: 10,
-    nav: true,
-    dots: false,
-
+fCarousel.slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    isfinite: false,
+    speed: 300,
 });
 sCarousel.slick({
     slidesToShow: 3,
     slidesToScroll: 1,
-    isfinite: true,
+    isfinite: false,
     speed: 300,
     vertical: true,
     verticalSwiping: true,
+    centerMode: true,
+    centerPadding: '40px',
     arrows: false
-})
+});
 
-fCarousel.on('click','.owl-next', function () {
+fCarousel.on('click','.slick-next' , function () {
     sCarousel.slick('slickNext');
 });
-fCarousel.on('click','.owl-prev', function () {
+fCarousel.on('click', '.slick-prev' , function () {
     sCarousel.slick('slickPrev');
 });
 
 sCarousel.slick('setPosition', function () {
-    fCarousel.trigger('to.owl.carousel')
-})
+    fCarousel.slick('')
+});
 
-
-fCarousel.on('dragged.owl.carousel', function (e) {
-
-    if (e.relatedTarget.state.direction == 'left') {
-        sCarousel.slick('slickNext');
-    } else {
+fCarousel.on('swipe', function (event, slick, direction) {
+    console.log(event, slick, direction);
+    if(direction == 'right') {
         sCarousel.slick('slickPrev');
+    } else {
+        sCarousel.slick('slickNext');
     }
-
 });

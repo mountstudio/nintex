@@ -30,10 +30,10 @@
                 <!-- Коллекции -->
                 <li class="nav-item dropdown mega-dropdown pt-2 mx-4">
                     <a class="nav-link dropdown-toggle text-uppercase pt-1 px-1 pb-1" style="font-size: 16px" title="Все Коллекции"
-                       id="navbarDropdownMenuLink3" data-toggle="dropdown"
+                       id="navbarDropdownMenuLink" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Коллекция</a>
                     <div class="dropdown-menu mega-menu v-2 z-depth-1 bg-white py-5 px-3"
-                         aria-labelledby="navbarDropdownMenuLink3" style="width: 1200px!important; left: -230%!important;">
+                         aria-labelledby="navbarDropdownMenuLink" style="width: 1200px!important; left: -230%!important;">
                         <div class="row">
                             <div class="col-5 sub-menu position-relative mb-xl-0 mb-4">
                                 <div class="row justify-content-between">
@@ -204,7 +204,7 @@
             <!-- Links -->
 
             <!-- Search form -->
-            <ul class=" mt-2 mt-lg-0 list-inline">
+            <ul class=" mt-2 mb-0 mt-lg-0 list-inline">
                 <li class="nav-item list-inline-item pt-4" style="width: 30%;">
                     <!-- Search form -->
                     <form class="form-inline md-form form-sm active-purple-2 mt-2">
@@ -271,26 +271,195 @@
             </a>
         </div>
         <div class="d-none d-lg-block col-lg-4 pt-1">
-            <ul class="navigation" id="anchor-style">
-                <li class="navigation-item">
-                    <a style="font-size: 14px" href="{{ route('product.index') }}"
-                       class="text-uppercase text-for-a px-1 pb-1" title="Просмотреть новинки">
-                        Новинки
-                    </a>
-                </li>
-                <li class="navigation-item">
-                    <a style="font-size: 14px" href="{{ route('product.index') }}"
-                       class="text-uppercase text-for-a px-1 pb-1" title="Просмотреть Коллекции">
-                        Коллекция
-                    </a>
-                </li>
-                <li class="navigation-item">
-                    <a style="font-size: 14px" href="/#bottom_stocks" class="text-uppercase text-for-a px-1 pb-1"
-                       title="Просмотреть Акции">
-                        Акции
-                    </a>
-                </li>
-            </ul>
+            <nav class="navbar navbar-expand-lg px-0 py-0 shadow-none">
+
+                <!-- Navbar brand -->
+                <a href="{{ route('home') }}" class="pb-2">
+                    <img src="{{ asset('img/logo3.png') }}" class="img-fluid" alt="">
+                </a>
+                <ul class="navbar-nav mr-auto">
+
+                    <!-- Новинки -->
+                    <li class="nav-item navigation-item pt-3">
+                        <a style="font-size: 16px" href="{{ route('product.index2') }}"
+                           class="text-uppercase text-for-a px-1 pb-1 text-dark" title="Просмотреть новинки">
+                            Новинки
+                        </a>
+                    </li>
+                    <!-- Коллекции -->
+                    <li class="nav-item dropdown mega-dropdown pt-2 mx-4">
+                        <a class="nav-link dropdown-toggle text-uppercase mt-1 pt-1 px-1 pb-1" style="font-size: 16px" title="Все Коллекции"
+                           type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Коллекция</a>
+                        <div class="dropdown-menu mega-menu v-2 z-depth-1 bg-white py-5 px-3"
+                             aria-labelledby="dropdownMenuButton" style="width: 1200px!important; left: -230%!important;">
+                            <div class="row">
+                                <div class="col-5 sub-menu position-relative mb-xl-0 mb-4">
+                                    <div class="row justify-content-between">
+                                        <div class="col-6">
+                                            <a href="#!" class="menu-block-slide view overlay z-depth-1 p-0 mb-2">
+                                                <img src="https://cdn.shopify.com/s/files/1/2714/9310/products/Unique_Vintage_1950s_Black_Embroidered_Red_Rose_Baltimore_Swing_Dress_1024x1024.jpg?v=1571711475"
+                                                     class="img-fluid " alt="First sample image">
+                                                <span class="menu-block-text">Lorem ipsum</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a href="#!" class="menu-block-slide view overlay z-depth-1 p-0 mb-2">
+                                                <img src="https://cdn.shopify.com/s/files/1/2714/9310/products/Unique_Vintage_1950s_Black_Embroidered_Red_Rose_Baltimore_Swing_Dress_1024x1024.jpg?v=1571711475"
+                                                     class="img-fluid " alt="First sample image">
+                                                <span class="menu-block-text">Lorem ipsum</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3 sub-menu mb-md-0 mb-4">
+                                    <div class="pl-5">
+                                        <h6 class="sub-title text-uppercase font-weight-bold text-dark">Хиты</h6>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
+                                                    Lorem ipsum.
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
+                                                    Lorem ipsum.
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
+                                                    Lorem ipsum.
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
+                                                    Lorem ipsum.
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
+                                                    Lorem ipsum.
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-4 sub-menu mb-0">
+                                    <h6 class="sub-title text-uppercase font-weight-bold text-dark">Категории</h6>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Новинки
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Зимнии коллекции
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Весеннии коллекции
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Летнии коллекции
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Осеннии коллекции
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Юбки
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Платья
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Топы
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Шорты
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-6">
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Толстовки
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Куртки
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Пальто
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Пиджаки
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Джинсы
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Трикотаж
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Рубашки
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Футболки
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="menu-item pl-0" href="#!">
+                                                        Боди
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Акции -->
+                    <li class="nav-item navigation-item pt-3">
+                        <a style="font-size: 16px" href="{{ route('product.discount') }}"
+                           class="text-uppercase text-for-a px-1 pb-1 text-dark" title="Просмотреть Акции">
+                            Акции
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
         </div>
         <div class="col-6 col-md-8 col-lg-6 d-flex justify-content-end px-0">
             <ul class="nav mt-2 mt-lg-0 list-inline">
@@ -313,7 +482,7 @@
                     </button>
 
                     <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary text-small">
+                    <div class="dropdown-menu dropdown-primary text-small" style="top: 50px!important; left: -98px!important;">
                         <p class="px-3">
                             Доставку по всему Кыргызстану и СНГ <br>
                             Наш телефон для связи: 0777 57-89-58, <br>

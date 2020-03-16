@@ -151,31 +151,43 @@
                                                   id="quickReplyFormComment" rows="5"></textarea>
                                     </div>
                                 </div>
+
+                                <div class="text-center my-4">
+                                    <button class="btn btn-primary btn-sm waves-effect waves-light"
+                                            type="submit"
+                                            id="childPostButton">Post
+                                    </button>
+                                </div>
                             @else
-                                <div class="row">
-                                    <div class="col-3">
+                                <div class="row" style="width: 600px;">
+                                    <div class="col-12">
+                                        <h5>Lorem ipsum.</h5>
                                     <textarea class="form-control" name="comment" placeholder="your comment"
                                               id="quickReplyFormComment" rows="5"></textarea>
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-12">
+                                        <h5>Lorem ipsum.</h5>
                                         <input type="text" name="name" value="" class="form-control" placeholder="name">
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-12">
+                                        <h5>Lorem ipsum dolor.</h5>
                                         <input type="text" name="phone" value="" class="form-control"
                                                placeholder="phone">
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-12">
+                                        <h5>Lorem ipsum.</h5>
                                         <input type="text" name="email" value="" class="form-control"
                                                placeholder="email">
                                     </div>
                                 </div>
+                                <div class="text-center my-4">
+                                    <button class="btn btn-primary btn-sm waves-effect waves-light"
+                                            type="submit"
+                                            id="childPostButton">Post
+                                    </button>
+                                </div>
                             @endif
-                            <div class="text-center my-4">
-                                <button class="btn btn-primary btn-sm waves-effect waves-light"
-                                        type="submit"
-                                        id="childPostButton">Post
-                                </button>
-                            </div>
+
                         </form>
                     </div>
                 </div>
