@@ -1,7 +1,7 @@
 <footer class="bg-dark position-relative" style="margin-top: 20px;">
     <div class="container">
-        <div class="row py-4">
-            <div class="col-12 col-xl-2">
+        <div class="row justify-content-center py-4">
+            <div class="col-12 col-md-4 col-lg-2">
                 <p class="h3 text-white">
                     Навигация
                 </p>
@@ -14,7 +14,7 @@
                     <a class="text-white mr-auto fz-footer hover-nav my-2" href="#" title="">- КОНТАКТЫ</a>
                 </nav>
             </div>
-            <div class="col-12 col-xl-3">
+            <div class="col-12 col-md-4 col-lg-2">
                 <p class="h3 text-white">
                     Категории
                 </p>
@@ -30,13 +30,12 @@
                     <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Женские брюки</a>
                     <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Юбки</a>
                     <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Женские комбинезоны</a>
-                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Женская одежда больших размеров</a>
-                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Костюмы</a>
-                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Верхняя одежда</a>
+                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Костюмы</a>
+                    <a class="text-white mr-auto fz-footer hover-categ " href="#" title="">- Верхняя одежда</a>
 
                 </nav>
             </div>
-            <div class="col-12 col-xl-3">
+            <div class="d-none d-lg-block col-lg-4">
                 <p class="h3 text-white">
                     Частые вопросы
                 </p>
@@ -63,29 +62,30 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-12 col-xl-4">
+            <div class="col-12 col-md-4 col-lg-4">
                 <p class="h3 text-white">
                     Контакты
                 </p>
                 <ul class="nav flex-column">
                     <li>
                         <div class="row">
-                            <div class="col-12 col-lg-6">
-                                <p class="text-white">Подписаться на рассылку</p>
+                            <div class="col-12 col-xl-6">
+                                <p class="text-white mt-1 mb-0 fz-footer">Подписаться на рассылку</p>
                             </div>
-                            <div class="col-12 col-lg-6 position-relative">
-                                <input type="text">
-                                <button class="position-absolute pos-img">
-                                    <img src="{{ asset('img/mail.svg') }}" alt="">
+                            <div class="col-12 col-xl-6 position-relative">
+                                <input type="text" style="height: 27px;">
+                                <button class="position-absolute pos-img p-0" style="height: 27px">
+                                    <img src="{{ asset('img/mail.svg') }}" width="22" height="21" alt="">
                                 </button>
                             </div>
                         </div>
+                        <hr>
                     </li>
                     <li class="nav-item">
                         <a href="" class="nav-link text-white d-flex px-0 hover-contact" title="Контактный номер и График работы">
                             <img src="{{ asset('icons/call_1.svg') }}" alt="Номер">&nbsp;
                             <p class="mb-1 font-weight-bold pl-1 fz-footer py-2">+996555449342</p>
-                            <p class="m-0 text-muted pl-1 fz-footer">Пн. – Сб.: с 9:00 до 18:00 (+6 GMT)</p>
+                            {{--<p class="m-0 text-muted pl-1 fz-footer">Пн. – Сб.: с 9:00 до 18:00 (+6 GMT)</p>--}}
                             {{--                            <div class="col-12">--}}
                             {{--                                --}}
                             {{--                            </div>--}}
