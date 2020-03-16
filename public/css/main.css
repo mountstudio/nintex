@@ -1135,3 +1135,35 @@
     font-weight: bold;
 }
 @import "media.css" all;
+.sub-menu .sub-slide:first-child {
+    text-align: left;
+}
+.sub-menu .sub-slide {
+    text-align: right;
+}
+.sub-slide {
+    display: table-cell;
+    width: 50%;
+}
+.sub-menu .menu-block-slide .menu-block-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family: bentonsansmedium;
+    line-height: 1;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.navbar .dropdown-menu  ul li a {
+    line-height: 30px!important;
+    font-size: 14px!important;
+    position: relative;
+    display: block;
+    padding: 0;
+}
+.pos-img {
+
+}

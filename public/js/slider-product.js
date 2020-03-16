@@ -26,12 +26,9 @@ fCarousel.on('click','.owl-prev', function () {
     sCarousel.slick('slickPrev');
 });
 
-sCarousel.on('click','.slick-next', function () {
-    fCarousel.trigger('next.owl.carousel');
-});
-sCarousel.on('click','.slick-prev', function () {
-    fCarousel.trigger('prev.owl.carousel');
-});
+sCarousel.slick('setPosition', function () {
+    fCarousel.trigger('to.owl.carousel')
+})
 
 
 fCarousel.on('dragged.owl.carousel', function (e) {

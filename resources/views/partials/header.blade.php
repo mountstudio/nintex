@@ -328,34 +328,104 @@
                     <div class="dropdown-menu mega-menu v-2 z-depth-1 bg-white py-5 px-3"
                          aria-labelledby="navbarDropdownMenuLink3" style="width: 1200px!important; left: -230%!important;">
                         <div class="row">
-                            <div class="col-4 sub-menu mb-md-0 mb-4">
-                                <h6 class="sub-title text-uppercase font-weight-bold text-dark">Хиты</h6>
+                            <div class="col-5 sub-menu position-relative mb-xl-0 mb-4">
+                                <div class="row justify-content-between">
+                                    <div class="col-6">
+                                        <a href="#!" class="menu-block-slide view overlay z-depth-1 p-0 mb-2">
+                                            <img src="https://cdn.shopify.com/s/files/1/2714/9310/products/Unique_Vintage_1950s_Black_Embroidered_Red_Rose_Baltimore_Swing_Dress_1024x1024.jpg?v=1571711475"
+                                                 class="img-fluid " alt="First sample image">
+                                            <span class="menu-block-text">Lorem ipsum</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a href="#!" class="menu-block-slide view overlay z-depth-1 p-0 mb-2">
+                                            <img src="https://cdn.shopify.com/s/files/1/2714/9310/products/Unique_Vintage_1950s_Black_Embroidered_Red_Rose_Baltimore_Swing_Dress_1024x1024.jpg?v=1571711475"
+                                                 class="img-fluid " alt="First sample image">
+                                            <span class="menu-block-text">Lorem ipsum</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 sub-menu mb-md-0 mb-4">
+                                <div class="pl-5">
+                                    <h6 class="sub-title text-uppercase font-weight-bold text-dark">Хиты</h6>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
+                                                Lorem ipsum.
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
+                                                Lorem ipsum.
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
+                                                Lorem ipsum.
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
+                                                Lorem ipsum.
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
+                                                Lorem ipsum.
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-4 sub-menu mb-0">
+                                <h6 class="sub-title text-uppercase font-weight-bold text-dark">Категории</h6>
                                 <div class="row">
                                     <div class="col-6">
                                         <ul class="list-unstyled">
                                             <li>
-                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    Lorem ipsum.
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Новинки
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    Lorem ipsum.
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Зимнии коллекции
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    Lorem ipsum.
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Весеннии коллекции
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    Lorem ipsum.
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Летнии коллекции
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    Lorem ipsum.
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Осеннии коллекции
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Юбки
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Платья
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Топы
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Шорты
                                                 </a>
                                             </li>
                                         </ul>
@@ -363,28 +433,48 @@
                                     <div class="col-6">
                                         <ul class="list-unstyled">
                                             <li>
-                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    Lorem ipsum.
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Толстовки
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    Lorem ipsum.
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Куртки
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    Lorem ipsum.
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Пальто
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    Lorem ipsum.
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Пиджаки
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
-                                                    Lorem ipsum.
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Джинсы
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Трикотаж
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Рубашки
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Футболки
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="menu-item pl-0" href="#!">
+                                                    Боди
                                                 </a>
                                             </li>
                                         </ul>
@@ -392,83 +482,6 @@
                                 </div>
                             </div>
 
-                            <div class="col-4 sub-menu mb-0">
-                                <h6 class="sub-title text-uppercase font-weight-bold text-dark">Коллекции</h6>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Зимнии коллекции
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Весеннии коллекции
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Летнии коллекции
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Осеннии коллекции
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Юбки
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Зимнии коллекции
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Весеннии коллекции
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Летнии коллекции
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Осеннии коллекции
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item pl-0" href="#!">
-                                                    Юбки
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4 sub-menu mb-xl-0 mb-4">
-                                <h6 class="sub-title text-uppercase font-weight-bold text-dark">Featured</h6>
-                                <!--Featured image-->
-                                <a href="#!" class="view overlay z-depth-1 p-0 mb-2">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/8-col/img%20(37).jpg"
-                                         class="img-fluid" alt="First sample image">
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                                <a class="news-title font-weight-bold pl-0" href="#!">Lorem ipsum dolor sit</a>
-                                <p class="font-small text-uppercase white-text">
-                                    <i class="fas fa-clock-o pr-2" aria-hidden="true"></i>July 17, 2017 / <i
-                                        class="far fa-comments px-1" aria-hidden="true"></i> 20
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </li>

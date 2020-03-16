@@ -36,7 +36,7 @@
 
                 </nav>
             </div>
-            <div class="col-12 col-xl-4">
+            <div class="col-12 col-xl-3">
                 <p class="h3 text-white">
                     Частые вопросы
                 </p>
@@ -63,11 +63,24 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-12 col-xl-3">
+            <div class="col-12 col-xl-4">
                 <p class="h3 text-white">
                     Контакты
                 </p>
                 <ul class="nav flex-column">
+                    <li>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <p class="text-white">Подписаться на рассылку</p>
+                            </div>
+                            <div class="col-12 col-lg-6 position-relative">
+                                <input type="text">
+                                <button class="position-absolute pos-img">
+                                    <img src="{{ asset('img/mail.svg') }}" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <a href="" class="nav-link text-white d-flex px-0 hover-contact" title="Контактный номер и График работы">
                             <img src="{{ asset('icons/call_1.svg') }}" alt="Номер">&nbsp;
