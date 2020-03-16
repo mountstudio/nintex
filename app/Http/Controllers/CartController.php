@@ -64,13 +64,14 @@ class CartController extends Controller
             'cart' => $cart->getContent(),
             'total' => $cart->getTotal(),
         ];
-
+//        dd($request);
         $newCart->user_id = auth()->check() ? auth()->user()->id : null;
 //        $newCart->comment = $request->comment;
         $newCart->name = $request->name;
         $newCart->email = $request->email;
         $newCart->phone = $request->phone;
         $newCart->address = $request->address;
+        $newCart->actions = 1;
 //        $newCart->total = $request->total;
         if ($request->delivery == 'on'){
             $newCart->delivery = true;
@@ -83,8 +84,11 @@ class CartController extends Controller
         $user = $request->user();
         foreach ($newCart->cart['cart'] as $cart)
         {
+//            dd($newCart->cart['cart']);
             $cart_product = new Cart_product();
             $cart_product->cart_id = $cartID->id;
+            $cart_product->product_id = $cart['attributes']['p_id'];
+            $cart_product->size = $cart['attributes']['size'];
             $cart_product->product_size_id = $cart['attributes']['productSizeId'];
             $cart_product->quantity = $cart['quantity'];
             $cart_product->user_id = auth()->check() ? auth()->user()->id : null;
@@ -344,30 +348,28 @@ class CartController extends Controller
 //        return DataTables::of(Product::query())->make(true);
         return DataTables::of(Cart::query())
             ->addColumn('action', function($row) {
-                $select = '<select class="form-control status-order select_id" id="s" data-id="'.$row->id.'" data-action="'.$row->action.'">';
-                if ($row->action == Cart::$INWAIT) {
-                    $select .= '<option value="'.Cart::$INWAIT.'" data-action="'.$row->action.'" selected>В ожидании</option>';
+                $select = '<select class="form-control status-order select_id" id="s" data-id="'.$row->id.'" data-action="'.$row->actions.'">';
+                if ($row->actions == Cart::$INWAIT) {
+                    $select .= '<option value="'.Cart::$INWAIT.'" data-action="'.$row->actions.'" selected>В ожидании</option>';
                 } else {
-                    $select .= '<option value="'.Cart::$INWAIT.'" data-action="'.$row->action.'">В ожидании</option>';
+                    $select .= '<option value="'.Cart::$INWAIT.'" data-action="'.$row->actions.'">В ожидании</option>';
                 }
-                if ($row->action == Cart::$INPROGRESS) {
-                    $select .= '<option value="'.Cart::$INPROGRESS.'" data-action="'.$row->action.'" selected>В процессе</option>';
+                if ($row->actions == Cart::$INPROGRESS) {
+                    $select .= '<option value="'.Cart::$INPROGRESS.'" data-action="'.$row->actions.'" selected>В процессе</option>';
                 } else {
-                    $select .= '<option value="'.Cart::$INPROGRESS.'" data-action="'.$row->action.'">В процессе</option>';
+                    $select .= '<option value="'.Cart::$INPROGRESS.'" data-action="'.$row->actions.'">В процессе</option>';
                 }
-                if ($row->action == Cart::$DELIVERED) {
-                    $select .= '<option value="'.Cart::$DELIVERED.'" data-action="'.$row->action.'" selected>Доставлено</option>';
+                if ($row->actions == Cart::$DELIVERED) {
+                    $select .= '<option value="'.Cart::$DELIVERED.'" data-action="'.$row->actions.'" selected>Доставлено</option>';
                 } else {
-                    $select .= '<option value="'.Cart::$DELIVERED.'" data-action="'.$row->action.'">Доставлено</option>';
+                    $select .= '<option value="'.Cart::$DELIVERED.'" data-action="'.$row->actions.'">Доставлено</option>';
                 }
-                if ($row->action == Cart::$FINISHED) {
-                    $select .= '<option value="'.Cart::$FINISHED.'" data-action="'.$row->action.'" selected>Закончено</option>';
+                if ($row->actions == Cart::$FINISHED) {
+                    $select .= '<option value="'.Cart::$FINISHED.'" data-action="'.$row->actions.'" selected>Закончено</option>';
                 } else {
-                    $select .= '<option value="'.Cart::$FINISHED.'" data-action="'.$row->action.'">Закончено</option>';
+                    $select .= '<option value="'.Cart::$FINISHED.'" data-action="'.$row->actions.'">Закончено</option>';
                 }
                 $select .= '</select>';
-
-
                 return $select;
             })
             ->make(true);
@@ -380,9 +382,9 @@ class CartController extends Controller
         return view('profile.dashboard', [ 'quantity' => $quantity]);
     }
     public function save_select(Request $request){
-//        dd($id);
+//        dd($request->id);
         $cart = Cart::find($request->id);
-        $cart->action = $request->value;
+        $cart->actions = $request->value;
         $cart->save();
         return response()->json('Успехх');
     }
