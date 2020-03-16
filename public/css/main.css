@@ -1176,3 +1176,6 @@ hr {
 .fz-footer {
     font-size: 13px!important;
 }
+.owl-stage .owl-item {
+    height: 580px!important;
+}
