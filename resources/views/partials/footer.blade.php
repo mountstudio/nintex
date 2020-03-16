@@ -6,12 +6,13 @@
                     Навигация
                 </p>
                 <nav class="nav flex-column text-center mx-auto mx-md-0">
-                    <a class="text-white mr-auto fz-footer hover-nav" href="#" title="">- ГЛАВНАЯ</a>
-                    <a class="text-white mr-auto fz-footer hover-nav my-2" href="#" title="">- КАТЕГОРИИ</a>
-                    <a class="text-white mr-auto fz-footer hover-nav" href="#" title="">- АКЦИИ</a>
-                    <a class="text-white mr-auto fz-footer hover-nav my-2" href="#" title="">- КАТАЛОГ</a>
-                    <a class="text-white mr-auto fz-footer hover-nav" href="/cooperation" title="">- СОТРУДНИЧЕСТВО</a>
-                    <a class="text-white mr-auto fz-footer hover-nav my-2" href="#" title="">- КОНТАКТЫ</a>
+                    <a class="text-white mr-auto fz-footer hover-nav" href="{{ route('home') }}" title="">- ГЛАВНАЯ</a>
+                    <a class="text-white mr-auto fz-footer hover-nav" href="{{ route('product.discount') }}" title="">-
+                        АКЦИИ</a>
+                    <a class="text-white mr-auto fz-footer hover-nav my-2" href="{{ route('product.hit') }}" title="">-
+                        ХИТЫ</a>
+                    <a class="text-white mr-auto fz-footer hover-nav" href="{{ route('product.index2') }}" title="">-
+                        НОВИНКИ</a>
                 </nav>
             </div>
             <div class="col-12 col-md-4 col-lg-2">
@@ -19,20 +20,9 @@
                     Категории
                 </p>
                 <nav class="nav flex-column text-center mx-auto mx-md-0">
-                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Новинки Январь</a>
-                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Распродажа</a>
-                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Теплые костюмы</a>
-                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Коллекция офис</a>
-                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Вечерние платья</a>
-                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Платья</a>
-                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Длинные платья</a>
-                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Блузки</a>
-                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Женские брюки</a>
-                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Юбки</a>
-                    <a class="text-white mr-auto fz-footer hover-categ" href="#" title="">- Женские комбинезоны</a>
-                    <a class="text-white mr-auto fz-footer hover-categ my-2" href="#" title="">- Костюмы</a>
-                    <a class="text-white mr-auto fz-footer hover-categ " href="#" title="">- Верхняя одежда</a>
-
+                    @foreach($categories as $category)
+                        <a class="text-white mr-auto fz-footer hover-categ" href="{{ route('product.index', ['allCatalog['. $category->id .']' => 'on']) }}" title="">- {{$category->title}}</a>
+                    @endforeach
                 </nav>
             </div>
             <div class="d-none d-lg-block col-lg-4">
@@ -82,7 +72,8 @@
                         <hr>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link text-white d-flex px-0 hover-contact" title="Контактный номер и График работы">
+                        <a href="" class="nav-link text-white d-flex px-0 hover-contact"
+                           title="Контактный номер и График работы">
                             <img src="{{ asset('icons/call_1.svg') }}" alt="Номер">&nbsp;
                             <p class="mb-1 font-weight-bold pl-1 fz-footer py-2">+996555449342</p>
                             {{--<p class="m-0 text-muted pl-1 fz-footer">Пн. – Сб.: с 9:00 до 18:00 (+6 GMT)</p>--}}
