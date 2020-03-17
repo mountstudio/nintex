@@ -135,8 +135,8 @@
     <!-- Блок для отзывов -->
     <section>
         <div class="container">
-            <button class="btn btn-block" id="post">
-                оставить отзыв
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalSm">
+                Оставить отзыв
             </button>
             <div class="row">
                 <div class="col-12">
@@ -145,12 +145,40 @@
                             @csrf
                             <label for="quickReplyFormComment">Your comment</label>
                             @if(Auth::user())
-                                <div class="row">
-                                    <div class="col-3">
+                            <!-- Button trigger modal -->
+
+
+                                <!-- Central Modal Small -->
+                                <div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                     aria-hidden="true">
+
+                                    <!-- Change class .modal-sm to change the size of the modal -->
+                                    <div class="modal-dialog modal-sm" role="document">
+
+
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-3">
                                         <textarea class="form-control" name="comment" placeholder="your comment"
                                                   id="quickReplyFormComment" rows="5"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- Central Modal Small -->
 
                                 <div class="text-center my-4">
                                     <button class="btn btn-primary btn-sm waves-effect waves-light"
@@ -159,27 +187,70 @@
                                     </button>
                                 </div>
                             @else
-                                <div class="row" style="width: 600px;">
-                                    <div class="col-12">
-                                        <h5>Lorem ipsum.</h5>
-                                    <textarea class="form-control" name="comment" placeholder="your comment"
-                                              id="quickReplyFormComment" rows="5"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <h5>Lorem ipsum.</h5>
-                                        <input type="text" name="name" value="" class="form-control" placeholder="name">
-                                    </div>
-                                    <div class="col-12">
-                                        <h5>Lorem ipsum dolor.</h5>
-                                        <input type="text" name="phone" value="" class="form-control"
-                                               placeholder="phone">
-                                    </div>
-                                    <div class="col-12">
-                                        <h5>Lorem ipsum.</h5>
-                                        <input type="text" name="email" value="" class="form-control"
-                                               placeholder="email">
+                            <!-- Button trigger modal -->
+
+
+                                <!-- Central Modal Small -->
+                                <div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                     aria-hidden="true">
+
+                                    <!-- Change class .modal-sm to change the size of the modal -->
+                                    <div class="modal-dialog cascading-modal" role="document">
+                                        <!--Content-->
+                                        <div class="modal-content">
+
+                                            <!--Modal cascading tabs-->
+                                            <div class="modal-c-tabs">
+
+                                                <!-- Nav tabs -->
+
+
+                                                <!-- Tab panels -->
+                                                <div class="tab-content">
+                                                    <!--Panel 17-->
+                                                    <div class="tab-pane fade in show active" id="panel17" role="tabpanel">
+
+                                                        <!--Body-->
+                                                        <div class="modal-body mb-1">
+
+
+                                                            <div class="md-form form-sm">
+                                                                <i class="fas fa-envelope prefix"></i>
+                                                                <textarea class="form-control" name="comment" placeholder="    your comment" id="quickReplyFormComment" rows="5"></textarea>
+                                                            </div>
+
+                                                            <div class="md-form form-sm">
+                                                                <i class="fas fa-user prefix"></i>
+                                                                <input type="text" name="name" value="" class="form-control" placeholder="name">
+                                                            </div>
+                                                            <h5 style="border-bottom: 1px solid lightblack;">Оставте контактные данные для обратной связи</h5>
+                                                            <div class="md-form form-sm">
+                                                                <i class="fas fa-phone-square-alt prefix"></i>
+                                                                <input type="text" name="phone" value="" class="form-control" placeholder="phone">
+                                                            </div>
+                                                            <div class="md-form form-sm">
+                                                                <i class="fas fa-at prefix"></i>
+                                                                <input type="text" name="email" value="" class="form-control" placeholder="email">
+                                                            </div>
+                                                        </div>
+                                                        <!--Footer-->
+
+
+                                                    </div>
+                                                    <!--/.Panel 7-->
+
+                                                    <!--Panel 18-->
+
+                                                    <!--/.Panel 8-->
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <!--/.Content-->
                                     </div>
                                 </div>
+                                <!-- Central Modal Small -->
+
                                 <div class="text-center my-4">
                                     <button class="btn btn-primary btn-sm waves-effect waves-light"
                                             type="submit"
