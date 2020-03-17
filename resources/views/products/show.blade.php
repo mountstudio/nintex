@@ -74,7 +74,7 @@
                             <p class=""><img src="{{ asset('img/quality (1).svg') }}" alt=""> Гарантия
                                 качества</p>
                         </div>
-                        <div class="col-4 pb-5">
+                        <div class="col-12 col-lg-4 pb-5">
                             @include('partials.favorite', ['route' => \Illuminate\Support\Facades\Auth::check() ? '' : route('login'), 'data' => 'data-id='.$product->id.''])
                             <div id="for-add-cart-btn">
                                 <a class="btn btn-dark btn-block text-fut-book but-hov text-white d-lg-block"
