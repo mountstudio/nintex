@@ -50,21 +50,37 @@
                                     </div>
                                 @endforeach
                                 <p class="mb-0 h5">Цвет:</p>
-                                <div class="checkbox">
+                                <div class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                     @foreach($productWholesaleColors as $productWholesaleColor)
+                                    <a class="nav-link active" id="pills-$color-tab" data-toggle="pill" href="#pills-$color" role="tab" aria-controls="pills-$color" aria-selected="true">
                                         <label class="checkbox-red"
                                                style="background-color: {{$productWholesaleColor->color}}"
                                                @if($productWholesaleColor->quantity <= 0) disabled @endif>
                                             <input id="cbox-red" class="checkbox-color" type="radio"
-                                                   name="colorWholesale"
+                                                   name="colorWholesale" --}}
                                                    data-color="{{ $productWholesaleColor->color }}"
-                                                   data-prod_id="{{ $product->id }}"
+                                                   data-prod_id="{{ $product->id }}" --}}
                                                    value="{{ $productWholesaleColor->color }}">
                                             <span class="checkmark"></span>
                                         </label>
+                                    </a>
                                     @endforeach
-
                                 </div>
+                                {{--                                <div class="checkbox">--}}
+                                {{--                                    @foreach($productWholesaleColors as $productWholesaleColor)--}}
+                                {{--                                        <label class="checkbox-red"--}}
+                                {{--                                               style="background-color: {{$productWholesaleColor->color}}"--}}
+                                {{--                                               @if($productWholesaleColor->quantity <= 0) disabled @endif>--}}
+                                {{--                                            <input id="cbox-red" class="checkbox-color" type="radio"--}}
+                                {{--                                                   name="colorWholesale"--}}
+                                {{--                                                   data-color="{{ $productWholesaleColor->color }}"--}}
+                                {{--                                                   data-prod_id="{{ $product->id }}"--}}
+                                {{--                                                   value="{{ $productWholesaleColor->color }}">--}}
+                                {{--                                            <span class="checkmark"></span>--}}
+                                {{--                                        </label>--}}
+                                {{--                                    @endforeach--}}
+
+                                {{--                                </div>--}}
                                 <h6 id="retailPrice" class="mt-1"><b>Цена за 1
                                         линейку: {{ $productWholesaleColors[0]->price }} kgs</b></h6>
                             </div>
