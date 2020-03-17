@@ -49,7 +49,7 @@ class CommentController extends Controller
                         $comment->fill(['product_id' => array_pop($attrs), 'user_id' => $user->id, 'email' => $user->email, 'name' => $user->name, 'parent_id' => $request->parent_id]);
                     }
                     else {
-                        $comment->fill(['product_id' => array_pop($attrs), 'user_id' => $user->id, 'email' => $user->email, 'name' => $user->name]);
+                        $comment->fill(['product_id' => array_pop($attrs), 'user_id' => $user->id, 'email' => $user->email, 'name' => $user->name, 'parent_id' => 0]);
                     }
                 }
                 else{

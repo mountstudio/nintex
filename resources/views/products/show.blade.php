@@ -42,7 +42,8 @@
                                         {{--                                        @dd($productWholesaleSize->sizes)--}}
                                         <label for="defaultUnchecked" class="mt-2">
                                             @foreach(json_decode($productWholesaleSize->sizes) as $size)
-                                                <span id="sizeText" class="p-1 ml-1 h5 border border-dark rounded-circle">{{ $size }}</span>
+                                                <span id="sizeText"
+                                                      class="p-1 ml-1 h5 border border-dark rounded-circle">{{ $size }}</span>
                                             @endforeach
                                         </label>
                                         </input>
@@ -142,54 +143,53 @@
                 <div class="col-12">
                     <div class="" id="childPost">
                         <form action="{{ route('comment.store') }}" method="post" id="commentcreate">
-{{--                            @csrf--}}
-{{--                            <label for="quickReplyFormComment">Your comment</label>--}}
-{{--                            @if(Auth::user())--}}
-{{--                            <!-- Button trigger modal -->--}}
+                            {{--                            @csrf--}}
+                            {{--                            <label for="quickReplyFormComment">Your comment</label>--}}
+                            {{--                            @if(Auth::user())--}}
+                            {{--                            <!-- Button trigger modal -->--}}
+                            {{--                                <!-- Central Modal Small -->--}}
+                            {{--                                <div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"--}}
+                            {{--                                     aria-hidden="true">--}}
+
+                            {{--                                    <!-- Change class .modal-sm to change the size of the modal -->--}}
+                            {{--                                    <div class="modal-dialog modal-sm" role="document">--}}
 
 
-{{--                                <!-- Central Modal Small -->--}}
-{{--                                <div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"--}}
-{{--                                     aria-hidden="true">--}}
+                            {{--                                        <div class="modal-content">--}}
+                            {{--                                            <div class="modal-header">--}}
+                            {{--                                                <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>--}}
+                            {{--                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
+                            {{--                                                    <span aria-hidden="true">&times;</span>--}}
+                            {{--                                                </button>--}}
+                            {{--                                            </div>--}}
+                            {{--                                            <div class="modal-body">--}}
+                            {{--                                                <div class="row">--}}
+                            {{--                                                    <div class="col-3">--}}
+                            {{--                                        <textarea class="form-control" name="comment" placeholder="your comment"--}}
+                            {{--                                                  id="quickReplyFormComment" rows="5"></textarea>--}}
+                            {{--                                                    </div>--}}
+                            {{--                                                </div>--}}
+                            {{--                                            </div>--}}
+                            {{--                                            <div class="modal-footer">--}}
+                            {{--                                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>--}}
+                            {{--                                                <button type="button" class="btn btn-primary btn-sm">Save changes</button>--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                                <!-- Central Modal Small -->--}}
 
-{{--                                    <!-- Change class .modal-sm to change the size of the modal -->--}}
-{{--                                    <div class="modal-dialog modal-sm" role="document">--}}
-
-
-{{--                                        <div class="modal-content">--}}
-{{--                                            <div class="modal-header">--}}
-{{--                                                <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>--}}
-{{--                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--                                                    <span aria-hidden="true">&times;</span>--}}
-{{--                                                </button>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="modal-body">--}}
-{{--                                                <div class="row">--}}
-{{--                                                    <div class="col-3">--}}
-{{--                                        <textarea class="form-control" name="comment" placeholder="your comment"--}}
-{{--                                                  id="quickReplyFormComment" rows="5"></textarea>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="modal-footer">--}}
-{{--                                                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>--}}
-{{--                                                <button type="button" class="btn btn-primary btn-sm">Save changes</button>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <!-- Central Modal Small -->--}}
-
-{{--                                <div class="text-center my-4">--}}
-{{--                                    <button class="btn btn-primary btn-sm waves-effect waves-light"--}}
-{{--                                            type="submit"--}}
-{{--                                            id="childPostButton">Post--}}
-{{--                                    </button>--}}
-{{--                                </div>--}}
-{{--                            @else--}}
-{{--                            --}}
-{{--                            @endif--}}
-                            <div class="modal fade" id="modalForComment" tabindex="-1" role="dialog" aria-labelledby="modalForComment"
+                            {{--                                <div class="text-center my-4">--}}
+                            {{--                                    <button class="btn btn-primary btn-sm waves-effect waves-light"--}}
+                            {{--                                            type="submit"--}}
+                            {{--                                            id="childPostButton">Post--}}
+                            {{--                                    </button>--}}
+                            {{--                                </div>--}}
+                            {{--                            @else--}}
+                            {{--                            --}}
+                            {{--                            @endif--}}
+                            <div class="modal fade" id="modalForComment" tabindex="-1" role="dialog"
+                                 aria-labelledby="modalForComment"
                                  aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
@@ -199,28 +199,64 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body mx-3">
+                                        <form action="{{ route('comment.store') }}" method="post" id="commentcreate">
+                                            @csrf
+                                            @if(Auth::user())
+                                                <div class="modal-body mx-3">
+                                                    <div class="md-form form-sm">
+                                                        <i class="fas fa-envelope prefix"></i>
+                                                        <textarea class="form-control" name="comment"
+                                                                  placeholder="    your comment"
+                                                                  id="quickReplyFormComment" rows="5"></textarea>
+                                                    </div>
 
-                                            <div class="md-form form-sm">
-                                                <i class="fas fa-envelope prefix"></i>
-                                                <textarea class="form-control" name="comment" placeholder="    your comment" id="quickReplyFormComment" rows="5"></textarea>
-                                            </div>
+                                                    {{--                                                    <div class="md-form form-sm">--}}
+                                                    {{--                                                        <i class="fas fa-user prefix"></i>--}}
+                                                    {{--                                                        <input type="text" name="name" value="" class="form-control"--}}
+                                                    {{--                                                               placeholder="name">--}}
+                                                    {{--                                                    </div>--}}
+                                                    {{--                                                    <h5 style="border-bottom: 1px solid lightskyblue;">Оставте--}}
+                                                    {{--                                                        контактные данные для обратной связи</h5>--}}
+                                                    {{--                                                    <div class="md-form form-sm">--}}
+                                                    {{--                                                        <i class="fas fa-tty prefix"></i>--}}
+                                                    {{--                                                        <input type="text" name="phone" value="" class="form-control"--}}
+                                                    {{--                                                               placeholder="phone">--}}
+                                                    {{--                                                    </div>--}}
+                                                    {{--                                                    <div class="md-form form-sm">--}}
+                                                    {{--                                                        <i class="fas fa-at prefix"></i>--}}
+                                                    {{--                                                        <input type="text" name="email" value="" class="form-control"--}}
+                                                    {{--                                                               placeholder="email">--}}
+                                                    {{--                                                    </div>--}}
+                                                </div>
+                                            @else
+                                                <div class="modal-body mx-3">
+                                                    <div class="md-form form-sm">
+                                                        <i class="fas fa-envelope prefix"></i>
+                                                        <textarea class="form-control" name="comment"
+                                                                  placeholder="    your comment"
+                                                                  id="quickReplyFormComment" rows="5"></textarea>
+                                                    </div>
 
-                                            <div class="md-form form-sm">
-                                                <i class="fas fa-user prefix"></i>
-                                                <input type="text" name="name" value="" class="form-control" placeholder="name">
-                                            </div>
-                                            <h5 style="border-bottom: 1px solid lightskyblue;">Оставте контактные данные для обратной связи</h5>
-                                            <div class="md-form form-sm">
-                                                <i class="fas fa-tty prefix"></i>
-                                                <input type="text" name="phone" value="" class="form-control" placeholder="phone">
-                                            </div>
-                                            <div class="md-form form-sm">
-                                                <i class="fas fa-at prefix"></i>
-                                                <input type="text" name="email" value="" class="form-control" placeholder="email">
-                                            </div>
-
-                                        </div>
+                                                    <div class="md-form form-sm">
+                                                        <i class="fas fa-user prefix"></i>
+                                                        <input type="text" name="name" value="" class="form-control"
+                                                               placeholder="name">
+                                                    </div>
+                                                    <h5 style="border-bottom: 1px solid lightskyblue;">Оставте
+                                                        контактные данные для обратной связи</h5>
+                                                    <div class="md-form form-sm">
+                                                        <i class="fas fa-tty prefix"></i>
+                                                        <input type="text" name="phone" value="" class="form-control"
+                                                               placeholder="phone">
+                                                    </div>
+                                                    <div class="md-form form-sm">
+                                                        <i class="fas fa-at prefix"></i>
+                                                        <input type="text" name="email" value="" class="form-control"
+                                                               placeholder="email">
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </form>
                                         <div class="text-center my-4">
                                             <button class="btn btn-primary btn-sm waves-effect waves-light"
                                                     type="submit"
@@ -283,7 +319,7 @@
                                                 {{ $answer->comment }}
                                             </div>
                                         </div>
-                                    @endforeach
+                                @endforeach
                                 <!-- Quick Reply -->
                                 </div>
                             </div>
