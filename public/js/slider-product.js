@@ -18,7 +18,7 @@ sCarousel.slick({
     centerMode: true,
     centerPadding: '40px',
     asNavFor: '.slick-one-item',
-    arrow: false
+    arrows: false
 });
 
 // fCarousel.on('click','.slick-next' , function () {
