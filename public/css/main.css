@@ -1193,6 +1193,8 @@ hr {
     border: 3px solid lightcoral!important;
     transform: translateX(-2px);
 }
-
-
+/*end style*/
+.prefix {
+    color: #2e3951!important;
+}
 @import "media.css" all;

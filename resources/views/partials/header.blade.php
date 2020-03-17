@@ -62,6 +62,7 @@
                                     <h6 class="sub-title text-uppercase font-weight-bold text-dark">Хиты</h6>
                                     <ul class="list-unstyled">
                                         @foreach($hits as $hit)
+{{--                                            @dd(hits)--}}
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;"
                                                    href="{{ route('product.show', $hit) }}">
