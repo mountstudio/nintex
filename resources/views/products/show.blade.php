@@ -50,8 +50,7 @@
                                     </div>
                                 @endforeach
                                 <p class="mb-0 h5">Цвет:</p>
-                                <div class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                    @foreach($productWholesaleColors as $productWholesaleColor)
+                                @foreach($productWholesaleColors as $productWholesaleColor)
                                     <a class="nav-link active" id="pills-$color-tab" data-toggle="pill" href="#pills-$color" role="tab" aria-controls="pills-$color" aria-selected="true">
                                         <label class="checkbox-red"
                                                style="background-color: {{$productWholesaleColor->color}}"
@@ -64,8 +63,10 @@
                                             <span class="checkmark"></span>
                                         </label>
                                     </a>
-                                    @endforeach
-                                </div>
+                                @endforeach
+                                <!--<div class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+                                </div>-->
                                 {{--                                <div class="checkbox">--}}
                                 {{--                                    @foreach($productWholesaleColors as $productWholesaleColor)--}}
                                 {{--                                        <label class="checkbox-red"--}}
@@ -416,7 +417,7 @@
     <section>
         <div class="container">
             <div class="row justify-content-center">
-
+                @include('product_blocks.slider_card')
             </div>
         </div>
     </section>
