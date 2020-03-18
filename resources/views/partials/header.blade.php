@@ -29,11 +29,13 @@
                 </li>
                 <!-- Коллекции -->
                 <li class="nav-item dropdown mega-dropdown pt-2 mx-4">
-                    <a class="nav-link dropdown-toggle text-uppercase pt-1 px-1 pb-1" style="font-size: 16px" title="Все Коллекции"
+                    <a class="nav-link dropdown-toggle text-uppercase pt-1 px-1 pb-1" style="font-size: 16px"
+                       title="Все Коллекции"
                        id="navbarDropdownMenuLink" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Коллекция</a>
                     <div class="dropdown-menu mega-menu v-2 z-depth-1 bg-white py-5 px-3"
-                         aria-labelledby="navbarDropdownMenuLink" style="width: 1200px!important; left: -230%!important;">
+                         aria-labelledby="navbarDropdownMenuLink"
+                         style="width: 1200px!important; left: -230%!important;">
                         <div class="row">
                             <div class="col-5 sub-menu position-relative mb-xl-0 mb-4">
                                 <div class="row justify-content-between">
@@ -62,7 +64,7 @@
                                     <h6 class="sub-title text-uppercase font-weight-bold text-dark">Хиты</h6>
                                     <ul class="list-unstyled">
                                         @foreach($hits as $hit)
-{{--                                            @dd(hits)--}}
+                                            {{--                                            @dd(hits)--}}
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;"
                                                    href="{{ route('product.show', $hit) }}">
@@ -198,24 +200,29 @@
                     </li>
                     <!-- Коллекции -->
                     <li class="nav-item dropdown mega-dropdown pt-2 mx-4">
-                        <a class="nav-link dropdown-toggle text-uppercase mt-1 pt-1 px-1 pb-1" style="font-size: 16px" title="Все Коллекции"
-                           type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Коллекция</a>
+                        <a class="nav-link dropdown-toggle text-uppercase mt-1 pt-1 px-1 pb-1" style="font-size: 16px"
+                           title="Все Коллекции"
+                           type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">Коллекция</a>
                         <div class="dropdown-menu mega-menu v-2 z-depth-1 bg-white py-5 px-3"
-                             aria-labelledby="dropdownMenuButton" style="width: 1200px!important; left: -230%!important;">
+                             aria-labelledby="dropdownMenuButton"
+                             style="width: 1200px!important; left: -230%!important;">
                             <div class="row">
                                 <div class="col-5 sub-menu position-relative mb-xl-0 mb-4">
                                     <div class="row justify-content-between">
                                         <div class="col-6">
                                             <a href="#!" class="menu-block-slide view overlay z-depth-1 p-0 mb-2">
-                                                <img src="https://cdn.shopify.com/s/files/1/2714/9310/products/Unique_Vintage_1950s_Black_Embroidered_Red_Rose_Baltimore_Swing_Dress_1024x1024.jpg?v=1571711475"
-                                                     class="img-fluid " alt="First sample image">
+                                                <img
+                                                    src="https://cdn.shopify.com/s/files/1/2714/9310/products/Unique_Vintage_1950s_Black_Embroidered_Red_Rose_Baltimore_Swing_Dress_1024x1024.jpg?v=1571711475"
+                                                    class="img-fluid " alt="First sample image">
                                                 <span class="menu-block-text">Lorem ipsum</span>
                                             </a>
                                         </div>
                                         <div class="col-6">
                                             <a href="#!" class="menu-block-slide view overlay z-depth-1 p-0 mb-2">
-                                                <img src="https://cdn.shopify.com/s/files/1/2714/9310/products/Unique_Vintage_1950s_Black_Embroidered_Red_Rose_Baltimore_Swing_Dress_1024x1024.jpg?v=1571711475"
-                                                     class="img-fluid " alt="First sample image">
+                                                <img
+                                                    src="https://cdn.shopify.com/s/files/1/2714/9310/products/Unique_Vintage_1950s_Black_Embroidered_Red_Rose_Baltimore_Swing_Dress_1024x1024.jpg?v=1571711475"
+                                                    class="img-fluid " alt="First sample image">
                                                 <span class="menu-block-text">Lorem ipsum</span>
                                             </a>
                                         </div>
@@ -392,7 +399,8 @@
                     </button>
 
                     <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary text-small" style="top: 50px!important; left: -98px!important;">
+                    <div class="dropdown-menu dropdown-primary text-small"
+                         style="top: 50px!important; left: -98px!important;">
                         <p class="px-3">
                             Доставку по всему Кыргызстану и СНГ <br>
                             Наш телефон для связи: 0777 57-89-58, <br>
@@ -433,26 +441,20 @@
     </div>
     <nav id="menu">
         <ul>
-            <li><a href="{{ asset('welcome.blade.php') }}">Главная</a></li>
-            <li><a href="/work">Новинки</a></li>
+            <li><a href="{{ route('home') }}">Главная</a></li>
+            <li><a href="{{ route('product.index2') }}">Новинки</a></li>
             <li><span>Категории</span>
                 <ul>
-                    <li><a href="/about/history">Все коллекции</a></li>
-                    <li><a href="/about/team/management">Юбки</a></li>
-                    <li><a href="/about/team/sales">Блузки</a></li>
-                    <li><a href="/about/team/development">Пиджаки</a></li>
-                    <li><a href="/about/team/development">Платья</a></li>
-                    <li><a href="/about/team/development">Пальто</a></li>
-                    <li><a href="/about/team/development">Костюмы</a></li>
-                    <li><a href="/about/team/development">Комбенизоны</a></li>
-                    <li><a href="/about/team/development">Водолазки</a></li>
-                    <li><a href="/about/team/development">Футболки</a></li>
+                    <li><a href="{{ route('product.index') }}">Все коллекции</a></li>
+                    @foreach($categories as $category)
+                        <li><a href="{{ route('product.index', ['allCatalog['. $category->id .']' => 'on']) }}">{{$category->title}}</a></li>
+                    @endforeach
                 </ul>
             </li>
             <li>
-                <a href=""> Хиты </a>
+                <a href="{{ route('product.hit') }}"> Хиты </a>
             </li>
-            <li><a href="/contact">Акции</a></li>
+            <li><a href="{{ route('product.discount') }}">Акции</a></li>
             <li><a href="/contact">Частые вопросы</a></li>
         </ul>
     </nav>
