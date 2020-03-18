@@ -398,7 +398,9 @@ class ProductController extends Controller
 
     public function check_color(Request $request){
 //        dd($request);
-        $product = ProductSize::where('color', $request->value)->get(['images']);
+        $product = ProductSize::where('color', $request->value)
+            ->where('product_id', $request->id)
+            ->get(['images']);
         return response()->json(['images' => $product]);
     }
 }

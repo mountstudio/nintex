@@ -61,7 +61,7 @@
                                             <input id="cbox-red" class="checkbox-color" type="radio"
                                                    name="colorWholesale"
                                                    data-color="{{ $productWholesaleColor->color }}"
-                                                   data-prod_id="{{ $product->id }}"
+                                                   data-id="{{ $product->id }}"
                                                    value="{{ $productWholesaleColor->color }}">
                                             <span class="checkmark"></span>
                                         </label>
@@ -548,12 +548,14 @@
         $(document).ready(function (){
             $(document).on('click', '.checkbox-color', function(){
                 let check = $(this).data('color');
-                console.log(check);
+                let id = $(this).data('id');
+                console.log(check, id);
                 $.ajax({
                     url: "{{ route('color.checkbox') }}",
                     method: 'POST',
                     data: {
                         value: check,
+                        id: id,
                     },
                     success: data => {
                         console.log(data, 'Success');
