@@ -401,6 +401,8 @@ class ProductController extends Controller
         $product = ProductSize::where('color', $request->value)
             ->where('product_id', $request->id)
             ->get(['images']);
+
+        $product = json_decode($product[0]->images, true);
         return response()->json(['images' => $product]);
     }
 }

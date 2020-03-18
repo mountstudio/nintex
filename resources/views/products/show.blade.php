@@ -558,7 +558,27 @@
                         id: id,
                     },
                     success: data => {
-                        console.log(data, 'Success');
+                        console.log(data.images);
+                        fCarousel.slick('slickRemove', null, null, true);
+                        sCarousel.slick('slickRemove', null, null, true);
+                        // fCarousel.slick('unslick');
+                        // sCarousel.slick('unslick');
+
+                        data.images.forEach((image, index) => {
+                            let smallDivs = ' <div class="item my-2 slick-opacity">\n' +
+                                '                        <img class="carousel-img1 img-fluid" src="/storage/medium/' + image + '"\n' +
+                                '                             style="height: 150px; width: 90px;" alt="">\n' +
+                                '                    </div>',
+                                largeDivs = '<div class="item">\n' +
+                                    '                        <img class="carousel-img1 img-fluid" src="/storage/large/' + image + '"\n' +
+                                    '                             style="height: 600px; width: 380px;" alt="">\n' +
+                                    '                    </div>';
+
+                            fCarousel.slick('slickAdd', largeDivs);
+                            sCarousel.slick('slickAdd', smallDivs);
+                        });
+
+
                     },
                     error: data => {
                         console.log(data, 'Error');
