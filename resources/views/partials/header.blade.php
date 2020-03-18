@@ -230,7 +230,7 @@
                                 </div>
                                 <div class="col-3 sub-menu mb-md-0 mb-4">
                                     <div class="pl-5">
-                                        <h6 class="sub-title text-uppercase font-weight-bold text-dark">Хиты</h6>
+                                        <a href="" class=" h6 sub-title text-uppercase font-weight-bold text-dark">Хиты</a>
                                         <ul class="list-unstyled">
                                             <li>
                                                 <a class="menu-item pl-0" style="font-size: 14px;" href="#!">
@@ -261,7 +261,7 @@
                                     </div>
                                 </div>
                                 <div class="col-4 sub-menu mb-0">
-                                    <h6 class="sub-title text-uppercase font-weight-bold text-dark">Категории</h6>
+                                    <a href="" class="h6 sub-title text-uppercase font-weight-bold text-dark">Категории</a>
                                     <div class="row">
                                         <div class="col-6">
                                             <ul class="list-unstyled">
