@@ -559,6 +559,13 @@
     <script src="{{ asset('js/slider-product.js') }}">
 
     </script>
+    <script>
+        $(document).ready(function (){
+            $(document).on('click', '.checkbox-color', function(){
+
+            })
+        })
+    </script>
     @includeWhen(auth()->check(), 'partials.scripts.favorite_click')
 @endpush
 

@@ -46,7 +46,7 @@ class ProductController extends Controller
     {
 //        $last_15_days = Product::where('created_at', '>=', Carbon::now()->subdays(7))->get();
         $products = Product::all()->sortAndFilter($request)->paginate(9)
-            ->where('created_at', '>=', Carbon::now()->subdays(7));
+            ->where('created_at', '>=', Carbon::now()->subdays(30));
         return view('products.week_products', [
             'products' => $products,
             'categories' => Category::all(),
@@ -184,7 +184,6 @@ class ProductController extends Controller
 
         $productWholesaleSizes = null;
         $productWholesaleColors = null;
-
 
         $productWholesaleSizes = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->get()->unique('sizes');    //выбор размеров продукта для оптовой продажи
         $productWholesaleColors = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->where('quantity', '>', '0')->get()->unique('color');   //выбор всех цветов продукта для оптовой продажи
