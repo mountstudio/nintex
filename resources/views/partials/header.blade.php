@@ -433,28 +433,27 @@
     </div>
     <nav id="menu">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/work">Our work</a></li>
-            <li><span>About us</span>
+            <li><a href="{{ asset('welcome.blade.php') }}">Главная</a></li>
+            <li><a href="/work">Новинки</a></li>
+            <li><span>Категории</span>
                 <ul>
-                    <li><a href="/about/history">History</a></li>
-                    <li><span>The team</span>
-                        <ul>
-                            <li><a href="/about/team/management">Management</a></li>
-                            <li><a href="/about/team/sales">Sales</a></li>
-                            <li><a href="/about/team/development">Development</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="/about/history">Все коллекции</a></li>
+                    <li><a href="/about/team/management">Юбки</a></li>
+                    <li><a href="/about/team/sales">Блузки</a></li>
+                    <li><a href="/about/team/development">Пиджаки</a></li>
+                    <li><a href="/about/team/development">Платья</a></li>
+                    <li><a href="/about/team/development">Пальто</a></li>
+                    <li><a href="/about/team/development">Костюмы</a></li>
+                    <li><a href="/about/team/development">Комбенизоны</a></li>
+                    <li><a href="/about/team/development">Водолазки</a></li>
+                    <li><a href="/about/team/development">Футболки</a></li>
                 </ul>
             </li>
-            <li><span>Services</span>
-                <ul>
-                    <li><a href="/services/design">Design</a></li>
-                    <li><a href="/services/development">Development</a></li>
-                    <li><a href="/services/marketing">Marketing</a></li>
-                </ul>
+            <li>
+                <a href=""> Хиты </a>
             </li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/contact">Акции</a></li>
+            <li><a href="/contact">Частые вопросы</a></li>
         </ul>
     </nav>
 </div>
