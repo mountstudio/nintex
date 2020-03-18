@@ -133,11 +133,11 @@
             noUiSlider.create(moneySlider, {
                 start: [0, 30000],
                 connect: true,
-                margin: 2500,
+                margin: 1300,
                 step: 100,
                 range: {
                     'min': 0,
-                    'max': 30000
+                    'max': 20000
                 }
             });
 
@@ -161,11 +161,11 @@
             noUiSlider.create(moneySlider1, {
                 start: [0, 30000],
                 connect: true,
-                margin: 2500,
+                margin: 1200,
                 step: 100,
                 range: {
                     'min': 0,
-                    'max': 30000
+                    'max': 20000
                 }
             });
 

@@ -109,11 +109,11 @@
         noUiSlider.create(html5Slider, {
             start: [0, 30000],
             connect: true,
-            margin: 2500,
+            margin: 1500,
             step: 100,
             range: {
                 'min': 0,
-                'max': 30000
+                'max': 20000
             }
         });
 
