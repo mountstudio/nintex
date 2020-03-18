@@ -22,5 +22,6 @@ class VerifyCsrfToken extends Middleware
         '/favorite',
         '/save/select',
         '/check',
+        '/check_color',
     ];
 }

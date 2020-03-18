@@ -6,6 +6,7 @@
                 <div class="col-9 col-lg-4">
                     @include('product_blocks.slider')
                 </div>
+{{--                @dd($images)--}}
                 <div class="col-12 col-lg-6 position-relative">
                     <div class=" d-flex justify-lg-content-end" style=" border-bottom-left-radius: 100px;">
                         <div class="col-12">
@@ -50,38 +51,23 @@
                                     </div>
                                 @endforeach
                                 <p class="mb-0 h5">Цвет:</p>
-                                @foreach($productWholesaleColors as $productWholesaleColor)
-                                    <a class="nav-link active" id="pills-$color-tab" data-toggle="pill" href="#pills-$color" role="tab" aria-controls="pills-$color" aria-selected="true">
+
+
+                                <div class="checkbox">
+                                    @foreach($productWholesaleColors as $productWholesaleColor)
                                         <label class="checkbox-red"
                                                style="background-color: {{$productWholesaleColor->color}}"
                                                @if($productWholesaleColor->quantity <= 0) disabled @endif>
                                             <input id="cbox-red" class="checkbox-color" type="radio"
-                                                   name="colorWholesale" --}}
+                                                   name="colorWholesale"
                                                    data-color="{{ $productWholesaleColor->color }}"
-                                                   data-prod_id="{{ $product->id }}" --}}
+                                                   data-prod_id="{{ $product->id }}"
                                                    value="{{ $productWholesaleColor->color }}">
                                             <span class="checkmark"></span>
                                         </label>
-                                    </a>
-                                @endforeach
-                                <!--<div class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    @endforeach
 
-                                </div>-->
-                                {{--                                <div class="checkbox">--}}
-                                {{--                                    @foreach($productWholesaleColors as $productWholesaleColor)--}}
-                                {{--                                        <label class="checkbox-red"--}}
-                                {{--                                               style="background-color: {{$productWholesaleColor->color}}"--}}
-                                {{--                                               @if($productWholesaleColor->quantity <= 0) disabled @endif>--}}
-                                {{--                                            <input id="cbox-red" class="checkbox-color" type="radio"--}}
-                                {{--                                                   name="colorWholesale"--}}
-                                {{--                                                   data-color="{{ $productWholesaleColor->color }}"--}}
-                                {{--                                                   data-prod_id="{{ $product->id }}"--}}
-                                {{--                                                   value="{{ $productWholesaleColor->color }}">--}}
-                                {{--                                            <span class="checkmark"></span>--}}
-                                {{--                                        </label>--}}
-                                {{--                                    @endforeach--}}
-
-                                {{--                                </div>--}}
+                                </div>
                                 <h6 id="retailPrice" class="mt-1"><b>Цена за 1
                                         линейку: {{ $productWholesaleColors[0]->price }} kgs</b></h6>
                             </div>
@@ -557,13 +543,25 @@
             console.log(media);
         })
     </script>
-    <script src="{{ asset('js/slider-product.js') }}">
-
-    </script>
+    <script src="{{ asset('js/slider-product.js') }}"></script>
     <script>
         $(document).ready(function (){
             $(document).on('click', '.checkbox-color', function(){
-
+                let check = $(this).data('color');
+                console.log(check);
+                $.ajax({
+                    url: "{{ route('color.checkbox') }}",
+                    method: 'POST',
+                    data: {
+                        value: check,
+                    },
+                    success: data => {
+                        console.log(data, 'Success');
+                    },
+                    error: data => {
+                        console.log(data, 'Error');
+                    }
+                })
             })
         })
     </script>

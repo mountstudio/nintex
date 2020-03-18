@@ -184,7 +184,6 @@ class ProductController extends Controller
 
         $productWholesaleSizes = null;
         $productWholesaleColors = null;
-
         $productWholesaleSizes = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->get()->unique('sizes');    //выбор размеров продукта для оптовой продажи
         $productWholesaleColors = ProductSize::where('product_id', $product->id)->where('type', "wholesale")->where('quantity', '>', '0')->get()->unique('color');   //выбор всех цветов продукта для оптовой продажи
         $comments = Comment::where('product_id', $product->id)->where('parent_id', 0)->get();
@@ -395,5 +394,11 @@ class ProductController extends Controller
             $check->save();
         }
         return response()->json('Успех');
+    }
+
+    public function check_color(Request $request){
+//        dd($request);
+        $product = ProductSize::where('color', $request->value)->get(['images']);
+        return response()->json(['images' => $product]);
     }
 }
