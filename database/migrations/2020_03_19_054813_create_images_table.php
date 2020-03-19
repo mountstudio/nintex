@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDefaultValueToProductsTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddDefaultValueToProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->boolean('hit')->default(0)->change();
+        Schema::create('images', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('image');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddDefaultValueToProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->boolean('hit')->default(NULL)->change();
-        });
+        Schema::dropIfExists('images');
     }
 }

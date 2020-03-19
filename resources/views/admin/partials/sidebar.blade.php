@@ -5,6 +5,7 @@
 {{--    <a href="{{ route('profile.favorites') }}" class="list-group-item list-group-item-action {{ request()->is('profile/favorites') ? 'active' : '' }}">Избранное</a>--}}
     <a href="{{ route('admin.order.datatable') }}" class="list-group-item list-group-item-action {{ request()->is('admin/order') ? 'active' : '' }}">Заказы</a>
     <a href="{{ route('admin.comment.datatable') }}" class="list-group-item list-group-item-action" {{request()->is('admin/comment' ? 'active' : '')}}>Комментарии</a>
+    <a href="{{ route('admin.image.datatable') }}" class="list-group-item list-group-item-action" {{request()->is('admin/image' ? 'active' : '')}}>Изображения</a>
     <a href="#" onclick="event.preventDefault();$('.logout-form').submit();" class="list-group-item list-group-item-action text-danger">{{ __('Выход') }}</a>
 </div>
 <form action="{{ route('logout') }}" method="POST" class="d-none logout-form">

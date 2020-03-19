@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDefaultValueToProductsTable extends Migration
+class AddActiveColumnToImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddDefaultValueToProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->boolean('hit')->default(0)->change();
+        Schema::table('images', function (Blueprint $table) {
+            $table->boolean('active')->after('image')->default(0);
         });
     }
 
@@ -25,8 +25,8 @@ class AddDefaultValueToProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->boolean('hit')->default(NULL)->change();
+        Schema::table('images', function (Blueprint $table) {
+            $table->dropColumn('active');
         });
     }
 }

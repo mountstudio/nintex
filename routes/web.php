@@ -46,6 +46,9 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function () {
     Route::get('/comments/datatable', 'CommentController@datatableData')->name('comment.datatable.data');
     Route::resource('comment', 'CommentController')->except(['show']);
     Route::get('/comment', 'CommentController@datatable')->name('comment.datatable');
+    Route::get('/images/datatable', 'ImageController@datatableData')->name('image.datatable.data');
+    Route::resource('image', 'ImageController');
+    Route::get('/image', 'ImageController@datatable')->name('image.datatable');
 
 });
 // End Admin Routes
@@ -85,6 +88,7 @@ Route::get('/products', 'Api\ProductController@index')->name('product.all');
 Route::post('/save/select', 'CartController@save_select')->name('cart.save_select');
 Route::post('/check', 'ProductController@checkbox')->name('cart.checkbox');
 Route::post('/check_color', 'ProductController@check_color')->name('color.checkbox');
+Route::post('/check_image', 'ImageController@checkbox')->name('image.checkbox');
 
 //Ajax route
 Route::get('/selectColorsForRetailSize', 'ProductController@selectColorsForRetailSize')->name('product.selectColorsForRetailSize');

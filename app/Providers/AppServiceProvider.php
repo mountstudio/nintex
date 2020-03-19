@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Category;
+use App\Image;
 use App\Product;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
@@ -72,5 +73,8 @@ class AppServiceProvider extends ServiceProvider
         $hits = Product::where('hit', '=', 1)->get();
         $rand_hit = $hits->random(7);
         View::share('hits', $rand_hit);
+
+        $images = Image::where('active', 1)->get();
+        View::share('images', $images);
     }
 }
