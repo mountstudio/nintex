@@ -405,4 +405,21 @@ class ProductController extends Controller
         $product = json_decode($product[0]->images, true);
         return response()->json(['images' => $product]);
     }
+
+    public function fetch(Request $request) {
+        if($request->get('query')){
+            $query = $request->get('query');
+            $data = Product::where('title', 'LIKE', "%{$query}%")
+                ->get();
+            $output = '<ul class="dropdown-menu" style="display: block; position: relative;">';
+            foreach ($data as $row)
+            {
+                $output .='
+                <li><a href="'. route('product.show', $row) .'">'. $row->title .' </a></li>
+                ';
+            }
+            $output .= '</ul>';
+            echo $output;
+        }
+    }
 }

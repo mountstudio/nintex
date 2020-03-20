@@ -23,6 +23,7 @@ class VerifyCsrfToken extends Middleware
         '/save/select',
         '/check',
         '/check_color',
-        '/check_image'
+        '/check_image',
+        '/fetch'
     ];
 }

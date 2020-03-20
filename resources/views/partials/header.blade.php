@@ -120,9 +120,14 @@
                 <li class="nav-item list-inline-item pt-4" style="width: 30%;">
                     <!-- Search form -->
                     <form class="form-inline md-form form-sm active-purple-2 mt-2">
-                        <input class="form-control form-control-sm mr-3 w-75 mb-1" type="text" placeholder="Search"
-                               aria-label="Search">
-                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <div class="form-group">
+                            <input class="form-control form-control-sm mr-3 w-75 mb-1" type="text" placeholder="Search"
+                                   aria-label="Search" name="title" id="title">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                            <div id="productList">
+                            </div>
+                        </div>
+                        {{ csrf_field() }}
                     </form>
                 </li>
                 <li class="nav-item list-inline-item pt-4 mr-0">
@@ -460,6 +465,10 @@
     </nav>
 </div>
 
+@push('styles')
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    @endpush
+
 @push("scripts")
     <script>
         document.addEventListener(
@@ -490,6 +499,32 @@
                 let id = $(this).attr('href'),
                     top = $(id).offset().top;
                 $('body,html').animate({scrollTop: top}, 1500);
+            });
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#title').keyup(function () {
+                let query = $(this).val();
+                if (query != '')
+                {
+                    let _token = $('input[name="_token"]').val();
+                    $.ajax({
+                        url:"{{ route('product.fetch') }}",
+                        method: 'POST',
+                        data: {query: query, _token: _token},
+                        success: function(data){
+                            $('#productList').fadeIn();
+                            $('#productList').html(data);
+                        }
+                    });
+                }
+            });
+            $(document).on('click', 'li', function(){
+                $('#title').val($(this).text());
+                $('#productList').fadeOut();
             });
         });
     </script>

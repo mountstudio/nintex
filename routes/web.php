@@ -89,6 +89,8 @@ Route::post('/save/select', 'CartController@save_select')->name('cart.save_selec
 Route::post('/check', 'ProductController@checkbox')->name('cart.checkbox');
 Route::post('/check_color', 'ProductController@check_color')->name('color.checkbox');
 Route::post('/check_image', 'ImageController@checkbox')->name('image.checkbox');
+Route::post('/fetch', 'ProductController@fetch')->name('product.fetch');
+
 
 //Ajax route
 Route::get('/selectColorsForRetailSize', 'ProductController@selectColorsForRetailSize')->name('product.selectColorsForRetailSize');
