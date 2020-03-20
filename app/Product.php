@@ -12,7 +12,7 @@ class Product extends Model
 {
     use Favoriteable;
 
-    protected $fillable = ['title', 'logo','description', 'season', 'category_id', 'wholesale_price', 'discount', 'information', 'composition', 'hit'];
+    protected $fillable = ['title', 'logo','description', 'season', 'type', 'category_id', 'wholesale_price', 'discount', 'information', 'composition', 'hit'];
     protected $casts = [
         'sizes' => 'array',
         'images' => 'array',

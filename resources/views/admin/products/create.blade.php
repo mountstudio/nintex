@@ -20,12 +20,6 @@
             </div>
             <div class="col-6">
                 <div class="md-form">
-                    <textarea id="composition" name="information" class="md-textarea form-control" rows="3"></textarea>
-                    <label for="composition">{{ __('ИНформация о товаре') }}</label>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="md-form">
                     <textarea id="composition" name="composition" class="md-textarea form-control" rows="3"></textarea>
                     <label for="composition">{{ __('Состав/Уход') }}</label>
                 </div>
@@ -45,6 +39,13 @@
                 <select class="browser-default custom-select" name="category_id">
                     @foreach($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->title }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-6">
+                <select class="browser-default custom-select" name="type" id="">
+                    @foreach(['Молодежный', 'Батальный'] as $value)
+                        <option value="{{ $value }}">{{ $value }}</option>
                     @endforeach
                 </select>
             </div>

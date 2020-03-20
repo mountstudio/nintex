@@ -100,7 +100,7 @@
                         <li class="nav-item mx-auto">
                             <a class="nav-link btn shadow-none border-0 border-bottom bg-white text-dark active"
                                id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-                               aria-controls="pills-home" aria-selected="true">Информация о товаре <span></span></a>
+                               aria-controls="pills-home" aria-selected="true">Возврат товара <span></span></a>
                         </li>
                         <li class="nav-item mx-auto">
                             <a class="nav-link btn shadow-none border-0 border-bottom bg-white text-dark"
