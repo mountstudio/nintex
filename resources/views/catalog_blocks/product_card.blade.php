@@ -19,15 +19,16 @@
             <div class="row">
                 {{--                @if(!empty($productsWholesaleSize[$product->id]))--}}
                 {{--                    @foreach($productsWholesaleSize[$product->id] as $ps)--}}
-{{--  закоментировано потому что не нужно или нужно я хз              <div class="col-4 pl-0 pr-0">--}}
-{{--                    <label for="size" class="mt-2 pt-1">Оптом:</label>--}}
-{{--                </div>--}}
+                {{--  закоментировано потому что не нужно или нужно я хз              <div class="col-4 pl-0 pr-0">--}}
+                {{--                    <label for="size" class="mt-2 pt-1">Оптом:</label>--}}
+                {{--                </div>--}}
                 <div class="col-12 pl-0 pr-0 mb-2">
 
                     @foreach($productSize as $size1)
                         @foreach(json_decode($size1['sizes']) as $value)
                             <div class="item-size">{{ $value }}</div>
                         @endforeach
+                        @break
                     @endforeach
 
                 </div>

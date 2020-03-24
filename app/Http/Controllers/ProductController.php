@@ -44,9 +44,9 @@ class ProductController extends Controller
 
     public function index2(Request $request)
     {
-//        $last_15_days = Product::where('created_at', '>=', Carbon::now()->subdays(7))->get();
-        $products = Product::all()->sortAndFilter($request)->paginate(9)
-            ->where('created_at', '>=', Carbon::now()->subdays(30));
+        $last_15_days = Product::where('created_at', '>=', Carbon::now()->subdays(7))->get();
+        $products = $last_15_days->sortAndFilter($request)->paginate(9);
+
         return view('products.week_products', [
             'products' => $products,
             'categories' => Category::all(),
@@ -56,8 +56,8 @@ class ProductController extends Controller
 
     public function discount(Request $request)
     {
-        $products = Product::all()->sortAndFilter($request)->paginate(10);
         $discount = Product::where('discount', '>', 0)->get();
+        $products = $discount->sortAndFilter($request)->paginate(9);
         return view('products.discount_products', [
             'products' => $products,
             'disProducts' => $discount,
@@ -65,11 +65,14 @@ class ProductController extends Controller
         ]);
     }
     public function hit(Request $request){
-        $products = Product::all()->sortAndFilter($request)->paginate(10);
+//        $products = Product::all()->sortAndFilter($request)->paginate(9);
         $hit = Product::where('hit', '=', 1)->get();
+
+        $products = $hit->sortAndFilter($request)->paginate(9);
+
         return view('products.hit', [
             'products' => $products,
-            'hits' => $hit,
+//            'hits' => $hit,
             'categories' => Category::all(),
         ]);
     }

@@ -69,10 +69,6 @@ Route::resource('size', 'SizeController')->only(['index', 'show']);
 Route::resource('comment', 'CommentController')->only(['index', 'show', 'store']);
 // End Resource Routes
 
-Route::get('/new_products', 'ProductController@index2')->name('product.index2');
-Route::get('/discount_products', 'ProductController@discount')->name('product.discount');
-Route::get('/hits', 'ProductController@hit')->name('product.hit');
-
 //Cart
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
@@ -96,4 +92,14 @@ Route::post('/fetch', 'ProductController@fetch')->name('product.fetch');
 Route::get('/selectColorsForRetailSize', 'ProductController@selectColorsForRetailSize')->name('product.selectColorsForRetailSize');
 Route::get('/selectQuantityProductColor', 'ProductController@selectQuantityProductColor')->name('product.selectQuantityProductColor');
 Route::get('/selectProductSize', 'ProductController@selectProductSize')->name('product.selectProductSize');
+Route::get('/new_products', 'ProductController@index2')->name('product.index2');
+Route::get('/discount_products', 'ProductController@discount')->name('product.discount');
+Route::get('/hits', 'ProductController@hit')->name('product.hit');
+
+//Mail route
+//Route::get('/email', function (){
+//
+//    return new \App\Mail\WelcomeMail();
+//});
+
 

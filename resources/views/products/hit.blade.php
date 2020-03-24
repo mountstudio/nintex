@@ -62,16 +62,16 @@
                     <button type="submit" class="btn btn-primary">Применить филтр</button>
                 </form>
             </div>
-            {{--            @dd($newProducts)--}}
             <div class="col-12 col-md-9 my-5">
                 <div class="row">
-                    @foreach($hits as $product)
-                        <div class="col-lg-4 col-md-6 mb-4">
+                    @foreach($products as $product)
+                        <div class="col-lg-4 col-6 px-1 mb-4">
                             @include('catalog_blocks.product_card', ['product' => $product, 'productSize' => \App\ProductSize::where('product_id', $product->id)->get() ])
                         </div>
                     @endforeach
                 </div>
                 @if($products instanceof \Illuminate\Pagination\LengthAwarePaginator)
+{{--                    @dd($products)--}}
                     <div class="row justify-content-center mt-5">
                         {{ $products->appends(request()->query())->links() }}
                     </div>
@@ -134,11 +134,11 @@
         noUiSlider.create(moneySlider, {
             start: [0, 30000],
             connect: true,
-            margin: 2500,
+            margin: 1300,
             step: 100,
             range: {
                 'min': 0,
-                'max': 30000
+                'max': 20000
             }
         });
 
@@ -162,11 +162,11 @@
         noUiSlider.create(moneySlider1, {
             start: [0, 30000],
             connect: true,
-            margin: 2500,
+            margin: 1200,
             step: 100,
             range: {
                 'min': 0,
-                'max': 30000
+                'max': 20000
             }
         });
 
@@ -203,5 +203,36 @@
             }
         })
     </script>
+    {{--    <script>--}}
+    {{--        //функция для добавления кнопки--}}
+    {{--        function showFilterButton(){--}}
+    {{--            $('#divFilterButton').empty();--}}
+    {{--            $('#divFilterButton').append('<button type="button" class="btn btn-info">Применить фильтр</button>');--}}
+    {{--        }--}}
+
+    {{--        $('input.sizeClass').click(function () {--}}
+    {{--            showFilterButton();--}}
+    {{--            requestAnimationFrame()--}}
+    {{--        });--}}
+
+    {{--$('div#divFilterButton').click(function () {--}}
+    {{--    let size = '';--}}
+    {{--    $('input:radio:checked').each(function(){--}}
+    {{--        size = $(this).val();--}}
+    {{--    });--}}
+    {{--    $.ajax({--}}
+    {{--        url: "{{ route('product.filter') }} ",--}}
+    {{--        data: {--}}
+    {{--            size: size--}}
+    {{--        },--}}
+    {{--        success: data => {--}}
+    {{--            console.log(data);--}}
+    {{--        },--}}
+    {{--        error: () => {--}}
+    {{--            console.log('error');--}}
+    {{--        }--}}
+    {{--    })--}}
+    {{--});--}}
+    {{--    </script>--}}
 
 @endpush

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Mail\WelcomeMail;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use phpDocumentor\Reflection\DocBlock\Tags\Method;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -44,6 +46,8 @@ class CommentController extends Controller
                 $attrs = explode('/', url()->previous());
 
                 $comment = new Comment($request->all());
+
+
                 if (\Auth::user()){
                     if  ($user->admin == 1){
                         $comment->fill(['product_id' => array_pop($attrs), 'user_id' => $user->id, 'email' => $user->email, 'name' => $user->name, 'parent_id' => $request->parent_id]);

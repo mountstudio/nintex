@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Comment;
+use App\Mail\WelcomeMail;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\Facades\DataTables;
 
 class CategoryController extends Controller
@@ -37,7 +41,11 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         Category::create($request->all());
-
+        $users = User::all();
+        foreach ($users as $user) {
+            Mail::to($user->email)->send(new WelcomeMail());
+            sleep(5);
+        }
         return redirect()->route('admin.category.datatable');
     }
 
