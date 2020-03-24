@@ -61,7 +61,7 @@
                             </div>
                             <div class="col-3 sub-menu mb-md-0 mb-4">
                                 <div class="pl-5">
-                                    <h6 class="sub-title text-uppercase font-weight-bold text-dark">Хиты</h6>
+                                    <a href="{{ route('product.hit') }}" class="h6 p-0 sub-title text-uppercase font-weight-bold text-dark">Хиты</a>
                                     <ul class="list-unstyled">
                                         @foreach($hits as $hit)
                                             {{--                                            @dd(hits)--}}
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
                             <div class="col-4 sub-menu mb-0">
-                                <h6 class="sub-title text-uppercase font-weight-bold text-dark">Категории</h6>
+                                <a href="{{ route('product.index', ['allCatalog']) }}" class="h6 p-0 sub-title text-uppercase font-weight-bold text-dark">Категории</a>
                                 <div class="row">
                                     <div class="col-6">
                                         <ul class="list-unstyled">
@@ -266,7 +266,7 @@
                                     </div>
                                 </div>
                                 <div class="col-4 sub-menu mb-0">
-                                    <a href="" class="h6 sub-title text-uppercase font-weight-bold text-dark">Категории</a>
+                                    <a href="{{ asset('products.index') }}" class="h6 sub-title text-uppercase font-weight-bold text-dark">Категории</a>
                                     <div class="row">
                                         <div class="col-6">
                                             <ul class="list-unstyled">
