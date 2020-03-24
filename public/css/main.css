@@ -1223,4 +1223,13 @@ hr {
 .slick-next {
     right: -5px;
 }
+ul li .menu-item {
+    color: inherit!important;
+    font-size: inherit!important;
+}
+ul li .menu-item:hover {
+    color: #00bcd4!important;
+    font-weight: bold;
+    transition: all .2s ease-in-out!important;
+}
 @import "media.css" all;
