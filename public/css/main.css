@@ -1079,49 +1079,6 @@
         transform: scaleY(1);
     }
 }
-/* footer font size */
-.hover-nav{
-    font-size: 13px;
-    -webkit-transition: all .4s ease!important;
-    -moz-transition: all .4s ease!important;
-    transition: all .4s ease!important;
-}
-.hover-categ{
-    font-size: 13px;
-    -webkit-transition: all .4s ease!important;
-    -moz-transition: all .4s ease!important;
-    transition: all .4s ease!important;
-}
-.hover-que{
-    font-size: 13px;
-    -webkit-transition: all .4s ease!important;
-    -moz-transition: all .4s ease!important;
-    transition: all .4s ease!important;
-}
-.hover-cont{
-    font-size: 13px;
-    -webkit-transition: all .4s ease!important;
-    -moz-transition: all .4s ease!important;
-    transition: all .4s ease!important;
-}
-/* hover in <a> */
-.nav .fz-footer .hover-nav:hover{
-    font-size: 16px!important;
-    color: #00CCCC!important;
-}
-.nav .fz-footer .hover-categ:hover{
-    font-size: 16px!important;
-    color: #00CD74!important;
-}
-.nav .nav-item .hover-que:hover{
-    font-size: 16px!important;
-    color: #CD003D!important;
-}
-.nav .fz-footer .hover-cont:hover{
-    font-size: 16px!important;
-    color: #008FCD!important;
-}
-/* end footer style */
 .card-width{/* style for card in index.blade.php */
     width: 135px;
 }
@@ -1160,10 +1117,10 @@
     font-family: bentonsansmedium;
     line-height: 1;
     color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-weight: bold;
 }
 .navbar .dropdown-menu  ul li a {
-    line-height: 30px!important;
+    line-height: 25px!important;
     font-size: 14px!important;
     position: relative;
     display: block;
@@ -1187,11 +1144,6 @@ hr {
 /*slick carousel style*/
 .slick-opacity {
     opacity: 0.8!important;
-}
-.slick-center {
-    opacity: 1!important;
-    border: 3px solid lightcoral!important;
-    transform: translateX(-2px);
 }
 /*end style*/
 .prefix {
@@ -1231,5 +1183,53 @@ ul li .menu-item:hover {
     color: #00bcd4!important;
     font-weight: bold;
     transition: all .2s ease-in-out!important;
+}
+/* style for footer */
+.footer-hov:hover {
+    font-weight: bold!important;
+}
+/* end style */
+/*slider card style */
+.owl-slider-card .owl-stage {
+    height: 600px!important;
+}
+.owl-slider-card .owl-nav button{
+    outline: none!important;
+}
+.owl-slider-card .owl-nav .owl-prev{
+    position: absolute;
+    left: -3%;
+    top: 50%;
+}
+.owl-slider-card .owl-nav .owl-next{
+    position: absolute;
+    right: -3%;
+    top: 50%;
+}
+.owl-slider-card .owl-nav .owl-prev span, .owl-slider-card .owl-nav .owl-next span {
+    font-size: 50px;
+}
+.owl-slider-card .owl-nav .owl-prev.disabled span, .owl-slider-card .owl-nav .owl-next.disabled span{
+    opacity: .50;
+}
+.owl-slider-card .item .card {
+    height: 500px;
+    width: 270px;
+}
+.owl-slider-card .owl-dots .owl-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: black;
+    opacity: .50;
+    margin-right: 5px;
+}
+.owl-slider-card .owl-dots .owl-dot.active{
+    opacity: .75;
+}
+.owl-slider-card .owl-dots {
+    position: absolute;
+    bottom: 8%;
+    left: 49%;
 }
 @import "media.css" all;

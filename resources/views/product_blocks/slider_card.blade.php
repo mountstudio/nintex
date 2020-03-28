@@ -1,12 +1,57 @@
 <div class="col-12">
-    <div class="slick-slider-card">
-        <div class="item">
+    <div class="h2 text-center">Похожие товары</div>
+    <div class="owl-slider-card owl-carousel position-relative">
+        <div class="item d-flex justify-content-center">
+            <!--Card-->
+            <div class="card align-items-center ">
+                <!--Card image-->
+                <div class="view overlay">
+                    <a href="{{ asset('test') }}">
+                        <img src="{{ asset('img/modals/clothes.png') }}" style="height: 350px!important;" class="img-fluid" alt="">
+
+                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                    </a>
+                </div>
+                <!--Card image-->
+                <!--Card content-->
+                <div class="card-body px-2 w-75">
+                    <!--Category & Title-->
+                    <a href="{{ asset('test') }}" class="text-dark card-text"><p
+                            class="">test Lorem ipsum.</p></a>
+                    <div class="col-12 text-left">
+                        <div class="row">
+                            <div class="col-12 pl-0 pr-0 mb-2">
+
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+
+                            </div>
+                            <div class="col-4 pt-2 pl-0 pr-0">
+                                <label for="size" class="card-price  text-dark">Оптовая цена:</label>
+                            </div>
+                            <div class="col-8 pl-0 pr-0 text-center">
+                                <div class="col-7 text-right ml-3 ml-sm-5 pt-2 pl-0 pr-0">
+                                    <p class="text-dark text-bold card-price" style="">1000kgs</p>
+                                </div>
+                            </div>
+                            <div class="endLine"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--Card content-->
+            </div>
+            <!--Card-->
+        </div>
+        <div class="item d-flex justify-content-center">
             <!--Card-->
             <div class="card align-items-center rounded border-0 shadow ">
                 <!--Card image-->
                 <div class="view overlay">
-                    <a href="{{route('product.show', $product)}}">
-                        <img src="{{ asset('storage/medium/'.$product->logo) }}" class="img-fluid" alt="">
+                    <a href="{{ asset('test') }}">
+                        <img src="{{ asset('img/modals/girl-black-collection.jpg') }}"  style="height: 350px!important;" class="img-fluid" alt="">
 
                         <div class="mask rgba-white-slight waves-effect waves-light"></div>
                     </a>
@@ -15,33 +60,28 @@
                 <!--Card content-->
                 <div class="card-body px-2 card-width">
                     <!--Category & Title-->
-                    <a href="{{route('product.show', $product)}}" class="text-dark card-text"><p
-                            class="">{{$product->title}}</p></a>
+                    <a href="{{ asset('test') }}" class="text-dark card-text"><p
+                            class="">test Lorem ipsum.</p></a>
                     <div class="col-12 text-left">
                         <div class="row">
                             <div class="col-12 pl-0 pr-0 mb-2">
 
-                                @foreach($productSize as $size1)
-                                    @foreach(json_decode($size1['sizes']) as $value)
-                                        <div class="item-size">{{ $value }}</div>
-                                    @endforeach
-                                @endforeach
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
 
                             </div>
                             <div class="col-4 pt-2 pl-0 pr-0">
                                 <label for="size" class="card-price  text-dark">Оптовая цена:</label>
                             </div>
                             <div class="col-8 pl-0 pr-0 text-center">
-                                @foreach($productSize as $size1)
-                                    <div class="col-7 text-right ml-3 ml-sm-5 pt-2 pl-0 pr-0">
-                                        <p class="text-dark text-bold card-price" style="">{{ $size1->price }}kgs</p>
-                                    </div>
-                                    @break
-                                @endforeach
+                                <div class="col-7 text-right ml-3 ml-sm-5 pt-2 pl-0 pr-0">
+                                    <p class="text-dark text-bold card-price" style="">1000kgs</p>
+                                </div>
                             </div>
                             <div class="endLine"></div>
-                            {{--                    @endforeach--}}
-                            {{--                @endif--}}
                         </div>
                     </div>
                 </div>
@@ -49,71 +89,301 @@
             </div>
             <!--Card-->
         </div>
-        <div class="item">
+        <div class="item d-flex justify-content-center">
+            <!--Card-->
+            <div class="card align-items-center rounded border-0 shadow ">
+                <!--Card image-->
+                <div class="view overlay">
+                    <a href="{{ asset('test') }}">
+                        <img src="{{ asset('img/modals/girl-palto.jpg') }}" style="height: 350px!important;" class="img-fluid" alt="">
 
+                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                    </a>
+                </div>
+                <!--Card image-->
+                <!--Card content-->
+                <div class="card-body px-2 card-width">
+                    <!--Category & Title-->
+                    <a href="{{ asset('test') }}" class="text-dark card-text"><p
+                            class="">test Lorem ipsum.</p></a>
+                    <div class="col-12 text-left">
+                        <div class="row">
+                            <div class="col-12 pl-0 pr-0 mb-2">
+
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+
+                            </div>
+                            <div class="col-4 pt-2 pl-0 pr-0">
+                                <label for="size" class="card-price  text-dark">Оптовая цена:</label>
+                            </div>
+                            <div class="col-8 pl-0 pr-0 text-center">
+                                <div class="col-7 text-right ml-3 ml-sm-5 pt-2 pl-0 pr-0">
+                                    <p class="text-dark text-bold card-price" style="">1000kgs</p>
+                                </div>
+                            </div>
+                            <div class="endLine"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--Card content-->
+            </div>
+            <!--Card-->
         </div>
-        <div class="item">
+        <div class="item d-flex justify-content-center">
+            <!--Card-->
+            <div class="card align-items-center rounded border-0 shadow ">
+                <!--Card image-->
+                <div class="view overlay">
+                    <a href="{{ asset('test') }}">
+                        <img src="{{ asset('img/modals/girl-palto-pink.jpg') }}" style="height: 350px!important;" class="img-fluid" alt="">
 
+                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                    </a>
+                </div>
+                <!--Card image-->
+                <!--Card content-->
+                <div class="card-body px-2 card-width">
+                    <!--Category & Title-->
+                    <a href="{{ asset('test') }}" class="text-dark card-text"><p
+                            class="">test Lorem ipsum.</p></a>
+                    <div class="col-12 text-left">
+                        <div class="row">
+                            <div class="col-12 pl-0 pr-0 mb-2">
+
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+
+                            </div>
+                            <div class="col-4 pt-2 pl-0 pr-0">
+                                <label for="size" class="card-price  text-dark">Оптовая цена:</label>
+                            </div>
+                            <div class="col-8 pl-0 pr-0 text-center">
+                                <div class="col-7 text-right ml-3 ml-sm-5 pt-2 pl-0 pr-0">
+                                    <p class="text-dark text-bold card-price" style="">1000kgs</p>
+                                </div>
+                            </div>
+                            <div class="endLine"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--Card content-->
+            </div>
+            <!--Card-->
         </div>
-        <div class="item">
+        <div class="item d-flex justify-content-center">
+            <!--Card-->
+            <div class="card align-items-center rounded border-0 shadow ">
+                <!--Card image-->
+                <div class="view overlay">
+                    <a href="{{ asset('test') }}">
+                        <img src="{{ asset('storage/medium/products/nintex_logo__5e688d56b05ba.jpg') }}" style="height: 350px!important;" class="img-fluid" alt="">
 
+                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                    </a>
+                </div>
+                <!--Card image-->
+                <!--Card content-->
+                <div class="card-body px-2 card-width">
+                    <!--Category & Title-->
+                    <a href="{{ asset('test') }}" class="text-dark card-text"><p
+                            class="">test Lorem ipsum.</p></a>
+                    <div class="col-12 text-left">
+                        <div class="row">
+                            <div class="col-12 pl-0 pr-0 mb-2">
+
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+
+                            </div>
+                            <div class="col-4 pt-2 pl-0 pr-0">
+                                <label for="size" class="card-price  text-dark">Оптовая цена:</label>
+                            </div>
+                            <div class="col-8 pl-0 pr-0 text-center">
+                                <div class="col-7 text-right ml-3 ml-sm-5 pt-2 pl-0 pr-0">
+                                    <p class="text-dark text-bold card-price" style="">1000kgs</p>
+                                </div>
+                            </div>
+                            <div class="endLine"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--Card content-->
+            </div>
+            <!--Card-->
         </div>
-        <div class="item">
+        <div class="item d-flex justify-content-center">
+            <!--Card-->
+            <div class="card align-items-center rounded border-0 shadow ">
+                <!--Card image-->
+                <div class="view overlay">
+                    <a href="{{ asset('test') }}">
+                        <img src="{{ asset('storage/medium/products/nintex_logo__5e689df71d5c8.jpg') }}" style="height: 350px!important;" class="img-fluid" alt="">
 
+                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                    </a>
+                </div>
+                <!--Card image-->
+                <!--Card content-->
+                <div class="card-body px-2 card-width">
+                    <!--Category & Title-->
+                    <a href="{{ asset('test') }}" class="text-dark card-text"><p
+                            class="">test Lorem ipsum.</p></a>
+                    <div class="col-12 text-left">
+                        <div class="row">
+                            <div class="col-12 pl-0 pr-0 mb-2">
+
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+
+                            </div>
+                            <div class="col-4 pt-2 pl-0 pr-0">
+                                <label for="size" class="card-price  text-dark">Оптовая цена:</label>
+                            </div>
+                            <div class="col-8 pl-0 pr-0 text-center">
+                                <div class="col-7 text-right ml-3 ml-sm-5 pt-2 pl-0 pr-0">
+                                    <p class="text-dark text-bold card-price" style="">1000kgs</p>
+                                </div>
+                            </div>
+                            <div class="endLine"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--Card content-->
+            </div>
+            <!--Card-->
         </div>
-        <div class="item">
+        <div class="item d-flex justify-content-center">
+            <!--Card-->
+            <div class="card align-items-center rounded border-0 shadow ">
+                <!--Card image-->
+                <div class="view overlay">
+                    <a href="{{ asset('test') }}">
+                        <img src="{{ asset('storage/medium/products/nintex_logo__5e68975b534b7.jpg') }}" style="height: 350px!important;" class="img-fluid" alt="">
 
+                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                    </a>
+                </div>
+                <!--Card image-->
+                <!--Card content-->
+                <div class="card-body px-2 card-width">
+                    <!--Category & Title-->
+                    <a href="{{ asset('test') }}" class="text-dark card-text"><p
+                            class="">test Lorem ipsum.</p></a>
+                    <div class="col-12 text-left">
+                        <div class="row">
+                            <div class="col-12 pl-0 pr-0 mb-2">
+
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+
+                            </div>
+                            <div class="col-4 pt-2 pl-0 pr-0">
+                                <label for="size" class="card-price  text-dark">Оптовая цена:</label>
+                            </div>
+                            <div class="col-8 pl-0 pr-0 text-center">
+                                <div class="col-7 text-right ml-3 ml-sm-5 pt-2 pl-0 pr-0">
+                                    <p class="text-dark text-bold card-price" style="">1000kgs</p>
+                                </div>
+                            </div>
+                            <div class="endLine"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--Card content-->
+            </div>
+            <!--Card-->
         </div>
-        <div class="item">
+        <div class="item d-flex justify-content-center">
+            <!--Card-->
+            <div class="card align-items-center rounded border-0 shadow ">
+                <!--Card image-->
+                <div class="view overlay">
+                    <a href="{{ asset('test') }}">
+                        <img src="{{ asset('storage/medium/products/nintex_logo__5e676f2dbc654.jpg') }}" style="height: 350px!important;" class="img-fluid" alt="">
 
-        </div>
-        <div class="item">
+                        <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                    </a>
+                </div>
+                <!--Card image-->
+                <!--Card content-->
+                <div class="card-body px-2 card-width">
+                    <!--Category & Title-->
+                    <a href="{{ asset('test') }}" class="text-dark card-text"><p
+                            class="">test Lorem ipsum.</p></a>
+                    <div class="col-12 text-left">
+                        <div class="row">
+                            <div class="col-12 pl-0 pr-0 mb-2">
 
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+                                <div class="item-size">43</div>
+
+                            </div>
+                            <div class="col-4 pt-2 pl-0 pr-0">
+                                <label for="size" class="card-price  text-dark">Оптовая цена:</label>
+                            </div>
+                            <div class="col-8 pl-0 pr-0 text-center">
+                                <div class="col-7 text-right ml-3 ml-sm-5 pt-2 pl-0 pr-0">
+                                    <p class="text-dark text-bold card-price" style="">1000kgs</p>
+                                </div>
+                            </div>
+                            <div class="endLine"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--Card content-->
+            </div>
+            <!--Card-->
         </div>
     </div>
 </div>
+@push('styles')
+    <style>
 
+    </style>
+@endpush
 @push('scripts')
     <script>
-        $('.slick-slider-card').slick({
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            arrows: false,
-            fade: true,
+        $('.owl-slider-card').owlCarousel({
+            loop: false,
+            nav: true,
             dots: true,
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        infinite: true,
-                        dots: true
-                    }
+            mouseDrag: false,
+            responsive: {
+                0: {
+                    items: 1
                 },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        arrows: true,
-                    }
+                600: {
+                    items: 2
                 },
-                {
-                    breakpoint: 300,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: true,
-                    }
+                1000: {
+                    items: 4
                 }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
-            ]
-        })
+            }
+        });
     </script>
 @endpush

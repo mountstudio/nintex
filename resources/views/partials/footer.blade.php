@@ -5,13 +5,13 @@
                 <p class="h3 text-white">
                     Навигация
                 </p>
-                <nav class="nav flex-column text-center mx-auto mx-md-0">
-                    <a class="text-white mr-auto fz-footer hover-nav" href="{{ route('home') }}" title="">- ГЛАВНАЯ</a>
-                    <a class="text-white mr-auto fz-footer hover-nav" href="{{ route('product.discount') }}" title="">-
+                <nav class="nav flex-column  text-center mx-auto mx-md-0">
+                    <a class="text-white mr-auto footer-hov fz-footer mb-1" href="{{ route('home') }}" title="">- ГЛАВНАЯ</a>
+                    <a class="text-white mr-auto footer-hov fz-footer mb-1" href="{{ route('product.discount') }}" title="">-
                         АКЦИИ</a>
-                    <a class="text-white mr-auto fz-footer hover-nav my-2" href="{{ route('product.hit') }}" title="">-
+                    <a class="text-white mr-auto footer-hov fz-footer mb-1" href="{{ route('product.hit') }}" title="">-
                         ХИТЫ</a>
-                    <a class="text-white mr-auto fz-footer hover-nav" href="{{ route('product.index2') }}" title="">-
+                    <a class="text-white mr-auto footer-hov fz-footer mb-1" href="{{ route('product.index2') }}" title="">-
                         НОВИНКИ</a>
                 </nav>
             </div>
@@ -21,7 +21,7 @@
                 </p>
                 <nav class="nav flex-column text-center mx-auto mx-md-0">
                     @foreach($categories as $category)
-                        <a class="text-white mr-auto fz-footer hover-categ" href="{{ route('product.index', ['allCatalog['. $category->id .']' => 'on']) }}" title="">- {{$category->title}}</a>
+                        <a class="text-white mr-auto footer-hov fz-footer mb-1" href="{{ route('product.index', ['allCatalog['. $category->id .']' => 'on']) }}" title="">- {{$category->title}}</a>
                     @endforeach
                 </nav>
             </div>
@@ -30,23 +30,23 @@
                     Частые вопросы
                 </p>
                 <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a href="" class="text-white mr-auto fz-footer hover-que">
+                    <li class="nav-item ">
+                        <a href="" class="text-white mr-auto footer-hov fz-footer">
                             - Как узнать оптовые цены?
                         </a>
                     </li>
-                    <li class="nav-item my-2">
-                        <a href="" class="text-white mr-auto  fz-footer hover-que">
+                    <li class="nav-item my-1">
+                        <a href="" class="text-white mr-auto footer-hov  fz-footer">
                             - Есть ли возможность бронировать товар?
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="" class="text-white mr-auto fz-footer hover-que">
+                    <li class="nav-item ">
+                        <a href="" class="text-white mr-auto footer-hov fz-footer">
                             - Как быстро происходит отгрузка ?
                         </a>
                     </li>
-                    <li class="nav-item my-2">
-                        <a href="" class="text-white mr-auto  fz-footer hover-que">
+                    <li class="nav-item my-1">
+                        <a href="" class="text-white mr-auto footer-hov  fz-footer">
                             - Товар в наличии или отшиваете под заказ?
                         </a>
                     </li>

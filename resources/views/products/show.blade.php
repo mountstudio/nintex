@@ -402,7 +402,7 @@
     </section>
     <section>
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row">
                 @include('product_blocks.slider_card')
             </div>
         </div>
