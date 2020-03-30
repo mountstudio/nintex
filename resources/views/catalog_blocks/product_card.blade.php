@@ -10,7 +10,7 @@
     </div>
     <!--Card image-->
     <!--Card content-->
-    <div class="card-body px-2 card-width">
+    <div class="card-body px-1 card-width">
         <!--Category & Title-->
         <a href="{{route('product.show', $product)}}" class="text-dark card-text"><p
                 class="">{{$product->title}}</p></a>
