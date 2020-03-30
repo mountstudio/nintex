@@ -70,10 +70,11 @@ Route::resource('product', 'ProductController');
 Route::resource('category', 'CategoryController')->only(['index', 'show']);
 Route::resource('size', 'SizeController')->only(['index', 'show']);
 Route::resource('comment', 'CommentController')->only(['index', 'show', 'store']);
+Route::resource('email', 'EmailController')->only(['index', 'show', 'store']);
 // End Resource Routes
 
 //Cart
-Route::get('/cart', 'CartController@index')->name('cart.index');
+Route::get('/cart', 'Car00.tController@index')->name('cart.index');
 Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::get('/cart/add/book', 'CartController@add')->name('cart.add');
@@ -88,7 +89,7 @@ Route::post('/save/select', 'CartController@save_select')->name('cart.save_selec
 Route::post('/check', 'ProductController@checkbox')->name('cart.checkbox');
 Route::post('/check_color', 'ProductController@check_color')->name('color.checkbox');
 Route::post('/check_image', 'ImageController@checkbox')->name('image.checkbox');
-Route::post('/fetch', 'ProductController@fetch')->name('product.fetch');
+Route::get('/fetch', 'ProductController@fetch')->name('product.fetch');
 
 
 //Ajax route

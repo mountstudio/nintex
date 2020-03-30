@@ -193,11 +193,13 @@ class ProductController extends Controller
         $commentsQuantity = Comment::where('product_id', $product->id);
         $commentCount = $commentsQuantity->count();
         $images = [];
+        $sameproducts = Product::where('category_id', $product->category_id)->get();
         foreach ($productWholesaleSizes as $value) {
             $images[] = $value->images;
         }
         return view('products.show', [
             'product' => $product,
+            'sameProducts' => $sameproducts,
             'productWholesaleSizes' => $productWholesaleSizes,
             'productWholesaleColors' => $productWholesaleColors,
             'products' => Product::all(),

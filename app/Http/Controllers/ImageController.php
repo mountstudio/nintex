@@ -40,7 +40,7 @@ class ImageController extends Controller
 //        dd($request->image);
         $img = new Image($request->all());
         if ($picture = $request->image) {
-            $filename = ImageUploader::upload($request->image, 'products', "nintex_img", 40);
+            $filename = ImageUploader::upload($request->image, 'products', "nintex_img");
             $img->image = $filename;
             $img->save();
         }

@@ -21,7 +21,9 @@
                 </p>
                 <nav class="nav flex-column text-center mx-auto mx-md-0">
                     @foreach($categories as $category)
-                        <a class="text-white mr-auto footer-hov fz-footer mb-1" href="{{ route('product.index', ['allCatalog['. $category->id .']' => 'on']) }}" title="">- {{$category->title}}</a>
+                        <a class="text-white mr-auto fz-footer hover-categ"
+                           href="{{ route('product.index', ['allCatalog['. $category->id .']' => 'on']) }}"
+                           title="">- {{$category->title}}</a>
                     @endforeach
                 </nav>
             </div>
@@ -62,12 +64,15 @@
                             <div class="col-12 col-xl-6">
                                 <p class="text-white mt-1 mb-0 fz-footer">Подписаться на рассылку</p>
                             </div>
-                            <div class="col-12 col-xl-6 position-relative">
-                                <input type="text" style="height: 27px;">
-                                <button class="position-absolute pos-img p-0" style="height: 27px">
-                                    <img src="{{ asset('img/mail.svg') }}" width="22" height="21" alt="">
-                                </button>
-                            </div>
+                            <form action="{{ route('email.store') }}" method="post">
+                                @csrf
+                                <div class="col-12 col-xl-6 position-relative">
+                                    <input type="text" name="email" style="height: 27px;">
+                                    <button type="submit" class="position-absolute pos-img p-0" style="height: 27px">
+                                        <img src="{{ asset('img/mail.svg') }}" width="22" height="21" alt="">
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                         <hr>
                     </li>
