@@ -64,15 +64,17 @@
                             <div class="col-12 col-xl-6">
                                 <p class="text-white mt-1 mb-0 fz-footer">Подписаться на рассылку</p>
                             </div>
-                            <form action="{{ route('email.store') }}" method="post">
-                                @csrf
-                                <div class="col-12 col-xl-6 position-relative">
+                            <div class="col-12 col-xl-6 position-relative">
+                                <form action="{{ route('email.store') }}" method="post">
+                                    @csrf
                                     <input type="text" name="email" style="height: 27px;">
                                     <button type="submit" class="position-absolute pos-img p-0" style="height: 27px">
                                         <img src="{{ asset('img/mail.svg') }}" width="22" height="21" alt="">
                                     </button>
-                                </div>
-                            </form>
+
+                                </form>
+                            </div>
+
                         </div>
                         <hr>
                     </li>
