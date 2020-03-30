@@ -21,11 +21,7 @@
                         <div class="row">
                             <div class="col-12 pl-0 pr-0 mb-2">
 
-                                @foreach($productSize as $size1)
-                                    @foreach(json_decode($size1['sizes']) as $value)
-                                        <div class="item-size">{{ $value }}</div>
-                                    @endforeach
-                                @endforeach
+
 
                             </div>
                             <div class="col-4 pt-2 pl-0 pr-0">

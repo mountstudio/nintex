@@ -513,7 +513,7 @@
                     let _token = $('input[name="_token"]').val();
                     $.ajax({
                         url:"{{ route('product.fetch') }}",
-                        method: 'POST',
+                        method: 'GET',
                         data: {query: query, _token: _token},
                         success: function(data){
                             $('#productList').fadeIn();
