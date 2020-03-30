@@ -15,7 +15,6 @@ sCarousel.slick({
     speed: 300,
     vertical: true,
     verticalSwiping: true,
-    centerMode: true,
     centerPadding: '40px',
     asNavFor: '.slick-one-item',
     arrows: false
@@ -40,3 +39,6 @@ sCarousel.slick({
 //         sCarousel.slick('slickNext');
 //     }
 // });
+
+// slider for slider_card.blade.php
+

@@ -24,6 +24,9 @@ Route::get('/cooperation', function () {
 Route::get('/catalog', function () {
     return view('catalog');
 })->name('catalog');
+Route::get('/test', function () {
+    return view('test');
+})->name('test');
 
 
 Auth::routes();

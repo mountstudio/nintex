@@ -124,7 +124,7 @@
                             <input class="form-control form-control-sm mr-3 w-75 mb-1" type="text" placeholder="Search"
                                    aria-label="Search" name="title" id="title">
                             <i class="fas fa-search" aria-hidden="true"></i>
-                            <div id="productList">
+                            <div  id="productList">
                             </div>
                         </div>
                         {{ csrf_field() }}
@@ -141,10 +141,10 @@
 
                     <!--Menu-->
                     <div class="dropdown-menu dropdown-primary text-small" style="top: 80%; left: 60%;">
-                        <p class="px-3">
+                        <p class="px-3" style="font-weight: normal;">
                             Доставку по всему Кыргызстану и СНГ <br>
-                            Наш телефон для связи: 0777 57-89-58, <br>
-                            0555 65-98-58, 0703 96-58-74
+                            Наш телефон для связи:  <br>
+                            0777 57-89-58, 0555 65-98-58, 0703 96-58-74
                         </p>
                     </div>
                 </li>
@@ -211,7 +211,7 @@
                            aria-expanded="false">Коллекция</a>
                         <div class="dropdown-menu mega-menu v-2 z-depth-1 bg-white py-5 px-3"
                              aria-labelledby="dropdownMenuButton"
-                             style="width: 1200px!important; left: -230%!important;">
+                             style="width: 960px!important; left: -230%!important;">
                             <div class="row">
                                 <div class="col-5 sub-menu position-relative mb-xl-0 mb-4">
                                     <div class="row justify-content-between">
@@ -408,8 +408,8 @@
                          style="top: 50px!important; left: -98px!important;">
                         <p class="px-3">
                             Доставку по всему Кыргызстану и СНГ <br>
-                            Наш телефон для связи: 0777 57-89-58, <br>
-                            0555 65-98-58, 0703 96-58-74
+                            Наш телефон для связи: <br>
+                            0777 57-89-58, 0555 65-98-58, 0703 96-58-74
                         </p>
                     </div>
                 </li>

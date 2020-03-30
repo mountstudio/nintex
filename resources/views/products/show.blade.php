@@ -402,8 +402,8 @@
     </section>
     <section>
         <div class="container">
-            <div class="row justify-content-center">
-{{--                @include('product_blocks.slider_card')--}}
+            <div class="row">
+                @include('product_blocks.slider_card')
             </div>
         </div>
     </section>
