@@ -6,7 +6,7 @@
                 <div class="col-9 col-lg-4">
                     @include('product_blocks.slider')
                 </div>
-{{--                @dd($images)--}}
+                {{--                @dd($images)--}}
                 <div class="col-12 col-lg-6 position-relative">
                     <div class=" d-flex justify-lg-content-end" style=" border-bottom-left-radius: 100px;">
                         <div class="col-12">
@@ -345,55 +345,55 @@
                     {{--                            </div>--}}
                     {{--                        </div>--}}
                     <!--Pagination -->
-{{--                        <nav class="d-flex justify-content-center mt-5">--}}
-{{--                            <ul class="pagination pg-blue mb-0">--}}
+                    {{--                        <nav class="d-flex justify-content-center mt-5">--}}
+                    {{--                            <ul class="pagination pg-blue mb-0">--}}
 
-{{--                                <!--First-->--}}
-{{--                                <li class="page-item disabled">--}}
-{{--                                    <a class="page-link waves-effect waves-effect">First</a>--}}
-{{--                                </li>--}}
+                    {{--                                <!--First-->--}}
+                    {{--                                <li class="page-item disabled">--}}
+                    {{--                                    <a class="page-link waves-effect waves-effect">First</a>--}}
+                    {{--                                </li>--}}
 
-{{--                                <!--Arrow left-->--}}
-{{--                                <li class="page-item disabled">--}}
-{{--                                    <a class="page-link waves-effect waves-effect" aria-label="Previous">--}}
-{{--                                        <span aria-hidden="true">«</span>--}}
-{{--                                        <span class="sr-only">Previous</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
+                    {{--                                <!--Arrow left-->--}}
+                    {{--                                <li class="page-item disabled">--}}
+                    {{--                                    <a class="page-link waves-effect waves-effect" aria-label="Previous">--}}
+                    {{--                                        <span aria-hidden="true">«</span>--}}
+                    {{--                                        <span class="sr-only">Previous</span>--}}
+                    {{--                                    </a>--}}
+                    {{--                                </li>--}}
 
-{{--                                <!--Numbers-->--}}
-{{--                                <li class="page-item active">--}}
-{{--                                    <a class="page-link waves-effect waves-effect">1</a>--}}
-{{--                                </li>--}}
-{{--                                <li class="page-item">--}}
-{{--                                    <a class="page-link waves-effect waves-effect">2</a>--}}
-{{--                                </li>--}}
-{{--                                <li class="page-item">--}}
-{{--                                    <a class="page-link waves-effect waves-effect">3</a>--}}
-{{--                                </li>--}}
-{{--                                <li class="page-item">--}}
-{{--                                    <a class="page-link waves-effect waves-effect">4</a>--}}
-{{--                                </li>--}}
-{{--                                <li class="page-item">--}}
-{{--                                    <a class="page-link waves-effect waves-effect">5</a>--}}
-{{--                                </li>--}}
+                    {{--                                <!--Numbers-->--}}
+                    {{--                                <li class="page-item active">--}}
+                    {{--                                    <a class="page-link waves-effect waves-effect">1</a>--}}
+                    {{--                                </li>--}}
+                    {{--                                <li class="page-item">--}}
+                    {{--                                    <a class="page-link waves-effect waves-effect">2</a>--}}
+                    {{--                                </li>--}}
+                    {{--                                <li class="page-item">--}}
+                    {{--                                    <a class="page-link waves-effect waves-effect">3</a>--}}
+                    {{--                                </li>--}}
+                    {{--                                <li class="page-item">--}}
+                    {{--                                    <a class="page-link waves-effect waves-effect">4</a>--}}
+                    {{--                                </li>--}}
+                    {{--                                <li class="page-item">--}}
+                    {{--                                    <a class="page-link waves-effect waves-effect">5</a>--}}
+                    {{--                                </li>--}}
 
-{{--                                <!--Arrow right-->--}}
-{{--                                <li class="page-item">--}}
-{{--                                    <a class="page-link waves-effect waves-effect" aria-label="Next">--}}
-{{--                                        <span aria-hidden="true">»</span>--}}
-{{--                                        <span class="sr-only">Next</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
+                    {{--                                <!--Arrow right-->--}}
+                    {{--                                <li class="page-item">--}}
+                    {{--                                    <a class="page-link waves-effect waves-effect" aria-label="Next">--}}
+                    {{--                                        <span aria-hidden="true">»</span>--}}
+                    {{--                                        <span class="sr-only">Next</span>--}}
+                    {{--                                    </a>--}}
+                    {{--                                </li>--}}
 
-{{--                                <!--Last-->--}}
-{{--                                <li class="page-item">--}}
-{{--                                    <a class="page-link waves-effect waves-effect">Last</a>--}}
-{{--                                </li>--}}
+                    {{--                                <!--Last-->--}}
+                    {{--                                <li class="page-item">--}}
+                    {{--                                    <a class="page-link waves-effect waves-effect">Last</a>--}}
+                    {{--                                </li>--}}
 
-{{--                            </ul>--}}
-{{--                        </nav>--}}
-                        <!--Pagination -->
+                    {{--                            </ul>--}}
+                    {{--                        </nav>--}}
+                    <!--Pagination -->
 
                     </section>
                 </div>
@@ -403,7 +403,15 @@
     <section>
         <div class="container">
             <div class="row">
-                @include('product_blocks.slider_card')
+                <div class="col-12">
+                    <div class="h2 text-center">Похожие товары</div>
+                    <div class="owl-slider-card owl-carousel position-relative">
+
+                    @foreach($sameProducts as $product)
+                        @include('product_blocks.slider_card', ['product' => $product, 'productSize' => \App\ProductSize::where('product_id', $product->id)->get()])
+                    @endforeach
+                </div>
+                </div>
             </div>
         </div>
     </section>
@@ -545,8 +553,8 @@
     </script>
     <script src="{{ asset('js/slider-product.js') }}"></script>
     <script>
-        $(document).ready(function (){
-            $(document).on('click', '.checkbox-color', function(){
+        $(document).ready(function () {
+            $(document).on('click', '.checkbox-color', function () {
                 let check = $(this).data('color');
                 let id = $(this).data('id');
                 console.log(check, id);
