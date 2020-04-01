@@ -193,7 +193,7 @@ class ProductController extends Controller
         $commentsQuantity = Comment::where('product_id', $product->id);
         $commentCount = $commentsQuantity->count();
         $images = [];
-        $sameproducts = Product::where('category_id', $product->category_id)->get();
+        $sameproducts = Product::where('category_id', $product->category_id)->get()->except([$product->id]);
         foreach ($productWholesaleSizes as $value) {
             $images[] = $value->images;
         }
