@@ -74,7 +74,7 @@ Route::resource('email', 'EmailController')->only(['index', 'show', 'store']);
 // End Resource Routes
 
 //Cart
-Route::get('/cart', 'Car00.tController@index')->name('cart.index');
+Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::get('/cart/add/book', 'CartController@add')->name('cart.add');

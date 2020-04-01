@@ -1,26 +1,13 @@
 <div class="row">
 
-    <div class="col-12 d-none d-lg-block">
+    <div class="col-10 d-none d-lg-block">
 
         <div class="example">
             <div id="money" class="noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr"></div>
 
-            <div class="row my-4 pl-3">
-                <div class="col-4 px-0 form-group">
-                    <!-- Small input -->
-                    <input class="form-control" type="number" value="0" min="0" max="30000" step="1" id="input-first" name="inputFirst">
 
-                </div>
-                <div class="col-1 px-0 text-center py-2">
-                    <img src="{{ asset('img/Line.png') }}" alt="">
-                </div>
-                <div class="col-4 px-0 form-group">
-                    <!-- Small input -->
-                    <input class="form-control" type="number" min="0" max="30000" step="1" id="input-second" name="inputSecond">
-
-                </div>
-            </div>
         </div>
+
     </div>
     {{--<div class="col-12 my-5">
         <div class="row">
@@ -56,6 +43,21 @@
         </div>
     </div>--}}
     <!--Checkbox-->
+</div>
+<div class="row my-4 pl-3">
+    <div class="col-4 px-0 form-group">
+        <!-- Small input -->
+        <input class="form-control" type="number" value="0" min="0" max="30000" step="1" id="input-first" name="inputFirst">
+
+    </div>
+    <div class="col-1 px-0 text-center py-2">
+        <img src="{{ asset('img/Line.png') }}" alt="">
+    </div>
+    <div class="col-4 px-0 form-group">
+        <!-- Small input -->
+        <input class="form-control" type="number" min="0" max="30000" step="1" id="input-second" name="inputSecond">
+
+    </div>
 </div>
 @push('styles')
     <style>
