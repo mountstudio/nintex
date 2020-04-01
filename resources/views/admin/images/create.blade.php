@@ -10,7 +10,18 @@
                 <label>Выберите фото</label>
                 <input type="file" name="image">
             </div>
-
+            <div class="col-6">
+                <div class="md-form">
+                    <input type="text" id="title" name="title" class="form-control">
+                    <label for="title">{{ __('Название') }}</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="md-form">
+                    <input type="text" id="link" name="link" class="form-control">
+                    <label for="link">{{ __('Cсылка') }}</label>
+                </div>
+            </div>
         </div>
 
         {{--        <------------------------------------------------endtabs------------------------------------------------>--}}

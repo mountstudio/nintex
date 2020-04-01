@@ -148,7 +148,7 @@
                             <img src="{{ asset('storage/large/'.$image->image) }}" class="img-fluid" alt="">
                             <a href="" class="position-absolute text-white" style="top: 30%;left: 20%;font-size: 16px;">
                                 <p style="width: 300px;">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ratione!
+                                    {{ $image->title }}
                                 </p>
                             </a>
                         </a>

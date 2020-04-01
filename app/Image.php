@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    protected $fillable = ['image', 'active'];
+    protected $fillable = ['image', 'active', 'link', 'title'];
 
 }
