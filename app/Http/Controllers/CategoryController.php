@@ -41,11 +41,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         Category::create($request->all());
-        $users = User::all();
-        foreach ($users as $user) {
-            Mail::to($user->email)->send(new WelcomeMail());
-            sleep(5);
-        }
+
         return redirect()->route('admin.category.datatable');
     }
 

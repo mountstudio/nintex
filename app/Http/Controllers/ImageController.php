@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Email;
 use App\Image;
+use App\Mail\WelcomeMail;
+use App\Services\EmailService;
 use App\Services\ImageUploader;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Intervention\Image\Exception\ImageException;
 use Yajra\DataTables\Facades\DataTables;
 
 class ImageController extends Controller
@@ -111,17 +116,30 @@ class ImageController extends Controller
             ->addColumn('act', function (Image $image){
                 return view('admin.images.action', ['image' => $image]);
             })
-            ->rawColumns(['action', 'act', 'checkbox'])
+            ->addColumn('send', function (Image $image) {
+                return '<button type="button" class="btn btn-primary send" id="'. $image->id .'">Отправить</button>';
+            })
+            ->rawColumns(['action', 'act', 'checkbox', 'send'])
             ->make(true);
     }
 
     public function checkbox(Request $request)
     {
         $image = Image::find($request->id);
+
         if ($request->value) {
+//            EmailService::send($image);
+
             $image->active = !$image->active;
             $image->save();
         }
         return response()->json('Успех');
+    }
+
+    //Метод для рассылки сообщений
+    public function send(Request $request){
+//        dd($request);
+        $image = Image::find($request->id);
+        EmailService::send($image);
     }
 }
