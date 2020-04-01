@@ -1,5 +1,5 @@
 <!-- This header for desktop version -->
-<div class="container d-none d-xl-block">
+<div class="container px-0 d-none d-xl-block">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg px-0 py-0 shadow-none">
 
@@ -66,7 +66,7 @@
                                         @foreach($hits as $hit)
                                             {{--                                            @dd(hits)--}}
                                             <li>
-                                                <a class="menu-item pl-0" style="font-size: 14px;"
+                                                <a class="menu-item header-hov pl-0" style="font-size: 14px;"
                                                    href="{{ route('product.show', $hit) }}">
                                                     {{ $hit->title }}
                                                 </a>
@@ -85,7 +85,7 @@
                                                 {{--                                                @dd($category)--}}
                                                 @foreach($category as $value)
                                                     <li>
-                                                        <a class="menu-item pl-0"
+                                                        <a class="menu-item header-hov pl-0"
                                                            href="{{ route('product.index', ['allCatalog['. $value->id .']' => 'on']) }}">
                                                             {{ $value->title }}
                                                         </a>
@@ -117,18 +117,10 @@
 
             <!-- Search form -->
             <ul class=" mt-2 mb-0 mt-lg-0 list-inline">
-                <li class="nav-item list-inline-item pt-4" style="width: 30%;">
+                <li class="nav-item list-inline-item mr-0 pt-4" style="width: 30%;">
                     <!-- Search form -->
-                    <form class="form-inline md-form form-sm active-purple-2 mt-2">
-                        <div class="form-group">
-                            <input class="form-control form-control-sm mr-3 w-75 mb-1" type="text" placeholder="Search"
-                                   aria-label="Search" name="title" id="title">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                            <div  id="productList">
-                            </div>
-                        </div>
-                        {{ csrf_field() }}
-                    </form>
+                    @include('partials.header_blocks.header_search')
+
                 </li>
                 <li class="nav-item list-inline-item pt-4 mr-0">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
@@ -155,13 +147,13 @@
                         0555 55 55 55
                     </p>
                 </li>
-                <li class="nav-item list-inline-item mx-2 mb-2">
+                <li class="nav-item list-inline-item mb-2">
                     <a href="{{ auth()->check() ? route('profile') : route('login') }}"
                        class="border-bottom-0 border-top-0 border-right-0 border-left-0 rounded-0 border-dark my-2 my-sm-0"><img
                             src="{{ asset('img/user_avatar.svg') }}" class="img-fluid" alt=""></a>
                 </li>
                 <!--Cart link-->
-                <li class="nav-item list-inline-item mr-2 position-relative mb-2" id="basket">
+                <li class="nav-item list-inline-item position-relative mb-2" id="basket">
                     <a href="{{ route('cart.checkout') }}" class="text-fut-book cart"
                        style="text-decoration: none; color: #444444;">
                         <div
@@ -383,16 +375,12 @@
                 </ul>
             </nav>
         </div>
-        <div class="col-6 col-md-8 col-lg-6 d-flex justify-content-end px-0">
-            <ul class="nav mt-2 mt-lg-0 list-inline">
-                <li class="nav-item list-inline-item width-form mx-2 mx-md-0">
+        <div class="col-8 col-lg-6 d-flex justify-content-end px-0">
+            <ul class="nav mt-2 mt-lg-0 list-inline pt-lg-2">
+                <li class="nav-item list-inline-item width-form pt-1 mr-md-2">
                     <!-- Search form -->
-                    <form class="form-inline md-form form-sm active-purple-2 mt-2 ml-3 ml-md-0">
-                        <input class="form-control form-control-sm mr-3 w-75 mb-1 d-none d-md-block" type="text"
-                               placeholder="Search"
-                               aria-label="Search">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                    </form>
+                    @include('partials.header_blocks.header_search')
+
                 </li>
                 <li class="nav-item d-none d-md-block list-inline-item mx-auto mx-lg-0 width-form" style="width: 50px;">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
@@ -420,13 +408,13 @@
                         0555 55 55 55
                     </p>
                 </li>
-                <li class="nav-item list-inline-item ml-2 mr-0 mb-2 pt-md-3">
+                <li class="nav-item list-inline-item d-none d-lg-block ml-2 mr-0 mb-2 pt-md-3">
                     <a href="{{ auth()->check() ? route('profile') : route('login') }}"
                        class="border-bottom-0 border-top-0 border-right-0 border-left-0 rounded-0 border-dark my-2 my-sm-0"><img
                             src="{{ asset('img/user_avatar.svg') }}" class="img-fluid" alt=""></a>
                 </li>
                 <!--Cart link-->
-                <li class="nav-item list-inline-item mx-2 mr-md-4 position-relative mb-2 pt-md-3" id="basket">
+                <li class="nav-item list-inline-item d-none d-lg-block  mx-2 mr-md-4 position-relative mb-2 pt-md-3" id="basket">
                     <a href="{{ route('cart.checkout') }}" class="text-fut-book cart"
                        style="text-decoration: none; color: #444444;">
                         <div
@@ -464,6 +452,7 @@
         </ul>
     </nav>
 </div>
+@include('partials.header_blocks.mobile_fixed_nav')
 
 @push('styles')
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
@@ -524,7 +513,7 @@
             });
             $(document).on('click', 'li', function(){
                 $('#title').val($(this).text());
-                $('#productList').fadeOut();
+                $('#    productList').fadeOut();
             });
         });
     </script>

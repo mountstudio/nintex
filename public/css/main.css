@@ -788,6 +788,7 @@
 }
 
 
+
 /* Media for css */
 @media (min-width: 576px) {
     .main-container {
@@ -1179,13 +1180,9 @@ ul li .menu-item {
     color: inherit!important;
     font-size: inherit!important;
 }
-ul li .menu-item:hover {
-    color: #00bcd4!important;
-    font-weight: bold;
-    transition: all .2s ease-in-out!important;
-}
+
 /* style for footer */
-.footer-hov:hover {
+.footer-hov:hover, .header-hov:hover {
     font-weight: bold!important;
 }
 /* end style */

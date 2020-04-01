@@ -1,4 +1,4 @@
-<footer class="bg-dark position-relative" style="margin-top: 20px;">
+<footer class="bg-dark position-relative pb-3 pb-lg-0" style="margin-top: 20px;">
     <div class="container">
         <div class="row justify-content-center py-4">
             <div class="col-12 col-md-4 col-lg-2">
@@ -21,7 +21,7 @@
                 </p>
                 <nav class="nav flex-column text-center mx-auto mx-md-0">
                     @foreach($categories as $category)
-                        <a class="text-white mr-auto fz-footer hover-categ"
+                        <a class="text-white mr-auto footer-hov fz-footer"
                            href="{{ route('product.index', ['allCatalog['. $category->id .']' => 'on']) }}"
                            title="">- {{$category->title}}</a>
                     @endforeach

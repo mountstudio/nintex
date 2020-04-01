@@ -9,13 +9,12 @@ fCarousel.slick({
     asNavFor: '.slick-five-item'
 });
 sCarousel.slick({
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
     isfinite: false,
     speed: 300,
     vertical: true,
     verticalSwiping: true,
-    centerPadding: '40px',
     asNavFor: '.slick-one-item',
     arrows: false
 });
