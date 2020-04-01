@@ -14,6 +14,7 @@
             <th>Image</th>
             <th>Active</th>
             <th>Action</th>
+            <th>Email</th>
         </tr>
         </thead>
     </table>
@@ -36,6 +37,7 @@
                     {data: 'action', name: 'action'},
                     {data: 'checkbox', name: 'checkbox'},
                     {data: 'act', name: 'act'},
+                    {data: 'send', name: 'send'},
 
                 ],
                 'initComplete' : (settings, data) => {
@@ -69,5 +71,25 @@
             })
         })
 
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(document).on('click', '.send', function () {
+                let id = $(this).attr('id');
+                $.ajax({
+                    url: "{{ route('image.send') }}",
+                    method: 'post',
+                    data: {
+                        id: id,
+                    },
+                    success: data=> {
+                        console.log(data, 'Успех');
+                    },
+                    error: data => {
+                        console.log(data, 'Error');
+                    }
+                })
+            })
+        })
     </script>
 @endpush

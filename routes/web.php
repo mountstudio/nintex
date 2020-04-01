@@ -74,7 +74,7 @@ Route::resource('email', 'EmailController')->only(['index', 'show', 'store']);
 // End Resource Routes
 
 //Cart
-Route::get('/cart', 'Car00.tController@index')->name('cart.index');
+Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::get('/cart/checkout', 'CartController@checkout')->name('cart.checkout');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::get('/cart/add/book', 'CartController@add')->name('cart.add');
@@ -85,20 +85,21 @@ Route::get('/cart/remove/book', 'CartController@remove')->name('cart.remove');
 Route::get('/products', 'Api\ProductController@index')->name('product.all');
 //Route::get('/products/filter', 'ProductController@filter')->name('product.filter');
 
+//Ajax route
 Route::post('/save/select', 'CartController@save_select')->name('cart.save_select');
 Route::post('/check', 'ProductController@checkbox')->name('cart.checkbox');
 Route::post('/check_color', 'ProductController@check_color')->name('color.checkbox');
 Route::post('/check_image', 'ImageController@checkbox')->name('image.checkbox');
 Route::get('/fetch', 'ProductController@fetch')->name('product.fetch');
-
-
-//Ajax route
 Route::get('/selectColorsForRetailSize', 'ProductController@selectColorsForRetailSize')->name('product.selectColorsForRetailSize');
 Route::get('/selectQuantityProductColor', 'ProductController@selectQuantityProductColor')->name('product.selectQuantityProductColor');
 Route::get('/selectProductSize', 'ProductController@selectProductSize')->name('product.selectProductSize');
 Route::get('/new_products', 'ProductController@index2')->name('product.index2');
 Route::get('/discount_products', 'ProductController@discount')->name('product.discount');
 Route::get('/hits', 'ProductController@hit')->name('product.hit');
+Route::post('/send', 'ImageController@send')->name('image.send');
+//End ajax route
+
 
 //Mail route
 //Route::get('/email', function (){

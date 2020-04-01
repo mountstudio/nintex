@@ -24,6 +24,7 @@
                                     @foreach(json_decode($size['sizes']) as $value)
                                         <div class="item-size">{{ $value }}</div>
                                     @endforeach
+                                        @break
                                 @endforeach
 
                             </div>
@@ -34,6 +35,7 @@
                                 <div class="col-7 text-right ml-3 ml-sm-5 pt-2 pl-0 pr-0">
                                     @foreach($productSize as $price)
                                         <p class="text-dark text-bold card-price" style="">{{ $price->price }}</p>
+                                        @break
                                     @endforeach
                                 </div>
                             </div>
