@@ -69,7 +69,7 @@
 
                                 </div>
                                 <h6 id="retailPrice" class="mt-1"><b>Цена за 1
-                                        линейку: {{ $productWholesaleColors[0]->price }} kgs</b></h6>
+                                        линейку: {{ number_format($productWholesaleColors[0]->price, 2, '.', ' ') }} kgs</b></h6>
                             </div>
 
                         </div>
@@ -420,6 +420,37 @@
 
 @endsection
 @push('scripts')
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "{{ $product->title }}",
+      "image": [
+        @foreach($productWholesaleSizes as $item)
+        @foreach(json_decode($item['images']) as $value)
+        "{{ asset('storage/large/'.$value) }}",
+        @if($loop->last)
+        "{{ asset('storage/large/'.$value) }}"
+        @endif
+        @endforeach
+        @endforeach
+       ],
+      "description": "{{ $product->description }}",
+      "offers": {
+        "@type": "Offer",
+        "url": "{{ request()->fullUrl() }}",
+        "priceCurrency": "KGS",
+        "price": "{{ number_format($productWholesaleColors[0]->price, 2, '.', ' ') }}",
+        "itemCondition": "https://schema.org/UsedCondition",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Nintex"
+        }
+      }
+    }
+    </script>
     {{--    <script src="{{ asset('js/slider-basket.js') }}"></script>--}}
     <script>
         function getProducts(params = {}) {
