@@ -66,7 +66,7 @@ class AppServiceProvider extends ServiceProvider
 
         if (Schema::hasTable('products')) {
             $collection = Product::all();
-            $random = $collection->random(1);
+            $random = $collection->count() > 0 ? $collection->random(1) : null;
             View::share('random', $random);
 
             $categories = Category::all();
