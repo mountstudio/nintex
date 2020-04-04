@@ -73,6 +73,8 @@
                                                     {{ $hit->title }}
                                                 </a>
                                             </li>
+                                        @empty
+                                            {{ '' }}
                                         @endforelse
                                     </ul>
                                 </div>
@@ -93,11 +95,14 @@
                                                         </a>
                                                     </li>
                                                 @endforeach
+                                            @empty
+                                                {{ '' }}
+                                            @endforelse
+
                                         </ul>
                                     </div>
                                     <div class="col-6">
                                         <ul class="list-unstyled">
-                                            @endforelse
                                         </ul>
                                     </div>
                                 </div>
