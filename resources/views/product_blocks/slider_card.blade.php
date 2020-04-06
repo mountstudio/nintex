@@ -3,7 +3,7 @@
             <!--Card-->
             <div class="card align-items-center ">
                 <!--Card image-->
-                <div class="view overlay">
+                <div class="">
                     <a href="{{route('product.show', $product)}}">
                         <img src="{{ asset('storage/medium/'.$product->logo) }}" style="height: 350px!important;"
                              class="img-fluid" alt="">

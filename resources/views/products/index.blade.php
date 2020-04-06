@@ -4,9 +4,9 @@
 
     <div class="main-container">
         <div class="row">
-            <div class="col-12 d-block d-lg-none col-md-3 my-3">
+            <div class="col-12 d-block d-lg-none my-3">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary mx-5" data-toggle="modal" data-target="#basicExampleModal">
+                <button type="button" class="btn btn-primary mx-auto" data-toggle="modal" data-target="#basicExampleModal">
                     Выбрать категории
                 </button>
 
@@ -48,7 +48,7 @@
                     <button type="submit" class="btn btn-primary">Применить филтр</button>
                 </form>--}}
             </div>
-            <div class="col-12 d-none d-lg-block col-md-3 my-5">
+            <div class="col-12 d-none d-lg-block col-lg-3 my-5">
                 <form action="{{ route('product.index') }}" method="GET">
                     @include('catalog_blocks.nav_category')
 {{--                    @include('catalog_blocks.filters')--}}
@@ -62,10 +62,10 @@
                     <button type="submit" class="btn btn-primary">Применить филтр</button>
                 </form>
             </div>
-            <div class="col-12 col-md-9 my-5">
+            <div class="col-12 col-lg-9 my-5">
                 <div class="row">
                     @foreach($products as $product)
-                        <div class="col-lg-4 col-6 px-1 mb-4">
+                        <div class="col-6 col-md-4 px-1 mb-4">
                             @include('catalog_blocks.product_card', ['product' => $product, 'productSize' => \App\ProductSize::where('product_id', $product->id)->get() ])
                         </div>
                     @endforeach

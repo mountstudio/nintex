@@ -5,7 +5,7 @@
                 <p class="h3 text-white">
                     Навигация
                 </p>
-                <nav class="nav flex-column  text-center mx-auto mx-md-0">
+                <nav class="nav flex-column text-center mx-auto mx-md-0">
                     <a class="text-white mr-auto footer-hov fz-footer mb-1" href="{{ route('home') }}" title="">- ГЛАВНАЯ</a>
                     <a class="text-white mr-auto footer-hov fz-footer mb-1" href="{{ route('product.discount') }}" title="">-
                         АКЦИИ</a>
