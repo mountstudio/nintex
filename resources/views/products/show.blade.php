@@ -58,7 +58,7 @@
                                         <label class="checkbox-red"
                                                style="background-color: {{$productWholesaleColor->color}}"
                                                @if($productWholesaleColor->quantity <= 0) disabled @endif>
-                                            <input id="cbox-red" class="checkbox-color" type="radio"
+                                            <input id="cbox-red" class="checkbox-color change" type="radio"
                                                    name="colorWholesale"
                                                    data-color="{{ $productWholesaleColor->color }}"
                                                    data-id="{{ $product->id }}"
@@ -212,7 +212,6 @@
                                                                   placeholder="    your comment"
                                                                   id="quickReplyFormComment" rows="5"></textarea>
                                                     </div>
-
                                                     {{--                                                    <div class="md-form form-sm">--}}
                                                     {{--                                                        <i class="fas fa-user prefix"></i>--}}
                                                     {{--                                                        <input type="text" name="name" value="" class="form-control"--}}
@@ -407,12 +406,14 @@
                     <div class="h2 text-center">Похожие товары</div>
                     <div class="owl-slider-card owl-carousel position-relative">
 
-                    @foreach($sameProducts as $product)
-                        @include('product_blocks.slider_card', ['product' => $product, 'productSize' => \App\ProductSize::where('product_id', $product->id)->get()])
-                    @endforeach
+{{--                    @foreach($sameProducts as $product)--}}
+{{--                        @include('product_blocks.slider_card', ['product' => $product, 'productSize' => \App\ProductSize::where('product_id', $product->id)->get()])--}}
+{{--                    @endforeach--}}
                 </div>
                 </div>
             </div>
+{{--            @dd($product->id)--}}
+
         </div>
     </section>
 

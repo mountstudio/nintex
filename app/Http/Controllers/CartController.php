@@ -131,6 +131,7 @@ class CartController extends Controller
     }
 
     public function add(Request $request){
+//        dd($request->product_id);
         $product = Product::find($request->id);
         $count = $request->count;
         $size = $request->size;
@@ -151,8 +152,10 @@ class CartController extends Controller
              ]);
         }
         $cartProduct = CartFacade::session($token)->get($product_id);
+//        dd($request->id);
         $productSize = ProductSize::where('product_id', $request->id)->
                                             where('sizes', $size)->where('color', $color)->get();
+
          if ($cartProduct != null)
         {
             if ($productSize->first()->quantity == 0){
