@@ -17,7 +17,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-7 col-12">
-                    <form action="{{ route('cart.store') }}" class="col-12 col-md-10" style="" method="POST">
+                    <form action="{{ route('cart.store') }}" class="col-12 col-md-10" id="checkoutForm" style="" method="POST" novalidate>
                         @csrf
                         <div class="form-group">
                             <label for="name">Имя <span class="text-danger">*</span></label>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="w-100"></div>
                 <div class="col-12 col-sm-8 col-md-5 col-lg-4 p-0 mt-1">
-                    <a href="#" class="btn btn-danger border-0 w-100 text-light" onclick="event.preventDefault(); $('form').validate() ? $('form').submit() : '';">
+                    <a href="#" class="btn btn-danger border-0 w-100 text-light" onclick="event.preventDefault(); console.log($('#checkoutForm')); $('#checkoutForm').validate() ? $('#checkoutForm').submit() : '';">
                         <div class="bg-danger rounded text-center font-weight-bold h6 m-0 p-4">
                             Оформить заказ
                         </div>
@@ -124,10 +124,9 @@
 @endpush
 
 @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js" defer></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/localization/messages_ru.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/localization/messages_ru.js" defer></script>
     <script>
         $('#cbx').change(e => {
             let check = $(e.currentTarget);
