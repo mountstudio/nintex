@@ -48,14 +48,16 @@
                                         </a>
                                     </div>
                                     <div class="col-6">
-                                        @foreach($random as $value)
-                                            <a href="{{ route('product.show', $value) }}"
-                                               class="menu-block-slide view overlay z-depth-1 p-0 mb-2">
-                                                <img src="{{ asset('storage/medium/'.$value->logo) }}"
-                                                     class="img-fluid " alt="First sample image">
-                                                <span class="menu-block-text">{{ $value->category->title }}</span>
-                                            </a>
-                                        @endforeach
+                                        @if($random)
+                                            @foreach($random as $value)
+                                                <a href="{{ route('product.show', $value) }}"
+                                                   class="menu-block-slide view overlay z-depth-1 p-0 mb-2">
+                                                    <img src="{{ asset('storage/medium/'.$value->logo) }}"
+                                                         class="img-fluid " alt="First sample image">
+                                                    <span class="menu-block-text">{{ $value->category->title }}</span>
+                                                </a>
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -63,15 +65,17 @@
                                 <div class="pl-5">
                                     <a href="{{ route('product.hit') }}" class="h6 p-0 sub-title text-uppercase font-weight-bold text-dark">Хиты</a>
                                     <ul class="list-unstyled">
-                                        @foreach($hits as $hit)
-                                            {{--                                            @dd(hits)--}}
-                                            <li>
-                                                <a class="menu-item header-hov pl-0" style="font-size: 14px;"
-                                                   href="{{ route('product.show', $hit) }}">
-                                                    {{ $hit->title }}
-                                                </a>
-                                            </li>
-                                        @endforeach
+                                        @if($hits)
+                                            @foreach($hits as $hit)
+                                                {{--                                            @dd(hits)--}}
+                                                <li>
+                                                    <a class="menu-item header-hov pl-0" style="font-size: 14px;"
+                                                       href="{{ route('product.show', $hit) }}">
+                                                        {{ $hit->title }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        @endif
                                     </ul>
                                 </div>
                             </div>
@@ -81,21 +85,25 @@
                                     <div class="col-6">
                                         <ul class="list-unstyled">
                                             {{--                                            @dd($categories)--}}
-                                            @foreach($categories->split(2) as $category)
-                                                {{--                                                @dd($category)--}}
-                                                @foreach($category as $value)
-                                                    <li>
-                                                        <a class="menu-item header-hov pl-0"
-                                                           href="{{ route('product.index', ['allCatalog['. $value->id .']' => 'on']) }}">
-                                                            {{ $value->title }}
-                                                        </a>
-                                                    </li>
+                                            @if($categories)
+                                                @foreach($categories->split(2) as $category)
+                                                    {{--                                                @dd($category)--}}
+                                                    @foreach($category as $value)
+                                                        <li>
+                                                            <a class="menu-item header-hov pl-0"
+                                                               href="{{ route('product.index', ['allCatalog['. $value->id .']' => 'on']) }}">
+                                                                {{ $value->title }}
+                                                            </a>
+                                                        </li>
+                                                    @endforeach
+
                                                 @endforeach
+                                            @endif
+
                                         </ul>
                                     </div>
                                     <div class="col-6">
                                         <ul class="list-unstyled">
-                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>

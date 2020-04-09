@@ -1,4 +1,4 @@
-<section class="fixed-bottom d-block d-lg-none bg-white" style="height: 50px!important; width: auto;">
+<section class="fixed-bottom d-block d-lg-none bg-white" style="height: 50px!important; width: auto; z-index: 9999;">
     <div class="container px-0">
         <div class="row">
 {{--            <div class="col-3 py-3  text-center">--}}

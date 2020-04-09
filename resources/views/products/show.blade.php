@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-    <section class="bg-nintex-color">
-        <div class="container-fluid pt-5">
+    <section>
+        <div class="container px-0 pt-5">
             <div class="row justify-content-center">
                 <div class="col-9 col-lg-4">
                     @include('product_blocks.slider')
@@ -21,19 +21,36 @@
                             <p>
                                 {{ $product->description }}
                             </p>
+                            <h6 id="retailPrice" class="mt-1"><b>Цена {{ $productWholesaleColors[0]->price }} kgs</b></h6>
                         </div>
                     </div>
 
-                    <div class="mt-3">
-                        <img class="position-absolute w-100" style="left: 0; bottom: 0;"
-                             src="{{ asset('img/Vector 1.svg') }}" alt="">
-
-                        <div class="col-12 pb-5 pl-5 mt-5">
+                    <div class="row mt-3">
+                        <div class="col-6 pb-5 pl-5">
                             <div class="j-size-list size-list j-smart-overflow-instance">
+
+                                <p class="mb-0 h5">Цвет:</p>
+                                <div class="checkbox pl-0">
+                                    @foreach($productWholesaleColors as $productWholesaleColor)
+                                        <label class="checkbox-red"
+                                               style="background-color: {{$productWholesaleColor->color}}"
+                                               @if($productWholesaleColor->quantity <= 0) disabled @endif>
+                                            <input id="cbox-red" class="checkbox-color" type="radio"
+                                                   name="colorWholesale"
+                                                   data-color="{{ $productWholesaleColor->color }}"
+                                                   data-id="{{ $product->id }}"
+                                                   value="{{ $productWholesaleColor->color }}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    @endforeach
+
+                                </div>
+
                                 {{--                                @if($wholesaleProductQuantity > 0)--}}
+
                                 <p class="mb-0 h5">Линейка размеров:</p>
                                 @foreach($productWholesaleSizes as $productWholesaleSize)
-                                    <div class="custom-control custom-checkbox">
+                                    <div class="custom-control custom-checkbox pl-0">
                                         <input type="checkbox" checked class="custom-control-input"
                                                id="defaultUnchecked"
                                                name="sizeWholesale"
@@ -44,7 +61,7 @@
                                         <label for="defaultUnchecked" class="mt-2">
                                             @foreach(json_decode($productWholesaleSize->sizes) as $size)
                                                 <span id="sizeText"
-                                                      class="p-1 ml-1 h5 border border-dark rounded-circle">{{ $size }}</span>
+                                                      class="p-1 ml-1 h5 border border-dark">{{ $size }}</span>
                                             @endforeach
                                         </label>
                                         </input>
@@ -67,23 +84,23 @@
                                         </label>
                                     @endforeach
 
-                                </div>
-                                <h6 id="retailPrice" class="mt-1"><b>Цена за 1
-                                        линейку: {{ $productWholesaleColors[0]->price }} kgs</b></h6>
+
                             </div>
 
                         </div>
-                        <div class="col-12 col-lg-6 pt-3">
-                            <p class=""><img src="{{ asset('img/file.svg') }}" alt=""> Лучшая ткань</p>
-                            <p class=""><img src="{{ asset('img/quality (1).svg') }}" alt=""> Гарантия
-                                качества</p>
-                        </div>
-                        <div class="col-12 col-lg-4 pb-5">
-                            @include('partials.favorite', ['route' => \Illuminate\Support\Facades\Auth::check() ? '' : route('login'), 'data' => 'data-id='.$product->id.''])
-                            <div id="for-add-cart-btn">
-                                <a class="btn btn-dark btn-block text-fut-book but-hov text-white d-lg-block"
-                                   data-id="{{ $product->id }}" data-size=" " data-color=" " id="basketFake">В
-                                    корзину</a>
+                        <div class="col-6">
+                            <div class="col-12">
+                                <p class=""><img src="{{ asset('img/quality (1).svg') }}" alt=""> Гарантия
+                                    качества</p>
+                                <p class=""><img src="{{ asset('img/file.svg') }}" alt=""> Лучшая ткань</p>
+                            </div>
+                            <div class="col-12">
+                                @include('partials.favorite', ['route' => \Illuminate\Support\Facades\Auth::check() ? '' : route('login'), 'data' => 'data-id='.$product->id.''])
+                                <div id="for-add-cart-btn">
+                                    <a class="btn btn-dark btn-block text-fut-book but-hov text-white d-lg-block"
+                                       data-id="{{ $product->id }}" data-size=" " data-color=" " id="basketFake">В
+                                        корзину</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -92,6 +109,7 @@
         </div>
         </div>
     </section>
+
     <section class="py-5">
         <div class="container" style="bottom: 0;">
             <div class="row">
@@ -212,6 +230,7 @@
                                                                   placeholder="    your comment"
                                                                   id="quickReplyFormComment" rows="5"></textarea>
                                                     </div>
+
                                                     {{--                                                    <div class="md-form form-sm">--}}
                                                     {{--                                                        <i class="fas fa-user prefix"></i>--}}
                                                     {{--                                                        <input type="text" name="name" value="" class="form-control"--}}
@@ -406,14 +425,12 @@
                     <div class="h2 text-center">Похожие товары</div>
                     <div class="owl-slider-card owl-carousel position-relative">
 
-{{--                    @foreach($sameProducts as $product)--}}
-{{--                        @include('product_blocks.slider_card', ['product' => $product, 'productSize' => \App\ProductSize::where('product_id', $product->id)->get()])--}}
-{{--                    @endforeach--}}
+                    @foreach($sameProducts as $product)
+                        @include('product_blocks.slider_card', ['product' => $product, 'productSize' => \App\ProductSize::where('product_id', $product->id)->get()])
+                    @endforeach
                 </div>
                 </div>
             </div>
-{{--            @dd($product->id)--}}
-
         </div>
     </section>
 
@@ -533,13 +550,16 @@
             })
         });
     </script>
+
     <script>
         $('#basket').removeAttr('disabled');
         console.log('asd');
     </script>
+
+    <!-- Скрипт для комментариев -->
     <script>
         $('#post').click(function () {
-            $('#childPost').show();
+            $('#childPost').show();// нажимая на кнопку оставить пост открывается модальное окно
         });
         $('.answer').click(function (e) {
             e.preventDefault();
@@ -553,6 +573,8 @@
         })
     </script>
     <script src="{{ asset('js/slider-product.js') }}"></script>
+
+    <!-- ajax скрипт для того чтобы при выборе цвета прогружать соответсвующий слайдер с тем цветом одежды который выбрали -->
     <script>
         $(document).ready(function () {
             $(document).on('click', '.checkbox-color', function () {

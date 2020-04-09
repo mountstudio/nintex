@@ -49,9 +49,7 @@
     transition: .3s ease;
 }
 
-.bg-nintex-color {
-    background-color: #EAEFF8;
-}
+/*.bg-nintex-color {*/ /*    background-color: #EAEFF8;*/ /*}*/
 
 
 /*End animation*/
@@ -509,10 +507,10 @@
         border-radius: 50%;
         position: relative;
         cursor: pointer;
-        height: 35px;
+        height: 25px;
         line-height: 35px;
         margin: 0 8px 10px 0;
-        min-width: 35px;
+        min-width: 25px;
         padding: 0 10px;
         text-align: center;
     }
@@ -1210,7 +1208,6 @@ ul li .menu-item {
     opacity: .50;
 }
 .owl-slider-card .item .card {
-    height: 500px;
     width: 270px;
 }
 .owl-slider-card .owl-dots .owl-dot {
@@ -1226,7 +1223,7 @@ ul li .menu-item {
 }
 .owl-slider-card .owl-dots {
     position: absolute;
-    bottom: 8%;
-    left: 49%;
+    bottom: 3%;
+    left: 32%;
 }
 @import "media.css" all;
