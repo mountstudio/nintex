@@ -27,24 +27,25 @@
 
                     <div class="row mt-3">
                         <div class="col-6 pb-5 pl-5">
-                            <div class="j-size-list size-list j-smart-overflow-instance">
+{{--                            <div class="j-size-list size-list j-smart-overflow-instance">--}}
 
-                                <p class="mb-0 h5">Цвет:</p>
-                                <div class="checkbox pl-0">
-                                    @foreach($productWholesaleColors as $productWholesaleColor)
-                                        <label class="checkbox-red"
-                                               style="background-color: {{$productWholesaleColor->color}}"
-                                               @if($productWholesaleColor->quantity <= 0) disabled @endif>
-                                            <input id="cbox-red" class="checkbox-color" type="radio"
-                                                   name="colorWholesale"
-                                                   data-color="{{ $productWholesaleColor->color }}"
-                                                   data-id="{{ $product->id }}"
-                                                   value="{{ $productWholesaleColor->color }}">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    @endforeach
+{{--                                <p class="mb-0 h5">Цвет:</p>--}}
+{{--                                <div class="checkbox pl-0">--}}
+{{--                                    @foreach($productWholesaleColors as $productWholesaleColor)--}}
+{{--                                        <label class="checkbox-red"--}}
+{{--                                               style="background-color: {{$productWholesaleColor->color}}"--}}
+{{--                                               @if($productWholesaleColor->quantity <= 0) disabled @endif>--}}
+{{--                                            <input id="cbox-red" class="checkbox-color" type="radio"--}}
+{{--                                                   name="colorWholesale"--}}
+{{--                                                   data-color="{{ $productWholesaleColor->color }}"--}}
+{{--                                                   data-id="{{ $product->id }}"--}}
+{{--                                                   value="{{ $productWholesaleColor->color }}">--}}
+{{--                                            <span class="checkmark"></span>--}}
+{{--                                        </label>--}}
+{{--                                    @endforeach--}}
 
-                                </div>
+{{--                                </div>--}}
+
                                 {{--                                @if($wholesaleProductQuantity > 0)--}}
 
                                 <p class="mb-0 h5">Линейка размеров:</p>
@@ -66,6 +67,22 @@
                                         </input>
                                     </div>
                                 @endforeach
+                                <p class="mb-0 h5">Цвет:</p>
+
+
+                                <div class="checkbox">
+                                    @foreach($productWholesaleColors as $productWholesaleColor)
+                                        <label class="checkbox-red"
+                                               style="background-color: {{$productWholesaleColor->color}}"
+                                               @if($productWholesaleColor->quantity <= 0) disabled @endif>
+                                            <input id="cbox-red" class="checkbox-color change" type="radio"
+                                                   name="colorWholesale"
+                                                   data-color="{{ $productWholesaleColor->color }}"
+                                                   data-id="{{ $product->id }}"
+                                                   value="{{ $productWholesaleColor->color }}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    @endforeach
 
 
                             </div>
@@ -408,8 +425,8 @@
                     <div class="h2 text-center">Похожие товары</div>
                     <div class="owl-slider-card owl-carousel position-relative">
 
-                    @foreach($sameProducts as $product)
-                        @include('product_blocks.slider_card', ['product' => $product, 'productSize' => \App\ProductSize::where('product_id', $product->id)->get()])
+                    @foreach($sameProducts as $prod)
+                        @include('product_blocks.slider_card', ['product' => $prod, 'productSize' => \App\ProductSize::where('product_id', $prod->id)->get()])
                     @endforeach
                 </div>
                 </div>

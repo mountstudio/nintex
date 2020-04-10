@@ -85,7 +85,7 @@
                                     <div class="col-6">
                                         <ul class="list-unstyled">
                                             {{--                                            @dd($categories)--}}
-                                            @if($categories)
+{{--                                            @if($categories)--}}
                                                 @foreach($categories->split(2) as $category)
                                                     {{--                                                @dd($category)--}}
                                                     @foreach($category as $value)
@@ -97,13 +97,14 @@
                                                         </li>
                                                     @endforeach
 
-                                                @endforeach
-                                            @endif
+{{--                                            @endif--}}
 
                                         </ul>
                                     </div>
                                     <div class="col-6">
                                         <ul class="list-unstyled">
+                                            @endforeach
+
                                         </ul>
                                     </div>
                                 </div>

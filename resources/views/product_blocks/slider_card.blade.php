@@ -4,8 +4,8 @@
             <div class="card align-items-center ">
                 <!--Card image-->
                 <div class="">
-                    <a href="{{route('product.show', $product)}}">
-                        <img src="{{ asset('storage/medium/'.$product->logo) }}" style="height: 350px!important;"
+                    <a href="{{route('product.show', $prod)}}">
+                        <img src="{{ asset('storage/medium/'.$prod->logo) }}" style="height: 350px!important;"
                              class="img-fluid" alt="">
 
                         <div class="mask rgba-white-slight waves-effect waves-light"></div>
@@ -16,7 +16,7 @@
                 <div class="card-body px-2 w-75">
                     <!--Category & Title-->
                     <a href="{{ asset('test') }}" class="text-dark card-text"><p
-                            class="">{{$product->title}}</p></a>
+                            class="">{{$prod->title}}</p></a>
                     <div class="col-12 text-left">
                         <div class="row">
                             <div class="col-12 pl-0 pr-0 mb-2">
