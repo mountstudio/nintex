@@ -78,8 +78,6 @@
             </div>
         </div>
     </div>
-
-    @include('partials.footer')
 @endsection
 
 @push('styles')

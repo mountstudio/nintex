@@ -45,7 +45,6 @@
                                     @endforeach
 
                                 </div>
-
                                 {{--                                @if($wholesaleProductQuantity > 0)--}}
 
                                 <p class="mb-0 h5">Линейка размеров:</p>
@@ -417,8 +416,6 @@
             </div>
         </div>
     </section>
-
-    @include('partials.footer')
 
 @endsection
 @push('scripts')

@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <h1 class="text-center">
-                    Категории
+                    <a href="{{ route('product.index') }}" class="text-dark" title="Все категории">Категории</a>
                 </h1>
             </div>
 

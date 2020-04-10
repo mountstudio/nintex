@@ -4,17 +4,16 @@ let fCarousel = $('.slick-one-item'),
 fCarousel.slick({
     slidesToShow: 1,
     slidesToScroll: 1,
-    isfinite: false,
+    infinite: false,
     speed: 300,
     asNavFor: '.slick-five-item'
 });
 sCarousel.slick({
-    slidesToShow: 5,
+    slidesToShow: 8,
     slidesToScroll: 1,
-    isfinite: false,
+    infinite: false,
     speed: 300,
     vertical: true,
-    verticalSwiping: true,
     asNavFor: '.slick-one-item',
     arrows: false
 });
