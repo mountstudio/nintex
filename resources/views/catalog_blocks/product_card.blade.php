@@ -3,6 +3,14 @@
     <!--Card image-->
     <div class="view overlay">
         <a href="{{route('product.show', $product)}}">
+            @foreach($prods as $prod)
+               @if($prod->created_at == $product->created_at)
+                   new new
+                @endif
+            @endforeach
+            @if($product->hit === 1)
+                hit
+            @endif
             <img src="{{ asset('storage/medium/'.$product->logo) }}" class="img-fluid" alt="">
 
             <div class="mask rgba-white-slight waves-effect waves-light"></div>

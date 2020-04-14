@@ -421,6 +421,8 @@ class ProductController extends Controller
             {
                 $output .='
                 <li><a href="'. route('product.show', $row) .'">'. $row->title .' </a></li>
+                <li><a href="'. route('product.show', $row) .'">'. asset('storage/medium/'.$row->logo) .' </a></li>
+                <li><a href="'. route('product.show', $row) .'">'. $row->wholesale_price .' </a></li>
                 ';
             }
             $output .= '</ul>';

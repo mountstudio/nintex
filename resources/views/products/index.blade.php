@@ -10,6 +10,7 @@
                     Выбрать категории
                 </button>
 
+
                 <!-- Modal -->
                 <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                      aria-hidden="true">
@@ -66,7 +67,7 @@
                 <div class="row">
                     @foreach($products as $product)
                         <div class="col-6 col-md-4 px-1 mb-4">
-                            @include('catalog_blocks.product_card', ['product' => $product, 'productSize' => \App\ProductSize::where('product_id', $product->id)->get() ])
+                            @include('catalog_blocks.product_card', ['product' => $product, 'productSize' => \App\ProductSize::where('product_id', $product->id)->get(), 'prods' => \App\Product::where('created_at', '>=', \Carbon\Carbon::now()->subDays(30))->get(), ])
                         </div>
                     @endforeach
                 </div>
