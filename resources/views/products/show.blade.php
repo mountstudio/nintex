@@ -434,8 +434,6 @@
         </div>
     </section>
 
-    @include('partials.footer')
-
 @endsection
 @push('scripts')
     {{--    <script src="{{ asset('js/slider-basket.js') }}"></script>--}}

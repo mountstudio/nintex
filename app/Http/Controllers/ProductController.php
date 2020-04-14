@@ -44,7 +44,7 @@ class ProductController extends Controller
 
     public function index2(Request $request)
     {
-        $last_15_days = Product::where('created_at', '>=', Carbon::now()->subdays(7))->get();
+        $last_15_days = Product::where('created_at', '>=', Carbon::now()->subdays(30))->get();
         $products = $last_15_days->sortAndFilter($request)->paginate(9);
 
         return view('products.week_products', [
@@ -416,7 +416,8 @@ class ProductController extends Controller
             $query = $request->get('query');
             $data = Product::where('title', 'LIKE', "%{$query}%")
                 ->get();
-            $output = '<ul class="dropdown-menu" style="display: block; position: relative;">';
+            $output = '    <div class="container">
+                            <ul class="dropdown-menu" style="display: block;">';
             foreach ($data as $row)
             {
                 $output .='
@@ -425,7 +426,7 @@ class ProductController extends Controller
                 <li><a href="'. route('product.show', $row) .'">'. $row->wholesale_price .' </a></li>
                 ';
             }
-            $output .= '</ul>';
+            $output .= '</ul> </div>';
             echo $output;
         }
     }

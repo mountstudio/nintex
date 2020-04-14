@@ -1,17 +1,17 @@
 <div class="row">
-    <div class="col-md-3 d-none d-md-block px-0">
+    <div class="col-md-1 d-none d-md-block px-0">
         <div class="slick-five-item  d-flex justify-content-center">
             @foreach($productWholesaleSizes as $item)
                 @foreach(json_decode($item['images']) as $value)
                     <div class="item my-2 slick-opacity">
                         <img class="carousel-img1 img-fluid" src="{{ asset('storage/large/'.$value) }}"
-                             style="height: 150px; width: 90px;" alt="">
+                             style="width: 39px;height: 52px;" alt="">
                     </div>
                 @endforeach
             @endforeach
         </div>
     </div>
-    <div class="col-12 col-md-9 px-0">
+    <div class="col-12 col-md-11 ">
         <div class="slick-one-item">
             {{--        <img style=""--}}
             {{--             src="{{ asset('storage/medium/'.$product->logo)}}" class="img-fluid" alt="">--}}
@@ -37,7 +37,18 @@
 </div>
 
 @push('styles')
+    <style>
+        .slick-five-item {
+            width: 35px!important;
 
+        }
+        .slick-five-item .slick-track {
+            transform: translate3d(0px, 0px, 0px)!important;
+        }
+        .slick-five-item .slick-track .slick-slide.slick-current {
+            border: 2px solid black!important;
+        }
+    </style>
 @endpush
 
 

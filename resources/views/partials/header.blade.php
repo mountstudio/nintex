@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg px-0 py-0 shadow-none">
 
         <!-- Navbar brand -->
-        <a href="{{ route('home') }}" class="pb-2">
+        <a href="{{ route('test') }}" {{--href="{{ route('home') }}"--}} class="pb-2">
             <img src="{{ asset('img/logo3.png') }}" class="img-fluid" alt="">
         </a>
 
