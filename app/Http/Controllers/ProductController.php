@@ -417,16 +417,47 @@ class ProductController extends Controller
             $data = Product::where('title', 'LIKE', "%{$query}%")
                 ->get();
             $output = '    <div class="container">
-                            <ul class="dropdown-menu" style="display: block;">';
+                            <div class="row">';
             foreach ($data as $row)
             {
                 $output .='
-                <li><a href="'. route('product.show', $row) .'">'. $row->title .' </a></li>
-                <li><a href="'. route('product.show', $row) .'">'. asset('storage/medium/'.$row->logo) .' </a></li>
-                <li><a href="'. route('product.show', $row) .'">'. $row->wholesale_price .' </a></li>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card align-items-center rounded border-0 shadow ">
+                        <!--Card image-->
+                        <div class="view overlay">
+                            <a href="'. route('product.show', $row) .'">
+                             
+                                <img src="'. asset('storage/medium/'.$row->logo) .'" class="img-fluid" alt="">
+                    
+                                <div class="mask rgba-white-slight waves-effect waves-light"></div>
+                            </div>
+                        </div>
+                        <!--Card image-->
+                        <!--Card content-->
+                        <div class="card-body px-1 card-width">
+                            <!--Category & Title-->
+                            <a href="{{route(\'product.show\', $product)}}" class="text-dark card-text"><p
+                                    class="">'. $row->title .'</p></a>
+                            <div class="col-12 text-left">
+                                <div class="row">
+                                <div class="col-4 pt-2 pl-0 pr-0">
+                                    <label for="size" class="card-price  text-dark">Оптовая цена:</label>
+                                </div>
+                                <div class="col-8 pl-0 pr-0 text-center">
+                                    <div class="col-7 text-right ml-3 ml-sm-5 pt-2 pl-0 pr-0">
+                                        <p class="text-dark text-bold card-price" style="">'. $row->wholesale_price .'</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Card content-->
+                    </div>
+                    <!--Card-->
+                </div>
+                
                 ';
             }
-            $output .= '</ul> </div>';
+            $output .= '</div></div>';
             echo $output;
         }
     }

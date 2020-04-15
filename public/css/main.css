@@ -1226,4 +1226,11 @@ ul li .menu-item {
     bottom: 3%;
     left: 32%;
 }
+/*search style */
+.search-btn{
+    font-size: 12px;
+    border-bottom: 1px solid #000000;
+    padding-right: 50%;
+    padding-bottom: 4px;
+}
 @import "media.css" all;

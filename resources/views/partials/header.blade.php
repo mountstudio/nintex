@@ -15,7 +15,7 @@
         </button>
 
         <!-- Collapsible content -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+        <div class="collapse navbar-collapse col-4 mr-auto" id="navbarSupportedContent2">
 
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
@@ -125,8 +125,13 @@
             <!-- Links -->
 
             <!-- Search form -->
+
+
+        </div>
+        <!-- Collapsible content -->
+        <div class="col-6">
             <ul class=" mt-2 mb-0 mt-lg-0 list-inline">
-                <li class="nav-item list-inline-item mr-0 pt-4" style="width: 30%;">
+                <li class="nav-item position-relative list-inline-item mr-0 pt-4" style="width: 23%;">
                     <!-- Search form -->
                     @include('partials.header_blocks.header_search')
 
@@ -173,10 +178,7 @@
                     </a>
                 </li>
             </ul>
-
         </div>
-        <!-- Collapsible content -->
-
     </nav>
     <!-- Navbar -->
 </div>
@@ -384,14 +386,14 @@
                 </ul>
             </nav>
         </div>
-        <div class="col-8 col-lg-6 d-flex justify-content-end px-0">
+        <div class="col-8 col-lg-6 px-0">
             <ul class="nav mt-2 mt-lg-0 list-inline pt-lg-2">
-                <li class="nav-item list-inline-item width-form pt-1 mr-md-2">
+                <li class="nav mt-3 mt-lg-2 list-inline-item position-relative " style="width: 70px;">
                     <!-- Search form -->
                     @include('partials.header_blocks.header_search')
 
                 </li>
-                <li class="nav-item d-none d-md-block list-inline-item mx-auto mx-lg-0 width-form" style="width: 50px;">
+                <li class="nav-item d-none d-md-block list-inline-item ml-3 mx-lg-0 width-form" style="width: 50px;">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
                             data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false"

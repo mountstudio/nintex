@@ -34,7 +34,34 @@
         <main class="">
             @yield('content')
         </main>
+        <!-- Modal -->
+        <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-fluid" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <form class="form-inline md-form form-sm active-purple-2 mt-0 mt-md-2">
+                            <div class="form-group">
+                                <input class="form-control form-control-sm pt-0 pt-md-1 mr-1 w-75 mb-1" style="display: inline-block;" type="search" placeholder="Search"
+                                       aria-label="Search" name="title" id="title">
+                                <i class="fas fa-search" aria-hidden="true"></i>
 
+                            </div>
+                        </form>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="productList">
+
+                        </div>
+                        {{ csrf_field() }}
+                    </div>
+
+                </div>
+            </div>
+        </div>
         @include('partials.footer')
 
     </div>
