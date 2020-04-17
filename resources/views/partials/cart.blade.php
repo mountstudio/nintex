@@ -25,18 +25,18 @@
 {{--            @dd($item->attributes->objProduct->logo)--}}
             <div class="row border-top border-bottom py-3 align-items-center">
                 <div class="col-2 col-md-4 col-lg-2 order-0 d-flex align-items-center">
-                    <img src="{{ asset('storage/medium/'.$item->attributes->objProduct->logo) }}" style="height: 100px; width: auto;" alt="">
-                    <p class=" m-0 ml-3 font-weight-bold">{{ $item->name }}</p>
+                    <img src="{{ asset('storage/medium/'.$item->attributes->objProduct->logo) }}" style="height: 70px;object-fit: cover; object-position: top; width: 70px;" alt="">
+                    <p class=" m-0 ml-1 h6">{{ $item->name }}</p>
                 </div>
 
                 <div class="col-2 col-md-2 my-3 my-md-0 col-lg-2 order-2">
-                    <p class=" m-0"><span class="d-inline-block d-md-none">Цена:&nbsp;</span>{{ $item->price }} сом</p>
+                    <p class=" m-0 font-weight-bold"><span class="d-inline-block d-md-none">Цена:&nbsp;</span>{{ $item->price }} сом</p>
                 </div>
 
                 <div class="col-lg-2 col-md-3 col-2 my-3 my-md-0 order-3">
                     <div class="d-flex ml-auto ml-md-0 justify-content-between align-items-center" style="width: 100px;">
                         <span class="pointer cart-btn rounded-circle shadow p-2 remove_book d-flex justify-content-center align-items-center" data-id="{{ $item->id }}">-</span>
-                        <span class="mx-2">{{ $item->quantity }}</span>
+                        <span class="mx-2  font-weight-bold">{{ $item->quantity }}</span>
                         <span class="pointer cart-btn rounded-circle shadow buy_book p-2 d-flex justify-content-center align-items-center" data-color="{{ $item->attributes->colors }}" data-size="{{ $item->attributes->size }}" data-id="{{ $item->attributes->p_id }}">+</span>
                     </div>
                 </div>
@@ -45,11 +45,11 @@
                     <p class="m-0 text-left font-weight-bold"><span class="d-inline-block d-md-none">Итого:&nbsp;</span>{{ $item->getPriceSum() }} сом</p>
                 </div>
 
-                <div class="col-2 order-6">
-{{--                    @foreach($item->attributes->size as $attr)--}}
-                        <span class="mx-2">{{ $item->attributes->sizeName == null ? $item->attributes->size : $item->attributes->sizeName }}</span>
-{{--                        <span class="mx-2">{{ $item->attributes->size  }}</span>--}}
-{{--                    @endforeach--}}
+                <div class="col-2 row no-gutters order-6">
+                    @foreach(json_decode(\App\ProductSize::find($item->attributes->productSizeId)->sizes) as $attr)
+
+                        <div class="p-1 mb-1 ml-1 col-auto border border-dark">{{ $attr }}</div>
+                    @endforeach
                 </div>
                 <div class="col-1 order-7">
                     <div class="mx-2 rounded-circle" style="background:{{ $item->attributes->colors }}; width: 30px; height: 30px;"></div>

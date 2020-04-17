@@ -1233,4 +1233,13 @@ ul li .menu-item {
     padding-right: 50%;
     padding-bottom: 4px;
 }
+/*style for cart*/
+.cart-btn {
+    width: 30px;
+    height: 30px;
+}
+.pointer {
+    cursor: pointer;
+}
+
 @import "media.css" all;

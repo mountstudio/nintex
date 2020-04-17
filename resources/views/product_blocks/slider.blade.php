@@ -4,8 +4,8 @@
             @foreach($productWholesaleSizes as $item)
                 @foreach(json_decode($item['images']) as $value)
                     <div class="item my-2 slick-opacity">
-                        <img class="carousel-img1 img-fluid" src="{{ asset('storage/large/'.$value) }}"
-                             style="width: 39px;height: 52px;" alt="">
+                        <img class="carousel-img1 img-fluid" src="{{ asset('storage/small/'.$value) }}"
+                             style="width: 39px;" alt="">
                     </div>
                 @endforeach
             @endforeach
@@ -19,7 +19,7 @@
                 @foreach(json_decode($item['images']) as $value)
                     <div class="item">
                         <img class="carousel-img1 img-fluid" src="{{ asset('storage/large/'.$value) }}"
-                             style="height: 600px; width: 380px;" alt="">
+                             style="width: 380px;" alt="">
                     </div>
                 @endforeach
             @endforeach

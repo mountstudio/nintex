@@ -58,10 +58,10 @@
                                                data-size="{{ $productWholesaleSize->sizes }}"
                                                value="{{ $productWholesaleSize->sizes }}">
                                         {{--                                        @dd($productWholesaleSize->sizes)--}}
-                                        <label for="defaultUnchecked" class="mt-2">
+                                        <label for="defaultUnchecked" class="row mt-2">
                                             @foreach(json_decode($productWholesaleSize->sizes) as $size)
-                                                <span id="sizeText"
-                                                      class="p-1 ml-1 h5 border border-dark">{{ $size }}</span>
+                                                <div id="sizeText"
+                                                      class="p-1 ml-1 col-auto h5 border border-dark">{{ $size }}</div>
                                             @endforeach
                                         </label>
                                         </input>
@@ -596,11 +596,11 @@
                         data.images.forEach((image, index) => {
                             let smallDivs = ' <div class="item my-2 slick-opacity">\n' +
                                 '                        <img class="carousel-img1 img-fluid" src="/storage/medium/' + image + '"\n' +
-                                '                             style="height: 150px; width: 90px;" alt="">\n' +
+                                '                             style="width: 90px;" alt="">\n' +
                                 '                    </div>',
                                 largeDivs = '<div class="item">\n' +
                                     '                        <img class="carousel-img1 img-fluid" src="/storage/large/' + image + '"\n' +
-                                    '                             style="height: 600px; width: 380px;" alt="">\n' +
+                                    '                             style="width: 380px;" alt="">\n' +
                                     '                    </div>';
 
                             fCarousel.slick('slickAdd', largeDivs);

@@ -3,7 +3,7 @@
 @section('content')
     @if(\Illuminate\Support\Facades\Session::has('continue') && \Illuminate\Support\Facades\Session::get('continue'))
 
-        <div class="container" style="padding-top: 15%; padding-bottom: 10%;">
+        <div class="container pt-5">
             <div class="row mb-5">
                 <div class="col-9">
                     @include('cart.delivery')
@@ -72,17 +72,21 @@
                         @foreach($cartItems as $item)
                             <div class="d-flex py-3">
                                 <div class="col-5 col-md-4 col-lg-3 pr-0">
-                                    <img src="{{ asset('img/'.json_decode($item->attributes->images)[0]) }}" style="height: 150px; width: auto;" alt="">
+
+                                    <img src="{{ asset('storage/medium/'.json_decode($item->attributes->images)[0]) }}" class="img-fluid" alt="">
                                 </div>
                                 <div class="col pl-3">
                                     <a href="{{ route('product.show', $item->attributes->objProduct) }}">
                                         <p class="h4"> {{ $item->name }} </p>
                                     </a>
-                                    <p class="text-red m-0 "><b >Размер :</b> {{ $item->attributes->sizeName == null ? $item->attributes->size : $item->attributes->sizeName }} </p>
-                                    <p class="m-0" style="color: {{ $item->attributes->colors }}"><b>Цвет :</b> {{ $item->attributes->colors }} </p>
-                                    <p class="m-0"><b >Количество :</b> {{ $item->quantity }} </p>
-                                    <p class="m-0"><b>Цена :</b> {{ $item->price }} $</p>
-                                    <p><b>Итог :</b> {{ $item->price * $item->quantity }} $</p>
+                                    <p class="text-red m-0 "><span class="font-weight-bold" >Размер :</span> {{ implode(', ', json_decode(\App\ProductSize::find($item->attributes->productSizeId)->sizes) )  }} </p>
+                                    <div class="m-0 d-flex align-items-center">
+                                        <span class="font-weight-bold">Цвет :</span>
+                                        <div class="mx-2 rounded-circle" style="background:{{ $item->attributes->colors }}; width: 10px; height: 10px;"></div>
+                                    </div>
+                                    <p class="m-0"><span class="font-weight-bold" >Количество :</span> {{ $item->quantity }} </p>
+                                    <p class="m-0"><span class="font-weight-bold">Цена : {{ $item->price }} сом</span>  </p>
+                                    <p><span class="font-weight-bold">Итог : {{ $item->price * $item->quantity }} сом</span>  </p>
                                 </div>
                             </div>
                         @endforeach
@@ -109,7 +113,7 @@
             </div>
         </div>
     @else
-        <div class="container" style="padding-top: 15%; padding-bottom: 10%;">
+        <div class="container">
             <div class="row">
                 <div class="col-12 modal-body-cart">
                     @include('partials.cart', ['route' => true])

@@ -129,9 +129,9 @@
 
         </div>
         <!-- Collapsible content -->
-        <div class="col-6">
-            <ul class=" mt-2 mb-0 mt-lg-0 list-inline">
-                <li class="nav-item position-relative list-inline-item mr-0 pt-4" style="width: 23%;">
+        <div class="col-6 text-right">
+            <ul class=" mt-2 ml-auto mb-0 mt-lg-0 list-inline">
+                <li class="nav-item position-relative list-inline-item mr-2 pt-4">
                     <!-- Search form -->
                     @include('partials.header_blocks.header_search')
 
@@ -388,7 +388,7 @@
         </div>
         <div class="col-8 col-lg-6 px-0">
             <ul class="nav mt-2 mt-lg-0 list-inline pt-lg-2">
-                <li class="nav mt-3 mt-lg-2 list-inline-item position-relative " style="width: 70px;">
+                <li class="nav mt-3 mt-lg-2 list-inline-item position-relative ">
                     <!-- Search form -->
                     @include('partials.header_blocks.header_search')
 

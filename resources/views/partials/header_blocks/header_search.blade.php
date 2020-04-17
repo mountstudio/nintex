@@ -1,9 +1,9 @@
 
 <!-- Button trigger modal -->
-<div data-toggle="modal" data-target="#searchModal">
+<div class="" data-toggle="modal" data-target="#searchModal">
     <div class="">
-        <span class="search-btn">Search</span>
-        <i class="fas fa-search position-absolute " style="top:5%; right: 0%" aria-hidden="true"></i>
+        {{--<span class="search-btn">Search</span>--}}
+        <i class="fas fa-search fa-lg" aria-hidden="true"></i>
     </div>
 </div>
 
