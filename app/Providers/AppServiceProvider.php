@@ -73,7 +73,7 @@ class AppServiceProvider extends ServiceProvider
             View::share('categories', $categories);
 
             $hits = Product::where('hit', '=', 1)->get();
-            $rand_hit = count($hits) ? $hits->random(7) : null;
+            $rand_hit = count($hits) >= 7 ? $hits->random(7) : $hits;
             View::share('hits', $rand_hit);
 
             $images = Image::where('active', 1)->get();
