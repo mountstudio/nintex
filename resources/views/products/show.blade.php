@@ -436,6 +436,17 @@
 
 @endsection
 @push('scripts')
+    {{-- script for zoom img in big show slider --}}
+    <script src="{{ asset('js/zoomsl-3.0.min.js') }}"></script>
+    <script>
+        $(".slick-foto").imagezoomsl({
+
+            zoomrange: [3, 10],
+            cursorshadeborder: "10px solid #000",
+            magnifiereffectanimate: "fadeIn",
+            magnifierpos: "right"
+        });
+    </script>
     {{--    <script src="{{ asset('js/slider-basket.js') }}"></script>--}}
     <script>
         function getProducts(params = {}) {
