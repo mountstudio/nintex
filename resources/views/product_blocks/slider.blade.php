@@ -50,5 +50,16 @@
         }
     </style>
 @endpush
+@push('scripts')
+    {{-- script for zoom img in big show slider --}}
+{{--    <script src="{{ asset('js/jquery-1.8.2.min.js') }}"></script>--}}
+    <script src="{{ asset('js/zoomsl-3.0.min.js') }}"></script>
+    <script>
+       $(function () {
+           $(".slick-foto").imagezoomsl({
 
-
+               zoomrange: [3, 3]
+           });
+       })
+    </script>
+@endpush

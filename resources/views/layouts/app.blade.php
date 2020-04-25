@@ -77,8 +77,8 @@
     <script src="{{ asset('js/owl.carousel.js') }}"></script>
     <script src="{{ asset('js/slick.js') }}"></script>
     <script src="{{ asset('js/nouislider.js')}}"></script>
-
     @stack('scripts')
+
     <script>
         let token = "{{ Session::has('token') ? Session::get('token') : uniqid() }}";
 
