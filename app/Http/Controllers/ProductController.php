@@ -73,6 +73,7 @@ class ProductController extends Controller
         return view('products.hit', [
             'products' => $products,
 //            'hits' => $hit,
+            'prods' => \App\Product::where('created_at', '>=', \Carbon\Carbon::now()->subDays(30))->get(),
             'categories' => Category::all(),
         ]);
     }
