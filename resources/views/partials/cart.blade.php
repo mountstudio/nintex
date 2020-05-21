@@ -82,8 +82,10 @@
         </div>
 
     @else
-        <div class="row justify-content-center">
-            <p class="h3 text-muted">Корзина пуста!</p>
+        <div class="row justify-content-center p-5">
+            <div class="p-5">
+                <p class="h2 text-muted">Корзина пуста!</p>
+            </div>
         </div>
     @endif
 

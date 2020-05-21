@@ -2,24 +2,19 @@
 <div class="container px-0 d-none d-xl-block">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg px-0 py-0 shadow-none">
-
         <!-- Navbar brand -->
         <a {{--href="{{ route('test') }}"--}} href="{{ route('home') }}" class="pb-2">
-            <img src="{{ asset('img/logo3.png') }}" class="img-fluid" alt="">
+            <img src="{{ asset('img/5 (2).svg') }}" class="img-fluid" alt="">
         </a>
-
         <!-- Collapse button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent2"
                 aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <!-- Collapsible content -->
         <div class="collapse navbar-collapse col-4 mr-auto" id="navbarSupportedContent2">
-
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
-
                 <!-- Новинки -->
                 <li class="nav-item navigation-item pt-3">
                     <a style="font-size: 16px" href="{{ route('product.index2') }}"
@@ -98,7 +93,6 @@
                                                     @endforeach
 
 {{--                                            @endif--}}
-
                                         </ul>
                                     </div>
                                     <div class="col-6">
@@ -120,13 +114,7 @@
                         Акции
                     </a>
                 </li>
-
             </ul>
-            <!-- Links -->
-
-            <!-- Search form -->
-
-
         </div>
         <!-- Collapsible content -->
         <div class="col-6 text-right">
@@ -137,17 +125,17 @@
 
                 </li>
                 <li class="nav-item list-inline-item pt-4 mr-0">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
+                    <button class="btn btn-primary dropdown-toggle my-0" type="button" id="dropdownMenu1"
                             data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false"
                             style="font-size: 12px; padding: 0!important; background-color: white!important;color: #000!important; border: none; box-shadow: none;">
-                        <img src="{{ asset('icons/dostavka.png') }}" class="pr-1" alt="">
+                        <img src="{{ asset('img/shipped 1.svg') }}" class="pr-1" alt="">
                         Доставка в РК и РФ
                     </button>
 
                     <!--Menu-->
-                    <div class="dropdown-menu dropdown-primary text-small" style="top: 80%; left: 60%;">
-                        <p class="px-3" style="font-weight: normal;">
+                    <div class="dropdown-menu dropdown-primary text-small " style="top: 80%; left: 60%;">
+                        <p class="px-3 h6" style="font-weight: normal;">
                             Доставку по всему Кыргызстану и СНГ <br>
                             Наш телефон для связи:  <br>
                             0777 57-89-58, 0555 65-98-58, 0703 96-58-74
@@ -155,11 +143,11 @@
                     </div>
                 </li>
                 <li class="nav-item list-inline-item pt-4 mx-2">
-
-                    <p style="font-size: 12px;">
-                        <img src="{{ asset('icons/phone.png') }}" class="pr-1" alt="">
-                        0555 55 55 55
-                    </p>
+                    <a class="text-dark h6" href="tel:+996555449342"><p style="">
+                            <img  src="{{ asset('img/telephone 1.svg') }}" class="pr-1" alt="">
+                            0555 44 93 42
+                        </p>
+                    </a>
                 </li>
                 <li class="nav-item list-inline-item mb-2">
                     <a href="{{ auth()->check() ? route('profile') : route('login') }}"
@@ -394,11 +382,11 @@
 
                 </li>
                 <li class="nav-item d-none d-md-block list-inline-item ml-3 mx-lg-0 width-form" style="width: 50px;">
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
+                    <button class="btn btn-primary dropdown-toggle my-0" type="button" id="dropdownMenu1"
                             data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false"
-                            style="font-size: 12px; padding: 0!important; background-color: white!important;color: #000!important; border: none; box-shadow: none;">
-                        <img src="{{ asset('icons/dostavka.png') }}" class="pr-1" alt="delivery"
+                            style="font-size: 12px; padding: 0!important; background-color: white!important;color: #000!important; border: none; box-shadow: none;margin-bottom: 0!important;margin-top: 0;!important">
+                        <img src="{{ asset('icons/shipped 1.svg') }}" class="pr-1" alt="delivery"
                              title="Доставка в КР и СНГ">
                     </button>
 
@@ -413,11 +401,11 @@
                     </div>
                 </li>
                 <li class="nav-item d-none d-md-block list-inline-item mx-2 pt-md-3">
-
-                    <p style="font-size: 12px;">
-                        <img src="{{ asset('icons/phone.png') }}" class="pr-1" alt="">
-                        0555 55 55 55
-                    </p>
+                    <a class="text-dark" href="tel:+996555449342"><p style="">
+                            <img  src="{{ asset('icons/telephone 1.svg') }}" class="pr-1" alt="">
+                            0555 44 93 42
+                        </p>
+                    </a>
                 </li>
                 <li class="nav-item list-inline-item d-none d-lg-block ml-2 mr-0 mb-2 pt-md-3">
                     <a href="{{ auth()->check() ? route('profile') : route('login') }}"

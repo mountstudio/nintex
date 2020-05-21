@@ -6,13 +6,17 @@
                     Навигация
                 </p>
                 <nav class="nav flex-column text-center mx-auto mx-md-0">
-                    <a class="text-white mr-auto footer-hov fz-footer mb-1" href="{{ route('home') }}" title="">- ГЛАВНАЯ</a>
-                    <a class="text-white mr-auto footer-hov fz-footer mb-1" href="{{ route('product.discount') }}" title="">-
-                        АКЦИИ</a>
-                    <a class="text-white mr-auto footer-hov fz-footer mb-1" href="{{ route('product.hit') }}" title="">-
-                        ХИТЫ</a>
-                    <a class="text-white mr-auto footer-hov fz-footer mb-1" href="{{ route('product.index2') }}" title="">-
-                        НОВИНКИ</a>
+                    <a class="text-white mr-auto footer-hov fz-footer mb-1 text-uppercase" href="{{ route('home') }}" title="">- ГЛАВНАЯ</a>
+                    <a class="text-white mr-auto footer-hov fz-footer mb-1 text-uppercase" href="{{ route('product.discount') }}" title="">-
+                        Акции</a>
+                    <a class="text-white mr-auto footer-hov fz-footer mb-1 text-uppercase" href="{{ route('product.hit') }}" title="">-
+                        Хиты</a>
+                    <a class="text-white mr-auto footer-hov fz-footer mb-1 text-uppercase" href="{{ route('product.index2') }}" title="">-
+                        Новинки</a>
+                    <a class="text-white mr-auto footer-hov fz-footer mb-1 text-uppercase" href="{{ route('about_us') }}" title="">-
+                        О нас</a>
+                    <a class="text-white mr-auto footer-hov fz-footer mb-1 text-uppercase" href="{{ route('cooperation') }}" title="">-
+                        Сотрудничество</a>
                 </nav>
             </div>
             <div class="col-12 col-md-4 col-lg-2">

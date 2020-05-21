@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
@@ -107,4 +109,10 @@ Route::post('/send', 'ImageController@send')->name('image.send');
 //    return new \App\Mail\WelcomeMail();
 //});
 
+Route::get('/about_us', function () {
+    return view('pages.about_us');
+})->name('about_us');
 
+Route::get('/cooperation', function () {
+    return view('pages.cooperation');
+})->name('cooperation');
