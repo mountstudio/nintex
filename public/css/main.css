@@ -1,4 +1,6 @@
-
+body {
+    padding: 0 !important;
+}
 .bg-img {
     background: url("../img/Vector.svg") no-repeat left bottom;
     -webkit-background-size: cover;

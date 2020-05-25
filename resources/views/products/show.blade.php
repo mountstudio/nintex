@@ -70,7 +70,7 @@
                                 <p class="mb-0 h5">Цвет:</p>
 
 
-                                <div class="checkbox">
+                                <div class="checkbox mb-3 pb-1">
                                     @foreach($productWholesaleColors as $productWholesaleColor)
                                         <label class="checkbox-red"
                                                style="background-color: {{$productWholesaleColor->color}}"
@@ -86,7 +86,29 @@
 
 
                             </div>
+                            <button type="button"  class="btn btn-white btn-block mt-2" data-toggle="modal" data-target="#tableSize">Таблица Размеров</button>
 
+                            <!-- Central Modal Small -->
+                            <div class="modal fade" id="tableSize" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                 aria-hidden="true">
+
+                                <!-- Change class .modal-sm to change the size of the modal -->
+                                <div class="modal-dialog modal-lg" role="document">
+
+
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="{{ asset('img/tableSize.png') }}" class="img-fluid" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Central Modal Small -->
                         </div>
                         <div class="col-6">
                             <div class="col-12">
@@ -101,32 +123,7 @@
                                        data-id="{{ $product->id }}" data-size=" " data-color=" " id="basketFake">В
                                         корзину</a>
                                 </div>
-                                <div>
 
-                                    <button type="button"  class="btn btn-white btn-block" data-toggle="modal" data-target="#tableSize">Таблица Размеров</button>
-
-                                    <!-- Central Modal Small -->
-                                    <div class="modal fade" id="tableSize" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                                         aria-hidden="true">
-
-                                        <!-- Change class .modal-sm to change the size of the modal -->
-                                        <div class="modal-dialog modal-lg" role="document">
-
-
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <img src="{{ asset('img/tableSize.png') }}" class="img-fluid" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Central Modal Small -->
-                                </div>
                             </div>
                         </div>
                     </div>
