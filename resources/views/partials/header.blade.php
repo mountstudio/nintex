@@ -91,13 +91,13 @@
                                                             </a>
                                                         </li>
                                                     @endforeach
-
+                                                @endforeach
 {{--                                            @endif--}}
                                         </ul>
                                     </div>
                                     <div class="col-6">
                                         <ul class="list-unstyled">
-                                            @endforeach
+
 
                                         </ul>
                                     </div>
